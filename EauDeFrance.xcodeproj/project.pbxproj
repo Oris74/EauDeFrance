@@ -10,6 +10,9 @@
 		39A2D04C12D1D00530806CBE /* Pods_EauDeFrance_EauDeFranceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */; };
 		97850CA8AFFCE07D307E0F89 /* Pods_EauDeFrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */; };
 		D21F8C737E0D0A19C4655C7A /* Pods_EauDeFranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */; };
+		D90E89A725A8BC5F00DB48D2 /* WaterQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90E89A625A8BC5F00DB48D2 /* WaterQuality.swift */; };
+		D90E89AD25A8BCB900DB48D2 /* WaterQualityValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */; };
+		D90E89B525A8BEAD00DB48D2 /* WaterQualityStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */; };
 		D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6A25A4D7E10049832B /* AppDelegate.swift */; };
 		D924FC6D25A4D7E10049832B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6C25A4D7E10049832B /* SceneDelegate.swift */; };
 		D924FC6F25A4D7E10049832B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6E25A4D7E10049832B /* ViewController.swift */; };
@@ -60,6 +63,9 @@
 		A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFranceTests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFranceTests/Pods-EauDeFranceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.release.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.release.xcconfig"; sourceTree = "<group>"; };
+		D90E89A625A8BC5F00DB48D2 /* WaterQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterQuality.swift; sourceTree = "<group>"; };
+		D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaterQualityValue.json; sourceTree = "<group>"; };
+		D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaterQualityStation.json; sourceTree = "<group>"; };
 		D924FC6725A4D7E10049832B /* EauDeFrance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EauDeFrance.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D924FC6A25A4D7E10049832B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../New Group/AppDelegate.swift"; sourceTree = "<group>"; };
 		D924FC6C25A4D7E10049832B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -144,6 +150,24 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D90E89A525A8BC3A00DB48D2 /* WaterQuality */ = {
+			isa = PBXGroup;
+			children = (
+				D90E89A625A8BC5F00DB48D2 /* WaterQuality.swift */,
+			);
+			name = WaterQuality;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D90E89AB25A8BC7E00DB48D2 /* WaterQualityTests */ = {
+			isa = PBXGroup;
+			children = (
+				D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */,
+				D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */,
+			);
+			name = WaterQualityTests;
+			sourceTree = "<group>";
+		};
 		D924FC5E25A4D7E00049832B = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +204,7 @@
 		D924FC8325A4D7E20049832B /* EauDeFranceTests */ = {
 			isa = PBXGroup;
 			children = (
+				D90E89AB25A8BC7E00DB48D2 /* WaterQualityTests */,
 				D924FCB425A706730049832B /* PiezometryTests */,
 				D924FCB325A706510049832B /* HydrometryTests */,
 				D924FCB225A706440049832B /* TemperatureTests */,
@@ -300,6 +325,7 @@
 			children = (
 				D924FCD425A710400049832B /* CommonStruct */,
 				D924FCFF25A71FCF0049832B /* Temperature */,
+				D90E89A525A8BC3A00DB48D2 /* WaterQuality */,
 				D924FCAD25A5FEB00049832B /* Piezometry */,
 				D924FCAE25A5FED40049832B /* Hydrometry */,
 				D924FCB025A605010049832B /* Hydrobiology */,
@@ -445,11 +471,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D90E89AD25A8BCB900DB48D2 /* WaterQualityValue.json in Resources */,
 				D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */,
 				D924FCC525A70A990049832B /* HydrobiologyStation.json in Resources */,
 				D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */,
 				D924FD0C25A727EF0049832B /* HydrometryStation.json in Resources */,
 				D924FD1F25A747420049832B /* TemperatureValue.json in Resources */,
+				D90E89B525A8BEAD00DB48D2 /* WaterQualityStation.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -583,6 +611,7 @@
 				D924FD2425A7478C0049832B /* TemperatureValue.swift in Sources */,
 				D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */,
 				D924FD0125A7200F0049832B /* Temperature.swift in Sources */,
+				D90E89A725A8BC5F00DB48D2 /* WaterQuality.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
