@@ -1,0 +1,120 @@
+{
+    "count": 1302,
+    "first": "https://hubeau.eaufrance.fr/api/v1/qualite_nappes/analyses?bss_id=BSS000XUUM&format=json&page=1&size=1",
+    "last": "https://hubeau.eaufrance.fr/api/v1/qualite_nappes/analyses?bss_id=BSS000XUUM&format=json&page=1302&size=1",
+    "prev": null,
+    "next": "https://hubeau.eaufrance.fr/api/v1/qualite_nappes/analyses?bss_id=BSS000XUUM&format=json&page=2&size=1",
+    "api_version": "1.2.0",
+    "data": [
+        {
+            "bss_id": "BSS000XUUM",
+            "code_bss": "03195X0015/HY",
+            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/BSS000XUUM",
+            "precision_coordonnees": null,
+            "longitude": -1.076111596,
+            "latitude": 48.081871278,
+            "altitude": "125.0",
+            "code_insee_actuel": "35217",
+            "nom_commune_actuel": "Pertre",
+            "num_departement": "35",
+            "nom_departement": "Ille-et-Vilaine",
+            "code_region": "53",
+            "nom_region": "Bretagne",
+            "code_circonscription_administrative_bassin": "04",
+            "nom_circonscription_administrative_bassin": "Loire-Bretagne",
+            "code_bassin_dce": "G",
+            "nom_bassin_dce": "La Loire, les cours d'eau côtiers vendéens et bretons",
+            "urn_bassin_dce": "http://www.sandre.eaufrance.fr/geo/BassinDCE/FRG",
+            "code_type_point_eau": 2,
+            "nom_type_point_eau": "qualitometre",
+            "codes_entite_hg_bdlisa": [
+                "174AA01"
+            ],
+            "noms_entite_hg_bdlisa": [
+                "Socle métamorphique dans les bassins versants de la Vilaine, la Seiche et le Don de leurs sources à la mer"
+            ],
+            "urns_bdlisa": [
+                "http://reseau.eaufrance.fr/geotraitements/bdlisa/files/entite/174AA01.pdf"
+            ],
+            "codes_masse_eau_rap": [
+                "GG015"
+            ],
+            "noms_masse_eau_rap": [
+                "Vilaine"
+            ],
+            "urns_masse_eau_rap": [
+                "http://www.sandre.eaufrance.fr/geo/MasseDEauSouterraine/GG015"
+            ],
+            "codes_masse_eau_edl": [
+                "GG015"
+            ],
+            "noms_masse_eau_edl": [
+                "Bassin versant de la Vilaine"
+            ],
+            "urns_masse_eau_edl": [
+                "http://www.sandre.eaufrance.fr/geo/MasseDEauSouterraine/GG015"
+            ],
+            "codes_reseau": [
+                "0000000028"
+            ],
+            "noms_reseau": [
+                "Réseau national de suivi au titre du contrôle sanitaire sur les eaux brutes utilisées pour la production d'eau potable"
+            ],
+            "uris_reseau": [
+                "http://id.eaufrance.fr/DC/0000000028"
+            ],
+            "code_type_qualito": 1,
+            "nom_type_qualito": "Point d'eau unique",
+            "uri_type_qualito": "http://id.eaufrance.fr/NSA/161#1",
+            "code_producteur": "35",
+            "nom_producteur": "Direction Départementale des Affaires Sanitaires et Sociales (D.D.A.S.S.) de l'Ille-et-Vilaine (35)",
+            "uri_producteur": "http://id.eaufrance.fr/INT/35",
+            "date_debut_prelevement": "1983-05-18",
+            "code_param": 1344,
+            "nom_param": "Anhydride carbonique libre",
+            "uri_param": "http://id.eaufrance.fr/PAR/1344",
+            "code_fraction": 23,
+            "nom_fraction": "Eau brute",
+            "uri_fraction": "http://id.eaufrance.fr/FAN/23",
+            "resultat": 39.6,
+            "code_remarque_analyse": 1,
+            "nom_remarque_analyse": "Résultat > seuil de quantification et < au seuil de saturation ou Résultat = 0",
+            "uri_remarque_analyse": "http://id.eaufrance.fr/NSA/155#23",
+            "code_lieu_analyse": 2,
+            "nom_lieu_analyse": "Laboratoire",
+            "uri_lieu_analyse": "http://id.eaufrance.fr/NSA/156#2",
+            "code_methode": 0,
+            "nom_methode": "Méthode inconnue",
+            "uri_methode": "http://id.eaufrance.fr/MET/0",
+            "code_unite": "166",
+            "nom_unite": "milligramme de dioxyde de carbone par litre",
+            "symbole_unite": "mg(CO2)/L",
+            "uri_unite": "http://id.eaufrance.fr/URF/166",
+            "code_statut_analyse": "2",
+            "nom_statut_analyse": "Donnée contrôlée niveau 1",
+            "uri_statut_analyse": "http://id.eaufrance.fr/NSA/416#2",
+            "code_qualification": "1",
+            "nom_qualification": "Correcte",
+            "uri_qualification": "http://id.eaufrance.fr/NSA/414#1",
+            "limite_quantification": null,
+            "limite_detection": null,
+            "seuil_saturation": null,
+            "incertitude_analytique": null,
+            "codes_groupe_parametre": [
+                "46",
+                "31",
+                "41"
+            ],
+            "noms_groupe_parametre": [
+                "Autres éléments minéraux",
+                "Paramètres classés par classe",
+                "Chimique"
+            ],
+            "uris_groupe_parametre": [
+                "http://id.eaufrance.fr/GPR/46",
+                "http://id.eaufrance.fr/GPR/31",
+                "http://id.eaufrance.fr/GPR/41"
+            ]
+        }
+    ]
+}
