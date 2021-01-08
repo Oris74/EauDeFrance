@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="78.797" height="105.128" viewBox="0 0 78.797 105.128">
+  <g id="Température_des_cours_d_eau" data-name="Température des cours d&apos;eau" transform="translate(-197.991 -423.1)">
+    <g id="Calque_2" data-name="Calque 2" transform="translate(198.991 424.138)">
+      <path id="Tracé_65" data-name="Tracé 65" d="M198.991,447.433v41.259a2.668,2.668,0,0,0,1.332,2.31l35.732,20.629a2.669,2.669,0,0,0,2.668,0L274.454,491a2.666,2.666,0,0,0,1.334-2.31V447.433a2.666,2.666,0,0,0-1.334-2.31l-35.731-20.629a2.668,2.668,0,0,0-2.668,0l-35.732,20.629A2.668,2.668,0,0,0,198.991,447.433Z" transform="translate(-198.991 -424.138)" fill="#fff" stroke="#21b7ef" stroke-width="2"/>
+      <g id="Groupe_99" data-name="Groupe 99" transform="translate(22.395 70.622)">
+        <circle id="Ellipse_32" data-name="Ellipse 32" cx="16.234" cy="16.234" r="16.234" fill="#fff" stroke="#21b7ef" stroke-miterlimit="10" stroke-width="2"/>
+        <g id="Groupe_98" data-name="Groupe 98" transform="translate(10.37 6.168)">
+          <path id="Tracé_66" data-name="Tracé 66" d="M227.2,477.54l-4.735,8.257a5.865,5.865,0,1,0,10.175,0L227.9,477.54A.407.407,0,0,0,227.2,477.54Z" transform="translate(-221.689 -477.335)" fill="#21b7ef"/>
+        </g>
+      </g>
+    </g>
+    <g id="Calque_3" data-name="Calque 3" transform="translate(228.065 442.968)">
+      <g id="Groupe_106" data-name="Groupe 106">
+        <g id="Groupe_100" data-name="Groupe 100">
+          <path id="Tracé_67" data-name="Tracé 67" d="M227.256,477.095a9.45,9.45,0,0,1-5.06-17.433V439.088a4.923,4.923,0,1,1,9.845,0V459.5a9.446,9.446,0,0,1-4.785,17.593Zm-.138-40.613a2.607,2.607,0,0,0-2.6,2.606v21.238a1.159,1.159,0,0,1-.613,1.021,7.143,7.143,0,1,0,6.473-.11,1.16,1.16,0,0,1-.652-1.042V439.088A2.608,2.608,0,0,0,227.118,436.482Z" transform="translate(-217.803 -434.164)" fill="#21b7ef"/>
+        </g>
+        <g id="Groupe_101" data-name="Groupe 101" transform="translate(5.768 29.386)">
+          <circle id="Ellipse_33" data-name="Ellipse 33" cx="3.684" cy="3.684" r="3.684" fill="#21b7ef"/>
+        </g>
+        <g id="Groupe_102" data-name="Groupe 102" transform="translate(5.552 21.31)">
+          <rect id="Rectangle_37" data-name="Rectangle 37" width="7.527" height="1.544" fill="#21b7ef"/>
+        </g>
+        <g id="Groupe_103" data-name="Groupe 103" transform="translate(5.552 17.28)">
+          <rect id="Rectangle_38" data-name="Rectangle 38" width="7.527" height="1.544" fill="#21b7ef"/>
+        </g>
+        <g id="Groupe_104" data-name="Groupe 104" transform="translate(5.552 13.251)">
+          <rect id="Rectangle_39" data-name="Rectangle 39" width="7.527" height="1.544" fill="#21b7ef"/>
+        </g>
+        <g id="Groupe_105" data-name="Groupe 105" transform="translate(5.552 9.22)">
+          <rect id="Rectangle_40" data-name="Rectangle 40" width="7.527" height="1.544" fill="#21b7ef"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

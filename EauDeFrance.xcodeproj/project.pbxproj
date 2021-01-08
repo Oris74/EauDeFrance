@@ -1,0 +1,941 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39A2D04C12D1D00530806CBE /* Pods_EauDeFrance_EauDeFranceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */; };
+		97850CA8AFFCE07D307E0F89 /* Pods_EauDeFrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */; };
+		D21F8C737E0D0A19C4655C7A /* Pods_EauDeFranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */; };
+		D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6A25A4D7E10049832B /* AppDelegate.swift */; };
+		D924FC6D25A4D7E10049832B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6C25A4D7E10049832B /* SceneDelegate.swift */; };
+		D924FC6F25A4D7E10049832B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6E25A4D7E10049832B /* ViewController.swift */; };
+		D924FC7225A4D7E10049832B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7025A4D7E10049832B /* Main.storyboard */; };
+		D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D924FC7325A4D7E10049832B /* EauDeFrance.xcdatamodeld */; };
+		D924FC7725A4D7E10049832B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7625A4D7E10049832B /* Assets.xcassets */; };
+		D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7825A4D7E10049832B /* LaunchScreen.storyboard */; };
+		D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */; };
+		D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */; };
+		D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FCBA25A708B30049832B /* TemperatureStation.json */; };
+		D924FCC025A70A710049832B /* Hydrobiology.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCBF25A70A710049832B /* Hydrobiology.swift */; };
+		D924FCC525A70A990049832B /* HydrobiologyStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FCC425A70A990049832B /* HydrobiologyStation.json */; };
+		D924FCCA25A70B350049832B /* Hydrometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCC925A70B350049832B /* Hydrometry.swift */; };
+		D924FCCF25A70B490049832B /* Piezometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCCE25A70B490049832B /* Piezometry.swift */; };
+		D924FCDE25A71A320049832B /* Geometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCDD25A71A320049832B /* Geometry.swift */; };
+		D924FCE325A71AA10049832B /* CRS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCE225A71AA10049832B /* CRS.swift */; };
+		D924FCED25A71B420049832B /* Properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCEC25A71B420049832B /* Properties.swift */; };
+		D924FCF625A71C610049832B /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCF525A71C610049832B /* Station.swift */; };
+		D924FD0125A7200F0049832B /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FD0025A7200F0049832B /* Temperature.swift */; };
+		D924FD0C25A727EF0049832B /* HydrometryStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD0B25A727EF0049832B /* HydrometryStation.json */; };
+		D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1025A72A4F0049832B /* PiezometrieStation.json */; };
+		D924FD1F25A747420049832B /* TemperatureValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1E25A747420049832B /* TemperatureValue.json */; };
+		D924FD2425A7478C0049832B /* TemperatureValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FD2325A7478C0049832B /* TemperatureValue.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D924FC8125A4D7E20049832B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D924FC5F25A4D7E00049832B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D924FC6625A4D7E00049832B;
+			remoteInfo = EauDeFrance;
+		};
+		D924FC8C25A4D7E20049832B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D924FC5F25A4D7E00049832B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D924FC6625A4D7E00049832B;
+			remoteInfo = EauDeFrance;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EauDeFrance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EauDeFranceTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3DAF752EE5D8D5558996ACB1 /* Pods-EauDeFranceTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFranceTests.release.xcconfig"; path = "Target Support Files/Pods-EauDeFranceTests/Pods-EauDeFranceTests.release.xcconfig"; sourceTree = "<group>"; };
+		75F4B7ED2E84CFA8DBC030F5 /* Pods-EauDeFrance-EauDeFranceUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance-EauDeFranceUITests.release.xcconfig"; path = "Target Support Files/Pods-EauDeFrance-EauDeFranceUITests/Pods-EauDeFrance-EauDeFranceUITests.release.xcconfig"; sourceTree = "<group>"; };
+		A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.debug.xcconfig"; sourceTree = "<group>"; };
+		AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFranceTests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFranceTests/Pods-EauDeFranceTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.release.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.release.xcconfig"; sourceTree = "<group>"; };
+		D924FC6725A4D7E10049832B /* EauDeFrance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EauDeFrance.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D924FC6A25A4D7E10049832B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "../New Group/AppDelegate.swift"; sourceTree = "<group>"; };
+		D924FC6C25A4D7E10049832B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		D924FC6E25A4D7E10049832B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D924FC7125A4D7E10049832B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D924FC7425A4D7E10049832B /* EauDeFrance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EauDeFrance.xcdatamodel; sourceTree = "<group>"; };
+		D924FC7625A4D7E10049832B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D924FC7925A4D7E10049832B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D924FC7B25A4D7E10049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D924FC8025A4D7E20049832B /* EauDeFranceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EauDeFranceTests.swift; sourceTree = "<group>"; };
+		D924FC8625A4D7E20049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D924FC8B25A4D7E20049832B /* EauDeFranceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EauDeFranceUITests.swift; sourceTree = "<group>"; };
+		D924FC9125A4D7E20049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D924FCBA25A708B30049832B /* TemperatureStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TemperatureStation.json; sourceTree = "<group>"; };
+		D924FCBF25A70A710049832B /* Hydrobiology.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Hydrobiology.swift; path = HubeauStruct/Hydrobiology.swift; sourceTree = "<group>"; };
+		D924FCC425A70A990049832B /* HydrobiologyStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HydrobiologyStation.json; sourceTree = "<group>"; };
+		D924FCC925A70B350049832B /* Hydrometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Hydrometry.swift; path = HubeauStruct/Hydrometry.swift; sourceTree = "<group>"; };
+		D924FCCE25A70B490049832B /* Piezometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piezometry.swift; sourceTree = "<group>"; };
+		D924FCDD25A71A320049832B /* Geometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Geometry.swift; sourceTree = "<group>"; };
+		D924FCE225A71AA10049832B /* CRS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRS.swift; sourceTree = "<group>"; };
+		D924FCEC25A71B420049832B /* Properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Properties.swift; sourceTree = "<group>"; };
+		D924FCF525A71C610049832B /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		D924FD0025A7200F0049832B /* Temperature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
+		D924FD0B25A727EF0049832B /* HydrometryStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HydrometryStation.json; sourceTree = "<group>"; };
+		D924FD1025A72A4F0049832B /* PiezometrieStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PiezometrieStation.json; sourceTree = "<group>"; };
+		D924FD1E25A747420049832B /* TemperatureValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TemperatureValue.json; sourceTree = "<group>"; };
+		D924FD2325A7478C0049832B /* TemperatureValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureValue.swift; sourceTree = "<group>"; };
+		DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EauDeFrance_EauDeFranceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F6DD2B0D5F40BD659D1A8CEA /* Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance-EauDeFranceUITests/Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D924FC6425A4D7E00049832B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				97850CA8AFFCE07D307E0F89 /* Pods_EauDeFrance.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D924FC7D25A4D7E20049832B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D21F8C737E0D0A19C4655C7A /* Pods_EauDeFranceTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D924FC8825A4D7E20049832B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39A2D04C12D1D00530806CBE /* Pods_EauDeFrance_EauDeFranceUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2BF6794DA7F32CDD616286B7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */,
+				DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */,
+				3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9220932207E50EF6EE502372 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */,
+				C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */,
+				F6DD2B0D5F40BD659D1A8CEA /* Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig */,
+				75F4B7ED2E84CFA8DBC030F5 /* Pods-EauDeFrance-EauDeFranceUITests.release.xcconfig */,
+				AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */,
+				3DAF752EE5D8D5558996ACB1 /* Pods-EauDeFranceTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D924FC5E25A4D7E00049832B = {
+			isa = PBXGroup;
+			children = (
+				D924FC6925A4D7E10049832B /* EauDeFrance */,
+				D924FC8325A4D7E20049832B /* EauDeFranceTests */,
+				D924FC8E25A4D7E20049832B /* EauDeFranceUITests */,
+				D924FC6825A4D7E10049832B /* Products */,
+				9220932207E50EF6EE502372 /* Pods */,
+				2BF6794DA7F32CDD616286B7 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D924FC6825A4D7E10049832B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D924FC6725A4D7E10049832B /* EauDeFrance.app */,
+				D924FC8025A4D7E20049832B /* EauDeFranceTests.xctest */,
+				D924FC8B25A4D7E20049832B /* EauDeFranceUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D924FC6925A4D7E10049832B /* EauDeFrance */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCA325A4D8AD0049832B /* Model */,
+				D924FCA425A4D8B70049832B /* View */,
+				D924FCA525A4D8C80049832B /* Controller */,
+				D924FCAC25A5FDEC0049832B /* Supporting Files */,
+			);
+			path = EauDeFrance;
+			sourceTree = "<group>";
+		};
+		D924FC8325A4D7E20049832B /* EauDeFranceTests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCB425A706730049832B /* PiezometryTests */,
+				D924FCB325A706510049832B /* HydrometryTests */,
+				D924FCB225A706440049832B /* TemperatureTests */,
+				D924FCB125A706270049832B /* HydrobiologyTests */,
+				D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */,
+				D924FC8625A4D7E20049832B /* Info.plist */,
+			);
+			path = EauDeFranceTests;
+			sourceTree = "<group>";
+		};
+		D924FC8E25A4D7E20049832B /* EauDeFranceUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */,
+				D924FC9125A4D7E20049832B /* Info.plist */,
+			);
+			path = EauDeFranceUITests;
+			sourceTree = "<group>";
+		};
+		D924FCA325A4D8AD0049832B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCD325A70FD90049832B /* HubeauStruct */,
+				D924FC7325A4D7E10049832B /* EauDeFrance.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D924FCA425A4D8B70049832B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D924FC7825A4D7E10049832B /* LaunchScreen.storyboard */,
+				D924FC7025A4D7E10049832B /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D924FCA525A4D8C80049832B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				D924FC6E25A4D7E10049832B /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		D924FCAC25A5FDEC0049832B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D924FC6C25A4D7E10049832B /* SceneDelegate.swift */,
+				D924FC6A25A4D7E10049832B /* AppDelegate.swift */,
+				D924FC7625A4D7E10049832B /* Assets.xcassets */,
+				D924FC7B25A4D7E10049832B /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D924FCAD25A5FEB00049832B /* Piezometry */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCCE25A70B490049832B /* Piezometry.swift */,
+			);
+			name = Piezometry;
+			sourceTree = "<group>";
+		};
+		D924FCAE25A5FED40049832B /* Hydrometry */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCC925A70B350049832B /* Hydrometry.swift */,
+			);
+			name = Hydrometry;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D924FCB025A605010049832B /* Hydrobiology */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCBF25A70A710049832B /* Hydrobiology.swift */,
+			);
+			name = Hydrobiology;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		D924FCB125A706270049832B /* HydrobiologyTests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCC425A70A990049832B /* HydrobiologyStation.json */,
+			);
+			name = HydrobiologyTests;
+			sourceTree = "<group>";
+		};
+		D924FCB225A706440049832B /* TemperatureTests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCBA25A708B30049832B /* TemperatureStation.json */,
+				D924FD1E25A747420049832B /* TemperatureValue.json */,
+			);
+			name = TemperatureTests;
+			sourceTree = "<group>";
+		};
+		D924FCB325A706510049832B /* HydrometryTests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FD0B25A727EF0049832B /* HydrometryStation.json */,
+			);
+			name = HydrometryTests;
+			sourceTree = "<group>";
+		};
+		D924FCB425A706730049832B /* PiezometryTests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FD1025A72A4F0049832B /* PiezometrieStation.json */,
+			);
+			name = PiezometryTests;
+			sourceTree = "<group>";
+		};
+		D924FCD325A70FD90049832B /* HubeauStruct */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCD425A710400049832B /* CommonStruct */,
+				D924FCFF25A71FCF0049832B /* Temperature */,
+				D924FCAD25A5FEB00049832B /* Piezometry */,
+				D924FCAE25A5FED40049832B /* Hydrometry */,
+				D924FCB025A605010049832B /* Hydrobiology */,
+			);
+			path = HubeauStruct;
+			sourceTree = "<group>";
+		};
+		D924FCD425A710400049832B /* CommonStruct */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCE225A71AA10049832B /* CRS.swift */,
+				D924FCDD25A71A320049832B /* Geometry.swift */,
+				D924FCEC25A71B420049832B /* Properties.swift */,
+				D924FCF525A71C610049832B /* Station.swift */,
+			);
+			name = CommonStruct;
+			sourceTree = "<group>";
+		};
+		D924FCFF25A71FCF0049832B /* Temperature */ = {
+			isa = PBXGroup;
+			children = (
+				D924FD0025A7200F0049832B /* Temperature.swift */,
+				D924FD2325A7478C0049832B /* TemperatureValue.swift */,
+			);
+			name = Temperature;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D924FC6625A4D7E00049832B /* EauDeFrance */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D924FC9425A4D7E20049832B /* Build configuration list for PBXNativeTarget "EauDeFrance" */;
+			buildPhases = (
+				454CED4A357FDF068196C309 /* [CP] Check Pods Manifest.lock */,
+				D924FC6325A4D7E00049832B /* Sources */,
+				D924FC6425A4D7E00049832B /* Frameworks */,
+				D924FC6525A4D7E00049832B /* Resources */,
+				C377D86885C6F39A5FA45850 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = EauDeFrance;
+			productName = EauDeFrance;
+			productReference = D924FC6725A4D7E10049832B /* EauDeFrance.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D924FC7F25A4D7E20049832B /* EauDeFranceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D924FC9725A4D7E20049832B /* Build configuration list for PBXNativeTarget "EauDeFranceTests" */;
+			buildPhases = (
+				0D611219624A1673EB85C98E /* [CP] Check Pods Manifest.lock */,
+				D924FC7C25A4D7E20049832B /* Sources */,
+				D924FC7D25A4D7E20049832B /* Frameworks */,
+				D924FC7E25A4D7E20049832B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D924FC8225A4D7E20049832B /* PBXTargetDependency */,
+			);
+			name = EauDeFranceTests;
+			productName = EauDeFranceTests;
+			productReference = D924FC8025A4D7E20049832B /* EauDeFranceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D924FC8A25A4D7E20049832B /* EauDeFranceUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D924FC9A25A4D7E20049832B /* Build configuration list for PBXNativeTarget "EauDeFranceUITests" */;
+			buildPhases = (
+				7ED4F153550946E822231190 /* [CP] Check Pods Manifest.lock */,
+				D924FC8725A4D7E20049832B /* Sources */,
+				D924FC8825A4D7E20049832B /* Frameworks */,
+				D924FC8925A4D7E20049832B /* Resources */,
+				E739280FFF3FBDC60B231469 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D924FC8D25A4D7E20049832B /* PBXTargetDependency */,
+			);
+			name = EauDeFranceUITests;
+			productName = EauDeFranceUITests;
+			productReference = D924FC8B25A4D7E20049832B /* EauDeFranceUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D924FC5F25A4D7E00049832B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					D924FC6625A4D7E00049832B = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					D924FC7F25A4D7E20049832B = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = D924FC6625A4D7E00049832B;
+					};
+					D924FC8A25A4D7E20049832B = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = D924FC6625A4D7E00049832B;
+					};
+				};
+			};
+			buildConfigurationList = D924FC6225A4D7E00049832B /* Build configuration list for PBXProject "EauDeFrance" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D924FC5E25A4D7E00049832B;
+			productRefGroup = D924FC6825A4D7E10049832B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D924FC6625A4D7E00049832B /* EauDeFrance */,
+				D924FC7F25A4D7E20049832B /* EauDeFranceTests */,
+				D924FC8A25A4D7E20049832B /* EauDeFranceUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D924FC6525A4D7E00049832B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */,
+				D924FC7725A4D7E10049832B /* Assets.xcassets in Resources */,
+				D924FC7225A4D7E10049832B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D924FC7E25A4D7E20049832B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */,
+				D924FCC525A70A990049832B /* HydrobiologyStation.json in Resources */,
+				D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */,
+				D924FD0C25A727EF0049832B /* HydrometryStation.json in Resources */,
+				D924FD1F25A747420049832B /* TemperatureValue.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D924FC8925A4D7E20049832B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0D611219624A1673EB85C98E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EauDeFranceTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		454CED4A357FDF068196C309 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EauDeFrance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7ED4F153550946E822231190 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-EauDeFrance-EauDeFranceUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C377D86885C6F39A5FA45850 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E739280FFF3FBDC60B231469 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EauDeFrance-EauDeFranceUITests/Pods-EauDeFrance-EauDeFranceUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-EauDeFrance-EauDeFranceUITests/Pods-EauDeFrance-EauDeFranceUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-EauDeFrance-EauDeFranceUITests/Pods-EauDeFrance-EauDeFranceUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D924FC6325A4D7E00049832B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D924FC6F25A4D7E10049832B /* ViewController.swift in Sources */,
+				D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */,
+				D924FCE325A71AA10049832B /* CRS.swift in Sources */,
+				D924FC6D25A4D7E10049832B /* SceneDelegate.swift in Sources */,
+				D924FCF625A71C610049832B /* Station.swift in Sources */,
+				D924FCCF25A70B490049832B /* Piezometry.swift in Sources */,
+				D924FCED25A71B420049832B /* Properties.swift in Sources */,
+				D924FCCA25A70B350049832B /* Hydrometry.swift in Sources */,
+				D924FCC025A70A710049832B /* Hydrobiology.swift in Sources */,
+				D924FCDE25A71A320049832B /* Geometry.swift in Sources */,
+				D924FD2425A7478C0049832B /* TemperatureValue.swift in Sources */,
+				D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */,
+				D924FD0125A7200F0049832B /* Temperature.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D924FC7C25A4D7E20049832B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D924FC8725A4D7E20049832B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D924FC8225A4D7E20049832B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D924FC6625A4D7E00049832B /* EauDeFrance */;
+			targetProxy = D924FC8125A4D7E20049832B /* PBXContainerItemProxy */;
+		};
+		D924FC8D25A4D7E20049832B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D924FC6625A4D7E00049832B /* EauDeFrance */;
+			targetProxy = D924FC8C25A4D7E20049832B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D924FC7025A4D7E10049832B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D924FC7125A4D7E10049832B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D924FC7825A4D7E10049832B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D924FC7925A4D7E10049832B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D924FC9225A4D7E20049832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D924FC9325A4D7E20049832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D924FC9525A4D7E20049832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24V626T3JX;
+				INFOPLIST_FILE = "$(SRCROOT)/EauDeFrance/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FR.DIGIT74.EauDeFrance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D924FC9625A4D7E20049832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24V626T3JX;
+				INFOPLIST_FILE = "$(SRCROOT)/EauDeFrance/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FR.DIGIT74.EauDeFrance;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		D924FC9825A4D7E20049832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24V626T3JX;
+				INFOPLIST_FILE = EauDeFranceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FR.DIGIT74.EauDeFranceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EauDeFrance.app/EauDeFrance";
+			};
+			name = Debug;
+		};
+		D924FC9925A4D7E20049832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3DAF752EE5D8D5558996ACB1 /* Pods-EauDeFranceTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24V626T3JX;
+				INFOPLIST_FILE = EauDeFranceTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FR.DIGIT74.EauDeFranceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EauDeFrance.app/EauDeFrance";
+			};
+			name = Release;
+		};
+		D924FC9B25A4D7E20049832B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F6DD2B0D5F40BD659D1A8CEA /* Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24V626T3JX;
+				INFOPLIST_FILE = EauDeFranceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FR.DIGIT74.EauDeFranceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EauDeFrance;
+			};
+			name = Debug;
+		};
+		D924FC9C25A4D7E20049832B /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75F4B7ED2E84CFA8DBC030F5 /* Pods-EauDeFrance-EauDeFranceUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 24V626T3JX;
+				INFOPLIST_FILE = EauDeFranceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = FR.DIGIT74.EauDeFranceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = EauDeFrance;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D924FC6225A4D7E00049832B /* Build configuration list for PBXProject "EauDeFrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D924FC9225A4D7E20049832B /* Debug */,
+				D924FC9325A4D7E20049832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D924FC9425A4D7E20049832B /* Build configuration list for PBXNativeTarget "EauDeFrance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D924FC9525A4D7E20049832B /* Debug */,
+				D924FC9625A4D7E20049832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D924FC9725A4D7E20049832B /* Build configuration list for PBXNativeTarget "EauDeFranceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D924FC9825A4D7E20049832B /* Debug */,
+				D924FC9925A4D7E20049832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D924FC9A25A4D7E20049832B /* Build configuration list for PBXNativeTarget "EauDeFranceUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D924FC9B25A4D7E20049832B /* Debug */,
+				D924FC9C25A4D7E20049832B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D924FC7325A4D7E10049832B /* EauDeFrance.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D924FC7425A4D7E10049832B /* EauDeFrance.xcdatamodel */,
+			);
+			currentVersion = D924FC7425A4D7E10049832B /* EauDeFrance.xcdatamodel */;
+			path = EauDeFrance.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = D924FC5F25A4D7E00049832B /* Project object */;
+}

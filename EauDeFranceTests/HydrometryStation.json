@@ -1,0 +1,308 @@
+{
+    "count": 43,
+    "first": "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/stations?code_departement=74&pretty&page=1&size=5",
+    "last": "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/stations?code_departement=74&pretty&page=9&size=5",
+    "prev": null,
+    "next": "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/stations?code_departement=74&pretty&page=2&size=5",
+    "api_version": "1.0.1",
+    "data": [
+        {
+            "code_site": "V0002010",
+            "libelle_site": "L'Arve à Chamonix-Mont-Blanc [Pont des Favrands]",
+            "code_station": "V000201001",
+            "libelle_station": "L'Arve à Chamonix-Mont-Blanc [Pont des Favrands]",
+            "type_station": "LIMNI",
+            "coordonnee_x_station": 999022.0,
+            "coordonnee_y_station": 6542439.0,
+            "code_projection": 26,
+            "longitude_station": 6.859323241,
+            "latitude_station": 45.915860508,
+            "influence_locale_station": 3,
+            "commentaire_station": "Les débits naturels sont calculés en tenant compte de la somme des débits dérivés vers la réserve d'Emosson. Curage périodique du lit - modification significative du profil de la section d'écoulement dans le temps (phénomène de creusement). Passage en heure TU le 01/01/2008.",
+            "altitude_ref_alti_station": 1019671.0,
+            "code_systeme_alti_site": 3,
+            "code_commune_station": "74056",
+            "libelle_commune": "CHAMONIX-MONT-BLANC",
+            "code_departement": "74",
+            "code_region": "84",
+            "libelle_region": "AUVERGNE-RHONE-ALPES",
+            "code_cours_eau": "V0--0200",
+            "libelle_cours_eau": "L'Arve",
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/V0--0200",
+            "descriptif_station": null,
+            "date_maj_station": "2020-06-26T00:00:00Z",
+            "date_ouverture_station": "1936-01-01T00:00:00Z",
+            "date_fermeture_station": null,
+            "commentaire_influence_locale_station": "station située en aval d'une centrale hydro-électrique.",
+            "code_regime_station": 1,
+            "qualification_donnees_station": 20,
+            "code_finalite_station": 12,
+            "type_contexte_loi_stat_station": 1,
+            "type_loi_station": 1,
+            "code_sandre_reseau_station": [
+                "POH020",
+                "POH031",
+                "POH102",
+                "POH900",
+                "RIC051",
+                "RIC063",
+                "RIC301"
+            ],
+            "date_debut_ref_alti_station": "2013-06-01T00:00:00Z",
+            "date_activation_ref_alti_station": "2014-03-21T00:00:00Z",
+            "date_maj_ref_alti_station": "2014-03-21T00:00:00Z",
+            "libelle_departement": "HAUTE-SAVOIE",
+            "en_service": true,
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    6.859323241455668,
+                    45.91586050806944
+                ]
+            }
+        },
+        {
+            "code_site": "V0032010",
+            "libelle_site": "L'Arve à Sallanches",
+            "code_station": "V003201001",
+            "libelle_station": "L'Arve à Sallanches",
+            "type_station": "LIMNI",
+            "coordonnee_x_station": 982065.0,
+            "coordonnee_y_station": 6544368.0,
+            "code_projection": 26,
+            "longitude_station": 6.641934883,
+            "latitude_station": 45.940461634,
+            "influence_locale_station": 3,
+            "commentaire_station": "Passage en heure TU le 01/01/2008. Données de basses-eaux très influencées par centrales hydro-électriques.",
+            "altitude_ref_alti_station": 535144.0,
+            "code_systeme_alti_site": 3,
+            "code_commune_station": "74256",
+            "libelle_commune": "SALLANCHES",
+            "code_departement": "74",
+            "code_region": "84",
+            "libelle_region": "AUVERGNE-RHONE-ALPES",
+            "code_cours_eau": "V0--0200",
+            "libelle_cours_eau": "L'Arve",
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/V0--0200",
+            "descriptif_station": null,
+            "date_maj_station": "2020-06-26T00:00:00Z",
+            "date_ouverture_station": "1965-06-01T00:00:00Z",
+            "date_fermeture_station": null,
+            "commentaire_influence_locale_station": "Station située en aval de centrales hydro-électriques.",
+            "code_regime_station": 1,
+            "qualification_donnees_station": 12,
+            "code_finalite_station": 2,
+            "type_contexte_loi_stat_station": 1,
+            "type_loi_station": 1,
+            "code_sandre_reseau_station": [
+                "POH020",
+                "POH031",
+                "POH102",
+                "POH900",
+                "RIC002",
+                "RIC051",
+                "RIC063",
+                "RIC101",
+                "RIC301"
+            ],
+            "date_debut_ref_alti_station": "2013-06-01T00:00:00Z",
+            "date_activation_ref_alti_station": "2014-03-21T00:00:00Z",
+            "date_maj_ref_alti_station": "2017-01-30T00:00:00Z",
+            "libelle_departement": "HAUTE-SAVOIE",
+            "en_service": true,
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    6.6419348826895215,
+                    45.94046163412888
+                ]
+            }
+        },
+        {
+            "code_site": "V0032012",
+            "libelle_site": "L'Arve à Passy",
+            "code_station": "V003201201",
+            "libelle_station": "L'Arve à Passy - Pont de la Carabote",
+            "type_station": "LIMNI",
+            "coordonnee_x_station": 984605.0,
+            "coordonnee_y_station": 6542238.0,
+            "code_projection": 26,
+            "longitude_station": 6.673404974,
+            "latitude_station": 45.920242599,
+            "influence_locale_station": 3,
+            "commentaire_station": "Les débits de basses-eaux sont incertains compte-tenu de l'instabilité du lit. Les débits de hautes-eaux sont incertains en l'absence de modélisation et de jaugeage.",
+            "altitude_ref_alti_station": 540.0,
+            "code_systeme_alti_site": 3,
+            "code_commune_station": "74208",
+            "libelle_commune": "PASSY",
+            "code_departement": "74",
+            "code_region": "84",
+            "libelle_region": "AUVERGNE-RHONE-ALPES",
+            "code_cours_eau": "V0--0200",
+            "libelle_cours_eau": "L'Arve",
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/V0--0200",
+            "descriptif_station": null,
+            "date_maj_station": "2020-06-26T00:00:00Z",
+            "date_ouverture_station": "2019-12-15T00:00:00Z",
+            "date_fermeture_station": null,
+            "commentaire_influence_locale_station": "Station sous influence d'usines hydro-électriques.",
+            "code_regime_station": 1,
+            "qualification_donnees_station": 12,
+            "code_finalite_station": 2,
+            "type_contexte_loi_stat_station": null,
+            "type_loi_station": null,
+            "code_sandre_reseau_station": [
+                "POH020",
+                "POH031",
+                "POH102",
+                "POH900"
+            ],
+            "date_debut_ref_alti_station": "2019-12-15T00:00:00Z",
+            "date_activation_ref_alti_station": "2020-02-19T00:00:00Z",
+            "date_maj_ref_alti_station": "2020-03-25T00:00:00Z",
+            "libelle_departement": "HAUTE-SAVOIE",
+            "en_service": true,
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    6.673404974120299,
+                    45.920242598659186
+                ]
+            }
+        },
+        {
+            "code_site": "V0056410",
+            "libelle_site": "[Le Nant d'Orlier] à Magland [chez Party]",
+            "code_station": "V005641001",
+            "libelle_station": "[Le Nant d'Orlier] à Magland [chez Party]",
+            "type_station": "LIMNI",
+            "coordonnee_x_station": 979716.0,
+            "coordonnee_y_station": 6554299.0,
+            "code_projection": 26,
+            "longitude_station": 6.617518191,
+            "latitude_station": 46.03076706,
+            "influence_locale_station": 1,
+            "commentaire_station": "Source. Les débits de hautes-eaux sont incertains en l'absence de modélisation et de jaugeage.",
+            "altitude_ref_alti_station": 496.0,
+            "code_systeme_alti_site": 3,
+            "code_commune_station": "74159",
+            "libelle_commune": "MAGLAND",
+            "code_departement": "74",
+            "code_region": "84",
+            "libelle_region": "AUVERGNE-RHONE-ALPES",
+            "code_cours_eau": "00000000",
+            "libelle_cours_eau": null,
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/00000000",
+            "descriptif_station": null,
+            "date_maj_station": "2020-06-26T00:00:00Z",
+            "date_ouverture_station": "2010-01-01T00:00:00Z",
+            "date_fermeture_station": null,
+            "commentaire_influence_locale_station": null,
+            "code_regime_station": 1,
+            "qualification_donnees_station": 20,
+            "code_finalite_station": 1,
+            "type_contexte_loi_stat_station": 1,
+            "type_loi_station": 1,
+            "code_sandre_reseau_station": [
+                "POH020",
+                "POH045",
+                "POH102",
+                "POH900"
+            ],
+            "date_debut_ref_alti_station": "2010-01-01T00:00:00Z",
+            "date_activation_ref_alti_station": "2020-02-19T00:00:00Z",
+            "date_maj_ref_alti_station": "2020-04-14T00:00:00Z",
+            "libelle_departement": "HAUTE-SAVOIE",
+            "en_service": true,
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    6.617518190870798,
+                    46.03076706010748
+                ]
+            }
+        },
+        {
+            "code_site": "V0056510",
+            "libelle_site": "[Le Nant du Crêt] à Magland [chez Gaudy]",
+            "code_station": "V005651001",
+            "libelle_station": "[Le Nant du Crêt] à Magland [chez Gaudy]",
+            "type_station": "LIMNI",
+            "coordonnee_x_station": 979719.0,
+            "coordonnee_y_station": 6554051.0,
+            "code_projection": 26,
+            "longitude_station": 6.617410104,
+            "latitude_station": 46.028534947,
+            "influence_locale_station": 1,
+            "commentaire_station": "Les débits de hautes-eaux sont incertains en l'absence de modélisation et de jaugeage.",
+            "altitude_ref_alti_station": 495.0,
+            "code_systeme_alti_site": 3,
+            "code_commune_station": "74159",
+            "libelle_commune": "MAGLAND",
+            "code_departement": "74",
+            "code_region": "84",
+            "libelle_region": "AUVERGNE-RHONE-ALPES",
+            "code_cours_eau": "00000000",
+            "libelle_cours_eau": null,
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/00000000",
+            "descriptif_station": null,
+            "date_maj_station": "2020-06-26T00:00:00Z",
+            "date_ouverture_station": "2010-01-01T00:00:00Z",
+            "date_fermeture_station": null,
+            "commentaire_influence_locale_station": null,
+            "code_regime_station": 1,
+            "qualification_donnees_station": 20,
+            "code_finalite_station": 1,
+            "type_contexte_loi_stat_station": 1,
+            "type_loi_station": 1,
+            "code_sandre_reseau_station": [
+                "POH020",
+                "POH045",
+                "POH102",
+                "POH900"
+            ],
+            "date_debut_ref_alti_station": "2010-01-01T00:00:00Z",
+            "date_activation_ref_alti_station": "2020-02-19T00:00:00Z",
+            "date_maj_ref_alti_station": "2020-04-14T00:00:00Z",
+            "libelle_departement": "HAUTE-SAVOIE",
+            "en_service": true,
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    6.61741010390696,
+                    46.028534946811995
+                ]
+            }
+        }
+    ]
+}
