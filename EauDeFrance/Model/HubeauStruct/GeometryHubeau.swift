@@ -8,8 +8,8 @@
 import Foundation
 
 // MARK: - Geometry
-struct Geometry: Codable {
+struct GeometryHubeau: Codable {
     let type: String?
-    let crs: CRS?
+    let crs: CRSHubeau?
     let coordinates: [Double]?
 }

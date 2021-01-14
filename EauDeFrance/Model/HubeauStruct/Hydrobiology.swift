@@ -25,7 +25,7 @@ struct Hydrobiology {
     let codesAppelTaxons, libellesAppelTaxons: [String]?
     let codesIndices, libellesIndices: [String]?
     let latitude, longitude: Double?
-    let geometry: Geometry?
+    let geometry: GeometryHubeau?
     let datePremierPrelevement, dateDernierPrelevement: String?
 }
 

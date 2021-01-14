@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - CRS
-struct CRS: Codable {
+struct CRSHubeau: Codable {
     let type: String?
-    let properties: Properties?
+    let properties: PropertiesHubeau?
 }

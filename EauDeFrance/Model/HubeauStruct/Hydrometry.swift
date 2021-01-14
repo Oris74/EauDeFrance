@@ -29,5 +29,5 @@ struct Hydrometry: Codable {
     let dateDebutRefAltiStation, dateActivationRefAltiStation, dateMajRefAltiStation: Date?
     let libelleDepartement: String?
     let enService: Bool?
-    let geometry: Geometry?
+    let geometry: GeometryHubeau?
 }

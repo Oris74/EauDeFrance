@@ -8,6 +8,6 @@
 import Foundation
 
 // MARK: - Properties
-struct Properties: Codable {
+struct PropertiesHubeau: Codable {
     let name: String?
 }

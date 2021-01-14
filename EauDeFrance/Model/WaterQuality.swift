@@ -33,7 +33,7 @@ struct WaterQuality: Codable {
     let localisationPrecise, nature: String?
     let altitudePointCaracteristique: Int?
     let pointKilometrique, premierMoisAnneeEtiage, superficieBassinVersantReel, superficieBassinVersantTopo: String?
-    let geometry: Geometry?
+    let geometry: GeometryHubeau?
 
     enum CodingKeys: String, CodingKey {
         case codeStation = "code_station"

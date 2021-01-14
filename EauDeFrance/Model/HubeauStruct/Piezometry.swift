@@ -15,7 +15,7 @@ struct Piezometry: Codable {
     let coordX, coordY: Double?
     let codesBdlisa: [String]?
     let urnsBdlisa: [String]?
-    let geometry: Geometry?
+    let geometry: GeometryHubeau?
     let bssId, altitudeStation: String?
     let nbMesuresPiezo: Int?
     let codeDepartement, nomDepartement, libellePe: String?

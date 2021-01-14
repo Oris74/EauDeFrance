@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Datum
-struct TemperatureValue {
+struct TemperatureHubeauValue {
     let codeStation, libelleStation: String?
     let uriStation: String?
     let longitude, latitude: Double?

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Datum
-struct Temperature: Codable {
+struct TemperatureHubeau: Codable {
     let codeStation, libelleStation: String?
     let uriStation: String?
     let localisation: String?
@@ -26,7 +26,7 @@ struct Temperature: Codable {
     let pointKm: String?
     let altitude: Int?
     let dateMajInfos: String?
-    let geometry: Geometry?
+    let geometry: GeometryHubeau?
 
     enum CodingKeys: String, CodingKey {
         case codeStation = "code_station"
