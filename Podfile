@@ -8,6 +8,7 @@ target 'EauDeFrance' do
   # Pods for EauDeFrance
 pod 'SwiftLint'
 pod 'Charts'
+pod 'ENSwiftSideMenu'
 
   target 'EauDeFranceTests' do
     inherit! :search_paths

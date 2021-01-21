@@ -12,24 +12,63 @@
         <!--Map-->
         <scene sceneID="f7f-iv-gtC">
             <objects>
-                <viewController id="fh9-Nn-w3k" userLabel="Map" sceneMemberID="viewController">
+                <viewController id="fh9-Nn-w3k" userLabel="Map" customClass="MapViewController" customModule="EauDeFrance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vx6-dr-W1b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-4p-c8H">
-                                <rect key="frame" x="16" y="44" width="288" height="475"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" restorationIdentifier="locationMapStation" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsUserLocation="YES" showsBuildings="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qyk-4p-c8H">
+                                <rect key="frame" x="0.0" y="44" width="320" height="475"/>
+                                <connections>
+                                    <outlet property="delegate" destination="fh9-Nn-w3k" id="xm3-WN-uja"/>
+                                </connections>
                             </mapView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="3wD-Kb-k7x">
+                                <rect key="frame" x="142" y="266" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" minimumValue="-100" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="gxd-uZ-SCB" userLabel="StepperMap">
+                                <rect key="frame" x="30" y="74" width="94" height="32"/>
+                                <connections>
+                                    <action selector="stepperMap:" destination="fh9-Nn-w3k" eventType="valueChanged" id="1eE-ZH-tVO"/>
+                                </connections>
+                            </stepper>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ebK-Ce-eKx"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="gxd-uZ-SCB" firstAttribute="top" secondItem="ebK-Ce-eKx" secondAttribute="top" constant="30" id="A7f-nh-Amh"/>
+                            <constraint firstItem="gxd-uZ-SCB" firstAttribute="leading" secondItem="ebK-Ce-eKx" secondAttribute="leading" constant="30" id="Y7K-fm-nT0"/>
+                            <constraint firstItem="ebK-Ce-eKx" firstAttribute="trailing" secondItem="Qyk-4p-c8H" secondAttribute="trailing" id="drN-Pz-PX6"/>
+                            <constraint firstItem="Qyk-4p-c8H" firstAttribute="leading" secondItem="ebK-Ce-eKx" secondAttribute="leading" id="kFr-5k-KFH"/>
+                            <constraint firstItem="Qyk-4p-c8H" firstAttribute="top" secondItem="ebK-Ce-eKx" secondAttribute="top" id="rDd-Vy-Udq"/>
+                            <constraint firstItem="Qyk-4p-c8H" firstAttribute="bottom" secondItem="ebK-Ce-eKx" secondAttribute="bottom" id="ulh-6p-chv"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="R66-Vz-Nf5"/>
+                    <navigationItem key="navigationItem" id="R66-Vz-Nf5">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="cM9-6T-d7s">
+                            <connections>
+                                <action selector="mainMenu:" destination="fh9-Nn-w3k" id="luc-94-vyx"/>
+                            </connections>
+                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="magnifyingglass" catalog="system" id="Ov3-7j-u8q">
+                                <connections>
+                                    <action selector="magnifiyingGlass:" destination="fh9-Nn-w3k" id="iwr-hf-UGk"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="doc.fill.badge.plus" catalog="system" id="MQt-1H-aJB"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="activityIndicator" destination="3wD-Kb-k7x" id="C4c-oo-PuB"/>
+                        <outlet property="mapView" destination="Qyk-4p-c8H" id="etd-S2-DJe"/>
+                        <outlet property="stepperMAp" destination="gxd-uZ-SCB" id="Up5-9R-3Fe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wH4-x9-ea4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="302" y="-357"/>
+            <point key="canvasLocation" x="301.875" y="-357.04225352112678"/>
         </scene>
         <!--Carte-->
         <scene sceneID="4m0-CF-oSl">
@@ -91,9 +130,9 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="cka-VJ-tsg" kind="relationship" relationship="viewControllers" id="TWE-i6-Dbq"/>
                         <segue destination="SUK-mF-7dS" kind="relationship" relationship="viewControllers" id="NZF-QA-Gic"/>
                         <segue destination="Zkq-rv-Air" kind="relationship" relationship="viewControllers" id="muK-wG-Kgg"/>
-                        <segue destination="cka-VJ-tsg" kind="relationship" relationship="viewControllers" id="TWE-i6-Dbq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGa-LK-RJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -104,7 +143,7 @@
         <scene sceneID="cs7-xB-QLg">
             <objects>
                 <navigationController id="SUK-mF-7dS" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Liste" image="tab_list_icon" id="KHW-6Q-OYr"/>
+                    <tabBarItem key="tabBarItem" title="Liste" image="line.horizontal.3" catalog="system" id="KHW-6Q-OYr"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="PFT-hY-cRr">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -148,7 +187,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="tab_list_icon" width="49" height="49"/>
+        <image name="doc.fill.badge.plus" catalog="system" width="122" height="128"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

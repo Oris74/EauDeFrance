@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Datum
-struct Piezometry: Codable {
+struct PiezometryHubeau: Codable {
     let codeBss: String?
     let urnBss: String?
     let dateDebutMesure, dateFinMesure, codeCommuneInsee, nomCommune: String?
@@ -24,6 +24,7 @@ struct Piezometry: Codable {
     let nomsMasseEauEdl: [String]?
     let urnsMasseEauEdl: [String]?
     let dateMaj: String?
+    
     enum CodingKeys: String, CodingKey {
         case codeBss = "code_bss"
         case urnBss = "urn_bss"

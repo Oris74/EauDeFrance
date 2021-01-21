@@ -10,16 +10,17 @@ import Foundation
 class Utilities {
     enum ManageError: String, Error {
         case apiKeyError = "Clef API non recupéré"
-        case apiRestriction = "Requete API limitée à 5 par minute"
-        case emptyText = "veuillez saisir un ou plusieurs ingredients séparés par une virgule"
+        case emptyText = "veuillez saisir code postal, une  ville, un code departement ou un departement "
         case decodableIssue = "Recette non récupérable"
         case httpResponseError = "Réponse incorrect du serveur"
+        case urlError = "URL Api non conforme"
         case incorrectDataStruct = "la structure n'est pas conforme aux données API"
         case keyboardError = "veuillez saisir des valeurs numériques"
-        case noRecipeFound = "aucune recette n'a été trouvée"
-        case noFavoriteFound = "aucun favoris n'est enregistré"
+        case noStationFound = "aucune recette n'a été trouvée"
+        case noDocumentFound = "aucun favoris n'est enregistré"
         case networkError = "Problème d'acces au site"
         case undefinedError = "erreur non definie"
+        case missingCoordinate = "coordonnee Manquante"
     }
 
     ///getting API keys from the ApiKeys.plist file located in 'Supporting Files' folder

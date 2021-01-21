@@ -14,4 +14,12 @@ struct ApiHubeauHeader<T: Codable>: Codable {
     let prev, next: String?
     let apiVersion: String
     let data: [T]?
+
+    enum CodingKeys: String, CodingKey {
+        case count
+        case first, last
+        case prev, next
+        case apiVersion = "api_version"
+        case data
+    }
 }

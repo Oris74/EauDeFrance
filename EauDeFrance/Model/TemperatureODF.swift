@@ -15,7 +15,7 @@ struct TemperatureODF: Decodable {
     let uriCoursEau: String?
     //let codeParametre: String?
     let libelleParametre: String?
-        let dateMesureTemp: String?
+    let dateMesureTemp: String?
     let heureMesureTemp: String?
     let resultat: Double?
     let codeUnite: String?

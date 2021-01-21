@@ -6,29 +6,33 @@
 //
 
 import Foundation
-
-
-class TemperatureService: NetworkServices {
+/*
+class TemperatureService {
 
     static let shared = TemperatureService()
 
-    private var task: URLSessionDataTask?
+    private let apiService: APIProtocol
+    private var temperatureODF = [TemperatureODF]()
+    private let temperatureURL: URL
 
-    private var session = URLSession(configuration: .default)
+    private init() {
+        self.apiService = APIService.shared
+        self.temperatureURL = URL(string:
+                            "https://hubeau.eaufrance.fr/api/v1/temperature/chronique?code_station=04051125&size=5&sort=desc&pretty?")!
+}
 
-    init(temperatureSession: URLSession = URLSession(configuration: .default)) {
-        self.session = temperatureSession
-        super.init()
-    }
-
+init(apiService: APIProtocol, station: String) {
+    self.apiService =  apiService
+    self.temperatureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/chronique?")!
+}
     private  let temperatureUrl =
         URL(string:
             "https://hubeau.eaufrance.fr/api/v1/temperature")!
 
     ///entry point for data importation  of exchange rate conversion module
-    func getTemperature(callback: @escaping (Utilities.ManageError?, Temperature?) -> Void) {
+    func getTemperatures(stationID: String, callback: @escaping ( [TemperatureODF]?, Utilities.ManageError?) -> Void) {
 
-        let queryItems = buildQueryItems(key: keyGoogleTranslate, text: text, source: source, target: target)
+        let queryItems = buildQueryItems(stationID: stationID)
 
         let request = createRequest(url: temperatureUrl, queryItems: queryItems)
 
@@ -41,19 +45,18 @@ class TemperatureService: NetworkServices {
                     TemperatureHubeau?.self,
                     data, response, error,
                     completionHandler: {(temperature, errorCode) in
-                    callback(errorCode, temperature)
+                    callback(temperature, errorCode)
                 })
             }
         }
         task?.resume()
     }
     
-    private func buildQueryItems(key: String, text: String, source: String, target: String) -> [URLQueryItem] {
+    private func buildQueryItems(stationID: String) -> [URLQueryItem] {
         return [
-            URLQueryItem(name: "key", value: key),
-            URLQueryItem(name: "q", value: text),
-            URLQueryItem(name: "source", value: source),
-            URLQueryItem(name: "target", value: target)
+            URLQueryItem(name: "code_station", value: stationID)
+
         ]
     }
 }
+*/
