@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/Charts/Charts.framework
+${BUILT_PRODUCTS_DIR}/ENSwiftSideMenu/ENSwiftSideMenu.framework
