@@ -35,16 +35,17 @@ extension VCUtilities {
         presentAlert(message: error.rawValue)
     }
     
-   
-
     func serviceStackView(service: Service) -> UIStackView {
         let serviceLabel = UILabel()
+
         serviceLabel.textAlignment = .left
-        serviceLabel.text = service.rawValue
-        let logoService = UIImage(named: String(describing: service))?.resize(height: 30)
+        serviceLabel.text = service.rawValue.uppercased()
+        serviceLabel.adjustsFontSizeToFitWidth = true
+        let logoService = service.logo().resize(height: 30)
         let logoServiceView = UIImageView(image: logoService)
-        let stackView = UIStackView(arrangedSubviews: [serviceLabel, logoServiceView])
-        stackView.setCustomSpacing(20, after: serviceLabel)
+
+        let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
+        stackView.setCustomSpacing(10, after: logoServiceView)
         stackView.axis = .horizontal
         return stackView
     }

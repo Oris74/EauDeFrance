@@ -51,8 +51,7 @@ extension MapViewController: MKMapViewDelegate {
             view.calloutOffset = CGPoint(x: 0, y: 60)
         }
 
-        view.image = UIImage(named: "hydrometrie")?.resize(height: 40)
-        //service.logo().resize(height: 40)
+        view.image = stationService.service.logo().resize(height: 40)
         return view
     }
 
@@ -70,7 +69,7 @@ extension MapViewController: MKMapViewDelegate {
 
             let callOutView = views?[0] as! CustomCallOutView
 
-            callOutView.logoService.image = UIImage(named: "hydrologie")?.resize(height: 45) //service.logo().resize(height: 45)
+            callOutView.logoService.image =  stationService.service.logo().resize(height: 45)
             callOutView.stationName.text = stationODF.stationID
             callOutView.stationLabel.text = stationODF.stationLabel
             callOutView.streamLabel.text = stationODF.streamLabel

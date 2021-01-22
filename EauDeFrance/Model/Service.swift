@@ -11,10 +11,10 @@ import UIKit
 enum Service:String {
     case hydrometrie = "Hydrométrie"
     case temperature = "Température"
-    case qualite_rivieres = "Qualité Cours D'eau"
-    case niveau_nappes = "Piézomérie"
+    case qualite_rivieres = "Qualité cours d'eau"
+    case niveau_nappes = "Piézometrie"
 
-    /*func logo() -> UIImage {
+    func logo() -> UIImage {
         return UIImage(named: "\(self)")!
-    }*/
+    }
 }

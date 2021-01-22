@@ -12,7 +12,7 @@
         <!--Map-->
         <scene sceneID="f7f-iv-gtC">
             <objects>
-                <viewController id="fh9-Nn-w3k" userLabel="Map" customClass="MapViewController" customModule="EauDeFrance" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="mapViewID" id="fh9-Nn-w3k" userLabel="Map" customClass="MapViewController" customModule="EauDeFrance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vx6-dr-W1b">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -70,10 +70,25 @@
             </objects>
             <point key="canvasLocation" x="301.875" y="-357.04225352112678"/>
         </scene>
+        <!--NoteViewController-->
+        <scene sceneID="PST-Fn-zF3">
+            <objects>
+                <viewController id="8dA-co-SLu" userLabel="NoteViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Ho-te-Kk2">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="a54-Id-GCY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ipj-yM-mXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1097" y="36"/>
+        </scene>
         <!--Carte-->
         <scene sceneID="4m0-CF-oSl">
             <objects>
-                <navigationController id="cka-VJ-tsg" sceneMemberID="viewController">
+                <navigationController id="cka-VJ-tsg" customClass="SideMenuNavigationController" customModule="EauDeFrance" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Carte" id="wih-uf-eSz"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="59e-LB-kvs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -159,7 +174,7 @@
         <!--Table View Controller-->
         <scene sceneID="74W-kj-aRB">
             <objects>
-                <tableViewController id="aO7-Jm-p9h" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="listViewID" id="aO7-Jm-p9h" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="zMm-SO-Dh1">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

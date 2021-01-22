@@ -44,6 +44,10 @@
 		D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1025A72A4F0049832B /* PiezometrieStation.json */; };
 		D924FD1F25A747420049832B /* TemperatureValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1E25A747420049832B /* TemperatureValue.json */; };
 		D924FD2425A7478C0049832B /* TemperatureValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FD2325A7478C0049832B /* TemperatureValue.swift */; };
+		D93E70D125B9D04E00C7E7E3 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E70D025B9D04E00C7E7E3 /* SideMenuNavigationController.swift */; };
+		D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E70E325B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift */; };
+		D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E70EB25B9E96C00C7E7E3 /* SideMenuTableViewController.swift */; };
+		D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E710225B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift */; };
 		D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */; };
 		D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */; };
 		D9996D3F25B4807E00D1EE2A /* StationODF+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3E25B4807E00D1EE2A /* StationODF+MKAnnotation.swift */; };
@@ -120,6 +124,10 @@
 		D924FD1025A72A4F0049832B /* PiezometrieStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PiezometrieStation.json; sourceTree = "<group>"; };
 		D924FD1E25A747420049832B /* TemperatureValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TemperatureValue.json; sourceTree = "<group>"; };
 		D924FD2325A7478C0049832B /* TemperatureValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureValue.swift; sourceTree = "<group>"; };
+		D93E70D025B9D04E00C7E7E3 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
+		D93E70E325B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideMenuNavigationController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
+		D93E70EB25B9E96C00C7E7E3 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
+		D93E710225B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
 		D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerLocation+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUtilities.swift; sourceTree = "<group>"; };
 		D9996D3E25B4807E00D1EE2A /* StationODF+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationODF+MKAnnotation.swift"; path = "../Controller/StationODF+MKAnnotation.swift"; sourceTree = "<group>"; };
@@ -314,6 +322,7 @@
 		D924FCA525A4D8C80049832B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				D93E70CF25B9CFF000C7E7E3 /* SideMenu */,
 				D9996D5925B5C49B00D1EE2A /* MapView */,
 				D9996D3225B47C0E00D1EE2A /* ViewControllerUtilities */,
 			);
@@ -423,6 +432,16 @@
 			name = Temperature;
 			sourceTree = "<group>";
 		};
+		D93E70CF25B9CFF000C7E7E3 /* SideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				D93E70D025B9D04E00C7E7E3 /* SideMenuNavigationController.swift */,
+				D93E70E325B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift */,
+				D93E70EB25B9E96C00C7E7E3 /* SideMenuTableViewController.swift */,
+			);
+			name = SideMenu;
+			sourceTree = "<group>";
+		};
 		D9996D3225B47C0E00D1EE2A /* ViewControllerUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -440,6 +459,7 @@
 				D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */,
 				D9996D5A25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift */,
 				D9996D6B25B628A900D1EE2A /* StationAnnotationView.swift */,
+				D93E710225B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift */,
 			);
 			name = MapView;
 			sourceTree = "<group>";
@@ -704,6 +724,7 @@
 			files = (
 				D9996D3F25B4807E00D1EE2A /* StationODF+MKAnnotation.swift in Sources */,
 				D910743025AF55FF0099B34B /* NetworkServices.swift in Sources */,
+				D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */,
 				D910747525B19E590099B34B /* APIProtocol.swift in Sources */,
 				D924FC6F25A4D7E10049832B /* MapViewController.swift in Sources */,
 				D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */,
@@ -711,6 +732,8 @@
 				D924FCE325A71AA10049832B /* CRSHubeau.swift in Sources */,
 				D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */,
 				D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */,
+				D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */,
+				D93E70D125B9D04E00C7E7E3 /* SideMenuNavigationController.swift in Sources */,
 				D924FC6D25A4D7E10049832B /* SceneDelegate.swift in Sources */,
 				D924FCF625A71C610049832B /* ApiHubeauHeader.swift in Sources */,
 				D910743525AF56850099B34B /* Utilities.swift in Sources */,
@@ -725,6 +748,7 @@
 				D9996D6C25B628A900D1EE2A /* StationAnnotationView.swift in Sources */,
 				D924FCC025A70A710049832B /* Hydrobiology.swift in Sources */,
 				D924FCDE25A71A320049832B /* GeometryHubeau.swift in Sources */,
+				D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */,
 				D9996D5525B5C0D000D1EE2A /* Service.swift in Sources */,
 				D924FD2425A7478C0049832B /* TemperatureValue.swift in Sources */,
 				D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */,
