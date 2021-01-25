@@ -31,7 +31,7 @@ struct StreamQuality: Codable {
     let dateMajInformation: String?
     let finalite: String?
     let localisationPrecise, nature: String?
-    let altitudePointCaracteristique: Int?
+    let altitudePointCaracteristique: String?
     let pointKilometrique, premierMoisAnneeEtiage, superficieBassinVersantReel, superficieBassinVersantTopo: String?
     let geometry: GeometryHubeau?
 

@@ -56,8 +56,8 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
                 cell!.imageView?.image = Service.hydrometrie.logo().resize(height: 30)
                 cell!.textLabel?.text = Service.hydrometrie.rawValue
             case 2:
-                cell!.imageView?.image = Service.niveau_nappes.logo().resize(height: 30)
-                cell!.textLabel?.text = Service.niveau_nappes.rawValue
+                cell!.imageView?.image = Service.niveaux_nappes.logo().resize(height: 30)
+                cell!.textLabel?.text = Service.niveaux_nappes.rawValue
             default:
                 cell!.imageView?.image = Service.qualite_rivieres.logo().resize(height: 30)
                 cell!.textLabel?.text = Service.qualite_rivieres.rawValue
@@ -95,7 +95,7 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
             stationService.service = .hydrometrie
             break
         case 2:
-            stationService.service = .niveau_nappes
+            stationService.service = .niveaux_nappes
             break
         default:
             stationService.service = .qualite_rivieres

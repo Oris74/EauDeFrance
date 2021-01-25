@@ -51,7 +51,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="glD-7r-Nnz" userLabel="body">
+                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="745" axis="vertical" distribution="fillProportionally" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="glD-7r-Nnz" userLabel="body">
                     <rect key="frame" x="10" y="47" width="180" height="153"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="stationLabel" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0h-Im-A9t">
@@ -72,7 +72,7 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="county" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plS-Sy-EwV">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" text="county" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="plS-Sy-EwV" userLabel="County Label">
                             <rect key="frame" x="72" y="65" width="36" height="15.5"/>
                             <fontDescription key="fontDescription" type="system" pointSize="11"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -84,13 +84,13 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-pD-Wko" userLabel="BPDataStation">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4fb-pD-Wko" userLabel="BPDataStation" customClass="CustomButton" customModule="EauDeFrance" customModuleProvider="target">
                             <rect key="frame" x="67.5" y="108" width="45" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="ayH-2b-N7J"/>
                                 <constraint firstAttribute="width" constant="45" id="sCx-0q-rFo"/>
                             </constraints>
-                            <state key="normal" backgroundImage="charts-1"/>
+                            <state key="normal" image="charts"/>
                         </button>
                     </subviews>
                 </stackView>
@@ -111,8 +111,8 @@
             <nil key="simulatedBottomBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="bpDataStation" destination="4fb-pD-Wko" id="74N-xA-g9F"/>
-                <outlet property="county" destination="plS-Sy-EwV" id="ksg-QD-7wF"/>
+                <outlet property="bpDataStation" destination="4fb-pD-Wko" id="EJC-Au-b19"/>
+                <outlet property="countyLabel" destination="plS-Sy-EwV" id="MZw-DA-3ls"/>
                 <outlet property="logoService" destination="nyh-55-RGq" id="yue-lh-pCn"/>
                 <outlet property="stationLabel" destination="T0h-Im-A9t" id="Bgv-P0-64k"/>
                 <outlet property="stationName" destination="Ihx-v8-xRd" id="JHS-RB-rA2"/>
@@ -122,8 +122,8 @@
         </view>
     </objects>
     <resources>
-        <image name="charts-1" width="35" height="35"/>
-        <image name="qualite_rivieres" width="78.601997375488281" height="105.29199981689453"/>
+        <image name="charts" width="35" height="35"/>
+        <image name="qualite_rivieres" width="79" height="106"/>
         <systemColor name="separatorColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -21,7 +21,7 @@ class MapViewController: UIViewController, VCUtilities {
     private var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
     private var distanceSpan: CLLocationDistance = 1500
 
-   /* lazy var serviceStackView: UIStackView = {
+    lazy var serviceStackView: UIStackView = {
         let serviceLabel = UILabel()
         serviceLabel.textAlignment = .left
         serviceLabel.text = stationService.service.rawValue.uppercased()
@@ -33,7 +33,7 @@ class MapViewController: UIViewController, VCUtilities {
         stackView.setCustomSpacing(10, after: logoServiceView)
         stackView.axis = .horizontal
         return stackView
-    }()*/
+    }()
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -74,7 +74,8 @@ class MapViewController: UIViewController, VCUtilities {
             manageErrors(errorCode: .missingCoordinate)
         }
 
-        navigationItem.titleView = serviceStackView(service: stationService.service)
+        navigationItem.titleView = serviceStackView
+        refreshMap()
     }
 
     override func didReceiveMemoryWarning() {

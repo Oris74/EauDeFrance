@@ -68,14 +68,15 @@ extension MapViewController: MKMapViewDelegate {
             let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
 
             let callOutView = views?[0] as! CustomCallOutView
-
-            callOutView.logoService.image =  stationService.service.logo().resize(height: 45)
+           // let callOutView = CustomCallView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), station: stationODF)
+            let logoImageView = UIImageView(image: stationService.service.logo().resize(height: 45))
+            callOutView.logoService = logoImageView
             callOutView.stationName.text = stationODF.stationID
             callOutView.stationLabel.text = stationODF.stationLabel
             callOutView.streamLabel.text = stationODF.streamLabel
-            callOutView.county.text = (stationODF.countyID ?? "") + " " +  (stationODF.countyLabel ?? "")
-
-            callOutView.bpDataStation.addTarget(self, action: #selector(MapViewController.displayStationData(sender: )), for: .touchUpInside)
+            callOutView.countyLabel.text = (stationODF.countyID ?? "") + " " +  (stationODF.countyLabel ?? "")
+            callOutView.bpDataStation.setStation(station: stationODF)
+            callOutView.bpDataStation.addTarget(self, action: #selector (MapViewController.displayStationData(sender:)), for: .touchUpInside)
 
             callOutView.center = CGPoint(x: view.bounds.size.width / 2, y: -callOutView.bounds.size.height*0.52)
             view.addSubview(callOutView)
@@ -95,10 +96,10 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
 
-    @objc func displayStationData(sender: UIButton)
+    @objc func displayStationData(sender: CustomButton)
     {
-        let customCallOutVC = sender.superview as! CustomCallOutView
-        print("VueControlerStationdata")
+       guard let station = sender.getStation() else { return }
+       presentStation(with: station)
     }
 
     func displayStations() {
@@ -106,4 +107,20 @@ extension MapViewController: MKMapViewDelegate {
             self.mapView.addAnnotation(station)
         }
     }
+
+    private func getStationVC() -> UIViewController? {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        guard let stationVC = storyboard.instantiateViewController(withIdentifier: "StationViewController") as? StationViewController
+        else { return nil }
+        return stationVC
+    }
+
+    func presentStation(with station: StationODF) {
+        guard let stationVC = getStationVC() as? StationViewController else { return }
+
+        stationVC.station = station
+        self.navigationController?.pushViewController(stationVC, animated: true)
+    }
 }
+
+

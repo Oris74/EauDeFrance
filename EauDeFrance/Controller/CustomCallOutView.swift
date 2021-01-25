@@ -13,6 +13,8 @@ class CustomCallOutView: UIView {
     @IBOutlet weak var stationName: UILabel!
     @IBOutlet weak var stationLabel: UILabel!
     @IBOutlet weak var streamLabel: UILabel!
-    @IBOutlet weak var county: UILabel!
-    @IBOutlet weak var bpDataStation: UIButton!
+
+    @IBOutlet weak var countyLabel: UILabel!
+    
+    @IBOutlet weak var bpDataStation: CustomButton!
 }

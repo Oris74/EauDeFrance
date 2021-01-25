@@ -19,7 +19,7 @@ struct PiezometryHubeau: Codable {
     let bssId, altitudeStation: String?
     let nbMesuresPiezo: Int?
     let codeDepartement, nomDepartement, libellePe: String?
-    let profondeurInvestigation: Int?
+    let profondeurInvestigation: Double?
     let codesMasseEauEdl: [String]?
     let nomsMasseEauEdl: [String]?
     let urnsMasseEauEdl: [String]?

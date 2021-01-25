@@ -6,6 +6,9 @@
 //
 
 import Foundation
+protocol MyProtocol {}
+
+
 class StationService {
 
     static let shared = StationService()
@@ -23,7 +26,7 @@ class StationService {
             return URL(string: "https://hubeau.eaufrance.fr/api/v1/\(String(describing:service))/station?")!
         case "qualite_rivieres":
             return URL(string: "https://hubeau.eaufrance.fr/api/v1/\(String(describing:service))/station_pc??")!
-        case "niveau_nappes":
+        case "niveaux_nappes":
             return URL(string: "https://hubeau.eaufrance.fr/api/v1/\(String(describing:service))/stations?")!
         case "hydrometrie": return URL(string: "https://hubeau.eaufrance.fr/api/v1/\(String(describing:service))/referentiel/stations?")!
         default:
@@ -41,13 +44,13 @@ class StationService {
         self.service = service
     }
 
-    internal func getStations(codeDept: String?, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
+    internal func getStations( codeDept: String?, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
 
         let parameters = ["code_departement": codeDept]
         self.stations = []
 
         apiService.getAPIData(
-            stationURL, parameters, ApiHubeauHeader<HydrometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+            stationURL, parameters, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                     return callback(nil, error)
                 }
@@ -67,7 +70,7 @@ class StationService {
         switch resultAPI {
         case let depackedStation as TemperatureHubeau:
             stationODF = StationODF.init(
-                service: String(describing:service),
+                service: Service.temperature,
                 stationID: depackedStation.codeStation,
                 stationLabel: depackedStation.libelleStation,
                 uriStation: depackedStation.uriStation,
@@ -95,7 +98,7 @@ class StationService {
             )
         case let depackedStation as HydrometryHubeau:
             stationODF = StationODF.init(
-                service: String(describing:service),
+                service: Service.hydrometrie,
                 stationID: depackedStation.codeStation,
                 stationLabel: depackedStation.libelleStation,
                // uriStation: depackedStation.uriStation,
@@ -118,41 +121,41 @@ class StationService {
                // bodyOfWaterLabel: depackedStation.libelleMasseEau,
                // uriBodyOfWater: depackedStation.uriMasseEau,
                 //pointKm: depackedStation.pointKm,
-               // altitude: depackedStation.altitudeRefAltiStation,
+                altitude: depackedStation.altitudeRefAltiStation,
                 dateOfUpdtInfos: depackedStation.dateMajStation
             )
-      /*  case let depackedStation as PiezometryHubeau:
+        case let depackedStation as PiezometryHubeau:
             stationODF = StationODF.init(
-                service: String(describing:service),
-                stationID: depackedStation.codeStation,
-                stationLabel: depackedStation.libelleStation,
-                uriStation: depackedStation.uriStation,
-                localization: depackedStation.localisation,
-                coordinateX: depackedStation.coordonneeX,
-                coordinateY: depackedStation.coordonneeY,
-                longitude: depackedStation.longitude,
-                latitude: depackedStation.latitude,
-                townshipID: depackedStation.codeCommune,
-                townshipLabel: depackedStation.libelleCommune,
+                service: Service.niveaux_nappes,
+                stationID: depackedStation.codeBss,
+                stationLabel: depackedStation.libellePe,
+                uriStation: depackedStation.bssId,
+                localization: nil,
+                coordinateX: nil,
+                coordinateY: nil,
+                longitude: depackedStation.coordX,
+                latitude: depackedStation.coordY,
+                townshipID: depackedStation.codeCommuneInsee,
+                townshipLabel: depackedStation.nomCommune,
                 countyID: depackedStation.codeDepartement,
-                countyLabel: depackedStation.libelleDepartement,
-                regionID: depackedStation.codeRegion,
-                regionLabel: depackedStation.libelleRegion,
-                hydroSectionID: depackedStation.codeTronconHydro,
-                streamID: depackedStation.codeCoursEau,
-                streamLabel: depackedStation.libelleCoursEau,
-                uriStream: depackedStation.uriCoursEau,
-                bodyOfWaterID: depackedStation.codeMasseEau,
-                bodyOfWaterLabel: depackedStation.libelleMasseEau,
-                uriBodyOfWater: depackedStation.uriMasseEau,
-                pointKm: depackedStation.pointKm,
-                altitude: depackedStation.altitude,
-                dateOfUpdtInfos: depackedStation.dateMajInfos)
-*/
+                countyLabel: depackedStation.nomDepartement,
+                regionID: nil,
+                regionLabel: nil,
+                hydroSectionID: nil,
+                streamID: nil,
+                streamLabel: nil,
+                uriStream: nil,
+                uriBodyOfWater: depackedStation.urnsMasseEauEdl,
+                bodyOfWaterLabel: depackedStation.nomsMasseEauEdl,
+                bodyOfWaterID: depackedStation.codesMasseEauEdl,
+                pointKm: nil,
+                altitude: depackedStation.altitudeStation,
+                dateOfUpdtInfos: depackedStation.dateDebutMesure)
 
-      /*  case let depackedStation as StreamQualiy:
+
+        /*case let depackedStation as StreamQuality:
             stationODF = StationODF.init(
-                service: String(describing:service),
+                service: Service.qualite_rivieres,
                 stationID: depackedStation.codeStation,
                 stationLabel: depackedStation.libelleStation,
                 uriStation: depackedStation.uriStation,
@@ -170,7 +173,7 @@ class StationService {
                 hydroSectionID: depackedStation.codeTronconHydro,
                 streamID: depackedStation.codeCoursEau,
                 streamLabel: depackedStation.libelleCoursEau,
-                uriStream: depackedStation.uriCoursEau,
+                uriStream: depackedStation.uriCoursEau
                 bodyOfWaterID: depackedStation.codeMasseEau,
                 bodyOfWaterLabel: depackedStation.libelleMasseEau,
                 uriBodyOfWater: depackedStation.uriMasseEau,
