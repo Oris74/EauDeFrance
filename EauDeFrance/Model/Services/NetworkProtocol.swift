@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol APIProtocol {
+protocol NetworkProtocol {
     func getAPIData<T: Decodable>(
           _ endpointApi: URL?,
           _ parameters: [String:String?],

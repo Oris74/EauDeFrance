@@ -9,17 +9,16 @@ import UIKit
 import MapKit
 import ENSwiftSideMenu
 
-class MapViewController: UIViewController, VCUtilities {
-
-    internal var stationService: StationService
-
-    internal var locationManager = CLLocationManager()
-    internal var stepperIndex: Int = 0
-    internal var stations = [StationODF]()
-    //internal var service: Service
+class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
     
+    internal var stationService: StationService
+    private var listVCDelegate: ListStationViewController?
+    var stations: [StationODF]?
+    internal var locationManager = CLLocationManager()
     private var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
     private var distanceSpan: CLLocationDistance = 1500
+
+    internal var stepperIndex: Int = 0
 
     lazy var serviceStackView: UIStackView = {
         let serviceLabel = UILabel()
@@ -73,9 +72,9 @@ class MapViewController: UIViewController, VCUtilities {
         } else {
             manageErrors(errorCode: .missingCoordinate)
         }
-
         navigationItem.titleView = serviceStackView
-        refreshMap()
+
+        self.tabBarController?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
@@ -83,14 +82,15 @@ class MapViewController: UIViewController, VCUtilities {
         // Dispose of any resources that can be recreated.
     }
 
-
     override func viewDidAppear(_ animated: Bool) {
         activityIndicator.isHidden = false
+        refreshMap()
 
         mapView.showsUserLocation = true
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
 
-       activityIndicator.isHidden = true
+        activityIndicator.isHidden = true
+        
     }
 
     func refreshMap() {
@@ -99,8 +99,15 @@ class MapViewController: UIViewController, VCUtilities {
                 self?.manageErrors(errorCode: error)
                 return }
             self?.stations = depackedStations
-            self?.displayStations()
-        })
-    }
-}
+            self?.displayStation(stations: depackedStations)
 
+        })
+
+    }
+    func displayStation( stations: [StationODF]) {
+        for station in stations {
+            self.mapView.addAnnotation(station)
+        }
+    }
+
+}

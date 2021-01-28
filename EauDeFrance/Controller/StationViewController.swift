@@ -7,6 +7,7 @@
 
 import UIKit
 import Charts
+import MapKit
 
 class StationViewController: UIViewController, VCUtilities {
     weak var delegate: PassDataToVC?
@@ -19,7 +20,8 @@ class StationViewController: UIViewController, VCUtilities {
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-
+    @IBOutlet weak var mapView: MKMapView!
+    
     @IBOutlet weak var stationName: UILabel!
 
     @IBOutlet weak var subTitle: UILabel!

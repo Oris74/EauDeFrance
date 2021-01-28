@@ -7,9 +7,8 @@
 
 import UIKit
 
-extension  ListStationViewController  {
+extension  ListStationViewController: PassDataToVC {
     func didButtonPressed(cell: ListStationTableViewCell) {
-
         if let indexPath = self.tableview.indexPath(for: cell) {
 
         }
@@ -19,14 +18,9 @@ extension  ListStationViewController  {
     }
 
     func sendToVC(updatedStation: StationODF) {
-//        for (index, station) in stations.enumerated()
-//        where updatedStation.id == station.id {
-//
-//            DispatchQueue.main.async {
-//                self.tableview.reloadData()
-//            }
-//        }
+
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
     }
-
-
 }

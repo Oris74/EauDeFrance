@@ -8,8 +8,8 @@
 
 import Foundation
 
-class APIService: APIProtocol {
-    static let shared = APIService()
+class NetworkService: NetworkProtocol {
+    static let shared = NetworkService()
 
     private var task: URLSessionDataTask?
 
@@ -48,7 +48,6 @@ class APIService: APIProtocol {
         completionResponse: @escaping (T?, Utilities.ManageError?) -> Void) {
         checkURLResponse(data, response, error, completionURLResponse: {[weak self] errorCode in
 
-            print("URL Response-> error: \(String(describing: errorCode))")
             if errorCode == nil {
                 self?.decodeJSON(type: type.self,
                                  data: data,
@@ -56,6 +55,9 @@ class APIService: APIProtocol {
                                     completionResponse(type, errorCode)
                                  })
             } else {
+                #if DEBUG
+                print("URL Response-> error: \(String(describing: errorCode))")
+                #endif
                 completionResponse(nil, errorCode)
             }
         })
@@ -66,7 +68,7 @@ class APIService: APIProtocol {
         type: T?.Type,
         data: Data?,
         completionJSON: @escaping (T?, Utilities.ManageError?) -> Void) {
-
+        #if DEBUG
         if let data = data {
             do {
                 let decodedData =  try JSONDecoder().decode(type.self, from: data)
@@ -86,6 +88,16 @@ class APIService: APIProtocol {
                 print("error: ", error)
             }
         }
+        #else
+        if let data = data {
+            do {
+                let decodedData =  try JSONDecoder().decode(type.self, from: data)
+                return completionJSON(decodedData, nil)
+            } catch {
+                return completionJSON(nil, Utilities.ManageError.decodableIssue)
+            }
+        }
+        #endif
         return completionJSON(nil, Utilities.ManageError.incorrectDataStruct)
     }
     ///build request for API
@@ -124,21 +136,23 @@ class APIService: APIProtocol {
                 guard let responseData = data else {
                     throw Utilities.ManageError.httpResponseError
                 }
-           /* guard let responseData = data, error == nil else {
-                completionHandler(nil, Utilities.ManageError.httpResponseError)
-                return
-            }*/
-            print("data task-> data:\(responseData), response \(String(describing: response)), error: \(String(describing: error))")
-            DispatchQueue.main.async {
-                self?.manageResponse(
-                    apiStruct.self,
-                    responseData, response, error,
-                    completionResponse: {(apidata, errorCode) in
-                        completionHandler(apidata, errorCode)
-                    })
+
+                #if debug
+                print("data task-> data:\(responseData), response \(String(describing: response)), error: \(String(describing: error))")
+                #endif
+                DispatchQueue.main.async {
+                    self?.manageResponse(
+                        apiStruct.self,
+                        responseData, response, error,
+                        completionResponse: {(apidata, errorCode) in
+                            completionHandler(apidata, errorCode)
+                        })
                 }
             }catch let blockError {
+                completionHandler(nil, Utilities.ManageError.httpResponseError)
+                #if DEBUG
                 print("\n errorout:\(blockError)")
+                #endif
             }
         })
         task?.resume()

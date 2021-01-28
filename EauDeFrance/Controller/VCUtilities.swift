@@ -34,7 +34,7 @@ extension VCUtilities {
         //popup display
         presentAlert(message: error.rawValue)
     }
-    
+
 //    func serviceStackView(service: Service) -> UIStackView {
 //        let serviceLabel = UILabel()
 //

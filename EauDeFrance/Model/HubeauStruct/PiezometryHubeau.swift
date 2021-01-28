@@ -8,7 +8,8 @@
 import Foundation
 
 // MARK: - Datum
-struct PiezometryHubeau: Codable {
+struct PiezometryHubeau:  Codable {
+
     let codeBss: String?
     let urnBss: String?
     let dateDebutMesure, dateFinMesure, codeCommuneInsee, nomCommune: String?

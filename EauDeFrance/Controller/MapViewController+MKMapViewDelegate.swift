@@ -68,7 +68,6 @@ extension MapViewController: MKMapViewDelegate {
             let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
 
             let callOutView = views?[0] as! CustomCallOutView
-           // let callOutView = CustomCallView(frame: CGRect(x: 0, y: 0, width: 200, height: 200), station: stationODF)
             let logoImageView = UIImageView(image: stationService.service.logo().resize(height: 45))
             callOutView.logoService = logoImageView
             callOutView.stationName.text = stationODF.stationID
@@ -102,8 +101,8 @@ extension MapViewController: MKMapViewDelegate {
        presentStation(with: station)
     }
 
-    func displayStations() {
-        for station in self.stations {
+    func displayStations(stations: [StationODF]) {
+        for station in stations {
             self.mapView.addAnnotation(station)
         }
     }
@@ -115,6 +114,7 @@ extension MapViewController: MKMapViewDelegate {
         return stationVC
     }
 
+   
     func presentStation(with station: StationODF) {
         guard let stationVC = getStationVC() as? StationViewController else { return }
 

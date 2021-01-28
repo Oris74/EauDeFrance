@@ -7,7 +7,7 @@
 
 import Foundation
 // MARK: - Datum
-struct HydrometryHubeau: Codable {
+struct HydrometryHubeau:  Codable {
     let codeSite, libelleSite: String?
     let codeStation, libelleStation: String?
     let typeStation: String?
@@ -16,7 +16,7 @@ struct HydrometryHubeau: Codable {
     let longitude, latitude: Double?
     let influenceLocaleStation: Int?
     let commentaireStation: String?
-    let altitudeRefAltiStation: String?
+    let altitudeRefAltiStation: Int?
     let codeSystemeAltiSite: Int?
     let codeCommune, libelleCommune, codeDepartement, codeRegion: String?
     let libelleRegion, codeCoursEau: String?

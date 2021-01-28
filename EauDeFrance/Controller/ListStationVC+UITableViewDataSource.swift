@@ -14,7 +14,7 @@ extension ListStationViewController: UITableViewDataSource, VCUtilities {
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let depackedStations = stations else {
+        guard let depackedStations = self.stations else {
             return 0 }
         return depackedStations.count
     }
@@ -25,16 +25,10 @@ extension ListStationViewController: UITableViewDataSource, VCUtilities {
 
         cell.cellDelegate = self
 
-        let station = self.stations![indexPath.row]
-
+        let station = self.stations[indexPath.row]
+        cell.titleStation.text = (station.townshipID ?? "")+" " + (station.townshipLabel ?? "")
+        cell.detailStation.text = (station.stationLabel ?? "")+("\nStation ID:" + (station.stationID ?? ""))
 
         return cell
     }
-}
-
-extension ListStationViewController: UITableViewDelegate {
-        private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-            self.indexSelectedRow = indexPath
-            self.performSegue(withIdentifier: "segueToDetailledStation", sender: indexPath)
-        }
 }
