@@ -10,7 +10,6 @@ class FigureService {
 
     static let shared = FigureService()
 
-    private(set) var station:StationODF?
     private var networkService: NetworkProtocol
 
     var stationService = StationService.shared
@@ -19,7 +18,7 @@ class FigureService {
         self.networkService = NetworkService.shared
     }
 
-    init(networkService: NetworkService, service: Service) {
+    init(networkService: NetworkService ) {
         self.networkService =  networkService
         //self.service = service
     }

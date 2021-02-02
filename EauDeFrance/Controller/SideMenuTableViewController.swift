@@ -50,8 +50,8 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
             cell!.textLabel?.textColor = .darkGray
             switch indexPath.row {
             case 0:
-                cell!.imageView?.image = Service.temperature.logo().resize(height: 30)
-                cell!.textLabel?.text = Service.temperature.rawValue
+                cell!.imageView?.image = UIImage(named: Temperature.serviceName)?.resize(size: 30)
+                cell!.textLabel?.text = Temperature.rawValue
             case 1:
                 cell!.imageView?.image = Service.hydrometrie.logo().resize(height: 30)
                 cell!.textLabel?.text = Service.hydrometrie.rawValue
@@ -89,16 +89,16 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            stationService.service = .temperature
+            stationService.current = Temperature()
             break
         case 1:
-            stationService.service = .hydrometrie
+            stationService.current = Hydrometrie()
             break
         case 2:
-            stationService.service = .niveaux_nappes
+            stationService.current = Piezometry()
             break
         default:
-            stationService.service = .qualite_rivieres
+            stationService.current = StreamQuality()
             break
         }
         destViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapViewID")

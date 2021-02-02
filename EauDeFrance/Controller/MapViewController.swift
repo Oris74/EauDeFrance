@@ -10,9 +10,10 @@ import MapKit
 import ENSwiftSideMenu
 
 class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
-    
-    internal var stationService: StationService
+
+    internal var stationService = StationService.shared.current
     private var listVCDelegate: ListStationViewController?
+
     var stations: [StationODF]?
     internal var locationManager = CLLocationManager()
     private var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
@@ -23,9 +24,9 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     lazy var serviceStackView: UIStackView = {
         let serviceLabel = UILabel()
         serviceLabel.textAlignment = .left
-        serviceLabel.text = stationService.service.rawValue.uppercased()
+        serviceLabel.text = stationService.serviceName.uppercased()
         serviceLabel.adjustsFontSizeToFitWidth = true
-        let logoService = stationService.service.logo().resize(height: 30)
+        let logoService = UIImage(named: stationService.serviceName)
         let logoServiceView = UIImageView(image: logoService)
 
         let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
@@ -54,7 +55,6 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     }
 
     required init?(coder: NSCoder) {
-        stationService = StationService.shared
         super.init(coder: coder)
 
     }
@@ -95,16 +95,16 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
     func refreshMap() {
         stationService.getStations(codeDept: "74", callback: {[weak self] ( stationList, error) in
-            guard let depackedStations = stationList, error == nil else {
+            guard let depackedStations = stationList as TemperatureODF, error == nil else {
                 self?.manageErrors(errorCode: error)
                 return }
             self?.stations = depackedStations
-            self?.displayStation(stations: depackedStations)
+            self?.displayStation(stations: stationList)
 
         })
 
     }
-    func displayStation( stations: [StationODF]) {
+    func displayStation( stations: [TemperatureODF]) {
         for station in stations {
             self.mapView.addAnnotation(station)
         }

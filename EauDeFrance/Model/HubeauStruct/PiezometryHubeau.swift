@@ -13,7 +13,7 @@ struct PiezometryHubeau:  Codable {
     let codeBss: String?
     let urnBss: String?
     let dateDebutMesure, dateFinMesure, codeCommuneInsee, nomCommune: String?
-    let coordX, coordY: Double?
+    let longitude, latitude: Double?
     let codesBdlisa: [String]?
     let urnsBdlisa: [String]?
     let geometry: GeometryHubeau?
@@ -33,8 +33,8 @@ struct PiezometryHubeau:  Codable {
         case dateFinMesure = "date_fin_mesure"
         case codeCommuneInsee = "code_commune_insee"
         case nomCommune = "nom_commune"
-        case coordX = "x"
-        case coordY = "y"
+        case longitude = "x"
+        case latitude = "y"
         case codesBdlisa = "codes_bdlisa"
         case urnsBdlisa = "urns_bdlisa"
         case geometry

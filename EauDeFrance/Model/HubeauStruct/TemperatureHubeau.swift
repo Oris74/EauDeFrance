@@ -19,9 +19,9 @@ struct TemperatureHubeau:  Codable {
     let codeRegion, libelleRegion, codeTronconHydro, codeCoursEau: String?
     let libelleCoursEau: String?
     let uriCoursEau: String?
-    let codeMasseEau: String?
-    let libelleMasseEau: String?
-    let uriMasseEau: String?
+    let codeMasseEau: [String]?
+    let libelleMasseEau: [String]?
+    let uriMasseEau: [String]?
     let codeSousBassin, libelleSousBassin, codeBassin, libelleBassin: String?
     let uriBassin: String?
     let pointKm: String?

@@ -42,7 +42,7 @@ class CustomCallView: UIView {
     lazy var stationID: UILabel = {
         let headerID = UILabel()
         headerID.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        headerID.text = station.stationID
+        headerID.text = station.stationCode
         headerID.textAlignment = .center
         headerID.translatesAutoresizingMaskIntoConstraints = false
         return headerID

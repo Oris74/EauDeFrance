@@ -109,16 +109,17 @@ class NetworkService: NetworkProtocol {
         return request
     }
 
+    ///get and decode api data 
     func getAPIData<T: Decodable>(
         _ endpointApi: URL?,
         _ parameters: [String:String?],
-        _ apiStruct: T?.Type,
+        _ apiStruct: T.Type,
         completionHandler : @escaping (T?, Utilities.ManageError?) -> Void) {
 
         guard let depackedEndpointApi = endpointApi else {
             return completionHandler(nil, Utilities.ManageError.urlError)
         }
-        
+
         let queryItems = parameters.map {
             URLQueryItem(name: $0.0, value: $0.1)
         }
@@ -142,7 +143,7 @@ class NetworkService: NetworkProtocol {
                 #endif
                 DispatchQueue.main.async {
                     self?.manageResponse(
-                        apiStruct.self,
+                        apiStruct as! T?.Type,
                         responseData, response, error,
                         completionResponse: {(apidata, errorCode) in
                             completionHandler(apidata, errorCode)
