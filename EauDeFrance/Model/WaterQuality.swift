@@ -8,7 +8,7 @@
 import Foundation
 
 /// MARK: - Datum
-struct StreamQualityHubeau: Codable {
+struct QualityStreamHubeau: Codable {
    
     let codeStation, libelleStation: String?
     let uriStation: String?

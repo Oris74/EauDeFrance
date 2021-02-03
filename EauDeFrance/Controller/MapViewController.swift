@@ -95,19 +95,23 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
     func refreshMap() {
         stationService.getStations(codeDept: "74", callback: {[weak self] ( stationList, error) in
-            guard let depackedStations = stationList as TemperatureODF, error == nil else {
+            guard let depackedStations = stationList, error == nil else {
                 self?.manageErrors(errorCode: error)
                 return }
             self?.stations = depackedStations
-            self?.displayStation(stations: stationList)
+            self?.displayStation(stations: depackedStations)
 
         })
 
     }
-    func displayStation( stations: [TemperatureODF]) {
+    func displayStation( stations: [StationODF]) {
         for station in stations {
             self.mapView.addAnnotation(station)
         }
     }
 
+}
+enum StationDataType {
+    case Temperature
+    case Piezometry
 }

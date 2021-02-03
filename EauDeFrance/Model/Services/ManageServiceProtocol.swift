@@ -8,9 +8,10 @@
 import Foundation
 
 protocol ManageService:AnyObject {
-    
+
     var stationURL: URL { get }
     var apiFigureURL: URL { get }
     var serviceName: String { get }
-    func getStations<T>(codeDept: String, callback: @escaping ([T]?, Utilities.ManageError? ) -> Void)
+    var apiName: String { get }
+    func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void)
 }

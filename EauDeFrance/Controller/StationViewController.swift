@@ -32,8 +32,8 @@ class StationViewController: UIViewController, VCUtilities {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.stationName.text = (station.stationID ?? "")+"\n"+(station.stationLabel ?? "")
-        self.subTitle.text = station.service.rawValue
+        self.stationName.text = (station.stationCode ?? "")+"\n"+(station.stationLabel ?? "")
+        self.subTitle.text = station.title
         self.stationDescription.text = (station.altitude ?? "?")+" m d'altitude"
         self.county.text = station.countyLabel
 

@@ -51,7 +51,7 @@ extension MapViewController: MKMapViewDelegate {
             view.calloutOffset = CGPoint(x: 0, y: 60)
         }
 
-        view.image = stationService.service.logo().resize(height: 40)
+        view.image = UIImage(named: stationService.apiName)!.resize(height: 40)
         return view
     }
 
@@ -68,12 +68,14 @@ extension MapViewController: MKMapViewDelegate {
             let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
 
             let callOutView = views?[0] as! CustomCallOutView
-            let logoImageView = UIImageView(image: stationService.service.logo().resize(height: 45))
+            let logo = UIImage(named: stationService.apiName)?.resize(height: 45)
+            let logoImageView = UIImageView(image: logo)
             callOutView.logoService = logoImageView
-            callOutView.stationName.text = stationODF.stationID
+            callOutView.stationName.text = stationODF.stationCode
             callOutView.stationLabel.text = stationODF.stationLabel
-            callOutView.streamLabel.text = stationODF.streamLabel
-            callOutView.countyLabel.text = (stationODF.countyID ?? "") + " " +  (stationODF.countyLabel ?? "")
+
+            //callOutView.streamLabel.text = stationODF.streamLabel
+            callOutView.countyLabel.text = (stationODF.countyCode ?? "") + " " +  (stationODF.countyLabel ?? "")
             callOutView.bpDataStation.setStation(station: stationODF)
             callOutView.bpDataStation.addTarget(self, action: #selector (MapViewController.displayStationData(sender:)), for: .touchUpInside)
 

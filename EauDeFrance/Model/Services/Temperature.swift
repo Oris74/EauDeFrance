@@ -8,7 +8,7 @@
 import Foundation
 
 class Temperature: ManageService {
-    
+
     static var shared = Temperature()
     
     let stationURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/station?")!
@@ -17,24 +17,23 @@ class Temperature: ManageService {
 
     var networkService: NetworkProtocol = NetworkService.shared
 
-    let serviceName = "Temperature"
-
-    ///let apiStruct: Temperature = Temperature()
+    let apiName = "Temperature"
+    let serviceName = "Température"
 
     init(){}
-    func getStations<T>(codeDept: String, callback: @escaping ([T]?, Utilities.ManageError? ) -> Void) {
+    func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
 
         let parameters = ["code_departement": codeDept]
-        var stationODF: [T] = []
+
         networkService.getAPIData(
             stationURL, parameters, ApiHubeauHeader<TemperatureHubeau>.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                     return callback(nil, error)
                 }
-
+                var stationODF: [TemperatureODF] = []
                 for stationAPI in stations {
                     if let station = self?.bridgeStation(station: stationAPI) {
-                        stationODF.append(station as! T)
+                        stationODF.append(station)
                     }
                 }
                 callback(stationODF, nil)

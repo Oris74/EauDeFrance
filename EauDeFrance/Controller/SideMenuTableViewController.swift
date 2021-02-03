@@ -11,7 +11,7 @@ import ENSwiftSideMenu
 class SideMenuTableViewController: UITableViewController, VCUtilities {
     private let menuOptionCellId = "Cell"
     var selectedMenuItem : Int = 0
-    let stationService = StationService.shared
+    var stationService = StationService.shared.current
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,17 +50,17 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
             cell!.textLabel?.textColor = .darkGray
             switch indexPath.row {
             case 0:
-                cell!.imageView?.image = UIImage(named: Temperature.serviceName)?.resize(size: 30)
-                cell!.textLabel?.text = Temperature.rawValue
+                cell!.imageView?.image = UIImage(named: Temperature.shared.apiName)!.resize(height: 30)
+                cell!.textLabel?.text = Temperature.shared.serviceName
             case 1:
-                cell!.imageView?.image = Service.hydrometrie.logo().resize(height: 30)
-                cell!.textLabel?.text = Service.hydrometrie.rawValue
+                cell!.imageView?.image = UIImage(named: Hydrometry.shared.apiName)!.resize(height: 30)
+                cell!.textLabel?.text = Hydrometry.shared.serviceName
             case 2:
-                cell!.imageView?.image = Service.niveaux_nappes.logo().resize(height: 30)
-                cell!.textLabel?.text = Service.niveaux_nappes.rawValue
+                cell!.imageView?.image = UIImage(named: Piezometry.shared.apiName)!.resize(height: 30)
+                cell!.textLabel?.text = Piezometry.shared.serviceName
             default:
-                cell!.imageView?.image = Service.qualite_rivieres.logo().resize(height: 30)
-                cell!.textLabel?.text = Service.qualite_rivieres.rawValue
+                cell!.imageView?.image = UIImage(named: StreamQuality.shared.apiName)!.resize(height: 30)
+                cell!.textLabel?.text = StreamQuality.shared.serviceName
             }
 
             let selectedBackgroundView = UIView(frame: CGRect(x: 0, y: 0, width: cell!.frame.size.width, height: cell!.frame.size.height))
@@ -89,16 +89,16 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            stationService.current = Temperature()
+            stationService = Temperature()
             break
         case 1:
-            stationService.current = Hydrometrie()
+            stationService = Hydrometry()
             break
         case 2:
-            stationService.current = Piezometry()
+            stationService = Piezometry()
             break
         default:
-            stationService.current = StreamQuality()
+            stationService = StreamQuality()
             break
         }
         destViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapViewID")

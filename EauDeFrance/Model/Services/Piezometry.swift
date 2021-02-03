@@ -9,17 +9,21 @@ import Foundation
 
 class Piezometry: ManageService {
 
+    static var shared = Piezometry()
+
     internal var stationURL =  URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/stations?")!
 
     internal var apiFigureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?")!
 
-    init() {
-    }
+
     var networkService: NetworkProtocol = NetworkService.shared
     
-    let serviceName = "niveaux_nappes"
+    let serviceName = "Piezométrie"
+    let apiName = "niveaux_nappes"
 
-    private func getStations(codeDept: String?, callback: @escaping ([PiezometryODF]?, Utilities.ManageError? ) -> Void) {
+    init() { }
+
+    func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
 
             let parameters = ["code_departement": codeDept]
             var stationODF: [PiezometryODF] = []

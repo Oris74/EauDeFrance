@@ -56,8 +56,8 @@
 		D93E716925BCAEEE00C7E7E3 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E716825BCAEEE00C7E7E3 /* BarChartViewController.swift */; };
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
 		D93E718E25BD927500C7E7E3 /* CustomCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E718D25BD927500C7E7E3 /* CustomCallView.swift */; };
-		D93E719C25BF147000C7E7E3 /* Hubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E719B25BF147000C7E7E3 /* Hubeau.swift */; };
 		D93E71BA25C071E900C7E7E3 /* FigureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E71B925C071E900C7E7E3 /* FigureService.swift */; };
+		D977146D25CA038D00B4FBD7 /* Hydrometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D977146C25CA038D00B4FBD7 /* Hydrometry.swift */; };
 		D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */; };
 		D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */; };
 		D9996D3F25B4807E00D1EE2A /* StationODF+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3E25B4807E00D1EE2A /* StationODF+MKAnnotation.swift */; };
@@ -155,8 +155,8 @@
 		D93E716825BCAEEE00C7E7E3 /* BarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D93E718D25BD927500C7E7E3 /* CustomCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallView.swift; sourceTree = "<group>"; };
-		D93E719B25BF147000C7E7E3 /* Hubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hubeau.swift; sourceTree = "<group>"; };
 		D93E71B925C071E900C7E7E3 /* FigureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureService.swift; sourceTree = "<group>"; };
+		D977146C25CA038D00B4FBD7 /* Hydrometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hydrometry.swift; sourceTree = "<group>"; };
 		D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerLocation+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUtilities.swift; sourceTree = "<group>"; };
 		D9996D3E25B4807E00D1EE2A /* StationODF+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationODF+MKAnnotation.swift"; path = "../Controller/StationODF+MKAnnotation.swift"; sourceTree = "<group>"; };
@@ -277,6 +277,7 @@
 				D910743925AF588A0099B34B /* TemperatureODF.swift */,
 				D9F9F99425C7344500193F15 /* PiezometryODF.swift */,
 				D9F9F99C25C7347D00193F15 /* QualityStreamODF.swift */,
+				D977146C25CA038D00B4FBD7 /* Hydrometry.swift */,
 			);
 			name = EauDeFranceStruct;
 			sourceTree = "<group>";
@@ -463,7 +464,6 @@
 			children = (
 				D924FD0025A7200F0049832B /* TemperatureHubeau.swift */,
 				D924FD2325A7478C0049832B /* TemperatureValue.swift */,
-				D93E719B25BF147000C7E7E3 /* Hubeau.swift */,
 			);
 			name = Temperature;
 			sourceTree = "<group>";
@@ -855,7 +855,6 @@
 				D910744225B0D7CD0099B34B /* TemperatureService.swift in Sources */,
 				D9F9F98525C41EFA00193F15 /* StreamQuality.swift in Sources */,
 				D924FCED25A71B420049832B /* PropertiesHubeau.swift in Sources */,
-				D93E719C25BF147000C7E7E3 /* Hubeau.swift in Sources */,
 				D9996D7625B62EC900D1EE2A /* CustomCallOutView.swift in Sources */,
 				D910743A25AF588A0099B34B /* TemperatureODF.swift in Sources */,
 				D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */,
@@ -873,6 +872,7 @@
 				D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */,
 				D9F9F97025C330E000193F15 /* Hydrometry.swift in Sources */,
 				D9F9F99D25C7347D00193F15 /* QualityStreamODF.swift in Sources */,
+				D977146D25CA038D00B4FBD7 /* Hydrometry.swift in Sources */,
 				D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */,
 				D924FD0125A7200F0049832B /* TemperatureHubeau.swift in Sources */,
 				D910746825B0DE7F0099B34B /* StationService.swift in Sources */,
