@@ -26,7 +26,7 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         serviceLabel.textAlignment = .left
         serviceLabel.text = stationService.serviceName.uppercased()
         serviceLabel.adjustsFontSizeToFitWidth = true
-        let logoService = UIImage(named: stationService.serviceName)
+        let logoService = UIImage(named: stationService.apiName)?.resize(height: 35)
         let logoServiceView = UIImageView(image: logoService)
 
         let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
@@ -67,11 +67,7 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         checkLocationServices()
         locationManager.startUpdatingLocation()
 
-        if let location = locationManager.location?.coordinate {
-            currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        } else {
-            manageErrors(errorCode: .missingCoordinate)
-        }
+
         navigationItem.titleView = serviceStackView
 
         self.tabBarController?.delegate = self
@@ -83,6 +79,11 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        if let location = locationManager.location?.coordinate {
+            currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        } else {
+            manageErrors(errorCode: .missingCoordinate)
+        }
         activityIndicator.isHidden = false
         refreshMap()
 
@@ -109,9 +110,4 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
             self.mapView.addAnnotation(station)
         }
     }
-
-}
-enum StationDataType {
-    case Temperature
-    case Piezometry
 }

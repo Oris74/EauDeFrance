@@ -26,8 +26,8 @@ extension ListStationViewController: UITableViewDataSource, VCUtilities {
         cell.cellDelegate = self
 
         let station = self.stations[indexPath.row]
-        cell.titleStation.text = (station.townshipCode ?? "")+" " + (station.townshipLabel ?? "")
-        cell.detailStation.text = (station.stationLabel ?? "")+("\nStation ID:" + (station.stationCode ?? ""))
+        cell.titleStation.text = (station.townshipCode )+" " + (station.townshipLabel )
+        cell.detailStation.text = (station.stationLabel )+("\nStation ID:" + (station.stationCode ))
 
         return cell
     }

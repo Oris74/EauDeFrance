@@ -9,21 +9,22 @@ import Foundation
 import MapKit
 
 class StationODF:NSObject, Decodable {
-    let stationCode, stationLabel: String?
+    let service: String
+    let stationCode, stationLabel: String
     let uriStation: String?
-    let longitude, latitude: Double?
-    let townshipCode, townshipLabel, countyCode, countyLabel: String?
-    let altitude: String?
-    let dateUPDT: String?
+    let longitude, latitude: Double
+    let townshipCode, townshipLabel, countyCode, countyLabel: String
+    let altitude: String
+    let dateUPDT: String
 
-    init(
-         stationCode: String?, stationLabel: String?,
+    init(service: String, stationCode: String, stationLabel: String,
          uriStation: String? = nil,
-         longitude: Double?, latitude: Double?,
-         townshipCode: String?, townshipLabel: String?,
-         countyCode: String?, countyLabel: String?,
-         altitude: String? = nil,
-        dateUPDT: String?) {
+         longitude: Double, latitude: Double,
+         townshipCode: String, townshipLabel: String,
+         countyCode: String, countyLabel: String,
+         altitude: String,
+        dateUPDT: String) {
+        self.service = service
         self.stationCode = stationCode
         self.stationLabel = stationLabel
         self.uriStation = uriStation

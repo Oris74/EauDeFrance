@@ -69,13 +69,21 @@ extension MapViewController: MKMapViewDelegate {
 
             let callOutView = views?[0] as! CustomCallOutView
             let logo = UIImage(named: stationService.apiName)?.resize(height: 45)
-            let logoImageView = UIImageView(image: logo)
-            callOutView.logoService = logoImageView
+            callOutView.logoService.image = logo
             callOutView.stationName.text = stationODF.stationCode
             callOutView.stationLabel.text = stationODF.stationLabel
 
-            //callOutView.streamLabel.text = stationODF.streamLabel
-            callOutView.countyLabel.text = (stationODF.countyCode ?? "") + " " +  (stationODF.countyLabel ?? "")
+            if let serviceODF = stationODF as? TemperatureODF {
+                callOutView.streamLabel.text = serviceODF.streamLabel
+            }
+            if let serviceODF = stationODF as? HydrometryODF {
+                callOutView.streamLabel.text = serviceODF.streamLabel
+            }
+            if let serviceODF = stationODF as? TemperatureODF {
+                callOutView.streamLabel.text = serviceODF.streamLabel
+            }
+
+            callOutView.countyLabel.text = (stationODF.countyCode ) + " " +  (stationODF.countyLabel )
             callOutView.bpDataStation.setStation(station: stationODF)
             callOutView.bpDataStation.addTarget(self, action: #selector (MapViewController.displayStationData(sender:)), for: .touchUpInside)
 

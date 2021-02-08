@@ -26,6 +26,6 @@ extension MapViewController: ENSideMenuDelegate {
     }
 
     func sideMenuDidClose() {
-        refreshMap()
+        //refreshMap()
     }
 }

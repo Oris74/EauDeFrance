@@ -8,6 +8,7 @@
 import Foundation
 
 class QualityStreamODF: StationODF {
+
     let hardness: String?
     //let coordonneeX: String?
     //let coordonneeY: String?
@@ -19,9 +20,9 @@ class QualityStreamODF: StationODF {
 
     let streamCode, streamLabel: String?
     let uriStream: String?
-    let bodyOfWaterCode: [String]?
-    let bodyOfWaterLabel: [String]?
-    let uriBodyOfWater: [String]?
+    let bodyOfWaterCode: String?
+    let bodyOfWaterLabel: String?
+    let uriBodyOfWater: String?
     let subBasinCode: String?
     let basinLabel: String?
     let subBasinLabel: String?
@@ -40,20 +41,20 @@ class QualityStreamODF: StationODF {
          streamCode: String? ,
          streamLabel: String? ,
          uriStream: String? ,
-         stationCode: String?,
-         stationLabel: String?,
-         uriStation: String? = nil,
-         longitude: Double?,
-         latitude: Double?,
-         townshipCode: String?,
-         townshipLabel: String?,
-         countyCode: String?,
-         countyLabel: String?,
-         altitude: String? = nil,
-         dateUPDT: String?,
-         bodyOfWaterCode: [String]?,
-         bodyOfWaterLabel: [String]?,
-         uriBodyOfWater: [String]? ,
+         stationCode: String,
+         stationLabel: String,
+         uriStation: String,
+         longitude: Double,
+         latitude: Double,
+         townshipCode: String,
+         townshipLabel: String,
+         countyCode: String,
+         countyLabel: String,
+         altitude: String,
+         dateUPDT: String,
+         bodyOfWaterCode: String?,
+         bodyOfWaterLabel: String?,
+         uriBodyOfWater: String? ,
          regionLabel: String?,
          regionCode: String?,
          subBasinCode: String?,
@@ -92,7 +93,7 @@ class QualityStreamODF: StationODF {
         self.nature = nature
         self.pointKM = pointKM
 
-        super.init( stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, townshipCode: townshipCode, townshipLabel: townshipLabel, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, dateUPDT: dateUPDT)
+        super.init(service: "qualite_rivieres", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, townshipCode: townshipCode, townshipLabel: townshipLabel, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, dateUPDT: dateUPDT)
     }
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")

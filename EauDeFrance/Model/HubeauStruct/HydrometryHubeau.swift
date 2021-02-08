@@ -12,7 +12,7 @@ struct HydrometryHubeau:  Codable {
     let codeStation, libelleStation: String?
     let typeStation: String?
     let coordonneeXStation, coordonneeYStation: Int?
-    //let codeProjection: Int?
+    let codeProjection: Int?
     let longitude, latitude: Double?
     let influenceLocaleStation: Int?
     let commentaireStation: String?
@@ -42,7 +42,7 @@ struct HydrometryHubeau:  Codable {
         case typeStation = "type_station"
         case coordonneeXStation = "coordonnee_x_station"
         case coordonneeYStation = "coordonnee_y_Station"
-        //case codeProjection = "code_projection"
+        case codeProjection = "code_projection"
         case longitude = "longitude_station"
         case latitude = "latitude_station"
         case influenceLocaleStation = "influence_locale_station"

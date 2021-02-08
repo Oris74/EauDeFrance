@@ -6,64 +6,64 @@
 //
 
 import UIKit
-import Charts
-import MapKit
 
 class StationViewController: UIViewController, VCUtilities {
-    weak var delegate: PassDataToVC?
 
-    var months: [String]!
+    weak var delegate: PassDataToVC?
 
     var station: StationODF!
 
-    @IBOutlet weak var barChartView: BarChartView!
-
+    @IBOutlet weak var containerView: UIView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    
+    @IBOutlet weak var bpNextPage: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    @IBOutlet weak var mapView: MKMapView!
-    
     @IBOutlet weak var stationName: UILabel!
-
     @IBOutlet weak var subTitle: UILabel!
-
     @IBOutlet weak var stationDescription: UILabel!
-
     @IBOutlet weak var county: UILabel!
+
+    var stationPageViewController: StationPageViewController? {
+        didSet {
+           stationPageViewController?.stationDelegate = self
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.stationName.text = (station.stationCode ?? "")+"\n"+(station.stationLabel ?? "")
+        self.stationName.text = (station.stationLabel )
         self.subTitle.text = station.title
-        self.stationDescription.text = (station.altitude ?? "?")+" m d'altitude"
+    
+        self.stationDescription.text = (station.altitude )+" m d'altitude"
         self.county.text = station.countyLabel
 
-        months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
-
-        setChart(dataPoints: months, values: unitsSold)
-        barChartView.noDataText = "absence de données"
-
-        super.viewDidLoad()
+     
+        pageControl.addTarget(self, action: #selector(StationViewController.didChangePageControlValue(sender:)), for: .valueChanged)
 
     }
 
     override func viewWillAppear(_ animated: Bool) {
-       
 
         super.viewWillAppear(animated)
     }
 
-    func setChart(dataPoints: [String], values: [Double]) {
-
-        var dataEntries: [BarChartDataEntry] = []
-
-        for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i], data: nil)
-            dataEntries.append(dataEntry)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let stationPageViewController = segue.destination as? StationPageViewController {
+            self.stationPageViewController = stationPageViewController
         }
-        barChartView.noDataText = "You need to provide data for the chart."
-        let chartDataSet = BarChartDataSet(entries: dataEntries, label: "Units Sold")
-        let chartData = BarChartData(dataSet: chartDataSet)
-        barChartView.data = chartData
+
     }
+
+    @IBAction func didBpbpNextPage(_ sender: Any) {
+        stationPageViewController?.scrollToNextViewController()
+    }
+    /**
+     Fired when the user taps on the pageControl to change its current page.
+     */
+    @objc func didChangePageControlValue(sender: UIPageControl) {
+        stationPageViewController?.scrollToViewController(index: pageControl.currentPage)
+    }
+   
 }
+

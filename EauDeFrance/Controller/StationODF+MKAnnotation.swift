@@ -13,7 +13,7 @@ extension StationODF: MKAnnotation {
         return stationCode
     }
     var coordinate: CLLocationCoordinate2D {
-        return CLLocationCoordinate2D(latitude: latitude ?? 0, longitude: longitude ?? 0)
+        return CLLocationCoordinate2D(latitude: latitude , longitude: longitude )
     }
     var info: String? {
         return stationLabel

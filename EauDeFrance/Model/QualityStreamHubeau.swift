@@ -32,7 +32,7 @@ struct QualityStreamHubeau: Codable {
     let dateMajInformation: String?
     let finalite: String?
     let localisationPrecise, nature: String?
-    let altitudePointCaracteristique: String?
+    let altitudePointCaracteristique: Double?
     let pointKilometrique, premierMoisAnneeEtiage, superficieBassinVersantReel, superficieBassinVersantTopo: String?
     let geometry: GeometryHubeau?
 

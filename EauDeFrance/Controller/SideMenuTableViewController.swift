@@ -11,7 +11,6 @@ import ENSwiftSideMenu
 class SideMenuTableViewController: UITableViewController, VCUtilities {
     private let menuOptionCellId = "Cell"
     var selectedMenuItem : Int = 0
-    var stationService = StationService.shared.current
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,16 +49,16 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
             cell!.textLabel?.textColor = .darkGray
             switch indexPath.row {
             case 0:
-                cell!.imageView?.image = UIImage(named: Temperature.shared.apiName)!.resize(height: 30)
+                cell!.imageView?.image = UIImage(named: Temperature.shared.apiName)?.resize(height: 30)
                 cell!.textLabel?.text = Temperature.shared.serviceName
             case 1:
-                cell!.imageView?.image = UIImage(named: Hydrometry.shared.apiName)!.resize(height: 30)
+                cell!.imageView?.image = UIImage(named: Hydrometry.shared.apiName)?.resize(height: 30)
                 cell!.textLabel?.text = Hydrometry.shared.serviceName
             case 2:
-                cell!.imageView?.image = UIImage(named: Piezometry.shared.apiName)!.resize(height: 30)
+                cell!.imageView?.image = UIImage(named: Piezometry.shared.apiName)?.resize(height: 30)
                 cell!.textLabel?.text = Piezometry.shared.serviceName
             default:
-                cell!.imageView?.image = UIImage(named: StreamQuality.shared.apiName)!.resize(height: 30)
+                cell!.imageView?.image = UIImage(named: StreamQuality.shared.apiName)?.resize(height: 30)
                 cell!.textLabel?.text = StreamQuality.shared.serviceName
             }
 
@@ -89,16 +88,16 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
         var destViewController : UIViewController
         switch (indexPath.row) {
         case 0:
-            stationService = Temperature()
+            StationService.shared.current = Temperature.shared
             break
         case 1:
-            stationService = Hydrometry()
+            StationService.shared.current = Hydrometry.shared
             break
         case 2:
-            stationService = Piezometry()
+            StationService.shared.current = Piezometry.shared
             break
         default:
-            stationService = StreamQuality()
+            StationService.shared.current = StreamQuality.shared
             break
         }
         destViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapViewID")

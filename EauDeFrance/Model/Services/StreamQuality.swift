@@ -27,7 +27,7 @@ class StreamQuality: ManageService {
         let parameters = ["code_departement": codeDept]
         var stationODF: [StationODF] = []
         networkService.getAPIData(
-            stationURL, parameters, ApiHubeauHeader<QualityStreamHubeau>.self, completionHandler: {[weak self]  (apidata, error) in
+            stationURL, parameters, ApiHubeauHeader<QualityStreamHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                     return callback(nil, error)
                 }
@@ -41,27 +41,27 @@ class StreamQuality: ManageService {
                 return
             })
     }
-    private func bridgeStation(station: QualityStreamHubeau)-> StationODF? {
-        let stationODF: StationODF?
-            stationODF = StationODF.init(
+    private func bridgeStation(station: QualityStreamHubeau)-> QualityStreamODF? {
+        let stationODF: QualityStreamODF?
+            stationODF = QualityStreamODF.init(
                 hardness: station.durete,
                 streamCode: station.codeCoursEau,
                 streamLabel: station.nomCoursEau,
                 uriStream: station.uriCoursEau,
-                stationCode: station.codeStation,
-                stationLabel: station.libelleStation,
-                uriStation: station.uriStation,
-                longitude: station.longitude,
-                latitude: station.latitude,
-                townshipCode: station.codeCommune,
-                townshipLabel: station.libelleCommune,
-                countyCode: station.codeDepartement,
-                countyLabel: station.libelleDepartement,
-                altitude: station.altitudePointCaracteristique,
-                dateUPDT: station.dateMajInformation,
-                bodyOfWaterCode: [station.codeMasseDeau],
-                bodyOfWaterLabel: [station.nomMasseDeau],
-                uriBodyOfWater: [station.uriMasseDeau],
+                stationCode: station.codeStation ?? "",
+                stationLabel: station.libelleStation ?? "",
+                uriStation: station.uriStation ?? "",
+                longitude: station.longitude ?? 0.0,
+                latitude: station.latitude ?? 0.0,
+                townshipCode: station.codeCommune ?? "",
+                townshipLabel: station.libelleCommune ?? "",
+                countyCode: station.codeDepartement ?? "",
+                countyLabel: station.libelleDepartement ?? "",
+                altitude: String(format: "%.f", station.altitudePointCaracteristique ?? " - "),
+                dateUPDT: station.dateMajInformation ?? "",
+                bodyOfWaterCode: station.codeMasseDeau ?? "",
+                bodyOfWaterLabel: station.nomMasseDeau ?? "",
+                uriBodyOfWater: station.uriMasseDeau ?? "",
                 regionLabel: station.libelleRegion,
                 regionCode: station.codeRegion,
                 subBasinCode: station.codeEuSousBassin,

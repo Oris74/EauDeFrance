@@ -16,7 +16,7 @@ class Hydrometry: ManageService {
     internal let apiFigureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/observation_tr?")!
 
     let serviceName = "Hydrométrie"
-    let apiName = "Hydrometry"
+    let apiName = "hydrometrie"
 
     var networkService: NetworkProtocol = NetworkService.shared
     
@@ -27,7 +27,7 @@ init() { }
             let parameters = ["code_departement": codeDept]
             var stationODF: [StationODF] = []
             networkService.getAPIData(
-                stationURL, parameters, ApiHubeauHeader<HydrometryHubeau>.self, completionHandler: {[weak self]  (apidata, error) in
+                stationURL, parameters, ApiHubeauHeader<HydrometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                     guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                         return callback(nil, error)
                     }
@@ -42,32 +42,46 @@ init() { }
                 })
         }
 
-    private func bridgeStation(station: HydrometryHubeau ) -> StationODF? {
+    private func bridgeStation(station: HydrometryHubeau ) -> HydrometryODF? {
         let stationODF: HydrometryODF?
-        stationODF = StationODF.init(
-                     stationCode: station.codeStation,
-                     stationLabel: station.libelleStation,
-                     // uriStation: station.uriStation,
-                     //localization: station.localisation,
-                     longitude: station.longitude,
-                     latitude: station.latitude,
-                     townshipCode: station.codeCommune,
-                     townshipLabel: station.libelleCommune,
-                     countyCode: station.codeDepartement,
-                     countyLabel: station.libelleDepartement,
-                     //regionCode: station.codeRegion,
-                     //regionLabel: station.libelleRegion,
-                     //hydroSectionID: depackedStation.codeTronconHydro,
-                     //streamID: station.codeCoursEau,
-                     //streamLabel: station.libelleCoursEau,
-                     //uriStream: station.uriCoursEau,
-                     //bodyOfWaterID: depackedStation.codeMasseEau,
-                     // bodyOfWaterLabel: depackedStation.libelleMasseEau,
-                     // uriBodyOfWater: depackedStation.uriMasseEau,
-                     //pointKm: depackedStation.pointKm,
-                     altitude: String(format: "0.0", station.altitudeRefAltiStation ?? 0.0),
-                     dateUPDT: station.dateMajStation
-                 )
+        stationODF = HydrometryODF.init(
+            stationCode: station.codeStation ?? "",
+            stationLabel: station.libelleStation ?? "",
+            longitude: station.longitude ?? 0.0,
+            latitude: station.latitude ?? 0.0 ,
+            townshipCode:station.codeCommune ?? "",
+            townshipLabel: station.libelleCommune ?? "",
+            countyCode: station.codeDepartement ?? "",
+            countyLabel: station.libelleDepartement ?? "",
+            altitude: String(format: "%.f", station.altitudeRefAltiStation ?? " - "),
+            dateUPDT:station.dateMajRefAltiStation ?? "",
+            siteCode: station.codeSite,
+            siteLabel:station.libelleSite,
+            stationType: station.typeStation,
+            coordonnateXStation: station.coordonneeXStation,
+            coordonnateYStation: station.coordonneeYStation,
+            projectionCode: station.codeProjection,
+            localStationInfluence : station.influenceLocaleStation,
+            stationCommentary: station.commentaireStation,
+            altiSiteSystemCode: station.codeSystemeAltiSite,
+            regionCode: station.codeRegion,
+            regionLabel: station.libelleRegion,
+            streamCode: station.codeCoursEau,
+            streamLabel: station.libelleCoursEau,
+            uriStream: station.uriCoursEau,
+            stationDescription: station.descriptifStation,
+            openingStationDate: station.dateOuvertureStation,
+            closingStationDate: station.dateFermetureStation,
+            localStationInfluenceCommentary: station.commentaireInfluenceLocaleStation,
+            stationRegimeCode: station.codeRegimeStation,
+            dataStationQualification: station.qualificationDonneesStation,
+            finalityStationCode: station.codeFinaliteStation,
+            contextTypeStationLawStat: station.typeContexteLoiStatStation,
+            stationLawType:station.typeLoiStation,
+            sandreNetworkStationCode: station.codeSandreReseauStation,
+            altiRefStationActivationDate: station.dateActivationRefAltiStation,
+            altiStationRefUpdateDate: station.dateMajRefAltiStation,
+            inService: station.enService)
 
             return stationODF
         }

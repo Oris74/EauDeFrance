@@ -113,7 +113,7 @@ class NetworkService: NetworkProtocol {
     func getAPIData<T: Decodable>(
         _ endpointApi: URL?,
         _ parameters: [String:String?],
-        _ apiStruct: T.Type,
+        _ apiStruct: T?.Type,
         completionHandler : @escaping (T?, Utilities.ManageError?) -> Void) {
 
         guard let depackedEndpointApi = endpointApi else {
@@ -143,7 +143,7 @@ class NetworkService: NetworkProtocol {
                 #endif
                 DispatchQueue.main.async {
                     self?.manageResponse(
-                        apiStruct as! T?.Type,
+                        apiStruct,
                         responseData, response, error,
                         completionResponse: {(apidata, errorCode) in
                             completionHandler(apidata, errorCode)

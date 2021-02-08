@@ -33,11 +33,11 @@ class ListStationViewController: UIViewController {
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "segueToDetailledStation" {
-            let stationVC = segue.destination as! StationViewController
-            if let selectedRecipe = self.tableview.indexPathForSelectedRow {
-              //  stationVC.delegate = self
-                stationVC.station = self.stations[selectedRecipe.row]
+
+        if segue.identifier == "segueToStationVC" {
+            let pageVC = segue.destination as! StationViewController
+            if let selectedStation = self.tableview.indexPathForSelectedRow {
+                pageVC.station = self.stations[selectedStation.row]
             } else { return }
         }
     }

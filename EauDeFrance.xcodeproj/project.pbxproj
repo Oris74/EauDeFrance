@@ -10,7 +10,7 @@
 		39A2D04C12D1D00530806CBE /* Pods_EauDeFrance_EauDeFranceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */; };
 		97850CA8AFFCE07D307E0F89 /* Pods_EauDeFrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */; };
 		D21F8C737E0D0A19C4655C7A /* Pods_EauDeFranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */; };
-		D90E89A725A8BC5F00DB48D2 /* WaterQuality.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90E89A625A8BC5F00DB48D2 /* WaterQuality.swift */; };
+		D90E89A725A8BC5F00DB48D2 /* QualityStreamHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D90E89A625A8BC5F00DB48D2 /* QualityStreamHubeau.swift */; };
 		D90E89AD25A8BCB900DB48D2 /* WaterQualityValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */; };
 		D90E89B525A8BEAD00DB48D2 /* WaterQualityStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */; };
 		D910743525AF56850099B34B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910743425AF56850099B34B /* Utilities.swift */; };
@@ -29,7 +29,6 @@
 		D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */; };
 		D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */; };
 		D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FCBA25A708B30049832B /* TemperatureStation.json */; };
-		D924FCC525A70A990049832B /* HydrobiologyStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FCC425A70A990049832B /* HydrobiologyStation.json */; };
 		D924FCCA25A70B350049832B /* HydrometryHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCC925A70B350049832B /* HydrometryHubeau.swift */; };
 		D924FCCF25A70B490049832B /* PiezometryHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCCE25A70B490049832B /* PiezometryHubeau.swift */; };
 		D924FCDE25A71A320049832B /* GeometryHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCDD25A71A320049832B /* GeometryHubeau.swift */; };
@@ -55,9 +54,8 @@
 		D93E715F25BC712F00C7E7E3 /* NewsCastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E715E25BC712F00C7E7E3 /* NewsCastViewController.swift */; };
 		D93E716925BCAEEE00C7E7E3 /* BarChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E716825BCAEEE00C7E7E3 /* BarChartViewController.swift */; };
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
-		D93E718E25BD927500C7E7E3 /* CustomCallView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E718D25BD927500C7E7E3 /* CustomCallView.swift */; };
 		D93E71BA25C071E900C7E7E3 /* FigureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E71B925C071E900C7E7E3 /* FigureService.swift */; };
-		D977146D25CA038D00B4FBD7 /* Hydrometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D977146C25CA038D00B4FBD7 /* Hydrometry.swift */; };
+		D977146D25CA038D00B4FBD7 /* HydrometryODF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D977146C25CA038D00B4FBD7 /* HydrometryODF.swift */; };
 		D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */; };
 		D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */; };
 		D9996D3F25B4807E00D1EE2A /* StationODF+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3E25B4807E00D1EE2A /* StationODF+MKAnnotation.swift */; };
@@ -76,6 +74,14 @@
 		D9F9F99525C7344500193F15 /* PiezometryODF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F99425C7344500193F15 /* PiezometryODF.swift */; };
 		D9F9F99D25C7347D00193F15 /* QualityStreamODF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F99C25C7347D00193F15 /* QualityStreamODF.swift */; };
 		D9F9F9AE25C983F700193F15 /* ManageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F9AD25C983F700193F15 /* ManageServiceProtocol.swift */; };
+		D9FDF05225CC96C100CBDEED /* StationPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF05125CC96C100CBDEED /* StationPageViewController.swift */; };
+		D9FDF06025CDB32900CBDEED /* FigureStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF05F25CDB32900CBDEED /* FigureStationViewController.swift */; };
+		D9FDF06525CDB34000CBDEED /* DetailedStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF06425CDB34000CBDEED /* DetailedStationViewController.swift */; };
+		D9FDF06A25CDB3DA00CBDEED /* GeneralStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF06925CDB3DA00CBDEED /* GeneralStationViewController.swift */; };
+		D9FDF0D025D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0CF25D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift */; };
+		D9FDF0D825D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0D725D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift */; };
+		D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0DF25D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift */; };
+		D9FDF0EB25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0EA25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,7 +109,7 @@
 		A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFranceTests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFranceTests/Pods-EauDeFranceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.release.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.release.xcconfig"; sourceTree = "<group>"; };
-		D90E89A625A8BC5F00DB48D2 /* WaterQuality.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterQuality.swift; sourceTree = "<group>"; };
+		D90E89A625A8BC5F00DB48D2 /* QualityStreamHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityStreamHubeau.swift; sourceTree = "<group>"; };
 		D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaterQualityValue.json; sourceTree = "<group>"; };
 		D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaterQualityStation.json; sourceTree = "<group>"; };
 		D910743425AF56850099B34B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -128,7 +134,6 @@
 		D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EauDeFranceUITests.swift; sourceTree = "<group>"; };
 		D924FC9125A4D7E20049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FCBA25A708B30049832B /* TemperatureStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TemperatureStation.json; sourceTree = "<group>"; };
-		D924FCC425A70A990049832B /* HydrobiologyStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = HydrobiologyStation.json; sourceTree = "<group>"; };
 		D924FCC925A70B350049832B /* HydrometryHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HydrometryHubeau.swift; path = HubeauStruct/HydrometryHubeau.swift; sourceTree = "<group>"; };
 		D924FCCE25A70B490049832B /* PiezometryHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiezometryHubeau.swift; sourceTree = "<group>"; };
 		D924FCDD25A71A320049832B /* GeometryHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryHubeau.swift; sourceTree = "<group>"; };
@@ -154,9 +159,8 @@
 		D93E715E25BC712F00C7E7E3 /* NewsCastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCastViewController.swift; sourceTree = "<group>"; };
 		D93E716825BCAEEE00C7E7E3 /* BarChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewController.swift; sourceTree = "<group>"; };
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
-		D93E718D25BD927500C7E7E3 /* CustomCallView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallView.swift; sourceTree = "<group>"; };
 		D93E71B925C071E900C7E7E3 /* FigureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureService.swift; sourceTree = "<group>"; };
-		D977146C25CA038D00B4FBD7 /* Hydrometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hydrometry.swift; sourceTree = "<group>"; };
+		D977146C25CA038D00B4FBD7 /* HydrometryODF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HydrometryODF.swift; sourceTree = "<group>"; };
 		D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerLocation+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUtilities.swift; sourceTree = "<group>"; };
 		D9996D3E25B4807E00D1EE2A /* StationODF+MKAnnotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "StationODF+MKAnnotation.swift"; path = "../Controller/StationODF+MKAnnotation.swift"; sourceTree = "<group>"; };
@@ -175,6 +179,14 @@
 		D9F9F99425C7344500193F15 /* PiezometryODF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PiezometryODF.swift; path = "../../../../../../Library/Mobile Documents/com~apple~CloudDocs/PiezometryODF.swift"; sourceTree = "<group>"; };
 		D9F9F99C25C7347D00193F15 /* QualityStreamODF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualityStreamODF.swift; sourceTree = "<group>"; };
 		D9F9F9AD25C983F700193F15 /* ManageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageServiceProtocol.swift; sourceTree = "<group>"; };
+		D9FDF05125CC96C100CBDEED /* StationPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPageViewController.swift; sourceTree = "<group>"; };
+		D9FDF05F25CDB32900CBDEED /* FigureStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FigureStationViewController.swift; sourceTree = "<group>"; };
+		D9FDF06425CDB34000CBDEED /* DetailedStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedStationViewController.swift; sourceTree = "<group>"; };
+		D9FDF06925CDB3DA00CBDEED /* GeneralStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralStationViewController.swift; sourceTree = "<group>"; };
+		D9FDF0CF25D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationViewController+StationPageVCDelegate.swift"; sourceTree = "<group>"; };
+		D9FDF0D725D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+UIPageVCDataSource.swift"; sourceTree = "<group>"; };
+		D9FDF0DF25D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPageViewControllerDelegateProtocol.swift; sourceTree = "<group>"; };
+		D9FDF0EA25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+UIPageVCDelegate.swift"; sourceTree = "<group>"; };
 		DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EauDeFrance_EauDeFranceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6DD2B0D5F40BD659D1A8CEA /* Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance-EauDeFranceUITests/Pods-EauDeFrance-EauDeFranceUITests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -233,7 +245,7 @@
 		D90E89A525A8BC3A00DB48D2 /* WaterQuality */ = {
 			isa = PBXGroup;
 			children = (
-				D90E89A625A8BC5F00DB48D2 /* WaterQuality.swift */,
+				D90E89A625A8BC5F00DB48D2 /* QualityStreamHubeau.swift */,
 			);
 			name = WaterQuality;
 			path = ..;
@@ -277,7 +289,7 @@
 				D910743925AF588A0099B34B /* TemperatureODF.swift */,
 				D9F9F99425C7344500193F15 /* PiezometryODF.swift */,
 				D9F9F99C25C7347D00193F15 /* QualityStreamODF.swift */,
-				D977146C25CA038D00B4FBD7 /* Hydrometry.swift */,
+				D977146C25CA038D00B4FBD7 /* HydrometryODF.swift */,
 			);
 			name = EauDeFranceStruct;
 			sourceTree = "<group>";
@@ -322,7 +334,6 @@
 				D924FCB425A706730049832B /* PiezometryTests */,
 				D924FCB325A706510049832B /* HydrometryTests */,
 				D924FCB225A706440049832B /* TemperatureTests */,
-				D924FCB125A706270049832B /* HydrobiologyTests */,
 				D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */,
 				D924FC8625A4D7E20049832B /* Info.plist */,
 			);
@@ -400,14 +411,6 @@
 			);
 			name = Hydrometry;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		D924FCB125A706270049832B /* HydrobiologyTests */ = {
-			isa = PBXGroup;
-			children = (
-				D924FCC425A70A990049832B /* HydrobiologyStation.json */,
-			);
-			name = HydrobiologyTests;
 			sourceTree = "<group>";
 		};
 		D924FCB225A706440049832B /* TemperatureTests */ = {
@@ -493,7 +496,13 @@
 		D93E715525BC3F4200C7E7E3 /* StationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D9FDF0F525D142E300CBDEED /* PagesStation */,
 				D93E715625BC3F7600C7E7E3 /* StationViewController.swift */,
+				D9FDF0CF25D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift */,
+				D9FDF05125CC96C100CBDEED /* StationPageViewController.swift */,
+				D9FDF0D725D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift */,
+				D9FDF0EA25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift */,
+				D9FDF0DF25D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift */,
 			);
 			name = StationViewController;
 			sourceTree = "<group>";
@@ -542,7 +551,6 @@
 			isa = PBXGroup;
 			children = (
 				D9996D7525B62EC900D1EE2A /* CustomCallOutView.swift */,
-				D93E718D25BD927500C7E7E3 /* CustomCallView.swift */,
 			);
 			name = CustomCallView;
 			sourceTree = "<group>";
@@ -574,6 +582,16 @@
 				D93E71B925C071E900C7E7E3 /* FigureService.swift */,
 			);
 			name = Figure;
+			sourceTree = "<group>";
+		};
+		D9FDF0F525D142E300CBDEED /* PagesStation */ = {
+			isa = PBXGroup;
+			children = (
+				D9FDF06925CDB3DA00CBDEED /* GeneralStationViewController.swift */,
+				D9FDF06425CDB34000CBDEED /* DetailedStationViewController.swift */,
+				D9FDF05F25CDB32900CBDEED /* FigureStationViewController.swift */,
+			);
+			name = PagesStation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -701,7 +719,6 @@
 			files = (
 				D90E89AD25A8BCB900DB48D2 /* WaterQualityValue.json in Resources */,
 				D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */,
-				D924FCC525A70A990049832B /* HydrobiologyStation.json in Resources */,
 				D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */,
 				D924FD0C25A727EF0049832B /* HydrometryStation.json in Resources */,
 				D924FD1F25A747420049832B /* TemperatureValue.json in Resources */,
@@ -830,7 +847,6 @@
 				D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */,
 				D910747525B19E590099B34B /* NetworkProtocol.swift in Sources */,
 				D93E713325BB70AE00C7E7E3 /* ListStationVC+PassDataToVC Protocol.swift in Sources */,
-				D93E718E25BD927500C7E7E3 /* CustomCallView.swift in Sources */,
 				D93E713D25BB718000C7E7E3 /* ListStationTableViewCell.swift in Sources */,
 				D924FC6F25A4D7E10049832B /* MapViewController.swift in Sources */,
 				D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */,
@@ -838,6 +854,8 @@
 				D924FCE325A71AA10049832B /* CRSHubeau.swift in Sources */,
 				D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */,
 				D93E71BA25C071E900C7E7E3 /* FigureService.swift in Sources */,
+				D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */,
+				D9FDF05225CC96C100CBDEED /* StationPageViewController.swift in Sources */,
 				D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */,
 				D93E715F25BC712F00C7E7E3 /* NewsCastViewController.swift in Sources */,
 				D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */,
@@ -846,12 +864,16 @@
 				D93E716925BCAEEE00C7E7E3 /* BarChartViewController.swift in Sources */,
 				D9F9F98A25C430C600193F15 /* StationODF.swift in Sources */,
 				D93E712625BB704A00C7E7E3 /* ListStationViewController.swift in Sources */,
+				D9FDF0D825D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift in Sources */,
 				D924FCF625A71C610049832B /* ApiHubeauHeader.swift in Sources */,
 				D910743525AF56850099B34B /* Utilities.swift in Sources */,
 				D924FCCF25A70B490049832B /* PiezometryHubeau.swift in Sources */,
 				D9F9F96825C330B700193F15 /* Temperature.swift in Sources */,
+				D9FDF0D025D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift in Sources */,
 				D9F9F9AE25C983F700193F15 /* ManageServiceProtocol.swift in Sources */,
 				D9996D5B25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift in Sources */,
+				D9FDF06525CDB34000CBDEED /* DetailedStationViewController.swift in Sources */,
+				D9FDF0EB25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift in Sources */,
 				D910744225B0D7CD0099B34B /* TemperatureService.swift in Sources */,
 				D9F9F98525C41EFA00193F15 /* StreamQuality.swift in Sources */,
 				D924FCED25A71B420049832B /* PropertiesHubeau.swift in Sources */,
@@ -872,11 +894,13 @@
 				D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */,
 				D9F9F97025C330E000193F15 /* Hydrometry.swift in Sources */,
 				D9F9F99D25C7347D00193F15 /* QualityStreamODF.swift in Sources */,
-				D977146D25CA038D00B4FBD7 /* Hydrometry.swift in Sources */,
+				D977146D25CA038D00B4FBD7 /* HydrometryODF.swift in Sources */,
+				D9FDF06025CDB32900CBDEED /* FigureStationViewController.swift in Sources */,
 				D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */,
 				D924FD0125A7200F0049832B /* TemperatureHubeau.swift in Sources */,
 				D910746825B0DE7F0099B34B /* StationService.swift in Sources */,
-				D90E89A725A8BC5F00DB48D2 /* WaterQuality.swift in Sources */,
+				D9FDF06A25CDB3DA00CBDEED /* GeneralStationViewController.swift in Sources */,
+				D90E89A725A8BC5F00DB48D2 /* QualityStreamHubeau.swift in Sources */,
 				D9F9F99525C7344500193F15 /* PiezometryODF.swift in Sources */,
 				D9F9F97825C3310400193F15 /* Service.swift in Sources */,
 			);

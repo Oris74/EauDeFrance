@@ -17,7 +17,7 @@ class Temperature: ManageService {
 
     var networkService: NetworkProtocol = NetworkService.shared
 
-    let apiName = "Temperature"
+    let apiName = "temperature"
     let serviceName = "Température"
 
     init(){}
@@ -26,7 +26,7 @@ class Temperature: ManageService {
         let parameters = ["code_departement": codeDept]
 
         networkService.getAPIData(
-            stationURL, parameters, ApiHubeauHeader<TemperatureHubeau>.self, completionHandler: {[weak self]  (apidata, error) in
+            stationURL, parameters, ApiHubeauHeader<TemperatureHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                     return callback(nil, error)
                 }
@@ -44,8 +44,8 @@ class Temperature: ManageService {
     private func bridgeStation(station: TemperatureHubeau ) -> TemperatureODF? {
         let stationODF: TemperatureODF?
         stationODF = TemperatureODF.init(
-            stationCode: station.codeStation,
-            stationLabel: station.libelleStation,
+            stationCode: station.codeStation ?? "",
+            stationLabel: station.libelleStation ?? "",
             uriStation: station.uriStation,
             localization: station.localisation,
             //coordinateX: station.coordonneeX,
@@ -54,14 +54,14 @@ class Temperature: ManageService {
             streamLabel: station.libelleCoursEau,
             uriStream: station.uriCoursEau,
             hydroSectionCode: station.codeTronconHydro,
-            longitude: station.longitude,
-            latitude: station.latitude,
-            townshipCode: station.codeCommune,
-            townshipLabel: station.libelleCommune,
-            countyCode: station.codeDepartement,
-            countyLabel: station.libelleDepartement,
-            altitude: String(format: "0.0", station.altitude ?? ""),
-            dateUPDT: station.dateMajInfos,
+            longitude: station.longitude ?? 0.0,
+            latitude: station.latitude ?? 0.0,
+            townshipCode: station.codeCommune ?? "",
+            townshipLabel: station.libelleCommune ?? "",
+            countyCode: station.codeDepartement ?? "",
+            countyLabel: station.libelleDepartement ?? "",
+            altitude: String(format: "%.f", station.altitude ?? " - "),
+            dateUPDT: station.dateMajInfos ?? "",
             bodyOfWaterCode: station.codeMasseEau,
             bodyOfWaterLabel: station.libelleMasseEau,
             uriBodyOfWater: station.uriMasseEau,
@@ -71,7 +71,7 @@ class Temperature: ManageService {
             basinLabel: station.libelleBassin,
             subBasinLabel: station.libelleSousBassin,
             basinCode: station.codeBassin,
-            uriBasin: String(format: "0.0", station.altitude ?? 0.0),
+            uriBasin: String(format: "%.0", station.altitude ?? 0.0),
             pointKM: station.dateMajInfos
         )
         return stationODF

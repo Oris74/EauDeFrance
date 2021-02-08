@@ -17,7 +17,7 @@ class StationService  {
     var current: ManageService
 
     init() {
-        self.current = Temperature()
+        self.current = Temperature.shared
     }
 
 

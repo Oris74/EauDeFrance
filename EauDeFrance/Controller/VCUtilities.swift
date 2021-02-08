@@ -35,6 +35,19 @@ extension VCUtilities {
         presentAlert(message: error.rawValue)
     }
 
+    func convertInService(stationODF: StationODF) -> AnyObject? {
+        switch stationODF {
+        case let serviceODF as TemperatureODF:
+            return serviceODF
+        case let serviceODF as HydrometryODF:
+            return serviceODF
+        case let serviceODF as QualityStreamODF:
+            return serviceODF
+        case let serviceODF as PiezometryODF:
+            return serviceODF
+        default:  return nil
+        }
+    }
 //    func serviceStackView(service: Service) -> UIStackView {
 //        let serviceLabel = UILabel()
 //

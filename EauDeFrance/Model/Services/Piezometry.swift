@@ -28,7 +28,7 @@ class Piezometry: ManageService {
             let parameters = ["code_departement": codeDept]
             var stationODF: [PiezometryODF] = []
             networkService.getAPIData(
-                stationURL, parameters, ApiHubeauHeader<PiezometryHubeau>.self, completionHandler: {[weak self]  (apidata, error) in
+                stationURL, parameters, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                     guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                         return callback(nil, error)
                     }
@@ -45,15 +45,15 @@ class Piezometry: ManageService {
     private func bridgeStation(station: PiezometryHubeau)-> PiezometryODF? {
         let stationODF: PiezometryODF?
         stationODF = PiezometryODF.init(
-            stationCode: station.codeBss,
-            stationLabel: station.libellePe,
-            uriStation: station.bssId,
-            longitude: station.longitude,
-            latitude: station.latitude,
-            townshipCode: station.codeCommuneInsee,
-            townshipLabel: station.nomCommune,
-            countyCode: station.codeDepartement,
-            countyLabel: station.nomDepartement,
+            stationCode: station.codeBss ?? "",
+            stationLabel: station.libellePe ?? "",
+            uriStation: station.bssId ?? "",
+            longitude: station.longitude ?? 0.0,
+            latitude: station.latitude ?? 0.0,
+            townshipCode: station.codeCommuneInsee ?? "",
+            townshipLabel: station.nomCommune ?? "",
+            countyCode: station.codeDepartement ?? "",
+            countyLabel: station.nomDepartement ?? "",
             bodyOfWaterCode: station.codesMasseEauEdl,
             bodyOfWaterLabel: station.nomsMasseEauEdl,
             uriBodyOfWater: station.urnsMasseEauEdl,
@@ -64,8 +64,8 @@ class Piezometry: ManageService {
             bdLisaCode: station.codesBdlisa,
             startMeasurementDate: station.dateDebutMesure,
             endMeasurementDate: station.dateFinMesure,
-            altitude: String(format: "0.0", station.altitudeStation ?? 0),
-            dateUPDT: station.dateDebutMesure)
+            altitude: String(format: "%.f", station.altitudeStation ?? " - "),
+            dateUPDT: station.dateDebutMesure ?? "")
         return stationODF
     }
 }
