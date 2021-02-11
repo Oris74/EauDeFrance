@@ -9,18 +9,13 @@ import UIKit
 import CoreLocation
 
 extension MapViewController: CLLocationManagerDelegate {
-    func setupLocationService() -> CLLocationCoordinate2D  {
-
+    func setupLocationService() {
         if  CLLocationManager.locationServicesEnabled() {
             setupLocationManager()
             checkLocationAuthorization()
-            if  let location = locationManager.location?.coordinate {
-                let currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-                return currentPlace
-            }
-        }
+        } else {
             manageErrors(errorCode: .missingCoordinate)
-        return CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
+        }
     }
 
     func setupLocationManager() {

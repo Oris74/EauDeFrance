@@ -75,12 +75,13 @@ extension MapViewController: MKMapViewDelegate {
 
             if let serviceODF = stationODF as? TemperatureODF {
                 callOutView.streamLabel.text = serviceODF.streamLabel
+                callOutView.streamLabel.isHidden = false
+                callOutView.titleStationLabel.isHidden = false
             }
-            if let serviceODF = stationODF as? HydrometryODF {
-                callOutView.streamLabel.text = serviceODF.streamLabel
-            }
-            if let serviceODF = stationODF as? TemperatureODF {
-                callOutView.streamLabel.text = serviceODF.streamLabel
+
+            if stationODF is PiezometryODF {
+                callOutView.streamLabel.isHidden = true
+                callOutView.titleStationLabel.isHidden = true
             }
 
             callOutView.countyLabel.text = (stationODF.countyCode ) + " " +  (stationODF.countyLabel )
@@ -115,7 +116,7 @@ extension MapViewController: MKMapViewDelegate {
 
         self.tabBarController?.tabBar.items?[1].isEnabled = false
 
-        activityIndicator.isHidden = false
+       // activityIndicator.isHidden = false
         let request: [[KeyRequest:String]] = [[.area:zone]]
         stationService.current.getStation(parameters: request, callback: {[weak self] ( stationList, error) in
             guard let depackedStations = stationList, error == nil else {
@@ -124,7 +125,7 @@ extension MapViewController: MKMapViewDelegate {
 
             self?.displayStation(stations: depackedStations)
             self?.listVCDelegate?.stations = depackedStations
-            self?.activityIndicator.isHidden = true
+            //self?.activityIndicator.isHidden = true
             self?.tabBarController?.tabBar.items?[1].isEnabled = true
         })
     }
@@ -138,7 +139,10 @@ extension MapViewController: MKMapViewDelegate {
     private func displayStation( stations: [StationODF]?) {
         guard let stations = stations else { return }
 
-        mapView.removeAnnotations(self.mapView.annotations)
+        let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.selectedAnnotations.first }
+
+        mapView.removeAnnotations( annotationsToRemove )
+
         for station in stations {
             mapView.addAnnotation(station)
         }

@@ -12,6 +12,7 @@ class CustomCallOutView: UIView {
     @IBOutlet weak var logoService: UIImageView!
     @IBOutlet weak var stationName: UILabel!
     @IBOutlet weak var stationLabel: UILabel!
+    @IBOutlet weak var titleStationLabel: UILabel!
     @IBOutlet weak var streamLabel: UILabel!
 
     @IBOutlet weak var countyLabel: UILabel!

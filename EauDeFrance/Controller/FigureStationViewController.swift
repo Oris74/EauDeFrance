@@ -22,10 +22,9 @@ class FigureStationViewController: UIViewController, VCUtilities {
 
 
         months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
-        let unitsSold = [20.0, 4.0, 6.0, 3.0, 12.0, 16.0, 4.0, 18.0, 2.0, 4.0, 5.0, 4.0]
+
 
         updateChart()
-        //setChart(dataPoints: months, values: unitsSold)
         barChartView.noDataText = "absence de données"
     }
 
@@ -57,6 +56,8 @@ class FigureStationViewController: UIViewController, VCUtilities {
                     self?.manageErrors(errorCode: Utilities.ManageError.undefinedError)
                     return
                 }
+                let range = figures.compactMap({ $0.waterTableDepth })
+                self?.setChart(dataPoints: (self?.months)! , values: range)
             default: break
             }
 

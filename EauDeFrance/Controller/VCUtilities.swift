@@ -43,33 +43,6 @@ extension VCUtilities {
         presentAlert(message: error.rawValue)
     }
 
-    func convertInService(stationODF: StationODF) -> AnyObject? {
-        switch stationODF {
-        case let serviceODF as TemperatureODF:
-            return serviceODF
-        case let serviceODF as HydrometryODF:
-            return serviceODF
-        case let serviceODF as QualityStreamODF:
-            return serviceODF
-        case let serviceODF as PiezometryODF:
-            return serviceODF
-        default:  return nil
-        }
-    }
-
-//    lazy var serviceStackView: UIStackView = {
-//        let serviceLabel = UILabel()
-//        serviceLabel.textAlignment = .left
-//        serviceLabel.text = stationService.current.serviceName.uppercased()
-//        serviceLabel.adjustsFontSizeToFitWidth = true
-//        let logoService = UIImage(named: stationService.current.apiName)?.resize(height: 35)
-//        let logoServiceView = UIImageView(image: logoService)
-//
-//        let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
-//        stackView.setCustomSpacing(10, after: logoServiceView)
-//        stackView.axis = .horizontal
-//        return stackView
-//    }()
     func serviceStackView(service: ManageService) -> UIStackView {
         let serviceLabel = UILabel()
         serviceLabel.textAlignment = .left
@@ -83,5 +56,4 @@ extension VCUtilities {
         stackView.axis = .horizontal
         return stackView
     }
-    
 }

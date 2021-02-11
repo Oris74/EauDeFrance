@@ -50,7 +50,7 @@ class Temperature: ManageService {
         ]
 
         networkService.getAPIData(
-            figureURL, parameters, ApiHubeauHeader<TemperatureHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+            figureURL, parameters, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
                     return callback(nil, nil, error)
                 }
@@ -61,11 +61,11 @@ class Temperature: ManageService {
                     return callback(nil, nil, Utilities.ManageError.incorrectDataStruct)
                 }
 
-//                for figure in apiFigures {
-//                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
-//                        serviceODF.figure?.append(figureODF)
-//                    }
-//                }
+                for figure in apiFigures {
+                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
+                        serviceODF.figure?.append(figureODF)
+                    }
+                }
                 callback(station, statusAPI, nil)
                 return
             })

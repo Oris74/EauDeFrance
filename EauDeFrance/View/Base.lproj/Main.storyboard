@@ -78,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wH4-x9-ea4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301.875" y="-357.04225352112678"/>
+            <point key="canvasLocation" x="330" y="170"/>
         </scene>
         <!--NoteViewController-->
         <scene sceneID="PST-Fn-zF3">
@@ -93,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipj-yM-mXb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1843" y="-357"/>
+            <point key="canvasLocation" x="1824" y="169"/>
         </scene>
         <!--Map-->
         <scene sceneID="4m0-CF-oSl">
@@ -110,40 +110,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q6A-5K-N0q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1095" y="-357"/>
-        </scene>
-        <!--newscast-->
-        <scene sceneID="M8Y-cX-gYY">
-            <objects>
-                <navigationController id="Zkq-rv-Air" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" tag="3" title="newscast" id="BAR-U9-jhp"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Chb-Nk-p1c">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="P9E-KD-pMo" kind="relationship" relationship="rootViewController" id="Byy-tb-4Kd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="vHI-eW-eaz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1095" y="467"/>
-        </scene>
-        <!--eaufrance.fr-->
-        <scene sceneID="Ow8-qA-zK1">
-            <objects>
-                <viewController id="P9E-KD-pMo" userLabel="eaufrance.fr" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="J3U-cl-ksQ" customClass="NewscastViewController" customModule="EauDeFrance" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="uyI-1d-NVW"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="CEf-w2-ZQ9"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VkP-SM-GIV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="302" y="467"/>
+            <point key="canvasLocation" x="-1058" y="170"/>
         </scene>
         <!--Eau De France-->
         <scene sceneID="wGr-Sd-KNc">
@@ -157,7 +124,6 @@
                     <connections>
                         <segue destination="cka-VJ-tsg" kind="relationship" relationship="viewControllers" id="TWE-i6-Dbq"/>
                         <segue destination="SUK-mF-7dS" kind="relationship" relationship="viewControllers" id="NZF-QA-Gic"/>
-                        <segue destination="Zkq-rv-Air" kind="relationship" relationship="viewControllers" id="muK-wG-Kgg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iGa-LK-RJX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

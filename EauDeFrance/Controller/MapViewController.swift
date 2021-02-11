@@ -56,7 +56,7 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
         self.listVCDelegate = tabBarController?.viewControllers?[1].children[0] as? ListStationViewController
 
-        self.currentPlace = setupLocationService()
+        setupLocationService()
         locationManager.startUpdatingLocation()
 
         navigationItem.titleView = serviceStackView(service: stationService.current)
@@ -72,6 +72,11 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     override func viewDidAppear(_ animated: Bool) {
 
         stationService.currentMenu = .map
+        activityIndicator.isHidden = true
+
+        if  let location = locationManager.location?.coordinate {
+            self.currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+        }
 
         mapView.showsUserLocation = true
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
