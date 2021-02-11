@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-protocol PassDataToVC: AnyObject {
-    func sendToVC(updatedStation: StationODF)
-    func didButtonPressed( cell: ListStationTableViewCell)
-}
+//
+//protocol PassDataToVC: AnyObject {
+//    func sendToVC(updatedStation: StationODF)
+//    func didButtonPressed( cell: ListStationTableViewCell)
+//}

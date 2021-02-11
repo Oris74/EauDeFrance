@@ -7,40 +7,16 @@
 
 import Foundation
 
+
 class StationService  {
 
     static var shared = StationService()
 
-    var temperature:Temperature?
-    var piezometry: Piezometry?
-
+    var currentMenu: MenuODF
     var current: ManageService
-
+    
     init() {
         self.current = Temperature.shared
+        self.currentMenu = .map
     }
-
-
-  //  internal func getStations(codeDept: String?, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
-//
-//        let parameters = ["code_departement": codeDept]
-//        var stationODF: [StationODF] = []
-//        //let structAPI = service.getApiStruct()
-//        let service = Temperature()
-//        let api = service.apiStruct
-//        networkService.getAPIData(
-//            service.stationURL, parameters, ApiHubeauHeader, completionHandler: {[weak self]  (apidata, error) in
-//                guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
-//                    return callback(nil, error)
-//                }
-//
-//                for stationAPI in stations {
-//                    if let station = self?.service.bridgeStation(resultAPI: stationAPI) {
-//                        stationODF.append(station)
-//                    }
-//                }
-//                callback(stationODF, nil)
-//                return
-//            })
-//    }
 }

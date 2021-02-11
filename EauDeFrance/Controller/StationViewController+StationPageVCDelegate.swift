@@ -8,6 +8,9 @@
 import UIKit
 
 extension StationViewController: StationPageViewControllerDelegate {
+    func sendStationToVC() -> StationODF {
+        return self.station
+    }
 
     func stationPageViewController(stationPageViewController: StationPageViewController,
         didUpdatePageCount count: Int) {

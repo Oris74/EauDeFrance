@@ -13,7 +13,7 @@ class Piezometry: ManageService {
 
     internal var stationURL =  URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/stations?")!
 
-    internal var apiFigureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?")!
+    internal var figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?")!
 
 
     var networkService: NetworkProtocol = NetworkService.shared
@@ -23,18 +23,17 @@ class Piezometry: ManageService {
 
     init() { }
 
-    func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
+    func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError?) -> Void) {
 
-            let parameters = ["code_departement": codeDept]
-            var stationODF: [PiezometryODF] = []
             networkService.getAPIData(
                 stationURL, parameters, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                     guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                         return callback(nil, error)
                     }
+                    var stationODF: [PiezometryODF] = []
 
-                    for stationAPI in stations {
-                        if let station = self?.bridgeStation(station: stationAPI) {
+                    for station in stations {
+                        if let station = self?.bridgeStation(station: station) {
                             stationODF.append(station)
                         }
                     }
@@ -42,9 +41,42 @@ class Piezometry: ManageService {
                     return
                 })
         }
-    private func bridgeStation(station: PiezometryHubeau)-> PiezometryODF? {
-        let stationODF: PiezometryODF?
-        stationODF = PiezometryODF.init(
+
+
+    func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError?) -> Void) {
+
+        let parameters: [[KeyRequest : String]] = [[.stationPiezo:station.stationCode],
+            [.page:"50"],
+            [.sort:"desc"]]
+
+        networkService.getAPIData(
+            stationURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
+                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
+                    return callback(nil,nil, error)
+                }
+                let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
+
+                guard let serviceODF = station as? PiezometryODF else {
+                    return callback(nil, nil, Utilities.ManageError.incorrectDataStruct)
+                }
+
+                for figure in apiFigures {
+                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
+                        serviceODF.figure?.append(figureODF)
+                    }
+                }
+                callback(station, statusAPI, nil)
+                return
+            })
+    }
+
+    private func bridgeFigureODF(api: PiezometryHubeauValue) -> PiezometryODFValue {
+        let figure = PiezometryODFValue(measureDate: api.dateMesure, timestampMeasure: api.timestampMesure, groundwaterLevel: api.niveauNappeEau, obtainingMode: api.modeObtention, status: api.statut, qualification: api.qualification, continuationCode: api.codeContinuite, continuationName: api.nomContinuite, producerCode: api.codeProducteur, producerName: api.nomProducteur, typeMeasureCode: api.codeNatureMesure, nameTypeMeasure: api.nomNatureMesure, waterTableDepth: api.profondeurNappe)
+        return figure
+    }
+    private func bridgeStation(station: PiezometryHubeau) -> PiezometryODF? {
+
+        let stationODF = PiezometryODF(
             stationCode: station.codeBss ?? "",
             stationLabel: station.libellePe ?? "",
             uriStation: station.bssId ?? "",

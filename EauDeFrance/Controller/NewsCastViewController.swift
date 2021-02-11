@@ -21,7 +21,6 @@ class NewsCastViewController: UIViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
         let originURL = URL(string: "https://www.eaufrance.fr/actualites")!
         let myRequest = URLRequest(url: originURL)
         DispatchQueue.main.async {

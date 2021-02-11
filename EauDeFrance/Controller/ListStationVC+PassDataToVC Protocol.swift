@@ -6,21 +6,21 @@
 //
 
 import UIKit
-
-extension  ListStationViewController: PassDataToVC {
-    func didButtonPressed(cell: ListStationTableViewCell) {
-        if let indexPath = self.tableview.indexPath(for: cell) {
-
-        }
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
-    }
-
-    func sendToVC(updatedStation: StationODF) {
-
-        DispatchQueue.main.async {
-            self.tableview.reloadData()
-        }
-    }
-}
+//
+//extension  ListStationViewController: PassDataToVC {
+//    func didButtonPressed(cell: ListStationTableViewCell) {
+//        if let indexPath = self.tableview.indexPath(for: cell) {
+//
+//        }
+//        DispatchQueue.main.async {
+//            self.tableview.reloadData()
+//        }
+//    }
+//
+//    func sendToVC(updatedStation: StationODF) {
+//
+//        DispatchQueue.main.async {
+//            self.tableview.reloadData()
+//        }
+//    }
+//}

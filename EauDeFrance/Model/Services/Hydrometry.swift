@@ -13,35 +13,38 @@ class Hydrometry: ManageService {
 
     internal let stationURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/stations?")!
 
-    internal let apiFigureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/observation_tr?")!
+    internal let figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/hydrometrie/referentiel/observation_tr?")!
 
     let serviceName = "Hydrométrie"
     let apiName = "hydrometrie"
 
     var networkService: NetworkProtocol = NetworkService.shared
     
-init() { }
+    init() { }
 
-     func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
+    func getStation(parameters: [[KeyRequest : String]], callback: @escaping ([StationODF]?, Utilities.ManageError?) -> Void) {
 
-            let parameters = ["code_departement": codeDept]
-            var stationODF: [StationODF] = []
-            networkService.getAPIData(
-                stationURL, parameters, ApiHubeauHeader<HydrometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
-                    guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
-                        return callback(nil, error)
+
+        var stationODF: [StationODF] = []
+        networkService.getAPIData(
+            stationURL, parameters, ApiHubeauHeader<HydrometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+                guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
+                    return callback(nil, error)
+                }
+
+                for stationAPI in stations {
+                    if let station = self?.bridgeStation(station: stationAPI) {
+                        stationODF.append(station)
                     }
+                }
+                callback(stationODF, nil)
+                return
+            })
+    }
 
-                    for stationAPI in stations {
-                        if let station = self?.bridgeStation(station: stationAPI) {
-                            stationODF.append(station)
-                        }
-                    }
-                    callback(stationODF, nil)
-                    return
-                })
-        }
+    func getFigure(station:StationODF, callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError?) -> Void) {
 
+    }
     private func bridgeStation(station: HydrometryHubeau ) -> HydrometryODF? {
         let stationODF: HydrometryODF?
         stationODF = HydrometryODF.init(
@@ -53,7 +56,7 @@ init() { }
             townshipLabel: station.libelleCommune ?? "",
             countyCode: station.codeDepartement ?? "",
             countyLabel: station.libelleDepartement ?? "",
-            altitude: String(format: "%.f", station.altitudeRefAltiStation ?? " - "),
+            altitude: String(format: "%.f", station.altitudeRefAltiStation ?? 0.0),
             dateUPDT:station.dateMajRefAltiStation ?? "",
             siteCode: station.codeSite,
             siteLabel:station.libelleSite,
@@ -83,6 +86,6 @@ init() { }
             altiStationRefUpdateDate: station.dateMajRefAltiStation,
             inService: station.enService)
 
-            return stationODF
-        }
+        return stationODF
+    }
 }

@@ -16,11 +16,11 @@ class Utilities {
         case urlError = "URL Api non conforme"
         case incorrectDataStruct = "la structure n'est pas conforme aux données API"
         case keyboardError = "veuillez saisir des valeurs numériques"
-        case noStationFound = "aucune recette n'a été trouvée"
-        case noDocumentFound = "aucun favoris n'est enregistré"
+        case noStationFound = "aucune station n'a été trouvée"
         case networkError = "Problème d'acces au site"
         case undefinedError = "erreur non definie"
         case missingCoordinate = "coordonnee Manquante"
+        case missingData = "Données indisponibles"
     }
 
     ///getting API keys from the ApiKeys.plist file located in 'Supporting Files' folder

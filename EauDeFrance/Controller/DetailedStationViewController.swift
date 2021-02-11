@@ -8,6 +8,7 @@
 import UIKit
 
 class DetailedStationViewController: UIViewController {
+    var station: StationODF!
 
     override func viewDidLoad() {
         super.viewDidLoad()

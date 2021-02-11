@@ -26,5 +26,7 @@ protocol StationPageViewControllerDelegate: class {
      */
     func stationPageViewController(stationPageViewController: StationPageViewController,
                                    didUpdatePageIndex index: Int)
+    
+    func sendStationToVC() -> StationODF
 
 }

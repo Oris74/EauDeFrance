@@ -11,33 +11,20 @@ import ENSwiftSideMenu
 
 class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
 
-    internal var stationService = StationService.shared.current
-    private var listVCDelegate: ListStationViewController?
+    internal var stationService = StationService.shared
+    internal var listVCDelegate: ListStationViewController?
 
-    var stations: [StationODF]?
+    //var stations: [StationODF]?
+    
     internal var locationManager = CLLocationManager()
     private var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
     private var distanceSpan: CLLocationDistance = 1500
 
     internal var stepperIndex: Int = 0
 
-    lazy var serviceStackView: UIStackView = {
-        let serviceLabel = UILabel()
-        serviceLabel.textAlignment = .left
-        serviceLabel.text = stationService.serviceName.uppercased()
-        serviceLabel.adjustsFontSizeToFitWidth = true
-        let logoService = UIImage(named: stationService.apiName)?.resize(height: 35)
-        let logoServiceView = UIImageView(image: logoService)
-
-        let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
-        stackView.setCustomSpacing(10, after: logoServiceView)
-        stackView.axis = .horizontal
-        return stackView
-    }()
-
     @IBOutlet weak var mapView: MKMapView!
 
-    @IBOutlet weak var stepperMAp: UIStepper!
+    @IBOutlet weak var stepperMap: UIStepper!
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
@@ -54,21 +41,25 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         toggleSideMenuView()
     }
 
+    @IBAction func addCustomDoc(_ sender: UIBarButtonItem) {
+
+    }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.mapView.delegate = self
         self.sideMenuController()?.sideMenu?.delegate = self
-        
-        checkLocationServices()
+
+        self.listVCDelegate = tabBarController?.viewControllers?[1].children[0] as? ListStationViewController
+
+        self.currentPlace = setupLocationService()
         locationManager.startUpdatingLocation()
 
-
-        navigationItem.titleView = serviceStackView
+        navigationItem.titleView = serviceStackView(service: stationService.current)
 
         self.tabBarController?.delegate = self
     }
@@ -79,35 +70,10 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        if let location = locationManager.location?.coordinate {
-            currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        } else {
-            manageErrors(errorCode: .missingCoordinate)
-        }
-        activityIndicator.isHidden = false
-        refreshMap()
+
+        stationService.currentMenu = .map
 
         mapView.showsUserLocation = true
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
-
-        activityIndicator.isHidden = true
-        
-    }
-
-    func refreshMap() {
-        stationService.getStations(codeDept: "74", callback: {[weak self] ( stationList, error) in
-            guard let depackedStations = stationList, error == nil else {
-                self?.manageErrors(errorCode: error)
-                return }
-            self?.stations = depackedStations
-            self?.displayStation(stations: depackedStations)
-
-        })
-
-    }
-    func displayStation( stations: [StationODF]) {
-        for station in stations {
-            self.mapView.addAnnotation(station)
-        }
     }
 }

@@ -100,7 +100,14 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
             StationService.shared.current = StreamQuality.shared
             break
         }
-        destViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapViewID")
+
+        switch StationService.shared.currentMenu {
+        case .list:
+            destViewController = mainStoryboard.instantiateViewController(withIdentifier: "listViewID")
+        case .map:
+            destViewController = mainStoryboard.instantiateViewController(withIdentifier: "mapViewID")
+        }
+
         sideMenuController()?.setContentViewController(destViewController)
     }
 

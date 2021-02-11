@@ -12,14 +12,22 @@ protocol VCUtilities: UIViewController {
     func presentAlert(message: String)
 }
 
+enum MenuODF {
+    case map
+    case list
+}
+
 extension VCUtilities {
 
     /// getting popup alert with description errors
     internal func presentAlert(message: String) {
+        DispatchQueue.main.async {
         let alert = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
         let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
         alert.addAction(action)
-        present(alert, animated: true, completion: nil)
+
+            self.present(alert, animated: true, completion: nil)
+        }
     }
 
     internal func dismissKeyboard() {
@@ -48,18 +56,32 @@ extension VCUtilities {
         default:  return nil
         }
     }
-//    func serviceStackView(service: Service) -> UIStackView {
+
+//    lazy var serviceStackView: UIStackView = {
 //        let serviceLabel = UILabel()
-//
 //        serviceLabel.textAlignment = .left
-//        serviceLabel.text = service.rawValue.uppercased()
+//        serviceLabel.text = stationService.current.serviceName.uppercased()
 //        serviceLabel.adjustsFontSizeToFitWidth = true
-//        let logoService = service.logo().resize(height: 30)
+//        let logoService = UIImage(named: stationService.current.apiName)?.resize(height: 35)
 //        let logoServiceView = UIImageView(image: logoService)
 //
 //        let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
 //        stackView.setCustomSpacing(10, after: logoServiceView)
 //        stackView.axis = .horizontal
 //        return stackView
-//    }
+//    }()
+    func serviceStackView(service: ManageService) -> UIStackView {
+        let serviceLabel = UILabel()
+        serviceLabel.textAlignment = .left
+        serviceLabel.text = service.serviceName.uppercased()
+        serviceLabel.adjustsFontSizeToFitWidth = true
+        let logoService = UIImage(named: service.apiName)?.resize(height: 35)
+        let logoServiceView = UIImageView(image: logoService)
+
+        let stackView = UIStackView(arrangedSubviews: [ logoServiceView, serviceLabel])
+        stackView.setCustomSpacing(10, after: logoServiceView)
+        stackView.axis = .horizontal
+        return stackView
+    }
+    
 }

@@ -10,8 +10,13 @@ import Foundation
 protocol ManageService:AnyObject {
 
     var stationURL: URL { get }
-    var apiFigureURL: URL { get }
+    var figureURL: URL { get }
     var serviceName: String { get }
     var apiName: String { get }
-    func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void)
+
+    func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void)
+
+    func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError? ) -> Void)
 }
+
+

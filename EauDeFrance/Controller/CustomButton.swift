@@ -10,11 +10,11 @@ import UIKit
 class CustomButton: UIButton {
     private var station: StationODF?
 
-    func setStation(station: StationODF?) {
+    func setStationToBp(station: StationODF?) {
         self.station = station
     }
 
-    func getStation() -> StationODF? {
+    func getStationFromBp() -> StationODF? {
         return station
     }
 }

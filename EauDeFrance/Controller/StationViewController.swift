@@ -9,15 +9,15 @@ import UIKit
 
 class StationViewController: UIViewController, VCUtilities {
 
-    weak var delegate: PassDataToVC?
-
+   // weak var delegate: PassDataToVC?
+    weak var stationDelegate: StationPageViewControllerDelegate?
+    
     var station: StationODF!
 
     @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var bpNextPage: UIButton!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var stationName: UILabel!
     @IBOutlet weak var subTitle: UILabel!
@@ -38,7 +38,8 @@ class StationViewController: UIViewController, VCUtilities {
         self.stationDescription.text = (station.altitude )+" m d'altitude"
         self.county.text = station.countyLabel
 
-     
+        navigationItem.titleView = serviceStackView(service: StationService.shared.current)
+
         pageControl.addTarget(self, action: #selector(StationViewController.didChangePageControlValue(sender:)), for: .valueChanged)
 
     }
@@ -64,6 +65,5 @@ class StationViewController: UIViewController, VCUtilities {
     @objc func didChangePageControlValue(sender: UIPageControl) {
         stationPageViewController?.scrollToViewController(index: pageControl.currentPage)
     }
-   
 }
 

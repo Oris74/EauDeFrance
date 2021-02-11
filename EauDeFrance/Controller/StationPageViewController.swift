@@ -58,6 +58,7 @@ class StationPageViewController: UIPageViewController  {
            let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
             let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
             let nextViewController = orderedViewControllers[newIndex]
+
             scrollToViewController(viewController: nextViewController, direction: direction)
         }
     }
@@ -65,32 +66,38 @@ class StationPageViewController: UIPageViewController  {
 
     private func scrollToViewController(viewController: UIViewController,
                                         direction: UIPageViewController.NavigationDirection = .forward) {
+
+        sendDataTo(viewController)
+
+
         setViewControllers([viewController],
                            direction: direction,
                            animated: true,
                            completion: { (finished) -> Void in
-
-                            switch viewController {
-                            case let stationPageVC as GeneralStationViewController:
-                                print("\(stationPageVC)")
-
-                            case let stationPageVC as DetailedStationViewController:
-                                print("\(stationPageVC)")
-                            case let stationPageVC as FigureStationViewController:
-                                print("\(stationPageVC)")
-
-                            default: break
-                            }
                             self.notifyStationDelegateOfNewIndex()
                            })
     }
-
 
     /// MARK:  Notifies '_stationDelegate' that the current page index was updated.
     internal func notifyStationDelegateOfNewIndex() {
         if let firstViewController = viewControllers?.first,
            let index = orderedViewControllers.firstIndex(of: firstViewController) {
             stationDelegate?.stationPageViewController(stationPageViewController: self, didUpdatePageIndex: index)
+        }
+    }
+    
+    func sendDataTo(_ viewController: UIViewController) {
+        let station = stationDelegate?.sendStationToVC()
+
+        switch viewController {
+        case let stationPageVC as GeneralStationViewController:
+            stationPageVC.station = station
+        case let stationPageVC as DetailedStationViewController:
+            stationPageVC.station = station
+        case let stationPageVC as FigureStationViewController:
+            stationPageVC.station = station
+
+        default: break
         }
     }
 }

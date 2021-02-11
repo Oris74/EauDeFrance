@@ -8,9 +8,10 @@
 import Foundation
 
 protocol NetworkProtocol {
+    
     func getAPIData<T: Decodable>(
           _ endpointApi: URL?,
-          _ parameters: [String:String?],
+          _ parameters: [[KeyRequest:String]],
           _ apiStruct: T?.Type,
           completionHandler : @escaping (T?, Utilities.ManageError?) -> Void)
 }

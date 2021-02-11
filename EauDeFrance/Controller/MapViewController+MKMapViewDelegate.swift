@@ -51,7 +51,7 @@ extension MapViewController: MKMapViewDelegate {
             view.calloutOffset = CGPoint(x: 0, y: 60)
         }
 
-        view.image = UIImage(named: stationService.apiName)!.resize(height: 40)
+        view.image = UIImage(named: stationService.current.apiName)!.resize(height: 40)
         return view
     }
 
@@ -68,7 +68,7 @@ extension MapViewController: MKMapViewDelegate {
             let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
 
             let callOutView = views?[0] as! CustomCallOutView
-            let logo = UIImage(named: stationService.apiName)?.resize(height: 45)
+            let logo = UIImage(named: stationService.current.apiName)?.resize(height: 45)
             callOutView.logoService.image = logo
             callOutView.stationName.text = stationODF.stationCode
             callOutView.stationLabel.text = stationODF.stationLabel
@@ -84,11 +84,12 @@ extension MapViewController: MKMapViewDelegate {
             }
 
             callOutView.countyLabel.text = (stationODF.countyCode ) + " " +  (stationODF.countyLabel )
-            callOutView.bpDataStation.setStation(station: stationODF)
-            callOutView.bpDataStation.addTarget(self, action: #selector (MapViewController.displayStationData(sender:)), for: .touchUpInside)
+            callOutView.bpDataStation.setStationToBp(station: stationODF)
+            callOutView.bpDataStation.addTarget(self, action: #selector (MapViewController.getCallOutStation(sender:)), for: .touchUpInside)
 
             callOutView.center = CGPoint(x: view.bounds.size.width / 2, y: -callOutView.bounds.size.height*0.52)
             view.addSubview(callOutView)
+
             mapView.setCenter((view.annotation?.coordinate)!, animated: true)
             return
         default: return
@@ -104,33 +105,51 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
     }
+    
+    func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool){
 
-    @objc func displayStationData(sender: CustomButton)
-    {
-       guard let station = sender.getStation() else { return }
-       presentStation(with: station)
+        let northEast = mapView.convert(CGPoint(x: mapView.bounds.width, y: 0), toCoordinateFrom: mapView)
+        let southWest = mapView.convert(CGPoint(x: 0, y: mapView.bounds.height), toCoordinateFrom: mapView)
+
+        let zone = "\(southWest.longitude),\(southWest.latitude),\(northEast.longitude),\(northEast.latitude)"
+
+        self.tabBarController?.tabBar.items?[1].isEnabled = false
+
+        activityIndicator.isHidden = false
+        let request: [[KeyRequest:String]] = [[.area:zone]]
+        stationService.current.getStation(parameters: request, callback: {[weak self] ( stationList, error) in
+            guard let depackedStations = stationList, error == nil else {
+                self?.manageErrors(errorCode: error)
+                return }
+
+            self?.displayStation(stations: depackedStations)
+            self?.listVCDelegate?.stations = depackedStations
+            self?.activityIndicator.isHidden = true
+            self?.tabBarController?.tabBar.items?[1].isEnabled = true
+        })
     }
 
-    func displayStations(stations: [StationODF]) {
+    @objc func getCallOutStation(sender: CustomButton)
+    {
+        guard let station = sender.getStationFromBp() else { return }
+        presentStationVC(with: station)
+    }
+
+    private func displayStation( stations: [StationODF]?) {
+        guard let stations = stations else { return }
+
+        mapView.removeAnnotations(self.mapView.annotations)
         for station in stations {
-            self.mapView.addAnnotation(station)
+            mapView.addAnnotation(station)
         }
     }
 
-    private func getStationVC() -> UIViewController? {
+    func presentStationVC(with station: StationODF) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let stationVC = storyboard.instantiateViewController(withIdentifier: "StationViewController") as? StationViewController
-        else { return nil }
-        return stationVC
-    }
-
-   
-    func presentStation(with station: StationODF) {
-        guard let stationVC = getStationVC() as? StationViewController else { return }
-
+        else { return }
         stationVC.station = station
         self.navigationController?.pushViewController(stationVC, animated: true)
     }
+
 }
-
-

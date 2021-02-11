@@ -24,7 +24,7 @@ extension StationPageViewController: UIPageViewControllerDataSource {
         guard orderedViewControllers.count > previousIndex else {
             return nil
         }
-
+        
         return orderedViewControllers[previousIndex]
     }
 
@@ -46,7 +46,6 @@ extension StationPageViewController: UIPageViewControllerDataSource {
             guard orderedViewControllersCount > nextIndex else {
                 return nil
             }
-
             return orderedViewControllers[nextIndex]
     }
 

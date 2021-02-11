@@ -8,12 +8,12 @@
 import Foundation
 
 class Temperature: ManageService {
-
+   
     static var shared = Temperature()
     
     let stationURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/station?")!
 
-    let apiFigureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/chronique?")!
+    let figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/chronique?")!
 
     var networkService: NetworkProtocol = NetworkService.shared
 
@@ -21,18 +21,18 @@ class Temperature: ManageService {
     let serviceName = "Température"
 
     init(){}
-    func getStations(codeDept: String, callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
 
-        let parameters = ["code_departement": codeDept]
-
+    func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
         networkService.getAPIData(
             stationURL, parameters, ApiHubeauHeader<TemperatureHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+
                 guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                     return callback(nil, error)
                 }
+
                 var stationODF: [TemperatureODF] = []
                 for stationAPI in stations {
-                    if let station = self?.bridgeStation(station: stationAPI) {
+                    if let station = self?.bridgeStationODF(station: stationAPI) {
                         stationODF.append(station)
                     }
                 }
@@ -41,7 +41,51 @@ class Temperature: ManageService {
             })
     }
 
-    private func bridgeStation(station: TemperatureHubeau ) -> TemperatureODF? {
+    func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?,Utilities.ManageError?) -> Void) {
+
+        let parameters: [[KeyRequest : String]] = [
+            [.stationCode:station.stationCode],
+            [.page:"50"],
+            [.sort:"desc"]
+        ]
+
+        networkService.getAPIData(
+            figureURL, parameters, ApiHubeauHeader<TemperatureHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
+                    return callback(nil, nil, error)
+                }
+
+                let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
+
+                guard let serviceODF = station as? TemperatureODF else {
+                    return callback(nil, nil, Utilities.ManageError.incorrectDataStruct)
+                }
+
+//                for figure in apiFigures {
+//                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
+//                        serviceODF.figure?.append(figureODF)
+//                    }
+//                }
+                callback(station, statusAPI, nil)
+                return
+            })
+    }
+
+    private func bridgeFigureODF(api: TemperatureHubeauValue) -> TemperatureODFValue {
+        let figure = TemperatureODFValue(
+            parameterCode: api.codeParametre,
+            parameterLabel: api.libelleParametre,
+            tempMeasureDate: api.dateMesureTemp,
+            tempMeasureHour: api.heureMesureTemp,
+            result: api.resultat,
+            unitCode: api.codeUnite,
+            unitSymbol: api.symboleUnite,
+            qualificationCode: api.codeQualification,
+            qualificationLabel: api.libelleQualification)
+        return figure
+    }
+
+    private func bridgeStationODF(station: TemperatureHubeau ) -> TemperatureODF? {
         let stationODF: TemperatureODF?
         stationODF = TemperatureODF.init(
             stationCode: station.codeStation ?? "",
@@ -72,7 +116,7 @@ class Temperature: ManageService {
             subBasinLabel: station.libelleSousBassin,
             basinCode: station.codeBassin,
             uriBasin: String(format: "%.0", station.altitude ?? 0.0),
-            pointKM: station.dateMajInfos
+            pointKM: String(format: "%.0", station.pointKm ?? 0.0)
         )
         return stationODF
     }

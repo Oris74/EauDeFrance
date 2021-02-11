@@ -10,12 +10,12 @@ import MapKit
 /// MARK: StationODF compatible with map annotation View
 extension StationODF: MKAnnotation {
     var title :String? {
-        return stationCode
+        return stationLabel
     }
     var coordinate: CLLocationCoordinate2D {
         return CLLocationCoordinate2D(latitude: latitude , longitude: longitude )
     }
     var info: String? {
-        return stationLabel
+        return townshipCode + " " + townshipLabel
     }
 }

@@ -16,7 +16,7 @@ struct HydrometryHubeau:  Codable {
     let longitude, latitude: Double?
     let influenceLocaleStation: Int?
     let commentaireStation: String?
-    let altitudeRefAltiStation: Int?
+    let altitudeRefAltiStation: Double?
     let codeSystemeAltiSite: Int?
     let codeCommune, libelleCommune, codeDepartement, codeRegion: String?
     let libelleRegion, codeCoursEau: String?

@@ -9,12 +9,13 @@
 import Foundation
 
 class NetworkService: NetworkProtocol {
+
     static let shared = NetworkService()
 
     private var task: URLSessionDataTask?
 
     private var session = URLSession(configuration: .default)
-
+    
     enum Method: String {
         case get = "GET"
         case post = "POST"
@@ -51,8 +52,8 @@ class NetworkService: NetworkProtocol {
             if errorCode == nil {
                 self?.decodeJSON(type: type.self,
                                  data: data,
-                                 completionJSON: {(type, errorCode) in
-                                    completionResponse(type, errorCode)
+                                 completionJSON: {(result, errorCode) in
+                                    completionResponse(result, errorCode)
                                  })
             } else {
                 #if DEBUG
@@ -109,10 +110,9 @@ class NetworkService: NetworkProtocol {
         return request
     }
 
-    ///get and decode api data 
     func getAPIData<T: Decodable>(
         _ endpointApi: URL?,
-        _ parameters: [String:String?],
+        _ parameters: [[KeyRequest:String]],
         _ apiStruct: T?.Type,
         completionHandler : @escaping (T?, Utilities.ManageError?) -> Void) {
 
@@ -120,27 +120,26 @@ class NetworkService: NetworkProtocol {
             return completionHandler(nil, Utilities.ManageError.urlError)
         }
 
-        let queryItems = parameters.map {
-            URLQueryItem(name: $0.0, value: $0.1)
+        let queryItems = parameters.flatMap {$0.map {
+            URLQueryItem(name: ($0.0).rawValue, value: $0.1)}
         }
 
         let request = createRequest(url: depackedEndpointApi, queryItems: queryItems)
 
         // prevent two identical tasks
         task?.cancel()
-
         task = session.dataTask(with: request, completionHandler: {[weak self] (data, response, error) in
             do {
                 if let error = error {
                     throw error
                 }
+                #if DEBUG
+                print("data task-> data:\(String(describing: data)), response \(String(describing: response)), error: \(String(describing: error))")
+                #endif
                 guard let responseData = data else {
                     throw Utilities.ManageError.httpResponseError
                 }
 
-                #if debug
-                print("data task-> data:\(responseData), response \(String(describing: response)), error: \(String(describing: error))")
-                #endif
                 DispatchQueue.main.async {
                     self?.manageResponse(
                         apiStruct,
@@ -150,12 +149,16 @@ class NetworkService: NetworkProtocol {
                         })
                 }
             }catch let blockError {
-                completionHandler(nil, Utilities.ManageError.httpResponseError)
+                if blockError.localizedDescription == "cancelled" {
+                    return
+                }
                 #if DEBUG
-                print("\n errorout:\(blockError)")
+                print("erreur Out: \(blockError)")
                 #endif
+                completionHandler(nil, Utilities.ManageError.httpResponseError)
             }
         })
         task?.resume()
     }
 }
+
