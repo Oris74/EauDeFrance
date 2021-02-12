@@ -68,5 +68,11 @@
 	<string>Accepter la localisation</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Accepter la localisation</string>
+	<key>NSCameraUsageDescription</key>
+	<string>$(PRODUCT_NAME) souhaite accéder à l&apos;appareil Photo</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>$(PRODUCT_NAME) souhaite accéder à vos photos</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>$(PRODUCT_NAME) demande l&apos;autorisation de sauvegarder des photos</string>
 </dict>
 </plist>

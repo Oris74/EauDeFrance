@@ -56,4 +56,29 @@ extension VCUtilities {
         stackView.axis = .horizontal
         return stackView
     }
+
+//    /// MARK: Manage + /- buttons for zoom
+//    func zoomInOut(mapView: MKMapView, stepper: UIStepper, newIndex: Int, stepperIndex: Int) -> Int {
+//        var region: MKCoordinateRegion = mapView.region
+//        if stepperIndex > newIndex {
+//            //Zoom In
+//            region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
+//            region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
+//        } else if (stepperIndex < newIndex) {
+//            //Zoom out
+//            region.span.latitudeDelta /= 2.0
+//            region.span.longitudeDelta /= 2.0
+//        }
+//
+//        mapView.setRegion(region, animated: true)
+//        return newIndex
+//    }
+//
+//    func spanLocationMap(mapView: MKMapView, coordinate: CLLocationCoordinate2D, spanLat: Double, spanLong: Double) {
+//
+//        let span = MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong)
+//        let region = MKCoordinateRegion(center: coordinate, span: span)
+//
+//        mapView.setRegion(region, animated: true)
+//    }
 }

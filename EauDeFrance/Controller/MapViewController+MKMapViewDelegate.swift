@@ -10,7 +10,7 @@ import MapKit
 
 extension MapViewController: MKMapViewDelegate {
     /// MARK: Manage + /- buttons for zoom
-    internal func zoomInOut(newIndex: Int){
+   func zoomInOut(newIndex: Int){
         var region: MKCoordinateRegion = mapView.region
         if stepperIndex > newIndex {
             //Zoom In

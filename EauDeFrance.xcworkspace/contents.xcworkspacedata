@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:EauDeFrance/Model/PiezometryODF.swift">
+   </FileRef>
+   <FileRef
       location = "group:EauDeFrance.xcodeproj">
    </FileRef>
    <FileRef
