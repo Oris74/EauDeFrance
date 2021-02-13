@@ -10,11 +10,18 @@ import UIKit
 extension ShareDocViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
     func setupCamera() {
-        let vc = UIImagePickerController()
-        vc.sourceType = .camera
-        vc.allowsEditing = true
-        vc.delegate = self
-        present(vc, animated: true)
+        if(UIImagePickerController.isSourceTypeAvailable(.camera))
+        {
+                 let myPickerController = UIImagePickerController()
+                 myPickerController.delegate = self
+                 myPickerController.allowsEditing = true
+                 myPickerController.sourceType = .camera
+                 self.present(myPickerController, animated: true, completion: nil)
+        }
+        else
+        {
+            manageErrors(errorCode: Utilities.ManageError.cameraIssue)
+        }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         picker.dismiss(animated: true)

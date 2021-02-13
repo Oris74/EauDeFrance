@@ -19,7 +19,6 @@ class ListStationViewController: UIViewController {
 
     @IBOutlet weak var tableview: UITableView!
 
-
     @IBAction func mainMenu(_ sender: UIBarButtonItem) {
         toggleSideMenuView()
     }
@@ -42,11 +41,15 @@ class ListStationViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
         stationService.currentMenu = .list
         navigationItem.titleView = serviceStackView(service: stationService.current)
+        if stations == nil {
+            populateStationsList()
+        }
         tableview.reloadData()
-        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,8 +58,24 @@ class ListStationViewController: UIViewController {
             let pageVC = segue.destination as! StationViewController
             if let selectedStation = self.tableview.indexPathForSelectedRow {
                 pageVC.station = self.stations[selectedStation.row]
+                self.tabBarController?.tabBar.isHidden = true
             } else { return }
         }
+    }
+
+    func populateStationsList() {
+        guard let zone =  mapVCDelegate.mapArea else { return }
+        let request: [[KeyRequest:String]] = [[.area:zone],[.size:"2000"]]
+        stationService.current.getStation(parameters: request, callback: {[weak self] ( stationList, error) in
+            guard let depackedStations = stationList, error == nil else {
+                self?.manageErrors(errorCode: error)
+                return }
+
+            self?.stations = depackedStations
+            self?.tableview.reloadData()
+            self?.mapVCDelegate.displayStation(stations: depackedStations)
+            self?.tabBarController?.tabBar.items?[1].isEnabled = true
+        })
     }
 }
 

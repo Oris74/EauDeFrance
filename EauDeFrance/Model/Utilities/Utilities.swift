@@ -21,7 +21,7 @@ class Utilities {
         case undefinedError = "erreur non definie"
         case missingCoordinate = "coordonnee Manquante"
         case missingData = "Données indisponibles"
-        case cameraIssue = "Capture de la photo impossible"
+        case cameraIssue = "La caméra n'est pas accessible"
     }
 
     ///getting API keys from the ApiKeys.plist file located in 'Supporting Files' folder

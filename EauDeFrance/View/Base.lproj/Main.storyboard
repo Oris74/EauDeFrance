@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -66,7 +65,7 @@
                             <barButtonItem title="Item" image="adddocplus" id="MQt-1H-aJB">
                                 <connections>
                                     <action selector="addCustomDoc:" destination="fh9-Nn-w3k" id="c84-XQ-8WN"/>
-                                    <segue destination="8dA-co-SLu" kind="presentation" identifier="segueToNoteViewController" id="ubP-sx-Gbn"/>
+                                    <segue destination="8dA-co-SLu" kind="show" identifier="segueToNoteViewController" id="ubP-sx-Gbn"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>
@@ -86,23 +85,23 @@
             <objects>
                 <viewController storyboardIdentifier="shareDoc" id="8dA-co-SLu" userLabel="shareDocViewController" customClass="ShareDocViewController" customModule="EauDeFrance" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Ho-te-Kk2" userLabel="MainView">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Eq1-pr-Dfk" userLabel="DescriptionStack">
-                                <rect key="frame" x="5" y="5" width="310" height="228"/>
+                                <rect key="frame" x="5" y="49" width="310" height="155"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="b8Q-zO-1yT" userLabel="TitleStack">
-                                        <rect key="frame" x="0.0" y="0.0" width="310" height="111.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="310" height="75"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MarkPlace" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yor-oN-CWc">
-                                                <rect key="frame" x="0.0" y="0.0" width="310" height="53.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="310" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Note" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Kb-Re-gbK">
-                                                <rect key="frame" x="0.0" y="58.5" width="310" height="53"/>
+                                                <rect key="frame" x="0.0" y="40" width="310" height="35"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -110,27 +109,27 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yvj-TP-65w" userLabel="LocationStack">
-                                        <rect key="frame" x="0.0" y="116.5" width="310" height="111.5"/>
+                                        <rect key="frame" x="0.0" y="80" width="310" height="75"/>
                                         <subviews>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="TmY-uy-Hub">
-                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="111.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="152.5" height="75"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Ve7-31-ZjH">
-                                                <rect key="frame" x="157.5" y="0.0" width="152.5" height="111.5"/>
+                                                <rect key="frame" x="157.5" y="0.0" width="152.5" height="75"/>
                                             </mapView>
                                         </subviews>
                                     </stackView>
                                 </subviews>
                             </stackView>
                             <view alpha="0.45000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d2R-Y5-5cn" userLabel="PhotoView">
-                                <rect key="frame" x="0.0" y="228" width="320" height="320"/>
+                                <rect key="frame" x="0.0" y="199" width="320" height="320"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3SG-fg-5BQ" userLabel="PhotoLocation">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
+                                        <rect key="frame" x="0.0" y="15" width="320" height="305"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -138,54 +137,37 @@
                                     <constraint firstItem="3SG-fg-5BQ" firstAttribute="leading" secondItem="d2R-Y5-5cn" secondAttribute="leading" id="8cb-By-Ydw"/>
                                     <constraint firstAttribute="width" secondItem="d2R-Y5-5cn" secondAttribute="height" multiplier="1:1" id="YXX-Go-9tl"/>
                                     <constraint firstAttribute="trailing" secondItem="3SG-fg-5BQ" secondAttribute="trailing" id="gey-aY-IOC"/>
-                                    <constraint firstItem="3SG-fg-5BQ" firstAttribute="top" secondItem="d2R-Y5-5cn" secondAttribute="top" id="iSm-xr-Nal"/>
+                                    <constraint firstItem="3SG-fg-5BQ" firstAttribute="top" secondItem="d2R-Y5-5cn" secondAttribute="top" constant="15" id="iSm-xr-Nal"/>
                                     <constraint firstAttribute="bottom" secondItem="3SG-fg-5BQ" secondAttribute="bottom" id="kPc-ZI-W6G"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="JO8-Ln-Njw" userLabel="BPStack">
-                                <rect key="frame" x="227" y="512" width="88" height="31"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" pointerInteraction="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aT7-lo-S7w" userLabel="Camera">
-                                        <rect key="frame" x="0.0" y="0.0" width="31" height="31"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="aT7-lo-S7w" secondAttribute="height" multiplier="1:1" id="TUd-52-flh"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="camera"/>
-                                        <connections>
-                                            <action selector="bpCameraTapped:" destination="8dA-co-SLu" eventType="touchUpInside" id="X2c-Au-08E"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8IH-hw-cBy" userLabel="BpSharing">
-                                        <rect key="frame" x="40" y="0.0" width="48" height="31"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="square.and.arrow.up" catalog="system" symbolScale="large"/>
-                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="bpSharingTapped:" destination="8dA-co-SLu" eventType="touchUpInside" id="X2R-2s-Z4E"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="due-hn-HXO"/>
-                                    <constraint firstAttribute="height" constant="31" id="uTB-nv-QL8"/>
-                                </constraints>
-                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="a54-Id-GCY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="a54-Id-GCY" firstAttribute="bottom" secondItem="JO8-Ln-Njw" secondAttribute="bottom" constant="5" id="78y-by-KIS"/>
                             <constraint firstAttribute="bottomMargin" secondItem="d2R-Y5-5cn" secondAttribute="bottom" id="8e1-2E-Wdb"/>
                             <constraint firstItem="Eq1-pr-Dfk" firstAttribute="leading" secondItem="a54-Id-GCY" secondAttribute="leading" constant="5" id="HyI-Qa-qWT"/>
                             <constraint firstItem="Eq1-pr-Dfk" firstAttribute="top" secondItem="a54-Id-GCY" secondAttribute="top" constant="5" id="Zb3-Tg-9lJ"/>
                             <constraint firstItem="Eq1-pr-Dfk" firstAttribute="bottom" secondItem="d2R-Y5-5cn" secondAttribute="top" constant="5" id="ZnH-hw-Zr4"/>
                             <constraint firstItem="a54-Id-GCY" firstAttribute="trailing" secondItem="d2R-Y5-5cn" secondAttribute="trailing" id="oHk-n1-sDn"/>
                             <constraint firstItem="a54-Id-GCY" firstAttribute="trailing" secondItem="Eq1-pr-Dfk" secondAttribute="trailing" constant="5" id="oge-RY-eeA"/>
-                            <constraint firstAttribute="trailing" secondItem="JO8-Ln-Njw" secondAttribute="trailing" constant="5" id="qXX-S5-VbC"/>
                             <constraint firstItem="d2R-Y5-5cn" firstAttribute="leading" secondItem="a54-Id-GCY" secondAttribute="leading" id="zcj-1k-iQ6"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="pPd-mV-LtO">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" image="square.and.arrow.up" catalog="system" id="JqB-Ps-sS7" userLabel="bpSharing">
+                                <connections>
+                                    <action selector="bpSharingTapped:" destination="8dA-co-SLu" id="zhC-OS-E8l"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="camera" id="ROe-TX-WYM" userLabel="camera">
+                                <connections>
+                                    <action selector="bpCameraTapped:" destination="8dA-co-SLu" id="C5Q-9x-BHg"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="mainView" destination="2Ho-te-Kk2" id="E1u-yK-gEs"/>
                         <outlet property="mapView" destination="Ve7-31-ZjH" id="ogA-IF-r7A"/>
@@ -272,9 +254,10 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="75"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="XAG-Jb-Mzy">
-                                            <rect key="frame" x="150" y="19" width="20" height="20"/>
+                                        <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" id="XAG-Jb-Mzy">
+                                            <rect key="frame" x="151" y="28" width="20" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fnb-Jp-EIZ">
                                             <rect key="frame" x="16" y="17" width="33" height="20.5"/>
@@ -293,7 +276,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="activityIndicator" destination="XAG-Jb-Mzy" id="f3L-5c-H5r"/>
+                                    <outlet property="activityIndicator" destination="XAG-Jb-Mzy" id="lYN-ks-DoY"/>
                                     <outlet property="detailStation" destination="GYr-Ev-T5U" id="PZH-sT-3x4"/>
                                     <outlet property="titleStation" destination="Fnb-Jp-EIZ" id="ugo-Na-N2p"/>
                                     <segue destination="5y4-iO-N8M" kind="show" identifier="segueToStationVC" id="k3L-ET-fFN"/>
@@ -320,7 +303,7 @@
                             <barButtonItem title="Item" image="adddocplus" id="WyF-XJ-Cyh">
                                 <connections>
                                     <action selector="addCustomDoc:" destination="aO7-Jm-p9h" id="rOf-nJ-uYg"/>
-                                    <segue destination="8dA-co-SLu" kind="presentation" id="58X-G2-0iV"/>
+                                    <segue destination="8dA-co-SLu" kind="show" id="58X-G2-0iV"/>
                                 </connections>
                             </barButtonItem>
                         </rightBarButtonItems>

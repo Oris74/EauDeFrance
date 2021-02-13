@@ -24,10 +24,10 @@ class ShareDocViewController: UIViewController, VCUtilities {
 
     @IBOutlet weak var photoLocation: UIImageView!
 
-    @IBAction func bpSharingTapped(_ sender: UIButton) {
+    @IBAction func bpSharingTapped(_ sender: UIBarButtonItem) {
         displayActivityViewController()
     }
-    @IBAction func bpCameraTapped(_ sender: UIButton) {
+    @IBAction func bpCameraTapped(_ sender: UIBarButtonItem) {
         setupCamera()
     }
 

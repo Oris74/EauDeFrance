@@ -108,16 +108,15 @@ extension MapViewController: MKMapViewDelegate {
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool){
+        self.tabBarController?.tabBar.items?[1].isEnabled = false
 
         let northEast = mapView.convert(CGPoint(x: mapView.bounds.width, y: 0), toCoordinateFrom: mapView)
         let southWest = mapView.convert(CGPoint(x: 0, y: mapView.bounds.height), toCoordinateFrom: mapView)
 
-        let zone = "\(southWest.longitude),\(southWest.latitude),\(northEast.longitude),\(northEast.latitude)"
+        self.mapArea = "\(southWest.longitude),\(southWest.latitude),\(northEast.longitude),\(northEast.latitude)"
 
-        self.tabBarController?.tabBar.items?[1].isEnabled = false
-
-       // activityIndicator.isHidden = false
-        let request: [[KeyRequest:String]] = [[.area:zone]]
+        activityIndicator.isHidden = false
+        let request: [[KeyRequest:String]] = [[.area:mapArea!],[.size:"2000"]]
         stationService.current.getStation(parameters: request, callback: {[weak self] ( stationList, error) in
             guard let depackedStations = stationList, error == nil else {
                 self?.manageErrors(errorCode: error)
@@ -125,7 +124,7 @@ extension MapViewController: MKMapViewDelegate {
 
             self?.displayStation(stations: depackedStations)
             self?.listVCDelegate?.stations = depackedStations
-            //self?.activityIndicator.isHidden = true
+            self?.activityIndicator.isHidden = true
             self?.tabBarController?.tabBar.items?[1].isEnabled = true
         })
     }
@@ -136,7 +135,7 @@ extension MapViewController: MKMapViewDelegate {
         presentStationVC(with: station)
     }
 
-    private func displayStation( stations: [StationODF]?) {
+    func displayStation( stations: [StationODF]?) {
         guard let stations = stations else { return }
 
         let annotationsToRemove = mapView.annotations.filter { $0 !== mapView.selectedAnnotations.first }
@@ -153,6 +152,7 @@ extension MapViewController: MKMapViewDelegate {
         guard let stationVC = storyboard.instantiateViewController(withIdentifier: "StationViewController") as? StationViewController
         else { return }
         stationVC.station = station
+        self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(stationVC, animated: true)
     }
 

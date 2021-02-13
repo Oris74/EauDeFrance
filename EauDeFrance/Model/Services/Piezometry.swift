@@ -45,8 +45,7 @@ class Piezometry: ManageService {
 
     func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError?) -> Void) {
 
-        let parameters: [[KeyRequest : String]] = [[.stationPiezo:station.stationCode],
-            [.page:"50"],
+        let parameters: [[KeyRequest : String]] = [[.stationPiezo:station.stationCode],[.size:"50"],
             [.sort:"desc"]]
 
         networkService.getAPIData(

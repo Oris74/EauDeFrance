@@ -22,6 +22,8 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
     internal var stepperIndex: Int = 0
 
+    var mapArea: String?
+
     @IBOutlet weak var mapView: MKMapView!
 
     @IBOutlet weak var stepperMap: UIStepper!
@@ -59,14 +61,18 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         setupLocationService()
         locationManager.startUpdatingLocation()
 
-        navigationItem.titleView = serviceStackView(service: stationService.current)
-
         self.tabBarController?.delegate = self
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        navigationItem.titleView = serviceStackView(service: stationService.current)
+        self.tabBarController?.tabBar.isHidden = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -77,7 +83,6 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         if  let location = locationManager.location?.coordinate {
             self.currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
         }
-
         mapView.showsUserLocation = true
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
     }

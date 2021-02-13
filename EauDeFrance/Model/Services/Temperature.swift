@@ -45,7 +45,7 @@ class Temperature: ManageService {
 
         let parameters: [[KeyRequest : String]] = [
             [.stationCode:station.stationCode],
-            [.page:"50"],
+            [.size:"50"],
             [.sort:"desc"]
         ]
 

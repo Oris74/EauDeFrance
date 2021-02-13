@@ -34,7 +34,7 @@ class StationViewController: UIViewController, VCUtilities {
         super.viewDidLoad()
         self.stationName.text = (station.stationLabel )
         self.subTitle.text = station.title
-    
+
         self.stationDescription.text = (station.altitude )+" m d'altitude"
         self.county.text = station.countyLabel
 
@@ -52,6 +52,7 @@ class StationViewController: UIViewController, VCUtilities {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let stationPageViewController = segue.destination as? StationPageViewController {
             self.stationPageViewController = stationPageViewController
+            self.hidesBottomBarWhenPushed = false
         }
 
     }

@@ -23,7 +23,7 @@ struct TemperatureHubeau: Codable {
     let uriMasseEau: String?
     let codeSousBassin, libelleSousBassin, codeBassin, libelleBassin: String?
     let uriBassin: String?
-    let pointKm: Int?
+    let pointKm: Double?
     let altitude: Double?
     let dateMajInfos: String?
     let geometry: GeometryHubeau?
