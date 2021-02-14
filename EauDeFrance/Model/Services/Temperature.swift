@@ -60,13 +60,13 @@ class Temperature: ManageService {
                 guard let serviceODF = station as? TemperatureODF else {
                     return callback(nil, nil, Utilities.ManageError.incorrectDataStruct)
                 }
-
+                serviceODF.figure = []
                 for figure in apiFigures {
                     if let figureODF = self?.bridgeFigureODF(api:  figure) {
                         serviceODF.figure?.append(figureODF)
                     }
                 }
-                callback(station, statusAPI, nil)
+                callback(serviceODF, statusAPI, nil)
                 return
             })
     }

@@ -20,23 +20,36 @@ class NetworkService: NetworkProtocol {
         case get = "GET"
         case post = "POST"
     }
-
+    
     ///check URL response and manage errors
     private func checkURLResponse(_ data: Data?,
                                   _ response: URLResponse?,
                                   _ error: Error?,
                                   completionURLResponse: @escaping (Utilities.ManageError?) -> Void) {
 
-        guard data != nil, error == nil else {
-            completionURLResponse(.networkError)
+//        guard data != nil, error == nil else {
+//            completionURLResponse(.networkError)
+//            return
+//        }
+        if let  response = response as? HTTPURLResponse {
+            switch response.statusCode {
+            case 200,206:
+                completionURLResponse(nil)
+            case 400:
+                completionURLResponse(.incorrectRequete)
+            case 401:
+                completionURLResponse(.unauthorizedRequete)
+            case 403:
+                completionURLResponse(.forbiddenRequete)
+            case 404:
+                completionURLResponse(.notFound)
+            case 500:
+                completionURLResponse(.internalServerError)
+            default:
+                completionURLResponse(.undefinedError)
+            }
             return
         }
-        guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-            completionURLResponse(.httpResponseError)
-            return
-        }
-        completionURLResponse(nil)
-        return
     }
 
     ///generic data importation management

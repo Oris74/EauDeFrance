@@ -501,10 +501,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="spx-Jz-xg8" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="20" y="150" width="280" height="288"/>
+                                <rect key="frame" x="20" y="20" width="280" height="528"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="7RK-0c-Y4q">
-                                        <rect key="frame" x="0.0" y="0.0" width="280" height="288"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="280" height="528"/>
                                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                                     </activityIndicatorView>
                                 </subviews>
@@ -521,8 +521,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="spx-Jz-xg8" firstAttribute="leading" secondItem="N0p-HO-c3w" secondAttribute="leading" constant="20" id="9WM-3n-570"/>
-                            <constraint firstItem="N0p-HO-c3w" firstAttribute="bottom" secondItem="spx-Jz-xg8" secondAttribute="bottom" constant="130" id="Ijl-Lp-9o1"/>
-                            <constraint firstItem="spx-Jz-xg8" firstAttribute="top" secondItem="N0p-HO-c3w" secondAttribute="top" constant="150" id="fiH-JK-66b"/>
+                            <constraint firstItem="N0p-HO-c3w" firstAttribute="bottom" secondItem="spx-Jz-xg8" secondAttribute="bottom" constant="20" id="Ijl-Lp-9o1"/>
+                            <constraint firstItem="spx-Jz-xg8" firstAttribute="top" secondItem="N0p-HO-c3w" secondAttribute="top" constant="20" id="fiH-JK-66b"/>
                             <constraint firstItem="N0p-HO-c3w" firstAttribute="trailing" secondItem="spx-Jz-xg8" secondAttribute="trailing" constant="20" id="y6P-oN-a08"/>
                         </constraints>
                     </view>
