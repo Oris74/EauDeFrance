@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Datum
 struct TemperatureHubeau: Codable {
     let codeStation, libelleStation: String?
-    let uriStation: String?
+    let uriStation: String
     let localisation: String?
     let coordonneeX, coordonneeY, codeTypeProjection: Int?
     let longitude, latitude: Double?

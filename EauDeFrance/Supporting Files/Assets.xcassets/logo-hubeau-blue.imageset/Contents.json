@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "logo-hubeau-blue.svg",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -9,7 +10,6 @@
       "scale" : "2x"
     },
     {
-      "filename" : "Icon-feather-settings@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -17,10 +17,5 @@
   "info" : {
     "author" : "xcode",
     "version" : 1
-  },
-  "properties" : {
-    "auto-scaling" : "auto",
-    "compression-type" : "automatic",
-    "template-rendering-intent" : "original"
   }
 }

@@ -62,12 +62,17 @@ extension MapViewController: MKMapViewDelegate {
         case is MKUserLocation:
             // Don't proceed with custom callout
             return
+
         case let stationODF as StationODF:
             spanLocationMap(coordinate: stationODF.coordinate, spanLat: 1, spanLong: 1)
 
             let views = Bundle.main.loadNibNamed("CustomCallOutView", owner: nil, options: nil)
 
             let callOutView = views?[0] as! CustomCallOutView
+
+            callOutView.backGroundView.layer.borderWidth = 2
+            callOutView.backGroundView.layer.borderColor = UIColor.blue.cgColor
+            
             let logo = UIImage(named: stationService.current.apiName)?.resize(height: 45)
             callOutView.logoService.image = logo
             callOutView.stationName.text = stationODF.stationCode
@@ -115,9 +120,9 @@ extension MapViewController: MKMapViewDelegate {
 
         self.mapArea = "\(southWest.longitude),\(southWest.latitude),\(northEast.longitude),\(northEast.latitude)"
 
-        activityIndicator.isHidden = false
-        let request: [[KeyRequest:String]] = [[.area:mapArea!],[.size:"2000"]]
-        stationService.current.getStation(parameters: request, callback: {[weak self] ( stationList, error) in
+        self.activityIndicator.isHidden = false
+        let parameters: [[KeyRequest : String]] = [[.area:mapArea!],[.size: "2000"],[.sort:"desc"]]
+        stationService.current.getStation(parameters: parameters, callback: {[weak self] ( stationList, error) in
             guard let depackedStations = stationList, error == nil else {
                 self?.manageErrors(errorCode: error)
                 return }

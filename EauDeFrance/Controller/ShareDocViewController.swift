@@ -13,14 +13,11 @@ class ShareDocViewController: UIViewController, VCUtilities {
     @IBOutlet var mainView: UIView!
     
     @IBOutlet weak var markPlace: UILabel!
-
     @IBOutlet weak var textView: UITextView!
 
     @IBOutlet weak var mapView: MKMapView!
 
-
     @IBOutlet weak var note: UILabel!
-
 
     @IBOutlet weak var photoLocation: UIImageView!
 
@@ -38,12 +35,26 @@ class ShareDocViewController: UIViewController, VCUtilities {
     internal var lastLocation: CLLocation?
     internal let geocoder = CLGeocoder()
 
+    var placeholderLabel: UILabel!
     var lastGeocodeTime: Date?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.showsUserLocation = true
+        textView.delegate = self
+        
+        setupPlaceHolder()
         getLocationInfo()
+
+        textView.layer.borderWidth = 1
+        textView.layer.borderColor = UIColor.black.cgColor
+
+        mapView.delegate = self
+        mapView.isZoomEnabled = true
+        mapView.isScrollEnabled  = true
+        mapView.showsCompass = true
+        mapView.mapType = .hybrid
+        //spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
 
     }
 

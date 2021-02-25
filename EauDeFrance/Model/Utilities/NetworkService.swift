@@ -27,10 +27,6 @@ class NetworkService: NetworkProtocol {
                                   _ error: Error?,
                                   completionURLResponse: @escaping (Utilities.ManageError?) -> Void) {
 
-//        guard data != nil, error == nil else {
-//            completionURLResponse(.networkError)
-//            return
-//        }
         if let  response = response as? HTTPURLResponse {
             switch response.statusCode {
             case 200,206:
@@ -125,7 +121,7 @@ class NetworkService: NetworkProtocol {
 
     func getAPIData<T: Decodable>(
         _ endpointApi: URL?,
-        _ parameters: [[KeyRequest:String]],
+        _ parameters: [[KeyRequest:String]]?,
         _ apiStruct: T?.Type,
         completionHandler : @escaping (T?, Utilities.ManageError?) -> Void) {
 
@@ -133,9 +129,10 @@ class NetworkService: NetworkProtocol {
             return completionHandler(nil, Utilities.ManageError.urlError)
         }
 
-        let queryItems = parameters.flatMap {$0.map {
-            URLQueryItem(name: ($0.0).rawValue, value: $0.1)}
-        }
+        if let parameters = parameters {
+            let queryItems = parameters.flatMap {$0.map {
+                URLQueryItem(name: ($0.0).rawValue, value: $0.1)}
+            }
 
         let request = createRequest(url: depackedEndpointApi, queryItems: queryItems)
 
@@ -172,6 +169,7 @@ class NetworkService: NetworkProtocol {
             }
         })
         task?.resume()
+        }
     }
 }
 

@@ -21,6 +21,6 @@ enum KeyRequest: String {
     case entityHydro = "code_entite"
     case max_result = "resultat_max"
     case min_result = "resulat_min"
-    case stationPiezo = "code_bbs"
-
+    case beginRange = "date_debut_mesure"
+    case endRange = "date_fin_mesure"
 }

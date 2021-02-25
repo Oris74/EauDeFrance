@@ -22,7 +22,6 @@
 		D924FC6F25A4D7E10049832B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6E25A4D7E10049832B /* MapViewController.swift */; };
 		D924FC7225A4D7E10049832B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7025A4D7E10049832B /* Main.storyboard */; };
 		D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D924FC7325A4D7E10049832B /* EauDeFrance.xcdatamodeld */; };
-		D924FC7725A4D7E10049832B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7625A4D7E10049832B /* Assets.xcassets */; };
 		D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7825A4D7E10049832B /* LaunchScreen.storyboard */; };
 		D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */; };
 		D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */; };
@@ -56,6 +55,9 @@
 		D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */; };
 		D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E715625BC3F7600C7E7E3 /* StationViewController.swift */; };
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
+		D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467AC25E3BC89000FDF12 /* Date Extension.swift */; };
+		D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467B425E3BCF0000FDF12 /* Measure.swift */; };
+		D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99467BC25E55CA5000FDF12 /* Assets.xcassets */; };
 		D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */; };
 		D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */; };
 		D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D4F25B5A8AE00D1EE2A /* UIImageView Extension.swift */; };
@@ -121,7 +123,6 @@
 		D924FC6E25A4D7E10049832B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		D924FC7125A4D7E10049832B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D924FC7425A4D7E10049832B /* EauDeFrance.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = EauDeFrance.xcdatamodel; sourceTree = "<group>"; };
-		D924FC7625A4D7E10049832B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D924FC7925A4D7E10049832B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D924FC7B25A4D7E10049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FC8025A4D7E20049832B /* EauDeFranceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -160,6 +161,9 @@
 		D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationVC+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D93E715625BC3F7600C7E7E3 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D99467AC25E3BC89000FDF12 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
+		D99467B425E3BCF0000FDF12 /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		D99467BC25E55CA5000FDF12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerLocation+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUtilities.swift; sourceTree = "<group>"; };
 		D9996D4F25B5A8AE00D1EE2A /* UIImageView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView Extension.swift"; sourceTree = "<group>"; };
@@ -374,8 +378,8 @@
 			children = (
 				D924FC6A25A4D7E10049832B /* AppDelegate.swift */,
 				D924FC6C25A4D7E10049832B /* SceneDelegate.swift */,
-				D924FC7625A4D7E10049832B /* Assets.xcassets */,
 				D924FC7B25A4D7E10049832B /* Info.plist */,
+				D99467BC25E55CA5000FDF12 /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -494,6 +498,15 @@
 			name = StationViewController;
 			sourceTree = "<group>";
 		};
+		D99467AB25E3BC32000FDF12 /* ManageCharts */ = {
+			isa = PBXGroup;
+			children = (
+				D99467AC25E3BC89000FDF12 /* Date Extension.swift */,
+				D99467B425E3BCF0000FDF12 /* Measure.swift */,
+			);
+			name = ManageCharts;
+			sourceTree = "<group>";
+		};
 		D9996D3225B47C0E00D1EE2A /* ViewControllerUtilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -548,6 +561,7 @@
 		D9FDF0F525D142E300CBDEED /* PagesStation */ = {
 			isa = PBXGroup;
 			children = (
+				D99467AB25E3BC32000FDF12 /* ManageCharts */,
 				D9FDF06925CDB3DA00CBDEED /* GeneralStationViewController.swift */,
 				D9FDF06425CDB34000CBDEED /* DetailedStationViewController.swift */,
 				D9FDF05F25CDB32900CBDEED /* FigureStationViewController.swift */,
@@ -567,8 +581,8 @@
 		D9FDF17225D3DBDE00CBDEED /* Piezometry */ = {
 			isa = PBXGroup;
 			children = (
-				D9FDF17A25D3E0C600CBDEED /* PiezometryODFValue.swift */,
 				D92BDD3725D72F7100F7D829 /* PiezometryODF.swift */,
+				D9FDF17A25D3E0C600CBDEED /* PiezometryODFValue.swift */,
 			);
 			name = Piezometry;
 			sourceTree = "<group>";
@@ -687,8 +701,8 @@
 			files = (
 				D9996D7125B62DD800D1EE2A /* CustomCallOutView.xib in Resources */,
 				D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */,
-				D924FC7725A4D7E10049832B /* Assets.xcassets in Resources */,
 				D924FC7225A4D7E10049832B /* Main.storyboard in Resources */,
+				D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -835,6 +849,7 @@
 				D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */,
 				D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */,
 				D9FDF05225CC96C100CBDEED /* StationPageViewController.swift in Sources */,
+				D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */,
 				D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */,
 				D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */,
 				D93E70D125B9D04E00C7E7E3 /* SideMenuNavigationController.swift in Sources */,
@@ -870,6 +885,7 @@
 				D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */,
 				D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */,
 				D9F9F98025C41E3600193F15 /* Piezometry.swift in Sources */,
+				D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */,
 				D9996D5525B5C0D000D1EE2A /* KeyRequest.swift in Sources */,
 				D9FDF18825D3E84500CBDEED /* PiezometryHubeauValue.swift in Sources */,
 				D924FD2425A7478C0049832B /* TemperatureHubeauValue.swift in Sources */,

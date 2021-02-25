@@ -16,7 +16,8 @@ protocol ManageService:AnyObject {
 
     func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void)
 
-    func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError? ) -> Void)
+    func getFigure(station: StationODF, optionnalParam: [[KeyRequest:String]], callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError? ) -> Void)
+    
 }
 
 

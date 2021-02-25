@@ -41,13 +41,34 @@ class Temperature: ManageService {
             })
     }
 
-    func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?,Utilities.ManageError?) -> Void) {
+    func getFigure(url: URL, callback: @escaping ([TemperatureODFValue]?, ManageODFapi?,Utilities.ManageError?) -> Void) {
+
+        networkService.getAPIData(
+            url, nil, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
+                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
+                    return callback(nil, nil, error)
+                }
+
+                let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
+
+                var serviceODF:[TemperatureODFValue] = []
+                for figure in apiFigures {
+                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
+                        serviceODF.append(figureODF)
+                    }
+                }
+                callback(serviceODF, statusAPI, nil)
+                return
+            })
+    }
+
+
+
+    func getFigure(station: StationODF, optionnalParam: [[KeyRequest:String]], callback: @escaping (StationODF?, ManageODFapi?,Utilities.ManageError?) -> Void) {
 
         let parameters: [[KeyRequest : String]] = [
-            [.stationCode:station.stationCode],
-            [.size:"50"],
-            [.sort:"desc"]
-        ]
+            [.stationCode: station.stationCode],
+            [.sort:"desc"]] + optionnalParam
 
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
@@ -121,3 +142,21 @@ class Temperature: ManageService {
         return stationODF
     }
 }
+//extension Date {
+//
+//    func dayOfTheWeek() -> String? {
+//        let weekdays = [
+//            "Sunday",
+//            "Monday",
+//            "Tuesday",
+//            "Wednesday",
+//            "Thursday",
+//            "Friday",
+//            "Saturday"
+//        ]
+//
+//        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return "" }
+//        let weekday = calendar.component(.weekday, from: self)
+//        return weekdays[weekday - 1]
+//    }
+//}

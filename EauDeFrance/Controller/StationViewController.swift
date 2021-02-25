@@ -20,7 +20,6 @@ class StationViewController: UIViewController, VCUtilities {
     @IBOutlet weak var bpNextPage: UIButton!
 
     @IBOutlet weak var stationName: UILabel!
-    @IBOutlet weak var subTitle: UILabel!
     @IBOutlet weak var stationDescription: UILabel!
     @IBOutlet weak var county: UILabel!
 
@@ -33,7 +32,6 @@ class StationViewController: UIViewController, VCUtilities {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.stationName.text = (station.stationLabel )
-        self.subTitle.text = station.title
 
         self.stationDescription.text = (station.altitude )+" m d'altitude"
         self.county.text = station.countyLabel

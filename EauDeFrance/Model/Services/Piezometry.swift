@@ -9,12 +9,13 @@ import Foundation
 
 class Piezometry: ManageService {
 
+
+
     static var shared = Piezometry()
 
     internal var stationURL =  URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/stations?")!
 
-    internal var figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques?")!
-
+    internal var figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques_tr?")!
 
     var networkService: NetworkProtocol = NetworkService.shared
     
@@ -42,14 +43,13 @@ class Piezometry: ManageService {
                 })
         }
 
+    func getFigure(station: StationODF, optionnalParam: [[KeyRequest:String]], callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError?) -> Void) {
 
-    func getFigure(station: StationODF, callback: @escaping (StationODF?, ManageODFapi?, Utilities.ManageError?) -> Void) {
-
-        let parameters: [[KeyRequest : String]] = [[.stationPiezo:station.stationCode],[.size:"50"],
-            [.sort:"desc"]]
+        let parameters: [[KeyRequest : String]] = [[.stationCode: station.stationCode],
+            [.sort:"desc"]] + optionnalParam
 
         networkService.getAPIData(
-            stationURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
+            figureURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
                     return callback(nil,nil, error)
                 }
@@ -68,17 +68,29 @@ class Piezometry: ManageService {
                 return
             })
     }
-
     private func bridgeFigureODF(api: PiezometryHubeauValue) -> PiezometryODFValue {
-        let figure = PiezometryODFValue(measureDate: api.dateMesure, timestampMeasure: api.timestampMesure, groundwaterLevel: api.niveauNappeEau, obtainingMode: api.modeObtention, status: api.statut, qualification: api.qualification, continuationCode: api.codeContinuite, continuationName: api.nomContinuite, producerCode: api.codeProducteur, producerName: api.nomProducteur, typeMeasureCode: api.codeNatureMesure, nameTypeMeasure: api.nomNatureMesure, waterTableDepth: api.profondeurNappe)
+        let figure = PiezometryODFValue(dateMaj: api.dateMaj,
+                                        bss_Id: api.bss_Id,
+                                        codeBss: api.codeBss,
+                                        urnBss: api.urnBss,
+                                        longitude: api.longitude,
+                                        latitude: api.latitude,
+                                        altitudeStation: String(format: "%.f", api.altitudeStation ?? " - "),
+                                        altitudeRepere: String(format: "%.f", api.altitudeRepere ?? " - "),
+                                        dateMesure: api.dateMesure,
+                                        timestampMesure: api.timestampMesure,
+                                        profondeurNappe: api.profondeurNappe,
+                                        niveauEauNgf: api.niveauEauNgf)
+
         return figure
     }
+
     private func bridgeStation(station: PiezometryHubeau) -> PiezometryODF? {
 
         let stationODF = PiezometryODF(
             stationCode: station.codeBss ?? "",
             stationLabel: station.libellePe ?? "",
-            uriStation: station.bssId ?? "",
+            uriStation: station.urnBss ?? "",
             longitude: station.longitude ?? 0.0,
             latitude: station.latitude ?? 0.0,
             townshipCode: station.codeCommuneInsee ?? "",

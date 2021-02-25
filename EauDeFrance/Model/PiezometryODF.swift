@@ -52,7 +52,18 @@ class PiezometryODF: StationODF {
         self.startMeasurementDate = startMeasurementDate
         self.endMeasurementDate = endMeasurementDate
 
-        super.init(service: "piezometrie", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, townshipCode: townshipCode, townshipLabel: townshipLabel, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, dateUPDT: dateUPDT)
+        super.init(service: "Piezometrie",
+             stationCode: stationCode,
+             stationLabel: stationLabel,
+             uriStation: uriStation,
+             longitude: longitude,
+             latitude: latitude,
+             countyCode: countyCode,
+             countyLabel: countyLabel,
+             altitude: altitude
+             )
+
+//        super.init(service: "piezometrie", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, townshipCode: townshipCode, townshipLabel: townshipLabel, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, dateUPDT: dateUPDT)
     }
 
     required init(from decoder: Decoder) throws {

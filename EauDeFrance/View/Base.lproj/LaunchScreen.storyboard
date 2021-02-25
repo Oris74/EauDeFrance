@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,15 +14,94 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4e5-Qh-PB6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Eau  De  France" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="286" translatesAutoresizingMaskIntoConstraints="NO" id="m53-1N-Cdg">
+                                <rect key="frame" x="74.5" y="155" width="286" height="69"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" staticText="YES"/>
+                                    <bool key="isElement" value="NO"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="28"/>
+                                <color key="textColor" red="0.29451560970000001" green="0.54576075079999997" blue="0.72054415940000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="54P-u6-4Q0">
+                                <rect key="frame" x="20" y="822" width="374" height="40"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="I4O-dY-PPW">
+                                        <rect key="frame" x="0.0" y="0.0" width="60.5" height="40"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="temperature" translatesAutoresizingMaskIntoConstraints="NO" id="zXK-ST-FfR">
+                                                <rect key="frame" x="0.0" y="0.0" width="30" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="Pjh-T5-Ypm"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="niveaux_nappes" translatesAutoresizingMaskIntoConstraints="NO" id="87I-Mq-6s0">
+                                                <rect key="frame" x="31" y="0.0" width="29.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="87I-Mq-6s0" secondAttribute="height" multiplier="79:106" id="FT7-rX-uqI"/>
+                                                    <constraint firstAttribute="height" constant="40" id="jUd-YX-rwV"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="XwU-0k-tWD">
+                                        <rect key="frame" x="160.5" y="0.0" width="213.5" height="40"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-eaufrance" translatesAutoresizingMaskIntoConstraints="NO" id="5e1-wP-coH">
+                                                <rect key="frame" x="0.0" y="0.0" width="132" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="SHe-n7-ztW"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-hubeau-blue" translatesAutoresizingMaskIntoConstraints="NO" id="QZ3-eT-e6b">
+                                                <rect key="frame" x="136" y="0.0" width="77.5" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="YyF-gj-99C"/>
+                                                    <constraint firstAttribute="width" secondItem="QZ3-eT-e6b" secondAttribute="height" multiplier="171:88" id="mBD-s6-MVY"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4e5-Qh-PB6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="0Bh-ib-BK3"/>
+                            <constraint firstItem="54P-u6-4Q0" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="5Wu-ml-Dlz"/>
+                            <constraint firstItem="m53-1N-Cdg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="111" id="7cB-tr-U51"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="54P-u6-4Q0" secondAttribute="trailing" constant="20" id="9hk-FR-wah"/>
+                            <constraint firstItem="4e5-Qh-PB6" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EqZ-Tx-ldy"/>
+                            <constraint firstItem="m53-1N-Cdg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-258.5" id="HP6-xH-Qzz"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4e5-Qh-PB6" secondAttribute="bottom" id="UNx-WO-oUs"/>
+                            <constraint firstItem="m53-1N-Cdg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" constant="10.5" id="hLA-TS-EhF"/>
+                            <constraint firstItem="54P-u6-4Q0" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="in0-xh-l84"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4e5-Qh-PB6" secondAttribute="trailing" id="sQC-AR-pWv"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.173913043478265" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="default" width="320" height="480"/>
+        <image name="logo-eaufrance" width="143" height="46"/>
+        <image name="logo-hubeau-blue" width="171.86500549316406" height="88.512001037597656"/>
+        <image name="niveaux_nappes" width="79" height="105"/>
+        <image name="temperature" width="79" height="106"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

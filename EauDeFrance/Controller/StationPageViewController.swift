@@ -13,8 +13,8 @@ class StationPageViewController: UIPageViewController  {
 
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newStationPageViewController(description: "GeneralStation"),
-                self.newStationPageViewController(description: "DetailedStation"),
-                self.newStationPageViewController(description: "FigureStation")]
+                self.newStationPageViewController(description: "FigureStation"),
+                self.newStationPageViewController(description: "DetailedStation")]
     }()
 
     override func viewDidLoad() {
@@ -68,7 +68,6 @@ class StationPageViewController: UIPageViewController  {
                                         direction: UIPageViewController.NavigationDirection = .forward) {
 
         sendDataTo(viewController)
-
 
         setViewControllers([viewController],
                            direction: direction,

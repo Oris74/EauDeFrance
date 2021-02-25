@@ -11,7 +11,7 @@ protocol NetworkProtocol {
     
     func getAPIData<T: Decodable>(
           _ endpointApi: URL?,
-          _ parameters: [[KeyRequest:String]],
+          _ parameters: [[KeyRequest:String]]?,
           _ apiStruct: T?.Type,
           completionHandler : @escaping (T?, Utilities.ManageError?) -> Void)
 }

@@ -78,7 +78,8 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     override func viewDidAppear(_ animated: Bool) {
 
         stationService.currentMenu = .map
-        activityIndicator.isHidden = true
+        
+        self.activityIndicator.isHidden = true
 
         if  let location = locationManager.location?.coordinate {
             self.currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)

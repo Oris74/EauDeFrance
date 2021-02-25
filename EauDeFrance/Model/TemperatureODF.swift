@@ -30,7 +30,7 @@ class TemperatureODF: StationODF {
     
     init(stationCode: String,
          stationLabel: String,
-         uriStation: String? = nil,
+         uriStation: String,
          localization: String?,
          streamCode: String?,
          streamLabel: String?,
@@ -76,8 +76,9 @@ class TemperatureODF: StationODF {
         self.uriBasin = uriBasin
         self.pointKM = pointKM
 
-        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, townshipCode: townshipCode, townshipLabel: townshipLabel, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, dateUPDT: dateUPDT)
+        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude)
     }
+
     
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")

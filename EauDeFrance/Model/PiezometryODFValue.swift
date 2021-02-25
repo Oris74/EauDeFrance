@@ -8,16 +8,18 @@
 import Foundation
 
 struct PiezometryODFValue {
-    let measureDate: String?
-    let timestampMeasure: Int?
-    let groundwaterLevel: Double?
-    let obtainingMode: String?
-    let status: String?
-    let qualification: String?
-    let continuationCode: String?
-    let continuationName: String?
-    let producerCode: String?
-    let producerName: String?
-    let typeMeasureCode, nameTypeMeasure: String?
-    let waterTableDepth: Double?
+
+    let dateMaj: String
+    let bss_Id: String
+    let codeBss: String
+    let urnBss: String
+    let longitude: Double
+    let latitude: Double
+    let altitudeStation: String
+    let altitudeRepere: String
+    let dateMesure: String
+    let timestampMesure: Int
+    let profondeurNappe: Double
+    let niveauEauNgf: Double
+    
 }
