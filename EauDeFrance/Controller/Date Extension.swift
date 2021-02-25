@@ -49,11 +49,6 @@ extension Date {
         let weekday = calendar.component(.weekday, from: self)
         return weekday
     }
-    func getHour() -> String {
-        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return "" }
-        let weekday = calendar.component(.hour, from: self)
-        return String(weekday)
-    }
 
     func getDay() -> String {
         guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return "" }

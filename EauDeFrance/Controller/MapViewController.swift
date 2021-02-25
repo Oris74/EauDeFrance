@@ -51,7 +51,9 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         super.init(coder: coder)
     }
 
+
     override func viewDidLoad() {
+        launchscreenVC()
         super.viewDidLoad()
         self.mapView.delegate = self
         self.sideMenuController()?.sideMenu?.delegate = self
@@ -63,6 +65,27 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
         self.tabBarController?.delegate = self
     }
+
+    func launchscreenVC() {
+        var launchVC: UIViewController
+
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light //For light mode
+        }
+
+        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+
+        launchVC = mainStoryboard.instantiateViewController(withIdentifier: "LaunchVC")
+        launchVC.modalPresentationStyle = .fullScreen
+
+        present(launchVC, animated: false)
+
+        delay(2.0, closure: { [weak self] in
+            launchVC.dismiss(animated: false, completion: nil)
+       })
+    }
+
+  
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

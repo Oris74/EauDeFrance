@@ -56,7 +56,11 @@ extension VCUtilities {
         stackView.axis = .horizontal
         return stackView
     }
-
+    
+    func delay(_ delay:Double, closure:@escaping ()->()) {
+        let when = DispatchTime.now() + delay
+        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+    }
 
 //    /// MARK: Manage + /- buttons for zoom
 //    func zoomInOut(mapView: MKMapView, stepper: UIStepper, newIndex: Int, stepperIndex: Int) -> Int {

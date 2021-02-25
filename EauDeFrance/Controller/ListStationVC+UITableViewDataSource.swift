@@ -23,8 +23,6 @@ extension ListStationViewController: UITableViewDataSource, VCUtilities {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! ListStationTableViewCell
 
-        //cell.cellDelegate = self
-
         let station = self.stations[indexPath.row]
         cell.titleStation.text = (station.townshipCode )+" " + (station.townshipLabel )
         cell.detailStation.text = (station.stationLabel )+("\nStation ID:" + (station.stationCode ))
