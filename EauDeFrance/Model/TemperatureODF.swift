@@ -9,9 +9,6 @@ import Foundation
 
 class TemperatureODF: StationODF {
     let localization: String?
-    //let coordonneeX: String?
-    //let coordonneeY: String?
-    //let projectionTypeCode: String?
     let regionCode: String?
     let regionLabel: String?
     let hydroSectionCode: String?
@@ -60,9 +57,6 @@ class TemperatureODF: StationODF {
         self.streamLabel = streamLabel
         self.uriStream = uriStream
         self.localization = localization
-        //self.coordonneeX = coordonneeX
-        //self.coordonneeY = coordonneeY
-        //self.codeTypeProjection = codeTypeProjection
         self.regionCode = regionCode
         self.regionLabel = regionLabel
         self.hydroSectionCode = hydroSectionCode
@@ -76,7 +70,7 @@ class TemperatureODF: StationODF {
         self.uriBasin = uriBasin
         self.pointKM = pointKM
 
-        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude)
+        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, townshipCode: townshipCode, townshipLabel: townshipLabel, dateUPDT: dateUPDT)
     }
 
     

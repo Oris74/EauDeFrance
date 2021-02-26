@@ -10,10 +10,10 @@ import Foundation
 struct Measure {
     var date: Date
     var value: Double
-
-    init(timestamp: String, value: Double) {
+    var unit: String
+    init(timestamp: String, value: Double, unit: String) {
         self.value = value
-
+        self.unit = unit
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .current
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"

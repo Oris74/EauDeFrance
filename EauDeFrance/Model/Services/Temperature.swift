@@ -125,7 +125,7 @@ class Temperature: ManageService {
             townshipLabel: station.libelleCommune ?? "",
             countyCode: station.codeDepartement ?? "",
             countyLabel: station.libelleDepartement ?? "",
-            altitude: String(format: "%.f", station.altitude ?? " - "),
+            altitude: String(format: "%.f", station.altitude ?? 0.0),
             dateUPDT: station.dateMajInfos ?? "",
             bodyOfWaterCode: station.codeMasseEau,
             bodyOfWaterLabel: station.libelleMasseEau,
@@ -142,21 +142,3 @@ class Temperature: ManageService {
         return stationODF
     }
 }
-//extension Date {
-//
-//    func dayOfTheWeek() -> String? {
-//        let weekdays = [
-//            "Sunday",
-//            "Monday",
-//            "Tuesday",
-//            "Wednesday",
-//            "Thursday",
-//            "Friday",
-//            "Saturday"
-//        ]
-//
-//        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return "" }
-//        let weekday = calendar.component(.weekday, from: self)
-//        return weekdays[weekday - 1]
-//    }
-//}

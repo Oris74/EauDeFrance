@@ -53,7 +53,7 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
 
     override func viewDidLoad() {
-        launchscreenVC()
+
         super.viewDidLoad()
         self.mapView.delegate = self
         self.sideMenuController()?.sideMenu?.delegate = self
@@ -64,25 +64,32 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         locationManager.startUpdatingLocation()
 
         self.tabBarController?.delegate = self
+        launchscreenVC()
     }
 
     func launchscreenVC() {
+
         var launchVC: UIViewController
+        let defaults = UserDefaults.standard
 
-        if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light //For light mode
+        if !defaults.bool(forKey: "launchVC") {
+
+            if #available(iOS 13.0, *) {
+                overrideUserInterfaceStyle = .light //For light mode
+            }
+
+            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
+
+            launchVC = mainStoryboard.instantiateViewController(withIdentifier: "LaunchVC")
+            launchVC.modalPresentationStyle = .fullScreen
+
+            present(launchVC, animated: false)
+
+            delay(2.0, closure: {
+                launchVC.dismiss(animated: false, completion: nil)
+            })
+            defaults.set(true, forKey: "launchVC" )
         }
-
-        let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-
-        launchVC = mainStoryboard.instantiateViewController(withIdentifier: "LaunchVC")
-        launchVC.modalPresentationStyle = .fullScreen
-
-        present(launchVC, animated: false)
-
-        delay(2.0, closure: { [weak self] in
-            launchVC.dismiss(animated: false, completion: nil)
-       })
     }
 
   

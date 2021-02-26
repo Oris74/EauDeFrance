@@ -13,14 +13,11 @@ class StationViewController: UIViewController, VCUtilities {
     weak var stationDelegate: StationPageViewControllerDelegate?
     
     var station: StationODF!
+    var pageControl =  UIPageControl()
 
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var pageControl: UIPageControl!
-    
-    @IBOutlet weak var bpNextPage: UIButton!
-
+    @IBOutlet weak var bnNextPage: UIBarButtonItem!
     @IBOutlet weak var stationName: UILabel!
-    @IBOutlet weak var stationDescription: UILabel!
     @IBOutlet weak var county: UILabel!
 
     var stationPageViewController: StationPageViewController? {
@@ -31,17 +28,37 @@ class StationViewController: UIViewController, VCUtilities {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.stationName.text = (station.stationLabel )
+        setUpPageControl()
 
-        self.stationDescription.text = (station.altitude )+" m d'altitude"
+        self.stationName.text = (station.stationLabel)
         self.county.text = station.countyLabel
 
-        navigationItem.titleView = serviceStackView(service: StationService.shared.current)
-
         pageControl.addTarget(self, action: #selector(StationViewController.didChangePageControlValue(sender:)), for: .valueChanged)
-
     }
 
+    func setUpPageControl() {
+        let navBarSize = navigationController!.navigationBar.bounds.size
+        let origin = CGPoint(x:navBarSize.width/2,y:navBarSize.height/2)
+
+        pageControl = UIPageControl(frame: CGRect(x: origin.x,y: origin.y,width: 10,height: 10))
+        pageControl.currentPage = 0
+        pageControl.tintColor = UIColor.black
+        pageControl.pageIndicatorTintColor = UIColor.white
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.numberOfPages = 3
+
+
+        let title = UILabel()
+        title.text = "Station N°:\(station.stationCode)"
+        title.adjustsFontSizeToFitWidth = true
+
+        let stackView = UIStackView(arrangedSubviews: [title, pageControl])
+
+        stackView.setCustomSpacing(0, after: title)
+        stackView.axis = .vertical
+
+        navigationItem.titleView = stackView
+    }
     override func viewWillAppear(_ animated: Bool) {
 
         super.viewWillAppear(animated)

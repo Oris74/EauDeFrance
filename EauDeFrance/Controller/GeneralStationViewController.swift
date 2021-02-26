@@ -11,13 +11,44 @@ import MapKit
 class GeneralStationViewController: UIViewController, VCUtilities {
     weak var station: StationODF!
 
+    @IBOutlet weak var zone1: UIView!
     @IBOutlet weak var mapViewStation: MKMapView!
 
+    @IBOutlet weak var service: UILabel!
+
+    @IBOutlet weak var updateDoc: UILabel!
+
+    @IBOutlet weak var township: UILabel!
+
+    @IBOutlet weak var county: UILabel!
+
+    @IBOutlet weak var altitude: UILabel!
+
+    @IBOutlet weak var localization: UILabel!
+
+    @IBOutlet weak var descriptionStation: UIStackView!
+    
     private var distanceSpan: CLLocationDistance = 500
+    private var stationService = StationService.shared
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupMapView()
+
+        switch station {
+        case let temperatureStation as TemperatureODF:
+            self.localization.text = temperatureStation.localization
+        case let piezometryStation as PiezometryODF:
+            self.localization.text = piezometryStation.info
+        default: break
+        }
+
+        zone1.addSubview( serviceStackView(service: stationService.current))
+        //self.service.text = "Station de \(station.service)"
+        self.updateDoc.text = station.dateUPDT
+        self.altitude.text = (station.altitude )+" m d'altitude"
+        self.township.text = "\(station.townshipLabel) \n Code INSEE: \(station.townshipCode)"
+        self.county.text = "\(station.countyLabel) (\(station.countyCode))"
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -30,7 +61,7 @@ class GeneralStationViewController: UIViewController, VCUtilities {
 
         mapViewStation.delegate = self
         mapViewStation.isZoomEnabled = true
-        mapViewStation.isScrollEnabled  = true
+        mapViewStation.isScrollEnabled  = false
         mapViewStation.showsCompass = true
         mapViewStation.mapType = .hybrid
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)

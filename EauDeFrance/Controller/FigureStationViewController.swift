@@ -66,8 +66,9 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
                     if let hour = figure.tempMeasureHour {
                         if let date = figure.tempMeasureDate {
                             let timestamp = "\(date)T\(hour)Z"
-                            if let value = figure.result {
-                                let newMeasure = Measure(timestamp: timestamp, value: value)
+                            if let value = figure.result,
+                               let unit = figure.unitSymbol {
+                                let newMeasure = Measure(timestamp: timestamp, value: value, unit: unit)
                                 if (self?.measure.contains(where: {$0.date == newMeasure.date}) == false) {
                                     self?.measure.append(newMeasure)
                                     self?.endRange = newMeasure.date
@@ -84,8 +85,9 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
                 }
                 for figure in figures {
                     let date = figure.dateMesure
-                    let value = figure.profondeurNappe
-                    let newMeasure = Measure(timestamp: date, value: value)
+                    let value = figure.niveauEauNgf
+                    let unit = " m "
+                    let newMeasure = Measure(timestamp: date, value: value, unit: unit)
                     if (self?.measure.contains(where: {$0.date == newMeasure.date}) == false) {
                         self?.measure.append(newMeasure)
 
@@ -130,8 +132,8 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
                     if let hour = figure.tempMeasureHour {
                         if let date = figure.tempMeasureDate {
                             let timestamp = "\(date)T\(hour)Z"
-                            if let value = figure.result {
-                                let newMeasure = Measure(timestamp: timestamp, value: value)
+                            if let value = figure.result, let unit = figure.unitSymbol {
+                                let newMeasure = Measure(timestamp: timestamp, value: value, unit: unit )
                                 if (self?.measure.contains(where: {$0.date == newMeasure.date}) == false) {
                                     self?.measure.append(newMeasure)
                                 }
@@ -148,7 +150,8 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
                 for figure in figures {
                     let date = figure.dateMesure
                     let value = figure.profondeurNappe
-                    let newMeasure = Measure(timestamp: date, value: value)
+                    let unit = " m "
+                    let newMeasure = Measure(timestamp: date, value: value, unit: unit)
                     if (self?.measure.contains(where: {$0.date == newMeasure.date}) == false) {
                         self?.measure.append(newMeasure)
                     }
@@ -162,18 +165,8 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
             guard let indexSegmentedBP = selectedDate.posInWeek() else { return }
 
             self?.manageSegmentedWeekBp(index: indexSegmentedBP )
-
-            // self?.setupChart(lastDate: selectedDate, api: dataStatus.)
         })
     }
-    //    func setupChart(lastDate: Date, api:) {
-    //        let formatter = DateFormatter()
-    //        formatter.dateStyle = .short
-    //        formatter.timeStyle = .none
-    //        formatter.locale = Locale.current
-    //        let weekDay = setSegmentedWeek(lastDate: lastDate)
-    //        manageSegmentedWeekBp(index: weekDay)
-    //    }
 
     func setSegmentedWeek(date: Date) {
         guard let posDayInWeek = date.posInWeek() else { return }
@@ -216,20 +209,6 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         }
     }
 
-    //            if pos <= posDayInWeek,
-    //               pos > 0 {
-    //                segmentedWeek.setTitle(currentDate.getDay(), forSegmentAt: pos)
-    //                if checkPresenceData(for: currentDate) {
-    //                    segmentedWeek.setEnabled(true, forSegmentAt: pos)
-    //                    segmentedWeekDate[pos] = currentDate
-    //                }
-    //            } else if (pos == 0 || pos == 8),
-    //                      checkPresenceData(for: currentDate) {
-    //                segmentedWeek.setEnabled(true, forSegmentAt: pos)
-    //                segmentedWeekDate[pos] = nil
-    //            } else if  {
-    //                segmentedWeek.setEnabled(false, forSegmentAt: pos)
-    //            }
     func checkPresenceData(for date: Date) -> Bool {
         return self.measure.contains(where: {$0.date.getDate() == date.getDate()})
     }
@@ -304,7 +283,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
             entries.append(entry)
         }
 
-        set = LineChartDataSet(entries: entries, label: "°C")
+        set = LineChartDataSet(entries: entries, label: figures[0].unit)
         set.mode = .cubicBezier
         set.drawCirclesEnabled = false
         set.lineWidth = 2
@@ -317,9 +296,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         let data = LineChartData(dataSet: set)
 
         data.setDrawValues(false)
-        let dayHours: [String] = ["0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23"]
-        lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values:dayHours)
-
+      
         lineChartView.backgroundColor = UIColor(red: 230/255.0, green: 253/255.0, blue: 253/255.0, alpha: 1.0)
         lineChartView.noDataText = "No data"
 
@@ -338,13 +315,14 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         legend.yEntrySpace = 12.0
 
         let xAxis = lineChartView.xAxis
-        xAxis.axisLineWidth = 1.0/UIScreen.main.scale   //Set X axis width
+        xAxis.axisLineWidth = 1.0 ///UIScreen.main.scale   //Set X axis width
         xAxis.labelPosition = .bottom               //The display position of the X axis
         xAxis.drawGridLinesEnabled = true           //draw grid lines
-        xAxis.spaceMin = 4;                         //Set the label interval
+        xAxis.spaceMin = 2;                         //Set the label interval
         xAxis.axisMinimum = 0
-        xAxis.labelTextColor = UIColor.cyan//label text color
-
+        xAxis.labelTextColor = UIColor.blue//label text color
+        xAxis.labelCount = 6
+        xAxis.axisMaximum = 23
 
         let leftAxis = lineChartView.leftAxis
         leftAxis.labelCount = 15                    //The number of Y-axis labels
@@ -359,20 +337,17 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         leftAxis.labelTextColor = UIColor.red       //Text color
         leftAxis.labelFont = UIFont.systemFont(ofSize: 10)  //Text font
 
-
         //Set the grid style
         leftAxis.gridLineDashLengths = [3.0,3.0]        //Set the grid line of dashed style
         leftAxis.gridColor = UIColor.init(red: 200/255.0, green: 200/255.0, blue: 200/255.0, alpha: 1) //Grid line color
-        leftAxis.gridAntialiasEnabled = true            //Turn on antialiasing
+        leftAxis.gridAntialiasEnabled = false            //Turn off antialiasing
 
-        // lineChartView.rightAxis.enabled = false
+        let rightAxis = lineChartView.rightAxis
+
+        rightAxis.enabled = false //disable right axis
 
         //        lineChartView.backgroundColor = UIColor.clear
-        //        lineChartView.legend.horizontalAlignment = .center
-        //        lineChartView.legend.orientation = .vertical
-        //        lineChartView.legend.verticalAlignment = .top
-        //        lineChartView.legend.formSize = 14.0
-        //        lineChartView.legend.yEntrySpace = 12.0
+
         //        lineChartView.xAxis.drawLabelsEnabled = true
         //        lineChartView.rightAxis.enabled = false
         //

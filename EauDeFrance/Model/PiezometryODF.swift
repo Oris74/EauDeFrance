@@ -60,10 +60,11 @@ class PiezometryODF: StationODF {
              latitude: latitude,
              countyCode: countyCode,
              countyLabel: countyLabel,
-             altitude: altitude
+             altitude: altitude,
+             townshipCode: townshipCode,
+             townshipLabel: townshipLabel,
+             dateUPDT: dateUPDT
              )
-
-//        super.init(service: "piezometrie", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, townshipCode: townshipCode, townshipLabel: townshipLabel, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, dateUPDT: dateUPDT)
     }
 
     required init(from decoder: Decoder) throws {
