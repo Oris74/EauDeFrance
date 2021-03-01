@@ -10,6 +10,11 @@
 		39A2D04C12D1D00530806CBE /* Pods_EauDeFrance_EauDeFranceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */; };
 		97850CA8AFFCE07D307E0F89 /* Pods_EauDeFrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */; };
 		D21F8C737E0D0A19C4655C7A /* Pods_EauDeFranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */; };
+		D9070B7725EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */; };
+		D9070BB525EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */; };
+		D907A9F825EAA3230071ED52 /* PostalCode.json in Resources */ = {isa = PBXBuildFile; fileRef = D907A9F725EAA3230071ED52 /* PostalCode.json */; };
+		D907A9FD25EAA41B0071ED52 /* ManagePostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907A9FC25EAA41B0071ED52 /* ManagePostalCode.swift */; };
+		D907AA0225EABED90071ED52 /* PostalCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D907AA0125EABED90071ED52 /* PostalCode.swift */; };
 		D90E89AD25A8BCB900DB48D2 /* WaterQualityValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */; };
 		D90E89B525A8BEAD00DB48D2 /* WaterQualityStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */; };
 		D910743525AF56850099B34B /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D910743425AF56850099B34B /* Utilities.swift */; };
@@ -39,7 +44,6 @@
 		D92BDCDA25D5DDC400F7D829 /* ShareDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */; };
 		D92BDCE225D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCE125D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift */; };
 		D92BDCEA25D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCE925D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift */; };
-		D92BDD1F25D7086900F7D829 /* ShareDocVC+UIImagePickerControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD1E25D7086900F7D829 /* ShareDocVC+UIImagePickerControllerDelegate.swift */; };
 		D92BDD3025D72D5C00F7D829 /* ManageODFapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD2F25D72D5C00F7D829 /* ManageODFapi.swift */; };
 		D92BDD3825D72F7100F7D829 /* PiezometryODF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD3725D72F7100F7D829 /* PiezometryODF.swift */; };
 		D92BDD4825D7343B00F7D829 /* StationODF+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */; };
@@ -54,6 +58,7 @@
 		D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */; };
 		D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E715625BC3F7600C7E7E3 /* StationViewController.swift */; };
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
+		D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A6EA925ECF0570003BA78 /* ImagePicker.swift */; };
 		D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467AC25E3BC89000FDF12 /* Date Extension.swift */; };
 		D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467B425E3BCF0000FDF12 /* Measure.swift */; };
 		D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99467BC25E55CA5000FDF12 /* Assets.xcassets */; };
@@ -109,6 +114,11 @@
 		A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFranceTests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFranceTests/Pods-EauDeFranceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.release.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.release.xcconfig"; sourceTree = "<group>"; };
+		D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "shareDocViewController+CLLocationManagerDelegate .swift"; sourceTree = "<group>"; };
+		D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+ENSideMenuDelegate1ViewController.swift"; sourceTree = "<group>"; };
+		D907A9F725EAA3230071ED52 /* PostalCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostalCode.json; sourceTree = "<group>"; };
+		D907A9FC25EAA41B0071ED52 /* ManagePostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagePostalCode.swift; sourceTree = "<group>"; };
+		D907AA0125EABED90071ED52 /* PostalCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostalCode.swift; sourceTree = "<group>"; };
 		D90E89AC25A8BCB900DB48D2 /* WaterQualityValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaterQualityValue.json; sourceTree = "<group>"; };
 		D90E89B425A8BEAD00DB48D2 /* WaterQualityStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = WaterQualityStation.json; sourceTree = "<group>"; };
 		D910743425AF56850099B34B /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
@@ -144,7 +154,6 @@
 		D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDocViewController.swift; sourceTree = "<group>"; };
 		D92BDCE125D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShareDocVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		D92BDCE925D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShareDocVC+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
-		D92BDD1E25D7086900F7D829 /* ShareDocVC+UIImagePickerControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShareDocVC+UIImagePickerControllerDelegate.swift"; sourceTree = "<group>"; };
 		D92BDD2F25D72D5C00F7D829 /* ManageODFapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageODFapi.swift; sourceTree = "<group>"; };
 		D92BDD3725D72F7100F7D829 /* PiezometryODF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiezometryODF.swift; sourceTree = "<group>"; };
 		D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationODF+MKAnnotation.swift"; sourceTree = "<group>"; };
@@ -159,6 +168,7 @@
 		D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationVC+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D93E715625BC3F7600C7E7E3 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D96A6EA925ECF0570003BA78 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D99467AC25E3BC89000FDF12 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
 		D99467B425E3BCF0000FDF12 /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		D99467BC25E55CA5000FDF12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -452,10 +462,11 @@
 		D92BDCD825D5DD9400F7D829 /* shareDoc */ = {
 			isa = PBXGroup;
 			children = (
+				D96A6EAE25ECF0C20003BA78 /* ImagePicker */,
 				D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */,
+				D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */,
 				D92BDCE925D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift */,
 				D92BDCE125D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift */,
-				D92BDD1E25D7086900F7D829 /* ShareDocVC+UIImagePickerControllerDelegate.swift */,
 			);
 			name = shareDoc;
 			sourceTree = "<group>";
@@ -491,8 +502,17 @@
 				D9FDF0D725D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift */,
 				D9FDF0EA25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift */,
 				D9FDF0DF25D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift */,
+				D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */,
 			);
 			name = StationViewController;
+			sourceTree = "<group>";
+		};
+		D96A6EAE25ECF0C20003BA78 /* ImagePicker */ = {
+			isa = PBXGroup;
+			children = (
+				D96A6EA925ECF0570003BA78 /* ImagePicker.swift */,
+			);
+			name = ImagePicker;
 			sourceTree = "<group>";
 		};
 		D99467AB25E3BC32000FDF12 /* ManageCharts */ = {
@@ -570,7 +590,10 @@
 			isa = PBXGroup;
 			children = (
 				D910743925AF588A0099B34B /* TemperatureODF.swift */,
+				D907A9F725EAA3230071ED52 /* PostalCode.json */,
 				D9FDF17425D3DC5700CBDEED /* TemperatureODFValue.swift */,
+				D907A9FC25EAA41B0071ED52 /* ManagePostalCode.swift */,
+				D907AA0125EABED90071ED52 /* PostalCode.swift */,
 			);
 			name = Temperature;
 			sourceTree = "<group>";
@@ -698,6 +721,7 @@
 			files = (
 				D9996D7125B62DD800D1EE2A /* CustomCallOutView.xib in Resources */,
 				D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */,
+				D907A9F825EAA3230071ED52 /* PostalCode.json in Resources */,
 				D924FC7225A4D7E10049832B /* Main.storyboard in Resources */,
 				D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */,
 			);
@@ -837,6 +861,8 @@
 			files = (
 				D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */,
 				D910747525B19E590099B34B /* NetworkProtocol.swift in Sources */,
+				D907A9FD25EAA41B0071ED52 /* ManagePostalCode.swift in Sources */,
+				D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */,
 				D93E713D25BB718000C7E7E3 /* ListStationTableViewCell.swift in Sources */,
 				D924FC6F25A4D7E10049832B /* MapViewController.swift in Sources */,
 				D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */,
@@ -845,6 +871,7 @@
 				D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */,
 				D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */,
 				D9FDF05225CC96C100CBDEED /* StationPageViewController.swift in Sources */,
+				D9070BB525EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift in Sources */,
 				D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */,
 				D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */,
 				D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */,
@@ -857,10 +884,10 @@
 				D9FDF0D825D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift in Sources */,
 				D924FCF625A71C610049832B /* ApiHubeauHeader.swift in Sources */,
 				D910743525AF56850099B34B /* Utilities.swift in Sources */,
-				D92BDD1F25D7086900F7D829 /* ShareDocVC+UIImagePickerControllerDelegate.swift in Sources */,
 				D924FCCF25A70B490049832B /* PiezometryHubeau.swift in Sources */,
 				D92BDD4825D7343B00F7D829 /* StationODF+MKAnnotation.swift in Sources */,
 				D92BDD3025D72D5C00F7D829 /* ManageODFapi.swift in Sources */,
+				D9070B7725EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift in Sources */,
 				D9F9F96825C330B700193F15 /* Temperature.swift in Sources */,
 				D9FDF17B25D3E0C600CBDEED /* PiezometryODFValue.swift in Sources */,
 				D9FDF0D025D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift in Sources */,
@@ -869,6 +896,7 @@
 				D9FDF06525CDB34000CBDEED /* DetailedStationViewController.swift in Sources */,
 				D9FDF0EB25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift in Sources */,
 				D924FCED25A71B420049832B /* PropertiesHubeau.swift in Sources */,
+				D907AA0225EABED90071ED52 /* PostalCode.swift in Sources */,
 				D9996D7625B62EC900D1EE2A /* CustomCallOutView.swift in Sources */,
 				D92BDCEA25D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift in Sources */,
 				D910743A25AF588A0099B34B /* TemperatureODF.swift in Sources */,

@@ -76,7 +76,7 @@ extension MapViewController: MKMapViewDelegate {
             let logo = UIImage(named: stationService.current.apiName)?.resize(height: 45)
             callOutView.logoService.image = logo
             callOutView.stationName.text = stationODF.stationCode
-            callOutView.stationLabel.text = stationODF.stationLabel
+            callOutView.stationLabel.text = "\(stationODF.postalCode) \(stationODF.townshipLabel)"
 
             if let serviceODF = stationODF as? TemperatureODF {
                 callOutView.streamLabel.text = serviceODF.streamLabel
@@ -122,6 +122,7 @@ extension MapViewController: MKMapViewDelegate {
 
         self.activityIndicator.isHidden = false
         let parameters: [[KeyRequest : String]] = [[.area:mapArea!],[.size: "2000"],[.sort:"desc"]]
+
         stationService.current.getStation(parameters: parameters, callback: {[weak self] ( stationList, error) in
             guard let depackedStations = stationList, error == nil else {
                 self?.manageErrors(errorCode: error)
@@ -130,6 +131,7 @@ extension MapViewController: MKMapViewDelegate {
             self?.displayStation(stations: depackedStations)
             self?.listVCDelegate?.stations = depackedStations
             self?.activityIndicator.isHidden = true
+            
             self?.tabBarController?.tabBar.items?[1].isEnabled = true
         })
     }

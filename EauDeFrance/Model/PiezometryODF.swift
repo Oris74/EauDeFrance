@@ -25,6 +25,7 @@ class PiezometryODF: StationODF {
         longitude: Double,
         latitude: Double,
         townshipCode: String,
+        codePostal: String,
         townshipLabel: String,
         countyCode: String,
         countyLabel: String,
@@ -62,6 +63,7 @@ class PiezometryODF: StationODF {
              countyLabel: countyLabel,
              altitude: altitude,
              townshipCode: townshipCode,
+             postalCode: codePostal,
              townshipLabel: townshipLabel,
              dateUPDT: dateUPDT
              )

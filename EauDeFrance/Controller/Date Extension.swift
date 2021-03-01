@@ -68,6 +68,14 @@ extension Date {
         return fullDay
     }
 
+    func getFullTime() -> String {
+        guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return "" }
+        let hour = calendar.component(.hour, from: self)
+        let minute = calendar.component(.minute, from: self)
+
+        let fullTime = " \(hour) heure" + " \(minute) min"
+        return fullTime
+    }
     func convertTimetoXaxis() -> Double {
         guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return 0.0 }
 

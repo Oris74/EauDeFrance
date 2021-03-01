@@ -23,14 +23,6 @@ class ListStationViewController: UIViewController {
         toggleSideMenuView()
     }
 
-    @IBAction func magnifiyingGlass(_ sender: UIBarButtonItem) {
-
-    }
-
-    @IBAction func addCustomDoc(_ sender: UIBarButtonItem) {
-
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableview.delegate = self

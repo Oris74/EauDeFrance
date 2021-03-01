@@ -40,4 +40,11 @@ extension MapViewController: CLLocationManagerDelegate {
         }
     }
     
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]){
+
+        guard let location = locations.last else { return }
+
+        self.currentPlace = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
+    }
 }

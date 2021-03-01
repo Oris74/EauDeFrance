@@ -43,12 +43,13 @@ class GeneralStationViewController: UIViewController, VCUtilities {
         default: break
         }
 
-        zone1.addSubview( serviceStackView(service: stationService.current))
-        //self.service.text = "Station de \(station.service)"
-        self.updateDoc.text = station.dateUPDT
+        self.zone1.addSubview( serviceStackView(service: stationService.current))
+        self.service.text = "Station de \(station.service)"
+
         self.altitude.text = (station.altitude )+" m d'altitude"
-        self.township.text = "\(station.townshipLabel) \n Code INSEE: \(station.townshipCode)"
+        self.township.text = " \(station.postalCode) \(station.townshipLabel)"
         self.county.text = "\(station.countyLabel) (\(station.countyCode))"
+        self.updateDoc.text = "Dernière mise à jour: \(station.dateUPDT)"
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -64,6 +65,7 @@ class GeneralStationViewController: UIViewController, VCUtilities {
         mapViewStation.isScrollEnabled  = false
         mapViewStation.showsCompass = true
         mapViewStation.mapType = .hybrid
+        mapViewStation.showsCompass = true
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
 
         self.mapViewStation.addAnnotation(station)

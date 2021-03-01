@@ -24,7 +24,8 @@ class SideMenuNavigationController: ENSideMenuNavigationController {
 
         // Configure side menu
         sideMenu?.menuWidth = 180.0
-
+        sideMenu?.allowPanGesture = false
+        
         // Show navigation bar above side menu
         view.bringSubviewToFront(navigationBar)
     }

@@ -32,8 +32,9 @@ class StationViewController: UIViewController, VCUtilities {
 
         self.stationName.text = (station.stationLabel)
         self.county.text = station.countyLabel
-
-        pageControl.addTarget(self, action: #selector(StationViewController.didChangePageControlValue(sender:)), for: .valueChanged)
+        self.pageControl.isUserInteractionEnabled = false
+        
+        self.pageControl.addTarget(self, action: #selector(StationViewController.didChangePageControlValue(sender:)), for: .valueChanged)
     }
 
     func setUpPageControl() {

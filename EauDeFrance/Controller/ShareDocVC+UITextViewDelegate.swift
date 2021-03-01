@@ -8,10 +8,12 @@
 import UIKit
 
 extension ShareDocViewController: UITextViewDelegate   {
-    
 
         @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
             textView.resignFirstResponder()
+            if textView.text.isEmpty {
+                setupTxtPlaceHolder()
+            }
         }
 
         func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -19,11 +21,16 @@ extension ShareDocViewController: UITextViewDelegate   {
             textField.resignFirstResponder()
             return true
         }
-    func setupPlaceHolder() {
+    func setupTxtPlaceHolder() {
+        self.textView.layer.borderWidth = 1
+        self.textView.layer.borderColor = UIColor.black.cgColor
+        self.textView.tintColor = .black
+
         self.placeholderLabel = UILabel()
         self.placeholderLabel.text = "saisissez un commentaire ..."
         self.placeholderLabel.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
         self.placeholderLabel.sizeToFit()
+
         textView.addSubview(placeholderLabel)
         self.placeholderLabel.frame.origin = CGPoint(x: 5, y: (textView.font?.pointSize)! / 2)
         self.placeholderLabel.textColor = UIColor.lightGray
@@ -33,5 +40,6 @@ extension ShareDocViewController: UITextViewDelegate   {
     func textViewDidChangeSelection(_ textView: UITextView) {
         placeholderLabel.isHidden = !(note.text?.isEmpty ?? true)
     }
+
 }
 

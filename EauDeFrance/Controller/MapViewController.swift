@@ -12,12 +12,12 @@ import ENSwiftSideMenu
 class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
 
     internal var stationService = StationService.shared
+    private let postalCodeFrance = ManagePostalCode.shared
+
     internal var listVCDelegate: ListStationViewController?
 
-    //var stations: [StationODF]?
-    
     internal var locationManager = CLLocationManager()
-    private var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
+    internal var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
     private var distanceSpan: CLLocationDistance = 1500
 
     internal var stepperIndex: Int = 0
@@ -30,27 +30,17 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
-    @IBAction func magnifiyingGlass(_ sender: UIBarButtonItem) {
-
-    }
-
     @IBAction func stepperMap(_ sender: UIStepper) {
-        zoomInOut(newIndex: Int(sender.value))
+       zoomInOut(newIndex: Int(sender.value))
     }
-
 
     @IBAction func mainMenu(_ sender: UIBarButtonItem) {
         toggleSideMenuView()
     }
 
-    @IBAction func addCustomDoc(_ sender: UIBarButtonItem) {
-
-    }
-    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
 
     override func viewDidLoad() {
 
@@ -64,7 +54,7 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         locationManager.startUpdatingLocation()
 
         self.tabBarController?.delegate = self
-        launchscreenVC()
+
     }
 
     func launchscreenVC() {
@@ -85,36 +75,37 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
             present(launchVC, animated: false)
 
-            delay(2.0, closure: {
+            postalCodeFrance.importPostalCode(completion: {[weak self] error in
                 launchVC.dismiss(animated: false, completion: nil)
+                if error != nil {
+                    self?.manageErrors(errorCode: error)
+                }
+                defaults.set(true, forKey: "launchVC" )
             })
-            defaults.set(true, forKey: "launchVC" )
         }
-    }
-
-  
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
+
         navigationItem.titleView = serviceStackView(service: stationService.current)
         self.tabBarController?.tabBar.isHidden = false
     }
 
     override func viewDidAppear(_ animated: Bool) {
 
+        launchscreenVC()
+
         stationService.currentMenu = .map
         
         self.activityIndicator.isHidden = true
 
-        if  let location = locationManager.location?.coordinate {
-            self.currentPlace = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-        }
         mapView.showsUserLocation = true
-        spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
+        
     }
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        manageErrors(errorCode: Utilities.ManageError.memoryIssue)
+    }
+
 }

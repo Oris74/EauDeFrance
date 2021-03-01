@@ -19,8 +19,7 @@ extension ShareDocViewController: MKMapViewDelegate {
             // Only get new placemark information if you don't have a previous location,
             // if the user has moved a meaningful distance from the previous location, such as 1000 meters,
             // and if it's been 60 seconds since the last geocode request.
-            if let lastLocation = lastLocation,
-                newLocation.distance(from: lastLocation) <= 1000,
+            if newLocation.distance(from: lastLocation) <= 1000,
                 let lastTime = lastGeocodeTime,
                 currentTime.timeIntervalSince(lastTime) < 60 {
                 return

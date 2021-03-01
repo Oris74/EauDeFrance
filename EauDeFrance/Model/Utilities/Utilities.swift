@@ -9,21 +9,21 @@ import Foundation
 
 class Utilities {
     enum ManageError: String, Error {
-        case emptyText = "veuillez saisir code postal, une  ville, un code departement ou un departement "
         case decodableIssue = "Recette non récupérable"
-        case incorrectDataStruct = "la structure n'est pas conforme aux données API"
-        case keyboardError = "veuillez saisir des valeurs numériques"
-        case undefinedError = "erreur non definie"
-        case missingCoordinate = "coordonnee Manquante"
+        case incorrectDataStruct = "La structure n'est pas conforme aux données API"
+        case keyboardError = "Veuillez saisir des valeurs numériques"
+        case undefinedError = "Erreur non definie"
+        case missingCoordinate = "Coordonnee Manquante"
         case missingData = "Données indisponibles"
-        case urlError = "erreur d'URL"
+        case urlError = "Erreur d'URL"
         case cameraIssue = "La caméra n'est pas accessible"
-        case incorrectRequete = "requete Incorrect soumise au serveur"
-        case unauthorizedRequete = "requete soumise non authorisée"
-        case notFound = "aucun resulat retourné"
+        case incorrectRequete = "Requete Incorrect soumise au serveur"
+        case unauthorizedRequete = "Requete soumise non authorisée"
+        case notFound = "Aucun resulat retourné"
         case internalServerError = "Erreur interne du serveur"
         case forbiddenRequete = "Requete interdite"
-        case httpResponseError = "erreur HTTP"
+        case httpResponseError = "Erreur HTTP"
+        case memoryIssue = "Alerte memoire"
     }
 
     ///getting API keys from the ApiKeys.plist file located in 'Supporting Files' folder

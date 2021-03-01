@@ -36,6 +36,7 @@ class TemperatureODF: StationODF {
          longitude: Double,
          latitude: Double,
          townshipCode: String,
+         postalCode: String,
          townshipLabel: String,
          countyCode: String,
          countyLabel: String,
@@ -51,7 +52,8 @@ class TemperatureODF: StationODF {
          subBasinLabel: String?,
          basinCode: String?,
          uriBasin: String?,
-         pointKM: String?) {
+         pointKM: String?
+         ) {
 
         self.streamCode = streamCode
         self.streamLabel = streamLabel
@@ -70,10 +72,9 @@ class TemperatureODF: StationODF {
         self.uriBasin = uriBasin
         self.pointKM = pointKM
 
-        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, townshipCode: townshipCode, townshipLabel: townshipLabel, dateUPDT: dateUPDT)
+        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, townshipCode: townshipCode, postalCode: postalCode, townshipLabel: townshipLabel, dateUPDT: dateUPDT)
     }
 
-    
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }

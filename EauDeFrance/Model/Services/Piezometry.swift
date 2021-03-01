@@ -8,17 +8,14 @@
 import Foundation
 
 class Piezometry: ManageService {
-
-
-
     static var shared = Piezometry()
 
     internal var stationURL =  URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/stations?")!
 
     internal var figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques_tr?")!
 
-    var networkService: NetworkProtocol = NetworkService.shared
-    
+    let networkService: NetworkProtocol = NetworkService.shared
+    let postalCodeFrance = ManagePostalCode.shared
     let serviceName = "Piezométrie"
     let apiName = "niveaux_nappes"
 
@@ -86,6 +83,12 @@ class Piezometry: ManageService {
     }
 
     private func bridgeStation(station: PiezometryHubeau) -> PiezometryODF? {
+        var postalCode :String
+        if let codeInsee = station.codeCommuneInsee {
+             postalCode = postalCodeFrance.getPostalCode(withInsee: codeInsee) ?? "\(codeInsee)(Code INSEE)"
+        } else {
+             postalCode = ""
+        }
 
         let stationODF = PiezometryODF(
             stationCode: station.codeBss ?? "",
@@ -94,6 +97,7 @@ class Piezometry: ManageService {
             longitude: station.longitude ?? 0.0,
             latitude: station.latitude ?? 0.0,
             townshipCode: station.codeCommuneInsee ?? "",
+            codePostal: postalCode,
             townshipLabel: station.nomCommune ?? "",
             countyCode: station.codeDepartement ?? "",
             countyLabel: station.nomDepartement ?? "",

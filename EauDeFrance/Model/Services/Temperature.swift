@@ -15,7 +15,9 @@ class Temperature: ManageService {
 
     let figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/chronique?")!
 
-    var networkService: NetworkProtocol = NetworkService.shared
+    let networkService: NetworkProtocol = NetworkService.shared
+
+    let postalCodeFrance = ManagePostalCode.shared
 
     let apiName = "temperature"
     let serviceName = "Température"
@@ -107,14 +109,19 @@ class Temperature: ManageService {
     }
 
     private func bridgeStationODF(station: TemperatureHubeau ) -> TemperatureODF? {
+        var postalCode: String
+        if let codeInsee = station.codeCommune {
+             postalCode = postalCodeFrance.getPostalCode(withInsee: codeInsee) ?? "\(codeInsee)(Code INSEE)"
+        } else {
+             postalCode = ""
+        }
+
         let stationODF: TemperatureODF?
         stationODF = TemperatureODF.init(
             stationCode: station.codeStation ?? "",
             stationLabel: station.libelleStation ?? "",
             uriStation: station.uriStation,
             localization: station.localisation,
-            //coordinateX: station.coordonneeX,
-            //coordinateY: station.coordonneeY,
             streamCode: station.codeCoursEau,
             streamLabel: station.libelleCoursEau,
             uriStream: station.uriCoursEau,
@@ -122,6 +129,7 @@ class Temperature: ManageService {
             longitude: station.longitude ?? 0.0,
             latitude: station.latitude ?? 0.0,
             townshipCode: station.codeCommune ?? "",
+            postalCode: postalCode,
             townshipLabel: station.libelleCommune ?? "",
             countyCode: station.codeDepartement ?? "",
             countyLabel: station.libelleDepartement ?? "",
@@ -138,7 +146,7 @@ class Temperature: ManageService {
             basinCode: station.codeBassin,
             uriBasin: String(format: "%.0", station.altitude ?? 0.0),
             pointKM: String(format: "%.0", station.pointKm ?? 0.0)
-        )
+            )
         return stationODF
     }
 }

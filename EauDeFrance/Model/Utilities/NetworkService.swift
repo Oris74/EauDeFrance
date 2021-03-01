@@ -74,7 +74,7 @@ class NetworkService: NetworkProtocol {
     }
 
     ///generic data decodable function  with error management
-    private func decodeJSON<T: Decodable>(
+    func decodeJSON<T: Decodable>(
         type: T?.Type,
         data: Data?,
         completionJSON: @escaping (T?, Utilities.ManageError?) -> Void) {
