@@ -590,10 +590,10 @@
 			isa = PBXGroup;
 			children = (
 				D910743925AF588A0099B34B /* TemperatureODF.swift */,
-				D907A9F725EAA3230071ED52 /* PostalCode.json */,
 				D9FDF17425D3DC5700CBDEED /* TemperatureODFValue.swift */,
-				D907A9FC25EAA41B0071ED52 /* ManagePostalCode.swift */,
 				D907AA0125EABED90071ED52 /* PostalCode.swift */,
+				D907A9FC25EAA41B0071ED52 /* ManagePostalCode.swift */,
+				D907A9F725EAA3230071ED52 /* PostalCode.json */,
 			);
 			name = Temperature;
 			sourceTree = "<group>";

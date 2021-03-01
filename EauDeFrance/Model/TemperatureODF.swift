@@ -8,31 +8,31 @@
 import Foundation
 
 class TemperatureODF: StationODF {
-    let localization: String?
-    let regionCode: String?
-    let regionLabel: String?
-    let hydroSectionCode: String?
-    let streamCode, streamLabel: String?
-    let uriStream: String?
-    let bodyOfWaterCode: String?
-    let bodyOfWaterLabel: String?
-    let uriBodyOfWater: String?
-    let subBasinCode: String?
-    let basinLabel: String?
-    let subBasinLabel: String?
-    let basinCode: String?
-    let uriBasin: String?
-    let pointKM: String?
+    let localization: String
+    let regionCode: String
+    let regionLabel: String
+    let hydroSectionCode: String
+    let streamCode, streamLabel: String
+    let uriStream: String
+    let bodyOfWaterCode: String
+    let bodyOfWaterLabel: String
+    let uriBodyOfWater: String
+    let subBasinCode: String
+    let basinLabel: String
+    let subBasinLabel: String
+    let basinCode: String
+    let uriBasin: String
+    let pointKM: String
     var figure: [TemperatureODFValue]?
     
     init(stationCode: String,
          stationLabel: String,
          uriStation: String,
-         localization: String?,
-         streamCode: String?,
-         streamLabel: String?,
-         uriStream: String?,
-         hydroSectionCode: String?,
+         localization: String,
+         streamCode: String,
+         streamLabel: String,
+         uriStream: String,
+         hydroSectionCode: String,
          longitude: Double,
          latitude: Double,
          townshipCode: String,
@@ -42,17 +42,17 @@ class TemperatureODF: StationODF {
          countyLabel: String,
          altitude: String,
          dateUPDT: String,
-         bodyOfWaterCode: String?,
-         bodyOfWaterLabel: String?,
-         uriBodyOfWater: String?,
-         regionLabel: String?,
-         regionCode: String?,
-         subBasinCode: String?,
-         basinLabel:String?,
-         subBasinLabel: String?,
-         basinCode: String?,
-         uriBasin: String?,
-         pointKM: String?
+         bodyOfWaterCode: String,
+         bodyOfWaterLabel: String,
+         uriBodyOfWater: String,
+         regionLabel: String,
+         regionCode: String,
+         subBasinCode: String,
+         basinLabel:String,
+         subBasinLabel: String,
+         basinCode: String,
+         uriBasin: String,
+         pointKM: String
          ) {
 
         self.streamCode = streamCode

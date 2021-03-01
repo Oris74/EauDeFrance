@@ -27,7 +27,7 @@ class DetailedStationViewController: UIViewController {
             self.stream.text = temperatureStation.streamLabel
             self.region.text = temperatureStation.regionLabel
             self.subBasin.text = temperatureStation.subBasinLabel
-            self.label.text = "Code Hydro\(temperatureStation.hydroSectionCode ?? "")"
+            self.label.text = "Code Hydro\(temperatureStation.hydroSectionCode)"
 
         case let piezometryStation as PiezometryODF:
             self.label.text = piezometryStation.info

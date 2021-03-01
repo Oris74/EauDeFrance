@@ -46,5 +46,6 @@ extension MapViewController: CLLocationManagerDelegate {
 
         self.currentPlace = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
         spanLocationMap(coordinate: currentPlace, spanLat: 1, spanLong: 1)
+        locationManager.stopUpdatingLocation()
     }
 }

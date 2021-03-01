@@ -231,6 +231,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
             setNextWeek()
         }
     }
+
     func setPreviousWeek(){
         guard let segmentDay = segmentedWeekDate[1] else { return }
         guard let currentSunday = segmentDay else { return }

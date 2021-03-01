@@ -8,15 +8,15 @@
 import Foundation
 
 class PiezometryODF: StationODF {
-    let startMeasurementDate, endMeasurementDate: String?
-    let bdLisaCode: [String]?
-    let urnsBdLisa: [String]?
-    let bssId: String?
-    let nbPiezoMeasurement: Int?
-    let depthOfInvestigation: Double?
-    let bodyOfWaterCode: [String]?
-    let bodyOfWaterLabel: [String]?
-    let uriBodyOfWater: [String]?
+    let startMeasurementDate, endMeasurementDate: String
+    let bdLisaCode: [String]
+    let urnsBdLisa: [String]
+    let bssId: String
+    let nbPiezoMeasurement: Int
+    let depthOfInvestigation: Double
+    let bodyOfWaterCode: [String]
+    let bodyOfWaterLabel: [String]
+    let uriBodyOfWater: [String]
     var figure: [PiezometryODFValue]?
 
     init(stationCode: String,
@@ -29,16 +29,16 @@ class PiezometryODF: StationODF {
         townshipLabel: String,
         countyCode: String,
         countyLabel: String,
-        bodyOfWaterCode: [String]?,
-        bodyOfWaterLabel: [String]?,
-        uriBodyOfWater: [String]?,
-        depthOfInvestigation: Double?,
-        nbPiezoMeasurement: Int?,
-        bssId: String?,
-        urnsBdLisa: [String]?,
-        bdLisaCode: [String]?,
-        startMeasurementDate: String?,
-        endMeasurementDate: String?,
+        bodyOfWaterCode: [String],
+        bodyOfWaterLabel: [String],
+        uriBodyOfWater: [String],
+        depthOfInvestigation: Double,
+        nbPiezoMeasurement: Int,
+        bssId: String,
+        urnsBdLisa: [String],
+        bdLisaCode: [String],
+        startMeasurementDate: String,
+        endMeasurementDate: String,
         altitude: String,
         dateUPDT: String) {
 
