@@ -17,7 +17,6 @@ class PiezometryODF: StationODF {
     let bodyOfWaterCode: [String]
     let bodyOfWaterLabel: [String]
     let uriBodyOfWater: [String]
-    var figure: [PiezometryODFValue]?
 
     init(stationCode: String,
         stationLabel: String,

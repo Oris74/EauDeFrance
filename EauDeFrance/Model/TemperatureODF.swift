@@ -23,8 +23,7 @@ class TemperatureODF: StationODF {
     let basinCode: String
     let uriBasin: String
     let pointKM: String
-    var figure: [TemperatureODFValue]?
-    
+   
     init(stationCode: String,
          stationLabel: String,
          uriStation: String,

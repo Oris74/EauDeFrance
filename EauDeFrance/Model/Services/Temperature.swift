@@ -8,7 +8,7 @@
 import Foundation
 
 class Temperature: ManageService {
-   
+ 
     static var shared = Temperature()
     
     let stationURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/station?")!
@@ -43,34 +43,8 @@ class Temperature: ManageService {
             })
     }
 
-    func getFigure(url: URL, callback: @escaping ([TemperatureODFValue]?, ManageODFapi?,Utilities.ManageError?) -> Void) {
 
-        networkService.getAPIData(
-            url, nil, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
-                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
-                    return callback(nil, nil, error)
-                }
-
-                let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
-
-                var serviceODF:[TemperatureODFValue] = []
-                for figure in apiFigures {
-                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
-                        serviceODF.append(figureODF)
-                    }
-                }
-                callback(serviceODF, statusAPI, nil)
-                return
-            })
-    }
-
-
-
-    func getFigure(station: StationODF, optionnalParam: [[KeyRequest:String]], callback: @escaping (StationODF?, ManageODFapi?,Utilities.ManageError?) -> Void) {
-
-        let parameters: [[KeyRequest : String]] = [
-            [.stationCode: station.stationCode],
-            [.sort:"desc"]] + optionnalParam
+    func getFigure(parameters: [[KeyRequest:String]], callback: @escaping ([Any]?, ManageODFapi?,Utilities.ManageError?) -> Void) {
 
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
@@ -80,16 +54,13 @@ class Temperature: ManageService {
 
                 let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
 
-                guard let serviceODF = station as? TemperatureODF else {
-                    return callback(nil, nil, Utilities.ManageError.incorrectDataStruct)
-                }
-                serviceODF.figure = []
+                var temperatureValues: [TemperatureODFValue] = []
                 for figure in apiFigures {
                     if let figureODF = self?.bridgeFigureODF(api:  figure) {
-                        serviceODF.figure?.append(figureODF)
+                        temperatureValues.append(figureODF)
                     }
                 }
-                callback(serviceODF, statusAPI, nil)
+                callback(temperatureValues, statusAPI, nil)
                 return
             })
     }

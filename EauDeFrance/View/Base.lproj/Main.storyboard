@@ -751,22 +751,23 @@
                                         <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </activityIndicatorView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="NYw-VM-U0L">
-                                        <rect key="frame" x="333" y="5" width="50" height="30"/>
+                                        <rect key="frame" x="25" y="5" width="200" height="30"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7A-uq-6y0" userLabel="xlabel">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a7A-uq-6y0" userLabel="xlabel">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-Ne-Ne7" userLabel="ylabel">
-                                                <rect key="frame" x="0.0" y="16" width="50" height="14"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHD-Ne-Ne7" userLabel="ylabel">
+                                                <rect key="frame" x="0.0" y="16" width="200" height="14"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="9"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="1ha-rs-dEa"/>
                                             <constraint firstAttribute="height" constant="30" id="QAk-aD-Jhe"/>
                                         </constraints>
                                     </stackView>
@@ -775,8 +776,8 @@
                                 <constraints>
                                     <constraint firstItem="sts-LP-BCS" firstAttribute="centerY" secondItem="spx-Jz-xg8" secondAttribute="centerY" constant="-50" id="DVd-kB-iYL"/>
                                     <constraint firstItem="sts-LP-BCS" firstAttribute="centerX" secondItem="spx-Jz-xg8" secondAttribute="centerX" id="JEe-jY-P1y"/>
+                                    <constraint firstItem="NYw-VM-U0L" firstAttribute="leading" secondItem="spx-Jz-xg8" secondAttribute="leading" constant="25" id="RGC-XT-vDh"/>
                                     <constraint firstItem="NYw-VM-U0L" firstAttribute="top" secondItem="spx-Jz-xg8" secondAttribute="top" constant="5" id="gCm-OZ-WxP"/>
-                                    <constraint firstAttribute="trailing" secondItem="NYw-VM-U0L" secondAttribute="trailing" constant="5" id="ihp-Ch-EEV"/>
                                 </constraints>
                             </view>
                         </subviews>

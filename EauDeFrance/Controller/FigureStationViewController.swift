@@ -35,30 +35,31 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
     }
 
     func updateChart() {
-        let parameters:[[KeyRequest : String]] = [[.size: "500"]]
+        let parameters: [[KeyRequest : String]] = [
+            [.stationCode: station.stationCode],
+            [.sort:"desc"],[.size: "500"]]
+
         getData(parameters: parameters)
     }
 
     func getData(parameters: [[KeyRequest : String]]) {
 
-        StationService.shared.current.getFigure(station: station, optionnalParam: parameters, callback: {[weak self] (dataStation, dataStatus, error) in
-            if (error != nil) {
+        StationService.shared.current.getFigure(parameters: parameters, callback: {[weak self] (dataStation, dataStatus, error) in
+           
+            guard let figures = dataStation, error == nil else {
                 self?.manageErrors(errorCode: error)
                 return
             }
             var measure: [Measure] = []
 
-            switch dataStation {
-            case let dataStation as TemperatureODF:
-                guard let figures = dataStation.figure, error == nil else {
-                    self?.manageErrors(errorCode: Utilities.ManageError.undefinedError)
-                    return
-                }
-                for figure in figures {
-                    if let hour = figure.tempMeasureHour {
-                        if let date = figure.tempMeasureDate {
+            for figure in figures {
+                switch figure {
+
+                case let temperatureValue as TemperatureODFValue:
+                    if let hour = temperatureValue.tempMeasureHour {
+                        if let date = temperatureValue.tempMeasureDate {
                             let timestamp = "\(date)T\(hour)Z"
-                            if let value = figure.result, let unit = figure.unitSymbol {
+                            if let value = temperatureValue.result, let unit = temperatureValue.unitSymbol {
                                 let newMeasure = Measure(timestamp: timestamp, value: value, unit: unit )
                                 if (measure.contains(where: {$0.date == newMeasure.date}) == false) {
                                     measure.append(newMeasure)
@@ -66,25 +67,20 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
                             }
                         }
                     }
-                }
 
-            case let dataStation as PiezometryODF:
-                guard let figures = dataStation.figure, error == nil, figures.count > 0 else {
-                    self?.manageErrors(errorCode: Utilities.ManageError.undefinedError)
-                    return
-                }
-                for figure in figures {
-                    let date = figure.dateMesure
-                    let value = figure.niveauEauNgf
+                case let piezometryValue as PiezometryODFValue:
+                    let date = piezometryValue.dateMesure
+                    let value = piezometryValue.niveauEauNgf
                     let unit = " m "
                     let newMeasure = Measure(timestamp: date, value: value, unit: unit)
                     if (measure.contains(where: {$0.date == newMeasure.date}) == false) {
                         measure.append(newMeasure)
                     }
+                default: break
                 }
 
-            default: break
             }
+
             measure.sort {$0.date < $1.date}
             self?.activityIndicator.isHidden = true
 
@@ -187,8 +183,8 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         let date = Date(timeIntervalSince1970: (entry.x*3600))
 
-        self.xLabel.text = "\(date.getFullDay()) - \(date.getFullTime())"
-        self.yLabel.text = "\(entry.y)"
+        self.xLabel.text = "date: \(date.getFullDay()) - \(date.getFullTime())"
+        self.yLabel.text = "valeur: \(entry.y)"
     }
 }
 
