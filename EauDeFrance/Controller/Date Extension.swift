@@ -77,6 +77,7 @@ extension Date {
         return fullTime
     }
     func convertTimetoXaxis() -> Double {
+
         guard let calendar = NSCalendar(calendarIdentifier: .gregorian) else { return 0.0 }
 
         let hour = calendar.component(.hour, from: self)

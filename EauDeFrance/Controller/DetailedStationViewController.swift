@@ -10,13 +10,15 @@ import UIKit
 class DetailedStationViewController: UIViewController {
     var station: StationODF!
 
-    @IBOutlet weak var stream: UILabel!
-    @IBOutlet weak var region: UILabel!
-    @IBOutlet weak var subBasin: UILabel!
-    @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var lblStream: UILabel!
+    @IBOutlet weak var lblRegion: UILabel!
+    @IBOutlet weak var lblBodyOfWater: UILabel!
+    @IBOutlet weak var lblSubBasin: UILabel!
+    @IBOutlet weak var lblOther: UILabel!
+    
 
-    @IBOutlet weak var bodyOfWater: UIButton!
-    @IBOutlet weak var basin: UIButton!
+    @IBOutlet weak var bpBodyOfWater: UIButton!
+    @IBOutlet weak var bpBasin: UIButton!
 
 
     override func viewDidLoad() {
@@ -24,13 +26,13 @@ class DetailedStationViewController: UIViewController {
 
         switch station {
         case let temperatureStation as TemperatureODF:
-            self.stream.text = temperatureStation.streamLabel
-            self.region.text = temperatureStation.regionLabel
-            self.subBasin.text = temperatureStation.subBasinLabel
-            self.label.text = "Code Hydro\(temperatureStation.hydroSectionCode)"
-
+            self.lblStream.text = temperatureStation.streamLabel
+            self.lblRegion.text = temperatureStation.regionLabel
+            self.lblSubBasin.text = temperatureStation.subBasinLabel
+            self.lblOther.text = "Code Hydro :\(temperatureStation.hydroSectionCode)"
+            self.lblBodyOfWater.text = temperatureStation.bodyOfWaterLabel
         case let piezometryStation as PiezometryODF:
-            self.label.text = piezometryStation.info
+            self.lblOther.text = piezometryStation.info
         default: break
         }
 
@@ -42,7 +44,7 @@ class DetailedStationViewController: UIViewController {
     }
 
 
-    @IBAction func bodyOfWater(_ sender: UIButton) {
+    @IBAction func bpBodyOfWater(_ sender: UIButton) {
 
     }
 

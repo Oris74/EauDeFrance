@@ -72,8 +72,8 @@ class Piezometry: ManageService {
                                         urnBss: api.urnBss,
                                         longitude: api.longitude,
                                         latitude: api.latitude,
-                                        altitudeStation: String(format: "%.f", api.altitudeStation ?? " - "),
-                                        altitudeRepere: String(format: "%.f", api.altitudeRepere ?? " - "),
+                                        altitudeStation: String(format: "%.f", api.altitudeStation ?? 0.0),
+                                        altitudeRepere: String(format: "%.f", api.altitudeRepere ?? 0.0),
                                         dateMesure: api.dateMesure,
                                         timestampMesure: api.timestampMesure,
                                         profondeurNappe: api.profondeurNappe,
@@ -111,7 +111,7 @@ class Piezometry: ManageService {
             bdLisaCode: station.codesBdlisa ?? [""],
             startMeasurementDate: station.dateDebutMesure ?? "",
             endMeasurementDate: station.dateFinMesure ?? "",
-            altitude: String(format: "%.f", station.altitudeStation ?? " - "),
+            altitude: String(format: "%.f", station.altitudeStation ?? 0.0),
             dateUPDT: station.dateDebutMesure ?? "")
         return stationODF
     }

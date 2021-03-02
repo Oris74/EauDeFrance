@@ -144,7 +144,7 @@ class Temperature: ManageService {
             basinLabel: station.libelleBassin ?? "",
             subBasinLabel: station.libelleSousBassin ?? "",
             basinCode: station.codeBassin ?? "",
-            uriBasin: String(format: "%.0", station.altitude ?? 0.0),
+            uriBasin: String(format: "%.0", station.uriBassin ?? 0.0),
             pointKM: String(format: "%.0", station.pointKm ?? 0.0)
             )
         return stationODF

@@ -291,7 +291,7 @@
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-hubeau-blue" translatesAutoresizingMaskIntoConstraints="NO" id="zHm-YP-EFP">
-                                                <rect key="frame" x="149.66666666666663" y="0.0" width="77.666666666666657" height="40"/>
+                                                <rect key="frame" x="149.66666666666666" y="0.0" width="77.666666666666657" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="7Tt-8h-YXB"/>
                                                     <constraint firstAttribute="width" secondItem="zHm-YP-EFP" secondAttribute="height" multiplier="171:88" id="xU3-Bf-Rfx"/>
@@ -623,52 +623,66 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="jEp-Qm-L5E">
                                 <rect key="frame" x="20" y="64" width="388" height="808"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stream" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luG-ha-ZbY">
-                                        <rect key="frame" x="0.0" y="0.0" width="388" height="76.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stream" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="luG-ha-ZbY" userLabel="lblStream">
+                                        <rect key="frame" x="0.0" y="0.0" width="388" height="111.33333333333333"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NJ-SA-eup">
-                                        <rect key="frame" x="0.0" y="104.66666666666666" width="388" height="76.333333333333343"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Region" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3NJ-SA-eup" userLabel="lblRegion">
+                                        <rect key="frame" x="0.0" y="139.33333333333334" width="388" height="111.33333333333334"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyOfWater" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-69-seb">
-                                        <rect key="frame" x="0.0" y="209" width="388" height="76.666666666666686"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="D32-oA-JsU">
+                                        <rect key="frame" x="0.0" y="278.66666666666669" width="388" height="111.33333333333331"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BodyOfWater" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgk-69-seb" userLabel="lblBodyOfWater">
+                                                <rect key="frame" x="0.0" y="45.666666666666629" width="363" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt1-a8-bkT" userLabel="bpBodyOfWater">
+                                                <rect key="frame" x="368" y="44" width="20" height="23.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="6wo-gV-Mh7"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="bpBodyOfWater:" destination="7ae-ou-37N" eventType="touchUpInside" id="92h-g5-Trg"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C3r-BI-765">
+                                        <rect key="frame" x="0.0" y="418" width="388" height="111.33333333333337"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basin" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTS-tV-4s0" userLabel="lblBasin">
+                                                <rect key="frame" x="0.0" y="45.666666666666629" width="363" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-8X-hbD" userLabel="bpBasin">
+                                                <rect key="frame" x="368" y="44" width="20" height="23.666666666666671"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="20" id="X14-uI-xHw"/>
+                                                </constraints>
+                                                <connections>
+                                                    <action selector="bpBasin:" destination="7ae-ou-37N" eventType="touchUpInside" id="x5Y-wG-ggK"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subBasin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSq-tw-qcx" userLabel="lblSubBasin">
+                                        <rect key="frame" x="0.0" y="557.33333333333337" width="388" height="111.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xt1-a8-bkT" userLabel="BodyOfWater">
-                                        <rect key="frame" x="0.0" y="313.66666666666669" width="388" height="76.333333333333314"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="bodyOfWater:" destination="7ae-ou-37N" eventType="touchUpInside" id="cpE-KU-rTZ"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Basin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rTS-tV-4s0">
-                                        <rect key="frame" x="0.0" y="418" width="388" height="76.666666666666686"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subBasin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pSq-tw-qcx">
-                                        <rect key="frame" x="0.0" y="522.66666666666663" width="388" height="76.333333333333371"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MKF-8X-hbD" userLabel="Basin">
-                                        <rect key="frame" x="0.0" y="627" width="388" height="76.666666666666629"/>
-                                        <state key="normal" title="Button"/>
-                                        <connections>
-                                            <action selector="bpBasin:" destination="7ae-ou-37N" eventType="touchUpInside" id="7zY-Yx-zvr"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clI-y5-uT0">
-                                        <rect key="frame" x="0.0" y="731.66666666666663" width="388" height="76.333333333333371"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="clI-y5-uT0" userLabel="lblOther">
+                                        <rect key="frame" x="0.0" y="696.66666666666663" width="388" height="111.33333333333337"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -687,12 +701,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="beb-a3-G1u"/>
                     <connections>
-                        <outlet property="basin" destination="MKF-8X-hbD" id="Efk-cb-Ujy"/>
-                        <outlet property="bodyOfWater" destination="xt1-a8-bkT" id="mwj-Lj-yL8"/>
-                        <outlet property="label" destination="clI-y5-uT0" id="XT9-sZ-Rmf"/>
-                        <outlet property="region" destination="3NJ-SA-eup" id="Wxd-2K-xJ5"/>
-                        <outlet property="stream" destination="luG-ha-ZbY" id="GSl-cL-MfR"/>
-                        <outlet property="subBasin" destination="pSq-tw-qcx" id="zuc-8r-mB8"/>
+                        <outlet property="bpBasin" destination="MKF-8X-hbD" id="7k1-vh-sJs"/>
+                        <outlet property="bpBodyOfWater" destination="xt1-a8-bkT" id="R1a-SP-Xrq"/>
+                        <outlet property="lblBodyOfWater" destination="Wgk-69-seb" id="78U-Hh-TCv"/>
+                        <outlet property="lblOther" destination="clI-y5-uT0" id="kbX-hK-b1a"/>
+                        <outlet property="lblRegion" destination="3NJ-SA-eup" id="oad-V8-6zH"/>
+                        <outlet property="lblStream" destination="luG-ha-ZbY" id="MK1-9N-SJN"/>
+                        <outlet property="lblSubBasin" destination="pSq-tw-qcx" id="BJV-iH-qEs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tAL-hc-7uw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -710,29 +725,18 @@
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Nsm-Wc-iOD">
                                 <rect key="frame" x="20" y="44" width="388" height="60"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC4-sd-h6F">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DC4-sd-h6F" userLabel="PeriodFrom">
                                         <rect key="frame" x="0.0" y="0.0" width="388" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <segmentedControl opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" apportionsSegmentWidthsByContent="YES" segmentControlStyle="plain" translatesAutoresizingMaskIntoConstraints="NO" id="Oze-hj-YMo">
-                                        <rect key="frame" x="0.0" y="30" width="388" height="31"/>
-                                        <segments>
-                                            <segment title="..."/>
-                                            <segment title="Sun"/>
-                                            <segment title="Mon"/>
-                                            <segment title="Tues"/>
-                                            <segment title="Wed"/>
-                                            <segment title="Thu"/>
-                                            <segment title="Fri"/>
-                                            <segment title="Sat"/>
-                                            <segment title="..."/>
-                                        </segments>
-                                        <connections>
-                                            <action selector="segmentedWeek:" destination="zJd-8I-ldt" eventType="valueChanged" id="hy0-IO-7Qa"/>
-                                        </connections>
-                                    </segmentedControl>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lA4-7L-NXW" userLabel="PeriodTo">
+                                        <rect key="frame" x="0.0" y="30" width="388" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="UlS-ex-1y6"/>
@@ -791,9 +795,9 @@
                     <navigationItem key="navigationItem" id="qmv-zM-i6D"/>
                     <connections>
                         <outlet property="activityIndicator" destination="sts-LP-BCS" id="1i6-ni-APR"/>
-                        <outlet property="figuresDate" destination="DC4-sd-h6F" id="4Ej-Uk-IP3"/>
+                        <outlet property="lblPeriodFrom" destination="DC4-sd-h6F" id="nKm-4V-0Ep"/>
+                        <outlet property="lblPeriodTo" destination="lA4-7L-NXW" id="JsG-nJ-UEe"/>
                         <outlet property="lineChartView" destination="spx-Jz-xg8" id="7es-6q-XIV"/>
-                        <outlet property="segmentedWeek" destination="Oze-hj-YMo" id="IsJ-F2-NiB"/>
                         <outlet property="xLabel" destination="a7A-uq-6y0" id="xDD-cx-qIt"/>
                         <outlet property="yLabel" destination="SHD-Ne-Ne7" id="cH0-fJ-2FO"/>
                     </connections>
@@ -804,7 +808,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="58X-G2-0iV"/>
+        <segue reference="ubP-sx-Gbn"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="adddocplus" width="27" height="26"/>

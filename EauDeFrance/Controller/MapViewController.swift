@@ -57,6 +57,29 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
     }
 
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+
+        navigationItem.titleView = serviceStackView(service: stationService.current)
+        self.tabBarController?.tabBar.isHidden = false
+
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light //For light mode
+        }
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+
+        launchscreenVC()
+
+        stationService.currentMenu = .map
+        
+        self.activityIndicator.isHidden = true
+
+        mapView.showsUserLocation = true
+        
+    }
+
     func launchscreenVC() {
 
         var launchVC: UIViewController
@@ -64,9 +87,7 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
 
         if !defaults.bool(forKey: "launchVC") {
 
-            if #available(iOS 13.0, *) {
-                overrideUserInterfaceStyle = .light //For light mode
-            }
+
 
             let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
 
@@ -85,24 +106,6 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         }
     }
 
-    override func viewWillAppear(_ animated: Bool){
-        super.viewWillAppear(animated)
-
-        navigationItem.titleView = serviceStackView(service: stationService.current)
-        self.tabBarController?.tabBar.isHidden = false
-    }
-
-    override func viewDidAppear(_ animated: Bool) {
-
-        launchscreenVC()
-
-        stationService.currentMenu = .map
-        
-        self.activityIndicator.isHidden = true
-
-        mapView.showsUserLocation = true
-        
-    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         manageErrors(errorCode: Utilities.ManageError.memoryIssue)
