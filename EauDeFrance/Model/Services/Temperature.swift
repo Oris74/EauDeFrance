@@ -44,7 +44,10 @@ class Temperature: ManageService {
     }
 
 
-    func getFigure(parameters: [[KeyRequest:String]], callback: @escaping ([Any]?, ManageODFapi?,Utilities.ManageError?) -> Void) {
+    func getFigure(codeStation: String, callback: @escaping ([Any]?, ManageODFapi?,Utilities.ManageError?) -> Void) {
+        let parameters: [[KeyRequest : String]] = [
+            [.stationCode: codeStation],
+            [.sort:"desc"],[.size: "5000"]]
 
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
@@ -89,33 +92,33 @@ class Temperature: ManageService {
 
         let stationODF: TemperatureODF?
         stationODF = TemperatureODF.init(
-            stationCode: station.codeStation ?? "",
-            stationLabel: station.libelleStation ?? "",
+            stationCode: station.codeStation,
+            stationLabel: station.libelleStation,
             uriStation: station.uriStation,
-            localization: station.localisation ?? "",
-            streamCode: station.codeCoursEau ?? "",
-            streamLabel: station.libelleCoursEau ?? "",
-            uriStream: station.uriCoursEau ?? "",
-            hydroSectionCode: station.codeTronconHydro ?? "",
-            longitude: station.longitude ?? 0.0,
-            latitude: station.latitude ?? 0.0,
-            townshipCode: station.codeCommune ?? "",
+            localization: station.localisation ?? "non renseignée",
+            streamCode: station.codeCoursEau ?? "non renseignée",
+            streamLabel: station.libelleCoursEau ?? "non renseignée",
+            uriStream: station.uriCoursEau ?? "non renseignée",
+            hydroSectionCode: station.codeTronconHydro ?? "non renseignée",
+            longitude: station.longitude,
+            latitude: station.latitude,
+            townshipCode: station.codeCommune ?? "non renseignée",
             postalCode: postalCode,
-            townshipLabel: station.libelleCommune ?? "",
-            countyCode: station.codeDepartement ?? "",
-            countyLabel: station.libelleDepartement ?? "",
+            townshipLabel: station.libelleCommune ?? "non renseignée",
+            countyCode: station.codeDepartement ?? "non renseignée",
+            countyLabel: station.libelleDepartement ?? "non renseignée",
             altitude: String(format: "%.f", station.altitude ?? 0.0),
-            dateUPDT: station.dateMajInfos ?? "",
-            bodyOfWaterCode: station.codeMasseEau ?? "",
-            bodyOfWaterLabel: station.libelleMasseEau ?? "",
-            uriBodyOfWater: station.uriMasseEau ?? "",
-            regionLabel: station.libelleRegion ?? "",
-            regionCode: station.codeRegion ?? "",
-            subBasinCode: station.codeSousBassin ?? "",
-            basinLabel: station.libelleBassin ?? "",
-            subBasinLabel: station.libelleSousBassin ?? "",
-            basinCode: station.codeBassin ?? "",
-            uriBasin: String(format: "%.0", station.uriBassin ?? 0.0),
+            dateUPDT: station.dateMajInfos ?? "non renseignée",
+            bodyOfWaterCode: station.codeMasseEau ?? "non renseignée",
+            bodyOfWaterLabel: station.libelleMasseEau ?? "non renseignée",
+            uriBodyOfWater: station.uriMasseEau ?? "non renseignée",
+            regionLabel: station.libelleRegion ?? "non renseignée",
+            regionCode: station.codeRegion ?? "non renseignée",
+            subBasinCode: station.codeSousBassin ?? "non renseignée",
+            basinLabel: station.libelleBassin ?? "non renseignée",
+            subBasinLabel: station.libelleSousBassin ?? "non renseignée",
+            basinCode: station.codeBassin ?? "non renseignée",
+            uriBasin: station.uriBassin ?? "non renseignée",
             pointKM: String(format: "%.0", station.pointKm ?? 0.0)
             )
         return stationODF

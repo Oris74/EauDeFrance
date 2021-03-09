@@ -10,7 +10,7 @@ import ENSwiftSideMenu
 
 class SideMenuTableViewController: UITableViewController, VCUtilities {
     private let menuOptionCellId = "Cell"
-    var selectedMenuItem : Int = 0
+    var selectedMenuItem : Int = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()

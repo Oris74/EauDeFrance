@@ -11,23 +11,10 @@ import MapKit
 class GeneralStationViewController: UIViewController, VCUtilities {
     weak var station: StationODF!
 
-    @IBOutlet weak var zone1: UIView!
     @IBOutlet weak var mapViewStation: MKMapView!
 
-    @IBOutlet weak var service: UILabel!
+    @IBOutlet weak var lblZone2: UILabel!
 
-    @IBOutlet weak var updateDoc: UILabel!
-
-    @IBOutlet weak var township: UILabel!
-
-    @IBOutlet weak var county: UILabel!
-
-    @IBOutlet weak var altitude: UILabel!
-
-    @IBOutlet weak var localization: UILabel!
-
-    @IBOutlet weak var descriptionStation: UIStackView!
-    
     private var distanceSpan: CLLocationDistance = 500
     private var stationService = StationService.shared
 
@@ -37,23 +24,52 @@ class GeneralStationViewController: UIViewController, VCUtilities {
 
         switch station {
         case let temperatureStation as TemperatureODF:
-            self.localization.text = temperatureStation.localization
+            temperatureDetail(station: temperatureStation)
         case let piezometryStation as PiezometryODF:
-            self.localization.text = piezometryStation.info
+            piezometryDetail(station: piezometryStation)
+
         default: break
         }
-
-        self.zone1.addSubview( serviceStackView(service: stationService.current))
-        self.service.text = "Station de \(station.service)"
-
-        self.altitude.text = (station.altitude )+" m d'altitude"
-        self.township.text = " \(station.postalCode) \(station.townshipLabel)"
-        self.county.text = "\(station.countyLabel) (\(station.countyCode))"
-        self.updateDoc.text = "Dernière mise à jour: \(station.dateUPDT)"
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    func temperatureDetail(station: TemperatureODF){
+     
+        self.lblZone2.attributedText = """
+        <CENTER>
+        <Table width=100%>
+        <tr valign=top><td align=center>
+            <TABLE width=80%>
+            <tr><td colspan = 2><H3><center><b>Code d'identification : </b> \(station.stationCode)</H3></center></td><tr>
+            <tr><td><b>Altitude : </b></td><td> \(station.altitude ) m</td><tr>
+            <tr><td><b>Localité : </b></td><td>\(station.postalCode) \(station.townshipLabel.uppercased())</td><tr>
+            <tr><td><b>Département : </b></td><td>\(station.countyLabel) (\(station.countyCode))</td><tr>
+            <tr><td><b>localisation station </b></td><td>\(station.localization)</td><tr>
+            <tr><td><b>Altitude : </b></td><td> \(station.altitude ) m</td><tr>
+            <tr><td><b>cours d'eau : </b></td><td>\(station.streamLabel)</td><tr>
+            <tr><td><b>Dernière mise à jour: </b></td><td>\(station.dateUPDT)</td><tr>
+            </table>
+        </td></tr></TABLE>
+        </CENTER>
+        """.htmlToAttributedString
+    }
+
+    func piezometryDetail(station: PiezometryODF){
+        self.lblZone2.attributedText = """
+        <CENTER>
+        <Table width=100%>
+        <tr valign=top><td align=center>
+            <TABLE width=80%>
+            <tr><td colspan = 2><H3><center><b>Code d'identification : </b> \(station.stationCode)</H3></center></td></tr>
+            <tr><td><b>Altitude : </b></td><td>\(station.altitude ) m</td></tr>
+            <tr><td><b>Localité : </b></td><td>\(station.postalCode) \(station.townshipLabel.uppercased())</td></tr>
+            <tr><td><b> Département: </b></td><td> \(station.countyLabel) (\(station.countyCode))</td></tr>
+            <tr><td><b>Mesures effectuées : </b></td><td> \(station.nbPiezoMeasurement)</td></tr>
+            <tr><td><b>Profondeur d'investigation : </b></td><td>\(station.depthOfInvestigation) m</td></tr>
+            <tr><td><b>Dernière mise à jour: </td><td></b> \(station.dateUPDT)</center></td></tr>
+            </table>
+        </td></tr></TABLE>
+        </CENTER>
+        """.htmlToAttributedString
 
     }
 
@@ -61,7 +77,7 @@ class GeneralStationViewController: UIViewController, VCUtilities {
         let currentPlace = CLLocationCoordinate2D(latitude: station.latitude, longitude: station.longitude)
 
         mapViewStation.delegate = self
-        mapViewStation.isZoomEnabled = true
+        mapViewStation.isZoomEnabled = false
         mapViewStation.isScrollEnabled  = false
         mapViewStation.showsCompass = true
         mapViewStation.mapType = .hybrid

@@ -16,7 +16,7 @@ class StationService  {
     var current: ManageService
     
     init() {
-        self.current = Temperature.shared
+        self.current = Piezometry.shared
         self.currentMenu = .map
     }
 }

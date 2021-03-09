@@ -16,6 +16,6 @@ extension StationODF: MKAnnotation {
         return CLLocationCoordinate2D(latitude: latitude , longitude: longitude )
     }
     var info: String? {
-        return townshipCode + " " + townshipLabel
+        return (postalCode + " " + townshipLabel).uppercased()
     }
 }

@@ -23,4 +23,7 @@ enum KeyRequest: String {
     case min_result = "resulat_min"
     case beginRange = "date_debut_mesure"
     case endRange = "date_fin_mesure"
+    case stationPiezo = "code_bss"
+    case nbMesurePiezo  = "nb_mesures_piezo_min"
+    case activityFrom = "date_recherche"
 }

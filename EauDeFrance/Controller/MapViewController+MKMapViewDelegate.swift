@@ -121,7 +121,7 @@ extension MapViewController: MKMapViewDelegate {
         self.mapArea = "\(southWest.longitude),\(southWest.latitude),\(northEast.longitude),\(northEast.latitude)"
 
         self.activityIndicator.isHidden = false
-        let parameters: [[KeyRequest : String]] = [[.area:mapArea!],[.size: "2000"],[.sort:"desc"]]
+        let parameters: [[KeyRequest : String]] = [[.area:mapArea!],[.size: "2000"]]
 
         stationService.current.getStation(parameters: parameters, callback: {[weak self] ( stationList, error) in
             guard let depackedStations = stationList, error == nil else {
@@ -139,6 +139,7 @@ extension MapViewController: MKMapViewDelegate {
     @objc func getCallOutStation(sender: CustomButton)
     {
         guard let station = sender.getStationFromBp() else { return }
+        mapView.deselectAnnotation(station, animated: false)
         presentStationVC(with: station)
     }
 

@@ -52,7 +52,6 @@
 		D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E710225B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift */; };
 		D93E712625BB704A00C7E7E3 /* ListStationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E712525BB704A00C7E7E3 /* ListStationViewController.swift */; };
 		D93E712E25BB708400C7E7E3 /* ListStationVC+UITableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E712D25BB708400C7E7E3 /* ListStationVC+UITableViewDataSource.swift */; };
-		D93E713825BB70EE00C7E7E3 /* PassDataToVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E713725BB70EE00C7E7E3 /* PassDataToVC.swift */; };
 		D93E713D25BB718000C7E7E3 /* ListStationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E713C25BB718000C7E7E3 /* ListStationTableViewCell.swift */; };
 		D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */; };
 		D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E715625BC3F7600C7E7E3 /* StationViewController.swift */; };
@@ -69,6 +68,12 @@
 		D9996D6C25B628A900D1EE2A /* StationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D6B25B628A900D1EE2A /* StationAnnotationView.swift */; };
 		D9996D7125B62DD800D1EE2A /* CustomCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9996D7025B62DD800D1EE2A /* CustomCallOutView.xib */; };
 		D9996D7625B62EC900D1EE2A /* CustomCallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D7525B62EC900D1EE2A /* CustomCallOutView.swift */; };
+		D9D2849F25EF8C9B00BAA777 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */; };
+		D9D284C825F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */; };
+		D9D284D025F124D800BAA777 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D284CF25F124D800BAA777 /* WebViewController.swift */; };
+		D9D2853725F75EA800BAA777 /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2853625F75EA700BAA777 /* String Extension.swift */; };
+		D9D2858725F7DB3700BAA777 /* APIServicesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */; };
+		D9D2858D25F7DC6700BAA777 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */; };
 		D9F9F96825C330B700193F15 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F96725C330B700193F15 /* Temperature.swift */; };
 		D9F9F98025C41E3600193F15 /* Piezometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F97F25C41E3600193F15 /* Piezometry.swift */; };
 		D9F9F98A25C430C600193F15 /* StationODF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F98925C430C600193F15 /* StationODF.swift */; };
@@ -160,7 +165,6 @@
 		D93E710225B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
 		D93E712525BB704A00C7E7E3 /* ListStationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStationViewController.swift; sourceTree = "<group>"; };
 		D93E712D25BB708400C7E7E3 /* ListStationVC+UITableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationVC+UITableViewDataSource.swift"; sourceTree = "<group>"; };
-		D93E713725BB70EE00C7E7E3 /* PassDataToVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassDataToVC.swift; sourceTree = "<group>"; };
 		D93E713C25BB718000C7E7E3 /* ListStationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStationTableViewCell.swift; sourceTree = "<group>"; };
 		D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationVC+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D93E715625BC3F7600C7E7E3 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +181,12 @@
 		D9996D6B25B628A900D1EE2A /* StationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotationView.swift; sourceTree = "<group>"; };
 		D9996D7025B62DD800D1EE2A /* CustomCallOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCallOutView.xib; sourceTree = "<group>"; };
 		D9996D7525B62EC900D1EE2A /* CustomCallOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallOutView.swift; sourceTree = "<group>"; };
+		D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
+		D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationViewController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
+		D9D284CF25F124D800BAA777 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		D9D2853625F75EA700BAA777 /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
+		D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServicesTestCase.swift; sourceTree = "<group>"; };
+		D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		D9F9F96725C330B700193F15 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		D9F9F97F25C41E3600193F15 /* Piezometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piezometry.swift; sourceTree = "<group>"; };
 		D9F9F98925C430C600193F15 /* StationODF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationODF.swift; sourceTree = "<group>"; };
@@ -315,10 +325,10 @@
 		D924FC8325A4D7E20049832B /* EauDeFranceTests */ = {
 			isa = PBXGroup;
 			children = (
-				D924FCB425A706730049832B /* PiezometryTests */,
-				D924FCB225A706440049832B /* TemperatureTests */,
+				D9D2858B25F7DB4900BAA777 /* ServicesTests */,
 				D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */,
 				D924FC8625A4D7E20049832B /* Info.plist */,
+				D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */,
 			);
 			path = EauDeFranceTests;
 			sourceTree = "<group>";
@@ -357,7 +367,7 @@
 		D924FCA525A4D8C80049832B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				D92BDCD825D5DD9400F7D829 /* shareDoc */,
+				D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */,
 				D93E715525BC3F4200C7E7E3 /* StationViewController */,
 				D93E712425BB6F6900C7E7E3 /* ListStation */,
 				D93E70CF25B9CFF000C7E7E3 /* SideMenu */,
@@ -465,6 +475,7 @@
 				D93E712D25BB708400C7E7E3 /* ListStationVC+UITableViewDataSource.swift */,
 				D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */,
 				D93E713C25BB718000C7E7E3 /* ListStationTableViewCell.swift */,
+				D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */,
 			);
 			name = ListStation;
 			sourceTree = "<group>";
@@ -472,6 +483,7 @@
 		D93E715525BC3F4200C7E7E3 /* StationViewController */ = {
 			isa = PBXGroup;
 			children = (
+				D92BDCD825D5DD9400F7D829 /* shareDoc */,
 				D9FDF0F525D142E300CBDEED /* PagesStation */,
 				D93E715625BC3F7600C7E7E3 /* StationViewController.swift */,
 				D9FDF0CF25D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift */,
@@ -507,9 +519,9 @@
 			isa = PBXGroup;
 			children = (
 				D93E717C25BCD88400C7E7E3 /* CustomButton.swift */,
-				D93E713725BB70EE00C7E7E3 /* PassDataToVC.swift */,
 				D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */,
 				D9996D4F25B5A8AE00D1EE2A /* UIImageView Extension.swift */,
+				D9D2853625F75EA700BAA777 /* String Extension.swift */,
 			);
 			name = ViewControllerUtilities;
 			sourceTree = "<group>";
@@ -545,6 +557,16 @@
 			name = PostalCode;
 			sourceTree = "<group>";
 		};
+		D9D2858B25F7DB4900BAA777 /* ServicesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D924FCB225A706440049832B /* TemperatureTests */,
+				D924FCB425A706730049832B /* PiezometryTests */,
+				D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */,
+			);
+			name = ServicesTests;
+			sourceTree = "<group>";
+		};
 		D9F9F9B225C9843000193F15 /* Network */ = {
 			isa = PBXGroup;
 			children = (
@@ -571,6 +593,7 @@
 				D9FDF06925CDB3DA00CBDEED /* GeneralStationViewController.swift */,
 				D9FDF06425CDB34000CBDEED /* DetailedStationViewController.swift */,
 				D9FDF05F25CDB32900CBDEED /* FigureStationViewController.swift */,
+				D9D284CF25F124D800BAA777 /* WebViewController.swift */,
 			);
 			name = PagesStation;
 			sourceTree = "<group>";
@@ -842,6 +865,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */,
+				D9D284D025F124D800BAA777 /* WebViewController.swift in Sources */,
 				D910747525B19E590099B34B /* NetworkProtocol.swift in Sources */,
 				D907A9FD25EAA41B0071ED52 /* ManagePostalCode.swift in Sources */,
 				D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */,
@@ -856,6 +880,7 @@
 				D9070BB525EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift in Sources */,
 				D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */,
 				D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */,
+				D9D284C825F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift in Sources */,
 				D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */,
 				D93E70D125B9D04E00C7E7E3 /* SideMenuNavigationController.swift in Sources */,
 				D924FC6D25A4D7E10049832B /* SceneDelegate.swift in Sources */,
@@ -884,7 +909,6 @@
 				D92BDCEA25D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift in Sources */,
 				D910743A25AF588A0099B34B /* TemperatureODF.swift in Sources */,
 				D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */,
-				D93E713825BB70EE00C7E7E3 /* PassDataToVC.swift in Sources */,
 				D9996D6C25B628A900D1EE2A /* StationAnnotationView.swift in Sources */,
 				D93E712E25BB708400C7E7E3 /* ListStationVC+UITableViewDataSource.swift in Sources */,
 				D92BDCDA25D5DDC400F7D829 /* ShareDocViewController.swift in Sources */,
@@ -893,7 +917,9 @@
 				D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */,
 				D9F9F98025C41E3600193F15 /* Piezometry.swift in Sources */,
 				D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */,
+				D9D2853725F75EA800BAA777 /* String Extension.swift in Sources */,
 				D9996D5525B5C0D000D1EE2A /* KeyRequest.swift in Sources */,
+				D9D2849F25EF8C9B00BAA777 /* LaunchScreenViewController.swift in Sources */,
 				D9FDF18825D3E84500CBDEED /* PiezometryHubeauValue.swift in Sources */,
 				D924FD2425A7478C0049832B /* TemperatureHubeauValue.swift in Sources */,
 				D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */,
@@ -912,7 +938,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9D2858725F7DB3700BAA777 /* APIServicesTestCase.swift in Sources */,
 				D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */,
+				D9D2858D25F7DC6700BAA777 /* FakeResponseData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

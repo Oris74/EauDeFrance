@@ -7,32 +7,160 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "64BC429A-26AD-49F1-A194-5327090AE071"
+            uuid = "9BCBA14E-5C19-4267-9C1E-2C1108E887EB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "EauDeFrance/Controller/FigureStationViewController.swift"
+            filePath = "EauDeFrance/Controller/WebViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
-            landmarkName = "getData(parameters:)"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1D875EC8-E836-4570-9C87-85C6BF5EE739"
+            uuid = "CC6C2454-D1FF-413B-BEEA-C2B695348CDA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EauDeFrance/Controller/WebViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A766671B-9B5B-4D36-86C1-B6AE3B8893B8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EauDeFrance/Controller/WebViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "bpExitTapped()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "883D9B3C-7924-4CC7-B5F3-0CFEF90CC901"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "EauDeFrance/Controller/FigureStationViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
-            landmarkName = "getData(parameters:)"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "setChartsData(figures:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0AE9E461-D125-4214-9EF1-D490EE1CFC78"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EauDeFrance/Controller/FigureStationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
+            landmarkName = "setChartsData(figures:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0AE9E461-D125-4214-9EF1-D490EE1CFC78 - ee611d8ba4c1d79c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "EauDeFrance.FigureStationViewController.setChartsData(figures: Swift.Array&lt;EauDeFrance.Measure&gt;) -&gt; ()"
+                  moduleName = "EauDeFrance"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laurentdebeaujon/Documents/Fichiers/MonDepot/EauDeFrance/EauDeFrance/Controller/FigureStationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "7928">
+               </Location>
+               <Location
+                  uuid = "0AE9E461-D125-4214-9EF1-D490EE1CFC78 - 122bad8c3624935"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (EauDeFrance.Measure, EauDeFrance.Measure) -&gt; Swift.Bool in EauDeFrance.FigureStationViewController.setChartsData(figures: Swift.Array&lt;EauDeFrance.Measure&gt;) -&gt; ()"
+                  moduleName = "EauDeFrance"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/laurentdebeaujon/Documents/Fichiers/MonDepot/EauDeFrance/EauDeFrance/Controller/FigureStationViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "138"
+                  endingLineNumber = "138"
+                  offsetFromSymbolStart = "36">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "247F4598-6CC7-44D7-B73E-DA897DA30D09"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EauDeFrance/Controller/FigureStationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
+            landmarkName = "setChartsData(figures:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "433D6BDD-A786-44BD-B3D6-6E1154F9729A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EauDeFrance/Controller/FigureStationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "139"
+            endingLineNumber = "139"
+            landmarkName = "setChartsData(figures:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "61EEA11F-1876-4DDA-A556-90C0FDBB892A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "EauDeFranceTests/APIServicesTestCase.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "testgetAPIDataGivenJSONWhenDecodeEdamamThenAPIDecoded()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

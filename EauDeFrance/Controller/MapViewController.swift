@@ -12,8 +12,7 @@ import ENSwiftSideMenu
 class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
 
     internal var stationService = StationService.shared
-    private let postalCodeFrance = ManagePostalCode.shared
-
+    
     internal var listVCDelegate: ListStationViewController?
 
     internal var locationManager = CLLocationManager()
@@ -69,41 +68,9 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
     }
 
     override func viewDidAppear(_ animated: Bool) {
-
-        launchscreenVC()
-
         stationService.currentMenu = .map
-        
         self.activityIndicator.isHidden = true
-
         mapView.showsUserLocation = true
-        
-    }
-
-    func launchscreenVC() {
-
-        var launchVC: UIViewController
-        let defaults = UserDefaults.standard
-
-        if !defaults.bool(forKey: "launchVC") {
-
-
-
-            let mainStoryboard: UIStoryboard = UIStoryboard(name: "Main",bundle: nil)
-
-            launchVC = mainStoryboard.instantiateViewController(withIdentifier: "LaunchVC")
-            launchVC.modalPresentationStyle = .fullScreen
-
-            present(launchVC, animated: false)
-
-            postalCodeFrance.importPostalCode(completion: {[weak self] error in
-                launchVC.dismiss(animated: false, completion: nil)
-                if error != nil {
-                    self?.manageErrors(errorCode: error)
-                }
-                defaults.set(true, forKey: "launchVC" )
-            })
-        }
     }
 
     override func didReceiveMemoryWarning() {

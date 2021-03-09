@@ -10,6 +10,7 @@ import UIKit
 extension ListStationViewController: UITableViewDelegate {
         private func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
             self.indexSelectedRow = indexPath
+            self.hideSideMenuView()
             self.performSegue(withIdentifier: "segueToStationVC", sender: indexPath)
         }
 }

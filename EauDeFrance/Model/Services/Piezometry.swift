@@ -22,9 +22,11 @@ class Piezometry: ManageService {
     init() { }
 
     func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError?) -> Void) {
+        var param: [[KeyRequest:String]] = [[.activityFrom:"2000-01-01"]]
+        param += parameters
 
             networkService.getAPIData(
-                stationURL, parameters, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+                stationURL, param, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
                     guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
                         return callback(nil, error)
                     }
@@ -35,12 +37,16 @@ class Piezometry: ManageService {
                             stationODF.append(station)
                         }
                     }
+                    stationODF.sort (by: {$0.townshipLabel < $1.townshipLabel})
                     callback(stationODF, nil)
                     return
                 })
         }
 
-    func getFigure(parameters: [[KeyRequest:String]], callback: @escaping ([Any]?, ManageODFapi?, Utilities.ManageError?) -> Void) {
+    func getFigure(codeStation: String, callback: @escaping ([Any]?, ManageODFapi?, Utilities.ManageError?) -> Void) {
+        let parameters: [[KeyRequest : String]] = [
+            [.stationPiezo: codeStation],
+            [.sort:"desc"],[.size: "5000"]]
 
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
@@ -86,28 +92,28 @@ class Piezometry: ManageService {
         }
 
         let stationODF = PiezometryODF(
-            stationCode: station.codeBss ?? "",
-            stationLabel: station.libellePe ?? "",
-            uriStation: station.urnBss ?? "",
+            stationCode: station.codeBss ?? "non renseignée",
+            stationLabel: station.libellePe ?? "non renseignée",
+            uriStation: station.urnBss ?? "non renseignée",
             longitude: station.longitude ?? 0.0,
             latitude: station.latitude ?? 0.0,
-            townshipCode: station.codeCommuneInsee ?? "",
+            townshipCode: station.codeCommuneInsee ?? "non renseignée",
             codePostal: postalCode,
-            townshipLabel: station.nomCommune ?? "",
-            countyCode: station.codeDepartement ?? "",
-            countyLabel: station.nomDepartement ?? "",
-            bodyOfWaterCode: station.codesMasseEauEdl ?? [""],
-            bodyOfWaterLabel: station.nomsMasseEauEdl ?? [""],
-            uriBodyOfWater: station.urnsMasseEauEdl ?? [""],
+            townshipLabel: station.nomCommune ?? "non renseignée",
+            countyCode: station.codeDepartement ?? "non renseignée",
+            countyLabel: station.nomDepartement ?? "non renseignée",
+            bodyOfWaterCode: station.codesMasseEauEdl ?? ["non renseignée"],
+            bodyOfWaterLabel: station.nomsMasseEauEdl ?? ["non renseignée"],
+            uriBodyOfWater: station.urnsMasseEauEdl ?? ["non renseignée"],
             depthOfInvestigation: station.profondeurInvestigation ?? 0.0,
             nbPiezoMeasurement:  station.nbMesuresPiezo ?? 0,
-            bssId: station.bssId ?? "",
-            urnsBdLisa: station.urnsBdlisa ?? [""],
-            bdLisaCode: station.codesBdlisa ?? [""],
-            startMeasurementDate: station.dateDebutMesure ?? "",
-            endMeasurementDate: station.dateFinMesure ?? "",
-            altitude: String(format: "%.f", station.altitudeStation ?? 0.0),
-            dateUPDT: station.dateDebutMesure ?? "")
+            bssId: station.bssId ?? "non renseignée",
+            urnsBdLisa: station.urnsBdlisa ?? ["non renseignée"],
+            bdLisaCode: station.codesBdlisa ?? ["non renseignée"],
+            startMeasurementDate: station.dateDebutMesure ?? "non renseignée",
+            endMeasurementDate: station.dateFinMesure ?? "non renseignée",
+            altitude: station.altitudeStation ?? "non renseignée",
+            dateUPDT: station.dateDebutMesure ?? "non renseignée")
         return stationODF
     }
 }

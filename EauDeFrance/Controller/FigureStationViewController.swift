@@ -12,15 +12,10 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
     var station: StationODF!
 
     @IBOutlet weak var lineChartView: LineChartView!
-
     @IBOutlet weak var xLabel: UILabel!
     @IBOutlet weak var yLabel: UILabel!
-
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    
-
     @IBOutlet weak var lblPeriodFrom: UILabel!
-
     @IBOutlet weak var lblPeriodTo: UILabel!
 
 
@@ -35,17 +30,14 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
     }
 
     func updateChart() {
-        let parameters: [[KeyRequest : String]] = [
-            [.stationCode: station.stationCode],
-            [.sort:"desc"],[.size: "500"]]
 
-        getData(parameters: parameters)
+        getData(codeStation: station.stationCode)
     }
 
-    func getData(parameters: [[KeyRequest : String]]) {
+    func getData(codeStation: String) {
 
-        StationService.shared.current.getFigure(parameters: parameters, callback: {[weak self] (dataStation, dataStatus, error) in
-           
+        StationService.shared.current.getFigure(codeStation: codeStation, callback: {[weak self] (dataStation, dataStatus, error) in
+
             guard let figures = dataStation, error == nil else {
                 self?.manageErrors(errorCode: error)
                 return
@@ -71,7 +63,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
                 case let piezometryValue as PiezometryODFValue:
                     let date = piezometryValue.dateMesure
                     let value = piezometryValue.niveauEauNgf
-                    let unit = " m "
+                    let unit = " m (ngf) "
                     let newMeasure = Measure(timestamp: date, value: value, unit: unit)
                     if (measure.contains(where: {$0.date == newMeasure.date}) == false) {
                         measure.append(newMeasure)
@@ -90,7 +82,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
 
     func setChartsData(figures: [Measure]) {
 
-        guard let lastDate  = figures.last, let firstDate = figures.first else { return }
+        guard let lastDate = figures.last, let firstDate = figures.first else { return }
 
         self.lblPeriodTo.text = lastDate.date.getFullDay()
         self.lblPeriodFrom.text = firstDate.date.getFullDay()
@@ -99,7 +91,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         let nbDay = Int((lastDate.date.timeIntervalSince1970 - firstDate.date.timeIntervalSince1970) / hourSeconds/24)
 
         lineChartView.backgroundColor = UIColor(red: 230/255.0, green: 253/255.0, blue: 253/255.0, alpha: 1.0)
-        lineChartView.noDataText = "No data"
+        lineChartView.noDataText = "aucune donnee disponible"
 
         //Set the interactive style
         lineChartView.scaleYEnabled = false             //Cancel Y axis scaling
@@ -120,23 +112,30 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         xAxis.labelTextColor = UIColor(red: 255/255, green: 192/255, blue: 56/255, alpha: 1)
         xAxis.drawAxisLineEnabled = false
         xAxis.drawGridLinesEnabled = true
-        xAxis.centerAxisLabelsEnabled = false
+        xAxis.centerAxisLabelsEnabled = true
         xAxis.granularity = 24
         xAxis.axisMinimum = firstDate.date.timeIntervalSince1970/hourSeconds
-        xAxis.labelTextColor = UIColor.blue //label text color
+        xAxis.labelTextColor = UIColor.blue
         xAxis.axisMaximum = lastDate.date.timeIntervalSince1970/hourSeconds
         xAxis.setLabelCount(nbDay, force: false)
         xAxis.labelRotationAngle = 45.0
 
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .current
-        dateFormatter.dateFormat = "dd-MMM HH:mm"
+        dateFormatter.dateFormat = "dd-MMM"
         xAxis.valueFormatter = ChartXAxisFormatter(referenceTimeInterval: hourSeconds, dateFormatter: dateFormatter)
 
         let leftAxis = lineChartView.leftAxis
         leftAxis.labelCount = 15                             //The number of Y-axis labels
         leftAxis.forceLabelsEnabled = false                  //Do not force to draw a specified number of labels
-        leftAxis.axisMinimum = 0                             //Set the minimum value of the Y axis
+
+        if let minValue = figures.min(by: { $0.value < $1.value })?.value, minValue < 0 {
+            leftAxis.axisMinimum = minValue
+        } else {
+            leftAxis.axisMinimum = 0
+        }
+
+        //Set the minimum value of the Y axis
         leftAxis.drawZeroLineEnabled = true                  //Draw from 0
         leftAxis.inverted = false                            //Whether to turn the Y axis upside down
         leftAxis.axisLineWidth = 1.0/UIScreen.main.scale     //Set Y axis width
@@ -184,7 +183,7 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
         let date = Date(timeIntervalSince1970: (entry.x*3600))
 
         self.xLabel.text = "date: \(date.getFullDay()) - \(date.getFullTime())"
-        self.yLabel.text = "valeur: \(entry.y)"
+        self.yLabel.text = "valeur: " + String(format:"%.1f", entry.y)
     }
 }
 
