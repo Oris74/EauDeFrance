@@ -43,44 +43,29 @@ class Piezometry: ManageService {
                 })
         }
 
-    func getFigure(codeStation: String, callback: @escaping ([Any]?, ManageODFapi?, Utilities.ManageError?) -> Void) {
+    func getFigure(codeStation: String, callback: @escaping ([Measure], Utilities.ManageError?) -> Void) {
         let parameters: [[KeyRequest : String]] = [
             [.stationPiezo: codeStation],
             [.sort:"desc"],[.size: "5000"]]
 
         networkService.getAPIData(
-            figureURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
+            figureURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: { (apidata, error) in
                 guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
-                    return callback(nil,nil, error)
+                    return callback([], error)
                 }
-                let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
 
-                var piezometryValues: [PiezometryODFValue] = []
+                var measures: [Measure] = []
+
                 for figure in apiFigures {
-                    if let figureODF = self?.bridgeFigureODF(api: figure) {
-                        piezometryValues.append(figureODF)
+                    let measure = Measure(timestamp: figure.dateMesure, value: figure.niveauEauNgf, unit: " m (ngf) ")
+                    if !measures.contains(where: {$0.date == measure.date}) {
+                        measures.append(measure)
                     }
                 }
-                callback(piezometryValues, statusAPI, nil)
+                measures.sort {$0.date < $1.date}
+                callback(measures, nil)
                 return
             })
-    }
-
-    private func bridgeFigureODF(api: PiezometryHubeauValue) -> PiezometryODFValue {
-        let figure = PiezometryODFValue(dateMaj: api.dateMaj,
-                                        bss_Id: api.bss_Id,
-                                        codeBss: api.codeBss,
-                                        urnBss: api.urnBss,
-                                        longitude: api.longitude,
-                                        latitude: api.latitude,
-                                        altitudeStation: String(format: "%.f", api.altitudeStation ?? 0.0),
-                                        altitudeRepere: String(format: "%.f", api.altitudeRepere ?? 0.0),
-                                        dateMesure: api.dateMesure,
-                                        timestampMesure: api.timestampMesure,
-                                        profondeurNappe: api.profondeurNappe,
-                                        niveauEauNgf: api.niveauEauNgf)
-
-        return figure
     }
 
     private func bridgeStation(station: PiezometryHubeau) -> PiezometryODF? {

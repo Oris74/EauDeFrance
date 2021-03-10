@@ -56,9 +56,9 @@
 		D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */; };
 		D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E715625BC3F7600C7E7E3 /* StationViewController.swift */; };
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
+		D947C38825F8DDB800FB4AEA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947C38725F8DDB800FB4AEA /* Measure.swift */; };
 		D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A6EA925ECF0570003BA78 /* ImagePicker.swift */; };
 		D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467AC25E3BC89000FDF12 /* Date Extension.swift */; };
-		D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467B425E3BCF0000FDF12 /* Measure.swift */; };
 		D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99467BC25E55CA5000FDF12 /* Assets.xcassets */; };
 		D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */; };
 		D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */; };
@@ -86,8 +86,6 @@
 		D9FDF0D825D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0D725D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift */; };
 		D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0DF25D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift */; };
 		D9FDF0EB25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF0EA25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift */; };
-		D9FDF17525D3DC5700CBDEED /* TemperatureODFValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF17425D3DC5700CBDEED /* TemperatureODFValue.swift */; };
-		D9FDF17B25D3E0C600CBDEED /* PiezometryODFValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF17A25D3E0C600CBDEED /* PiezometryODFValue.swift */; };
 		D9FDF18325D3E50D00CBDEED /* PiezometryValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D9FDF18225D3E50C00CBDEED /* PiezometryValue.json */; };
 		D9FDF18825D3E84500CBDEED /* PiezometryHubeauValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9FDF18725D3E84500CBDEED /* PiezometryHubeauValue.swift */; };
 /* End PBXBuildFile section */
@@ -169,9 +167,9 @@
 		D93E714A25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationVC+UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D93E715625BC3F7600C7E7E3 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		D947C38725F8DDB800FB4AEA /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		D96A6EA925ECF0570003BA78 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D99467AC25E3BC89000FDF12 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
-		D99467B425E3BCF0000FDF12 /* Measure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		D99467BC25E55CA5000FDF12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerLocation+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUtilities.swift; sourceTree = "<group>"; };
@@ -199,8 +197,6 @@
 		D9FDF0D725D140BF00CBDEED /* StationPageViewController+UIPageVCDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+UIPageVCDataSource.swift"; sourceTree = "<group>"; };
 		D9FDF0DF25D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationPageViewControllerDelegateProtocol.swift; sourceTree = "<group>"; };
 		D9FDF0EA25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+UIPageVCDelegate.swift"; sourceTree = "<group>"; };
-		D9FDF17425D3DC5700CBDEED /* TemperatureODFValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureODFValue.swift; sourceTree = "<group>"; };
-		D9FDF17A25D3E0C600CBDEED /* PiezometryODFValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiezometryODFValue.swift; sourceTree = "<group>"; };
 		D9FDF18225D3E50C00CBDEED /* PiezometryValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PiezometryValue.json; sourceTree = "<group>"; };
 		D9FDF18725D3E84500CBDEED /* PiezometryHubeauValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiezometryHubeauValue.swift; sourceTree = "<group>"; };
 		DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_EauDeFrance_EauDeFranceUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -279,6 +275,7 @@
 		D910745125B0DCE30099B34B /* EauDeFranceStruct */ = {
 			isa = PBXGroup;
 			children = (
+				D947C38725F8DDB800FB4AEA /* Measure.swift */,
 				D9D2849A25EECE5E00BAA777 /* PostalCode */,
 				D92BDD2F25D72D5C00F7D829 /* ManageODFapi.swift */,
 				D9F9F98925C430C600193F15 /* StationODF.swift */,
@@ -508,7 +505,6 @@
 			isa = PBXGroup;
 			children = (
 				D99467AC25E3BC89000FDF12 /* Date Extension.swift */,
-				D99467B425E3BCF0000FDF12 /* Measure.swift */,
 				D93872B925EE98C200DBDAB3 /* ChartXAxisFormatter.swift */,
 				D93872BE25EE993600DBDAB3 /* ChartXAxisFormatter+IAxisValueFormatter.swift */,
 			);
@@ -602,7 +598,6 @@
 			isa = PBXGroup;
 			children = (
 				D910743925AF588A0099B34B /* TemperatureODF.swift */,
-				D9FDF17425D3DC5700CBDEED /* TemperatureODFValue.swift */,
 			);
 			name = Temperature;
 			sourceTree = "<group>";
@@ -611,7 +606,6 @@
 			isa = PBXGroup;
 			children = (
 				D92BDD3725D72F7100F7D829 /* PiezometryODF.swift */,
-				D9FDF17A25D3E0C600CBDEED /* PiezometryODFValue.swift */,
 			);
 			name = Piezometry;
 			sourceTree = "<group>";
@@ -878,11 +872,11 @@
 				D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */,
 				D9FDF05225CC96C100CBDEED /* StationPageViewController.swift in Sources */,
 				D9070BB525EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift in Sources */,
-				D99467B525E3BCF0000FDF12 /* Measure.swift in Sources */,
 				D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */,
 				D9D284C825F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift in Sources */,
 				D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */,
 				D93E70D125B9D04E00C7E7E3 /* SideMenuNavigationController.swift in Sources */,
+				D947C38825F8DDB800FB4AEA /* Measure.swift in Sources */,
 				D924FC6D25A4D7E10049832B /* SceneDelegate.swift in Sources */,
 				D92BDCE225D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift in Sources */,
 				D9F9F98A25C430C600193F15 /* StationODF.swift in Sources */,
@@ -897,7 +891,6 @@
 				D93872BA25EE98C200DBDAB3 /* ChartXAxisFormatter.swift in Sources */,
 				D9070B7725EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift in Sources */,
 				D9F9F96825C330B700193F15 /* Temperature.swift in Sources */,
-				D9FDF17B25D3E0C600CBDEED /* PiezometryODFValue.swift in Sources */,
 				D9FDF0D025D13EC400CBDEED /* StationViewController+StationPageVCDelegate.swift in Sources */,
 				D9F9F9AE25C983F700193F15 /* ManageServiceProtocol.swift in Sources */,
 				D9996D5B25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift in Sources */,
@@ -929,7 +922,6 @@
 				D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */,
 				D924FD0125A7200F0049832B /* TemperatureHubeau.swift in Sources */,
 				D910746825B0DE7F0099B34B /* StationService.swift in Sources */,
-				D9FDF17525D3DC5700CBDEED /* TemperatureODFValue.swift in Sources */,
 				D9FDF06A25CDB3DA00CBDEED /* GeneralStationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

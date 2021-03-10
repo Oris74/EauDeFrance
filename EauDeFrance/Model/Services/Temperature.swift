@@ -44,7 +44,7 @@ class Temperature: ManageService {
     }
 
 
-    func getFigure(codeStation: String, callback: @escaping ([Any]?, ManageODFapi?,Utilities.ManageError?) -> Void) {
+    func getFigure(codeStation: String, callback: @escaping ([Measure], Utilities.ManageError?) -> Void) {
         let parameters: [[KeyRequest : String]] = [
             [.stationCode: codeStation],
             [.sort:"desc"],[.size: "5000"]]
@@ -52,34 +52,37 @@ class Temperature: ManageService {
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
                 guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
-                    return callback(nil, nil, error)
+                    return callback([], error)
                 }
 
-                let statusAPI = ManageODFapi(count: depackedAPIData.count, first: depackedAPIData.first, last: depackedAPIData.last, prev: depackedAPIData.prev, next: depackedAPIData.next, apiVersion: depackedAPIData.apiVersion)
+                var measures: [Measure] = []
 
-                var temperatureValues: [TemperatureODFValue] = []
                 for figure in apiFigures {
-                    if let figureODF = self?.bridgeFigureODF(api:  figure) {
-                        temperatureValues.append(figureODF)
+                    if let measure = self?.bridgeFigureODF(api:  figure),
+                        !measures.contains(where: {$0.date == measure.date}) {
+                        measures.append(measure)
                     }
                 }
-                callback(temperatureValues, statusAPI, nil)
+                measures.sort {$0.date < $1.date}
+                callback(measures, nil)
                 return
             })
     }
 
-    private func bridgeFigureODF(api: TemperatureHubeauValue) -> TemperatureODFValue {
-        let figure = TemperatureODFValue(
-            parameterCode: api.codeParametre,
-            parameterLabel: api.libelleParametre,
-            tempMeasureDate: api.dateMesureTemp,
-            tempMeasureHour: api.heureMesureTemp,
-            result: api.resultat,
-            unitCode: api.codeUnite,
-            unitSymbol: api.symboleUnite,
-            qualificationCode: api.codeQualification,
-            qualificationLabel: api.libelleQualification)
-        return figure
+    private func bridgeFigureODF(api: TemperatureHubeauValue) -> Measure? {
+
+        var measure: Measure?
+
+        if let hour = api.heureMesureTemp {
+            if let date = api.dateMesureTemp {
+                let timestamp = "\(date)T\(hour)Z"
+                if let value = api.resultat, let unit = api.codeUnite {
+                    measure = Measure(timestamp: timestamp, value: value, unit: unit )
+
+                }
+            }
+        }
+        return measure
     }
 
     private func bridgeStationODF(station: TemperatureHubeau ) -> TemperatureODF? {

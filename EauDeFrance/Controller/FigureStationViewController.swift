@@ -36,46 +36,14 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
 
     func getData(codeStation: String) {
 
-        StationService.shared.current.getFigure(codeStation: codeStation, callback: {[weak self] (dataStation, dataStatus, error) in
+        StationService.shared.current.getFigure(codeStation: codeStation, callback: {[weak self] (measure, error) in
 
-            guard let figures = dataStation, error == nil else {
+            guard error == nil else {
                 self?.manageErrors(errorCode: error)
                 return
             }
-            var measure: [Measure] = []
 
-            for figure in figures {
-                switch figure {
-
-                case let temperatureValue as TemperatureODFValue:
-                    if let hour = temperatureValue.tempMeasureHour {
-                        if let date = temperatureValue.tempMeasureDate {
-                            let timestamp = "\(date)T\(hour)Z"
-                            if let value = temperatureValue.result, let unit = temperatureValue.unitSymbol {
-                                let newMeasure = Measure(timestamp: timestamp, value: value, unit: unit )
-                                if (measure.contains(where: {$0.date == newMeasure.date}) == false) {
-                                    measure.append(newMeasure)
-                                }
-                            }
-                        }
-                    }
-
-                case let piezometryValue as PiezometryODFValue:
-                    let date = piezometryValue.dateMesure
-                    let value = piezometryValue.niveauEauNgf
-                    let unit = " m (ngf) "
-                    let newMeasure = Measure(timestamp: date, value: value, unit: unit)
-                    if (measure.contains(where: {$0.date == newMeasure.date}) == false) {
-                        measure.append(newMeasure)
-                    }
-                default: break
-                }
-
-            }
-
-            measure.sort {$0.date < $1.date}
             self?.activityIndicator.isHidden = true
-
             self?.setChartsData(figures: measure)
         })
     }
