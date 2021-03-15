@@ -13,8 +13,8 @@ class StationPageViewController: UIPageViewController  {
 
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newStationPageViewController(description: "GeneralStation"),
-                self.newStationPageViewController(description: "FigureStation"),
-                self.newStationPageViewController(description: "DetailedStation")]
+                self.newStationPageViewController(description: "DetailedStation"),
+                self.newStationPageViewController(description: "FigureStation")]
     }()
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ class StationPageViewController: UIPageViewController  {
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(viewController: initialViewController)
         }
-
+     
         stationDelegate?.stationPageViewController(stationPageViewController: self, didUpdatePageCount: orderedViewControllers.count)
 
         // Do any additional setup after loading the view.

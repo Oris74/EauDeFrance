@@ -58,6 +58,7 @@ extension MapViewController: MKMapViewDelegate {
     /// MARK: Move the selected annotation to the center of the map
     /// MARK: Display Custom Call Out
     internal func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        hideSideMenuView()
         switch view.annotation {
         case is MKUserLocation:
             // Don't proceed with custom callout

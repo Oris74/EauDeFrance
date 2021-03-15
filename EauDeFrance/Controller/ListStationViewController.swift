@@ -42,10 +42,14 @@ class ListStationViewController: UIViewController {
         }
         tableview.reloadData()
         self.tabBarController?.tabBar.isHidden = false
+
+        if #available(iOS 13.0, *) {
+            overrideUserInterfaceStyle = .light //For light mode
+        }
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-
+        hideSideMenuView()
         if segue.identifier == "segueToStationVC" {
             let pageVC = segue.destination as! StationViewController
             if let selectedStation = self.tableview.indexPathForSelectedRow {

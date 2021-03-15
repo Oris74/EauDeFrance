@@ -33,46 +33,32 @@ class GeneralStationViewController: UIViewController, VCUtilities {
     }
 
     func temperatureDetail(station: TemperatureODF){
-     
-       self.lblZone2.attributedText = """
-        <CENTER>
-        <Table width=100%>
-        <tr valign=top><td align=center>
-            <TABLE width=800%>
-            <tr><td colspan = 2><H3><center><b>Identififiant : </b>\(station.stationCode)</H3></center></td></tr>
-            <tr><td><b>Altitude : </b></td><td> \(station.altitude ) m</td></tr>
-            <tr><td><b>Localité : </b></td><td>\(station.postalCode) \(station.townshipLabel.uppercased())</td></tr>
-            <tr><td><b>Département : </b></td><td>\(station.countyLabel) (\(station.countyCode))</td></tr>
-            <tr><td><b>Région : </b></td><td> \(station.regionLabel)(\(station.regionCode))</td></tr>
-            <tr><td><b>Localisation : </b></td><td>\(station.localization)</td></tr>
-            <tr><td><b>Cours d'eau : </b></td><td>\(station.streamLabel)</td></tr>
-            <tr><td><b>Mise à jour: </b></td><td>\(station.dateUPDT)</td></tr>
-            </table>
-        </td></tr></TABLE>
-        </CENTER>
-        """.htmlToAttributedString
+
+        let data = [
+            ["Identifiant", station.stationCode],
+            ["Altitude", station.altitude + " m "],
+            ["Localité", "\(station.postalCode) \(station.townshipLabel.uppercased())"],
+            ["Département", "\(station.countyLabel) (\(station.countyCode))"],
+            ["Région", "\(station.regionLabel)(\(station.regionCode))"],
+            ["Localisation", station.localization],
+            ["Cours d'eau", "\(station.streamLabel) (\(station.streamCode))"],
+            ["Mise à jour", station.dateUPDT],
+        ]
+        self.lblZone2.attributedText = textFormatter(data: data)
     }
-    
 
     func piezometryDetail(station: PiezometryODF){
-        self.lblZone2.attributedText = """
-        <CENTER>
-        <Table width=100% align=center>
-        <tr valign=top><td align=center>
-            <TABLE width=80%>
-            <tr><td colspan = 2><H3><center><b>Identifiant : </b> \(station.stationCode)</H3></center></td></tr>
-            <tr><td><b>Altitude : </b></td><td>\(station.altitude ) m</td></tr>
-            <tr><td><b>Localité : </b></td><td>\(station.postalCode) \(station.townshipLabel.uppercased())</td></tr>
-            <tr><td><b>Département: </b></td><td> \(station.countyLabel) (\(station.countyCode))</td></tr>
-            <tr><td><b>Mesures effectuées : </b></td><td> \(station.nbPiezoMeasurement)</td></tr>
-            <tr><td><b>Démarrage des mesures : </b></td><td>\(station.startMeasurementDate)</td></tr>
-            <tr><td><b>Fin des mesures : </b></td><td>\(station.endMeasurementDate)</td></tr>
-            <tr><td><b>Mise à jour: </b></td><td> \(station.dateUPDT)</td></tr>
-            </table>
-        </td></tr></TABLE>
-        </CENTER>
-        """.htmlToAttributedString
-
+        let data = [
+            ["Identifiant", station.stationCode],
+            ["Altitude", station.altitude + " m "],
+            ["Localité", "\(station.postalCode) \(station.townshipLabel.uppercased())"],
+            ["Département", "\(station.countyLabel) (\(station.countyCode))"],
+            ["Mesures disponibles", station.nbPiezoMeasurement],
+            ["Démarrage des Mesures", station.startMeasurementDate],
+            ["Fin des mesures", station.endMeasurementDate],
+            ["Mise a jour", station.dateUPDT],
+        ]
+        self.lblZone2.attributedText = textFormatter(data: data)
     }
 
     func setupMapView() {

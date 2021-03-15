@@ -13,24 +13,23 @@ class TemperatureODF: StationODF {
     let regionLabel: String
     let hydroSectionCode: String
     let streamCode, streamLabel: String
-    let uriStream: String
+    let uriStream: URL?
     let bodyOfWaterCode: String
     let bodyOfWaterLabel: String
-    let uriBodyOfWater: String
+    let uriBodyOfWater: URL?
     let subBasinCode: String
     let basinLabel: String
     let subBasinLabel: String
     let basinCode: String
-    let uriBasin: String
+    let uriBasin: URL?
     let pointKM: String
    
     init(stationCode: String,
          stationLabel: String,
-         uriStation: String,
          localization: String,
          streamCode: String,
          streamLabel: String,
-         uriStream: String,
+         uriStream: URL?,
          hydroSectionCode: String,
          longitude: Double,
          latitude: Double,
@@ -43,14 +42,14 @@ class TemperatureODF: StationODF {
          dateUPDT: String,
          bodyOfWaterCode: String,
          bodyOfWaterLabel: String,
-         uriBodyOfWater: String,
+         uriBodyOfWater: URL?,
          regionLabel: String,
          regionCode: String,
          subBasinCode: String,
          basinLabel:String,
          subBasinLabel: String,
          basinCode: String,
-         uriBasin: String,
+         uriBasin: URL?,
          pointKM: String
          ) {
 
@@ -71,7 +70,17 @@ class TemperatureODF: StationODF {
         self.uriBasin = uriBasin
         self.pointKM = pointKM
 
-        super.init(service: "temperature", stationCode: stationCode, stationLabel: stationLabel, uriStation: uriStation, longitude: longitude, latitude: latitude, countyCode: countyCode, countyLabel: countyLabel, altitude: altitude, townshipCode: townshipCode, postalCode: postalCode, townshipLabel: townshipLabel, dateUPDT: dateUPDT)
+        super.init(stationCode: stationCode,
+                   stationLabel: stationLabel,
+                   longitude: longitude,
+                   latitude: latitude,
+                   countyCode: countyCode,
+                   countyLabel: countyLabel,
+                   altitude: altitude,
+                   townshipCode: townshipCode,
+                   postalCode: postalCode,
+                   townshipLabel: townshipLabel,
+                   dateUPDT: dateUPDT)
     }
 
     required init(from decoder: Decoder) throws {

@@ -11,24 +11,23 @@ import Foundation
 struct PiezometryHubeau:  Codable {
 
     let codeBss: String?
-    let urnBss: String?
     let dateDebutMesure, dateFinMesure, codeCommuneInsee, nomCommune: String?
     let longitude, latitude: Double?
     let codesBdlisa: [String]?
-    let urnsBdlisa: [String]?
+    let urnsBdlisa: [URL]?
     let geometry: GeometryHubeau?
-    let bssId, altitudeStation: String?
+    let bssId: String
+    let altitudeStation: String?
     let nbMesuresPiezo: Int?
     let codeDepartement, nomDepartement, libellePe: String?
     let profondeurInvestigation: Double?
     let codesMasseEauEdl: [String]?
     let nomsMasseEauEdl: [String]?
-    let urnsMasseEauEdl: [String]?
+    let urnsMasseEauEdl: [URL]?
     let dateMaj: String?
     
     enum CodingKeys: String, CodingKey {
         case codeBss = "code_bss"
-        case urnBss = "urn_bss"
         case dateDebutMesure = "date_debut_mesure"
         case dateFinMesure = "date_fin_mesure"
         case codeCommuneInsee = "code_commune_insee"

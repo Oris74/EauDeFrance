@@ -10,19 +10,18 @@ import Foundation
 // MARK: - Datum
 struct TemperatureHubeau: Codable {
     let codeStation, libelleStation: String
-    let uriStation: String
     let localisation: String?
     let coordonneeX, coordonneeY, codeTypeProjection: Int?
     let longitude, latitude: Double
     let codeCommune, libelleCommune, codeDepartement, libelleDepartement: String?
     let codeRegion, libelleRegion, codeTronconHydro, codeCoursEau: String?
     let libelleCoursEau: String?
-    let uriCoursEau: String?
+    let uriCoursEau: URL?
     let codeMasseEau: String?
     let libelleMasseEau: String?
-    let uriMasseEau: String?
+    let uriMasseEau: URL?
     let codeSousBassin, libelleSousBassin, codeBassin, libelleBassin: String?
-    let uriBassin: String?
+    let uriBassin: URL?
     let pointKm: Double?
     let altitude: Double?
     let dateMajInfos: String?
@@ -31,7 +30,6 @@ struct TemperatureHubeau: Codable {
     enum CodingKeys: String, CodingKey {
         case codeStation = "code_station"
         case libelleStation = "libelle_station"
-        case uriStation = "uri_station"
         case localisation = "localisation"
         case coordonneeX = "coordonneeX"
         case coordonneeY = "coordonneeY"

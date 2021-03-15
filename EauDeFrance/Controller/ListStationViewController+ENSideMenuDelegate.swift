@@ -23,7 +23,7 @@ extension ListStationViewController: ENSideMenuDelegate {
     }
 
     func sideMenuDidOpen() {
-
+        
     }
 
     func sideMenuDidClose() {

@@ -9,9 +9,7 @@ import Foundation
 import MapKit
 
 class StationODF:NSObject, Decodable {
-    let service: String
     let stationCode, stationLabel: String
-    let uriStation: String
     let longitude, latitude: Double
     let countyCode, countyLabel: String
     let townshipCode: String
@@ -20,10 +18,8 @@ class StationODF:NSObject, Decodable {
     let altitude: String
     let dateUPDT: String
 
-    init(service: String,
-         stationCode: String,
+    init(stationCode: String,
          stationLabel: String,
-         uriStation: String,
          longitude: Double,
          latitude: Double,
          countyCode: String,
@@ -34,9 +30,7 @@ class StationODF:NSObject, Decodable {
          townshipLabel: String,
          dateUPDT: String) {
 
-        self.service = service
         self.stationCode = stationCode
-        self.uriStation = uriStation
         self.longitude = longitude
         self.latitude = latitude
         self.countyCode = countyCode

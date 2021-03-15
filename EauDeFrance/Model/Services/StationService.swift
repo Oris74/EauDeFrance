@@ -9,6 +9,10 @@ import Foundation
 
 
 class StationService  {
+    enum MenuODF {
+        case map
+        case list
+    }
 
     static var shared = StationService()
 

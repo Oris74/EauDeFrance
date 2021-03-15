@@ -10,7 +10,7 @@ import Foundation
 // MARK: - Datum
 struct TemperatureHubeauValue: Codable {
     let codeStation, libelleStation: String
-    let uriStation: String
+    let uriStation: URL?
     let longitude, latitude: Double
     let codeCommune, libelleCommune, codeCoursEau, libelleCoursEau: String?
     let uriCoursEau: String?

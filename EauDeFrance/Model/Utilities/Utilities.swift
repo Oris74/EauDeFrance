@@ -25,13 +25,4 @@ class Utilities {
         case httpResponseError = "Erreur HTTP"
         case memoryIssue = "Alerte memoire"
     }
-
-    ///getting API keys from the ApiKeys.plist file located in 'Supporting Files' folder
-    static func getValueForAPIKey(named keyname: String) -> [String:String]? {
-        let filePath = Bundle.main.path(forResource: "ApiKeys", ofType: "plist")
-        let plist = NSDictionary(contentsOfFile: filePath!)
-
-        let value = plist?.object(forKey: keyname) as? [String:String]
-        return value
-    }
 }

@@ -19,62 +19,6 @@
             "date_mesure": "2021-02-17T00:00:00Z",
             "profondeur_nappe": -15.3,
             "date_maj": "2021-02-16"
-        },
-        {
-            "code_bss": "07548X0009/F",
-            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/07548X0009/F",
-            "timestamp_mesure": 1613516400000,
-            "niveau_eau_ngf": 21.75,
-            "longitude": -0.749057576154961,
-            "latitude": 45.2297273883712,
-            "bss_id": "BSS001VZGZ",
-            "altitude_station": 5.33,
-            "altitude_repere": 6.3,
-            "date_mesure": "2021-02-16T23:00:00Z",
-            "profondeur_nappe": -15.45,
-            "date_maj": "2021-02-16"
-        },
-        {
-            "code_bss": "07548X0009/F",
-            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/07548X0009/F",
-            "timestamp_mesure": 1613512800000,
-            "niveau_eau_ngf": 21.87,
-            "longitude": -0.749057576154961,
-            "latitude": 45.2297273883712,
-            "bss_id": "BSS001VZGZ",
-            "altitude_station": 5.33,
-            "altitude_repere": 6.3,
-            "date_mesure": "2021-02-16T22:00:00Z",
-            "profondeur_nappe": -15.57,
-            "date_maj": "2021-02-16"
-        },
-        {
-            "code_bss": "07548X0009/F",
-            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/07548X0009/F",
-            "timestamp_mesure": 1613509200000,
-            "niveau_eau_ngf": 21.93,
-            "longitude": -0.749057576154961,
-            "latitude": 45.2297273883712,
-            "bss_id": "BSS001VZGZ",
-            "altitude_station": 5.33,
-            "altitude_repere": 6.3,
-            "date_mesure": "2021-02-16T21:00:00Z",
-            "profondeur_nappe": -15.63,
-            "date_maj": "2021-02-16"
-        },
-        {
-            "code_bss": "07548X0009/F",
-            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/07548X0009/F",
-            "timestamp_mesure": 1613505600000,
-            "niveau_eau_ngf": 21.9,
-            "longitude": -0.749057576154961,
-            "latitude": 45.2297273883712,
-            "bss_id": "BSS001VZGZ",
-            "altitude_station": 5.33,
-            "altitude_repere": 6.3,
-            "date_mesure": "2021-02-16T20:00:00Z",
-            "profondeur_nappe": -15.6,
-            "date_maj": "2021-02-16"
         }
     ]
 }

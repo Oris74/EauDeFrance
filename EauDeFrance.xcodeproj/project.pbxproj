@@ -10,6 +10,11 @@
 		39A2D04C12D1D00530806CBE /* Pods_EauDeFrance_EauDeFranceUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBA32C43CCEC059A293A8FB /* Pods_EauDeFrance_EauDeFranceUITests.framework */; };
 		97850CA8AFFCE07D307E0F89 /* Pods_EauDeFrance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1108CD3A041AEDA24EBEA2C1 /* Pods_EauDeFrance.framework */; };
 		D21F8C737E0D0A19C4655C7A /* Pods_EauDeFranceTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A224A78F34645F408BF184D /* Pods_EauDeFranceTests.framework */; };
+		D905600825FD000C00876ECE /* UIButton Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905600725FD000C00876ECE /* UIButton Extension.swift */; };
+		D905604F25FD603800876ECE /* NetworkServiceFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905604E25FD603800876ECE /* NetworkServiceFake.swift */; };
+		D905605A25FE28AD00876ECE /* TemperatureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905605925FE28AD00876ECE /* TemperatureTestCase.swift */; };
+		D905605F25FE28CB00876ECE /* PiezometryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905605E25FE28CB00876ECE /* PiezometryTestCase.swift */; };
+		D905606E25FE517000876ECE /* NetworkServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905606D25FE517000876ECE /* NetworkServiceTestCase.swift */; };
 		D9070B7725EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */; };
 		D9070BB525EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */; };
 		D907A9F825EAA3230071ED52 /* PostalCode.json in Resources */ = {isa = PBXBuildFile; fileRef = D907A9F725EAA3230071ED52 /* PostalCode.json */; };
@@ -26,7 +31,6 @@
 		D924FC7225A4D7E10049832B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7025A4D7E10049832B /* Main.storyboard */; };
 		D924FC7525A4D7E10049832B /* EauDeFrance.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D924FC7325A4D7E10049832B /* EauDeFrance.xcdatamodeld */; };
 		D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7825A4D7E10049832B /* LaunchScreen.storyboard */; };
-		D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */; };
 		D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */; };
 		D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FCBA25A708B30049832B /* TemperatureStation.json */; };
 		D924FCCF25A70B490049832B /* PiezometryHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCCE25A70B490049832B /* PiezometryHubeau.swift */; };
@@ -35,7 +39,7 @@
 		D924FCED25A71B420049832B /* PropertiesHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCEC25A71B420049832B /* PropertiesHubeau.swift */; };
 		D924FCF625A71C610049832B /* ApiHubeauHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCF525A71C610049832B /* ApiHubeauHeader.swift */; };
 		D924FD0125A7200F0049832B /* TemperatureHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FD0025A7200F0049832B /* TemperatureHubeau.swift */; };
-		D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1025A72A4F0049832B /* PiezometrieStation.json */; };
+		D924FD1125A72A4F0049832B /* PiezometryStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1025A72A4F0049832B /* PiezometryStation.json */; };
 		D924FD1F25A747420049832B /* TemperatureValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1E25A747420049832B /* TemperatureValue.json */; };
 		D924FD2425A7478C0049832B /* TemperatureHubeauValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FD2325A7478C0049832B /* TemperatureHubeauValue.swift */; };
 		D92BDCDA25D5DDC400F7D829 /* ShareDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */; };
@@ -57,6 +61,7 @@
 		D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E715625BC3F7600C7E7E3 /* StationViewController.swift */; };
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
 		D947C38825F8DDB800FB4AEA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947C38725F8DDB800FB4AEA /* Measure.swift */; };
+		D947C3D425FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947C3D325FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift */; };
 		D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A6EA925ECF0570003BA78 /* ImagePicker.swift */; };
 		D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467AC25E3BC89000FDF12 /* Date Extension.swift */; };
 		D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99467BC25E55CA5000FDF12 /* Assets.xcassets */; };
@@ -70,7 +75,6 @@
 		D9996D7625B62EC900D1EE2A /* CustomCallOutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D7525B62EC900D1EE2A /* CustomCallOutView.swift */; };
 		D9D2849F25EF8C9B00BAA777 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */; };
 		D9D284C825F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */; };
-		D9D284D025F124D800BAA777 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D284CF25F124D800BAA777 /* WebViewController.swift */; };
 		D9D2853725F75EA800BAA777 /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2853625F75EA700BAA777 /* String Extension.swift */; };
 		D9D2858725F7DB3700BAA777 /* APIServicesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */; };
 		D9D2858D25F7DC6700BAA777 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */; };
@@ -115,6 +119,11 @@
 		A1DA3220B9873C97A8218E71 /* Pods-EauDeFrance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.debug.xcconfig"; sourceTree = "<group>"; };
 		AB5C9C8CA348FA34F5A9EF5C /* Pods-EauDeFranceTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFranceTests.debug.xcconfig"; path = "Target Support Files/Pods-EauDeFranceTests/Pods-EauDeFranceTests.debug.xcconfig"; sourceTree = "<group>"; };
 		C222FA80F3FC09D89ED2924F /* Pods-EauDeFrance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-EauDeFrance.release.xcconfig"; path = "Target Support Files/Pods-EauDeFrance/Pods-EauDeFrance.release.xcconfig"; sourceTree = "<group>"; };
+		D905600725FD000C00876ECE /* UIButton Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton Extension.swift"; sourceTree = "<group>"; };
+		D905604E25FD603800876ECE /* NetworkServiceFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceFake.swift; sourceTree = "<group>"; };
+		D905605925FE28AD00876ECE /* TemperatureTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTestCase.swift; sourceTree = "<group>"; };
+		D905605E25FE28CB00876ECE /* PiezometryTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiezometryTestCase.swift; sourceTree = "<group>"; };
+		D905606D25FE517000876ECE /* NetworkServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTestCase.swift; sourceTree = "<group>"; };
 		D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "shareDocViewController+CLLocationManagerDelegate .swift"; sourceTree = "<group>"; };
 		D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+ENSideMenuDelegate1ViewController.swift"; sourceTree = "<group>"; };
 		D907A9F725EAA3230071ED52 /* PostalCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostalCode.json; sourceTree = "<group>"; };
@@ -134,7 +143,6 @@
 		D924FC7925A4D7E10049832B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D924FC7B25A4D7E10049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FC8025A4D7E20049832B /* EauDeFranceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EauDeFranceTests.swift; sourceTree = "<group>"; };
 		D924FC8625A4D7E20049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FC8B25A4D7E20049832B /* EauDeFranceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EauDeFranceUITests.swift; sourceTree = "<group>"; };
@@ -146,7 +154,7 @@
 		D924FCEC25A71B420049832B /* PropertiesHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesHubeau.swift; sourceTree = "<group>"; };
 		D924FCF525A71C610049832B /* ApiHubeauHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHubeauHeader.swift; sourceTree = "<group>"; };
 		D924FD0025A7200F0049832B /* TemperatureHubeau.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureHubeau.swift; sourceTree = "<group>"; };
-		D924FD1025A72A4F0049832B /* PiezometrieStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PiezometrieStation.json; sourceTree = "<group>"; };
+		D924FD1025A72A4F0049832B /* PiezometryStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PiezometryStation.json; sourceTree = "<group>"; };
 		D924FD1E25A747420049832B /* TemperatureValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TemperatureValue.json; sourceTree = "<group>"; };
 		D924FD2325A7478C0049832B /* TemperatureHubeauValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureHubeauValue.swift; sourceTree = "<group>"; };
 		D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDocViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +176,7 @@
 		D93E715625BC3F7600C7E7E3 /* StationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationViewController.swift; sourceTree = "<group>"; };
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D947C38725F8DDB800FB4AEA /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
+		D947C3D325FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedStationVC+SFSafariViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		D96A6EA925ECF0570003BA78 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D99467AC25E3BC89000FDF12 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
 		D99467BC25E55CA5000FDF12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -181,7 +190,6 @@
 		D9996D7525B62EC900D1EE2A /* CustomCallOutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCallOutView.swift; sourceTree = "<group>"; };
 		D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationViewController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
-		D9D284CF25F124D800BAA777 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		D9D2853625F75EA700BAA777 /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
 		D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServicesTestCase.swift; sourceTree = "<group>"; };
 		D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
@@ -254,6 +262,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		D905606325FE28FD00876ECE /* UtilitiesTests */ = {
+			isa = PBXGroup;
+			children = (
+				D905606D25FE517000876ECE /* NetworkServiceTestCase.swift */,
+			);
+			name = UtilitiesTests;
+			sourceTree = "<group>";
+		};
 		D910742D25AF54DD0099B34B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -322,10 +338,10 @@
 		D924FC8325A4D7E20049832B /* EauDeFranceTests */ = {
 			isa = PBXGroup;
 			children = (
-				D9D2858B25F7DB4900BAA777 /* ServicesTests */,
-				D924FC8425A4D7E20049832B /* EauDeFranceTests.swift */,
-				D924FC8625A4D7E20049832B /* Info.plist */,
+				D905606325FE28FD00876ECE /* UtilitiesTests */,
 				D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */,
+				D9D2858B25F7DB4900BAA777 /* ServicesTests */,
+				D924FC8625A4D7E20049832B /* Info.plist */,
 			);
 			path = EauDeFranceTests;
 			sourceTree = "<group>";
@@ -399,6 +415,7 @@
 			children = (
 				D924FCBA25A708B30049832B /* TemperatureStation.json */,
 				D924FD1E25A747420049832B /* TemperatureValue.json */,
+				D905605925FE28AD00876ECE /* TemperatureTestCase.swift */,
 			);
 			name = TemperatureTests;
 			sourceTree = "<group>";
@@ -406,8 +423,9 @@
 		D924FCB425A706730049832B /* PiezometryTests */ = {
 			isa = PBXGroup;
 			children = (
-				D924FD1025A72A4F0049832B /* PiezometrieStation.json */,
+				D924FD1025A72A4F0049832B /* PiezometryStation.json */,
 				D9FDF18225D3E50C00CBDEED /* PiezometryValue.json */,
+				D905605E25FE28CB00876ECE /* PiezometryTestCase.swift */,
 			);
 			name = PiezometryTests;
 			sourceTree = "<group>";
@@ -518,6 +536,7 @@
 				D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */,
 				D9996D4F25B5A8AE00D1EE2A /* UIImageView Extension.swift */,
 				D9D2853625F75EA700BAA777 /* String Extension.swift */,
+				D905600725FD000C00876ECE /* UIButton Extension.swift */,
 			);
 			name = ViewControllerUtilities;
 			sourceTree = "<group>";
@@ -556,6 +575,7 @@
 		D9D2858B25F7DB4900BAA777 /* ServicesTests */ = {
 			isa = PBXGroup;
 			children = (
+				D905604E25FD603800876ECE /* NetworkServiceFake.swift */,
 				D924FCB225A706440049832B /* TemperatureTests */,
 				D924FCB425A706730049832B /* PiezometryTests */,
 				D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */,
@@ -588,8 +608,8 @@
 				D99467AB25E3BC32000FDF12 /* ManageCharts */,
 				D9FDF06925CDB3DA00CBDEED /* GeneralStationViewController.swift */,
 				D9FDF06425CDB34000CBDEED /* DetailedStationViewController.swift */,
+				D947C3D325FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift */,
 				D9FDF05F25CDB32900CBDEED /* FigureStationViewController.swift */,
-				D9D284CF25F124D800BAA777 /* WebViewController.swift */,
 			);
 			name = PagesStation;
 			sourceTree = "<group>";
@@ -735,7 +755,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */,
-				D924FD1125A72A4F0049832B /* PiezometrieStation.json in Resources */,
+				D924FD1125A72A4F0049832B /* PiezometryStation.json in Resources */,
 				D924FD1F25A747420049832B /* TemperatureValue.json in Resources */,
 				D9FDF18325D3E50D00CBDEED /* PiezometryValue.json in Resources */,
 			);
@@ -859,7 +879,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */,
-				D9D284D025F124D800BAA777 /* WebViewController.swift in Sources */,
 				D910747525B19E590099B34B /* NetworkProtocol.swift in Sources */,
 				D907A9FD25EAA41B0071ED52 /* ManagePostalCode.swift in Sources */,
 				D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */,
@@ -900,6 +919,7 @@
 				D907AA0225EABED90071ED52 /* PostalCode.swift in Sources */,
 				D9996D7625B62EC900D1EE2A /* CustomCallOutView.swift in Sources */,
 				D92BDCEA25D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift in Sources */,
+				D905600825FD000C00876ECE /* UIButton Extension.swift in Sources */,
 				D910743A25AF588A0099B34B /* TemperatureODF.swift in Sources */,
 				D93E714B25BC3E6200C7E7E3 /* ListStationVC+UITableViewDelegate.swift in Sources */,
 				D9996D6C25B628A900D1EE2A /* StationAnnotationView.swift in Sources */,
@@ -908,6 +928,7 @@
 				D924FCDE25A71A320049832B /* GeometryHubeau.swift in Sources */,
 				D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */,
 				D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */,
+				D947C3D425FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift in Sources */,
 				D9F9F98025C41E3600193F15 /* Piezometry.swift in Sources */,
 				D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */,
 				D9D2853725F75EA800BAA777 /* String Extension.swift in Sources */,
@@ -930,9 +951,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D905606E25FE517000876ECE /* NetworkServiceTestCase.swift in Sources */,
 				D9D2858725F7DB3700BAA777 /* APIServicesTestCase.swift in Sources */,
-				D924FC8525A4D7E20049832B /* EauDeFranceTests.swift in Sources */,
+				D905604F25FD603800876ECE /* NetworkServiceFake.swift in Sources */,
 				D9D2858D25F7DC6700BAA777 /* FakeResponseData.swift in Sources */,
+				D905605A25FE28AD00876ECE /* TemperatureTestCase.swift in Sources */,
+				D905605F25FE28CB00876ECE /* PiezometryTestCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

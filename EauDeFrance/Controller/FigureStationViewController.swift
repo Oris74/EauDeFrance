@@ -15,28 +15,18 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
     @IBOutlet weak var xLabel: UILabel!
     @IBOutlet weak var yLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var lblPeriodFrom: UILabel!
-    @IBOutlet weak var lblPeriodTo: UILabel!
+    @IBOutlet weak var lblPeriod: UILabel!
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
         lineChartView.delegate = self
+        getData(stationCode: station.stationCode)
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        updateChart()
-        super.viewDidAppear(animated)
-    }
+    func getData(stationCode: String) {
 
-    func updateChart() {
-
-        getData(codeStation: station.stationCode)
-    }
-
-    func getData(codeStation: String) {
-
-        StationService.shared.current.getFigure(codeStation: codeStation, callback: {[weak self] (measure, error) in
+        StationService.shared.current.getFigure(stationCode: stationCode, callback: {[weak self] (measure, error) in
 
             guard error == nil else {
                 self?.manageErrors(errorCode: error)
@@ -52,15 +42,14 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
 
         guard let lastDate = figures.last, let firstDate = figures.first else { return }
 
-        self.lblPeriodTo.text = lastDate.date.getFullDay()
-        self.lblPeriodFrom.text = firstDate.date.getFullDay()
+        self.lblPeriod.attributedText = "<center><b>Dernière Période disponible </b><br>du \(lastDate.date.getFullDay()) au \(firstDate.date.getFullDay())</center>".htmlToAttributedString
 
         let hourSeconds: TimeInterval = 3600
         let nbDay = Int((lastDate.date.timeIntervalSince1970 - firstDate.date.timeIntervalSince1970) / hourSeconds/24)
 
         lineChartView.backgroundColor = UIColor(red: 230/255.0, green: 253/255.0, blue: 253/255.0, alpha: 1.0)
         lineChartView.noDataText = "aucune donnee disponible"
-
+        lineChartView.noDataTextColor = .black
         //Set the interactive style
         lineChartView.scaleYEnabled = false             //Cancel Y axis scaling
         lineChartView.doubleTapToZoomEnabled = true     //Double-click zoom

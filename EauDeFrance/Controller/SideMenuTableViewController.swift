@@ -46,7 +46,12 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
         if (cell == nil) {
             cell = UITableViewCell(style:.default, reuseIdentifier: menuOptionCellId)
             cell!.backgroundColor = .clear
-            cell!.textLabel?.textColor = .darkGray
+
+//            if #available(iOS 13.0, *) {
+//                cell!.textLabel?.textColor = .systemBlue //for dark mode
+//            } else {
+                cell!.textLabel?.textColor = .darkGray
+//            }
             switch indexPath.row {
             case 0:
                 cell!.imageView?.image = UIImage(named: Temperature.shared.apiName)?.resize(height: 30)

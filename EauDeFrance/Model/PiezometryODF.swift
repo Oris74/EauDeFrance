@@ -9,18 +9,17 @@ import Foundation
 
 class PiezometryODF: StationODF {
     let startMeasurementDate, endMeasurementDate: String
-    let bdLisaCode: [String]
-    let urnsBdLisa: [String]
+    var bdLisaCode: [String]
+    var urnsBdLisa: [URL]?
     let bssId: String
     let nbPiezoMeasurement: Int
     let depthOfInvestigation: Double
-    let bodyOfWaterCode: [String]
-    let bodyOfWaterLabel: [String]
-    let uriBodyOfWater: [String]
+    var bodyOfWaterCode: [String]
+    var bodyOfWaterLabel: [String]
+    var uriBodyOfWater: [URL]?
 
     init(stationCode: String,
         stationLabel: String,
-        uriStation: String,
         longitude: Double,
         latitude: Double,
         townshipCode: String,
@@ -30,11 +29,11 @@ class PiezometryODF: StationODF {
         countyLabel: String,
         bodyOfWaterCode: [String],
         bodyOfWaterLabel: [String],
-        uriBodyOfWater: [String],
+        uriBodyOfWater: [URL]?,
         depthOfInvestigation: Double,
         nbPiezoMeasurement: Int,
         bssId: String,
-        urnsBdLisa: [String],
+        urnsBdLisa: [URL]?,
         bdLisaCode: [String],
         startMeasurementDate: String,
         endMeasurementDate: String,
@@ -52,10 +51,8 @@ class PiezometryODF: StationODF {
         self.startMeasurementDate = startMeasurementDate
         self.endMeasurementDate = endMeasurementDate
 
-        super.init(service: "Piezometrie",
-             stationCode: stationCode,
+        super.init(stationCode: stationCode,
              stationLabel: stationLabel,
-             uriStation: uriStation,
              longitude: longitude,
              latitude: latitude,
              countyCode: countyCode,

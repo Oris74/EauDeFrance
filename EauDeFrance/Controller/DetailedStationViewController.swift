@@ -7,16 +7,23 @@
 
 import UIKit
 
-class DetailedStationViewController: UIViewController {
+enum Resource:String {
+    case sandre = "Sandre"
+    case lisa = "Lisa"
+}
+
+class DetailedStationViewController: UIViewController, VCUtilities {
     var station: StationODF!
-    var values: StationService!
+    var stackButton: UIStackView!
 
-    @IBOutlet weak var lblZone1: UILabel!
+    @IBOutlet weak var txtZone: UITextView!
 
-
+    @IBOutlet weak var resourceStack: UIStackView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.txtZone.flashScrollIndicators()
+
         switch station {
         case let temperatureStation as TemperatureODF:
             temperatureDetail(station: temperatureStation)
@@ -27,100 +34,101 @@ class DetailedStationViewController: UIViewController {
         }
     }
     
-   
-//    @IBAction func bpZone3Tapped(_ sender: UIButton) {
-//        var webSite = ""
-//        let webVC = WebViewController()
-//
-//        switch station {
-//        case let temperatureStation as TemperatureODF:
-//            webSite = temperatureStation.uriStream
-//
-//        case let piezometryStation as PiezometryODF:
-//             webSite = piezometryStation.uriStation
-//
-//        default: break
-//        }
-//
-//        if webSite == "" { return }
-//        webVC.hubeauURL = webSite
-//        let nav = UINavigationController(rootViewController: webVC)
-//
-//        present(nav, animated: true)
-//
-//    }
-//
-//    @IBAction func bpZone4Tapped(_ sender: UIButton) {
-//        var webSite = ""
-//        let webVC = WebViewController()
-//
-//        switch station {
-//        case let temperatureStation as TemperatureODF:
-//             webSite = temperatureStation.uriBodyOfWater
-//
-//        case let piezometryStation as PiezometryODF:
-//
-//            webSite = piezometryStation.urnsBdLisa[0]
-//
-//        default: break
-//        }
-//
-//        if webSite == "" { return }
-//        webVC.hubeauURL = webSite
-//
-//        let nav = UINavigationController(rootViewController: webVC)
-//        present(nav, animated: true)
-//    }
-    func temperatureDetail(station: TemperatureODF){
-        self.lblZone1.attributedText = """
-        <Table width=100%>
-        <tr valign=top><td align=center>
-            <TABLE width=80%>
-            <tr><td colspan = 2><H3><center><b>Code d'identification : </b>\(station.stationCode)</H3></center></td></tr>
-            <tr><td><b>Point Kilométrique : </b></td><td> \(station.pointKM) </td></tr>
-            <tr><td><b>Localisation : </b></td><td>\(station.localization)</td></tr>
-            <tr><td><b>Section Hydro : </b></td><td> \(station.hydroSectionCode) </td></tr>
-            <tr><td><b>Bassin : </b></td><td>\(station.basinLabel)(\(station.basinCode))</td></tr>
-            <tr><td><b>Sous Bassin : </b></td><td>\(station.subBasinLabel) (\(station.subBasinCode))</td></tr>
-            <tr><td><b>Cours d'eau : </b></td><td>\(station.streamLabel) (\(station.streamCode))</td></tr>
-            <tr><td><b>Masse d'eau : </b></td><td>\(station.bodyOfWaterLabel)(\(station.bodyOfWaterCode))</td></tr>
-            </table>
-        </td></tr></TABLE>
-        """.htmlToAttributedString
-    }
-
-
-    func piezoDetail(station: PiezometryODF) {
-    
-        self.lblZone1.attributedText = """
-        <Table width=100%>
-        <tr><td>
-            <TABLE valign="top" width=80%>
-            <tr><td colspan = 2><H3><center><b>Code d'identification : </b>\(station.stationCode)</H3></center></td></tr>
-            <tr><td><b>Code BSS: </b></td><td> \(station.bssId) </td></tr>
-            <tr><td><b>Quantité de mesures Réalisées :  </b></td><td>\(station.nbPiezoMeasurement)</td></tr>
-            <tr><td><b>identifiant Lisa:</b></td><td> \(station.bdLisaCode[0]) </td></tr>
-            <tr><td><b>Latitude :</b> \(String(format: "%.2f",station.latitude))</td><td><b>longitude : </b>\(String(format: "%.2f",station.longitude))</td></tr>
-            <tr><td valign="top"><b>Profondeur d'investigation : </b></td><td>\(station.depthOfInvestigation) m</td></tr>
-            <tr><td valign="top"><b>Masse d'eau : </b></td><td>\(arrayToStr(station.bodyOfWaterLabel ,station.bodyOfWaterCode))</td></tr>
-            <tr><td width=40%><b>Mise à jour :</b></td><td width=60%>\(station.dateUPDT)</td></tr>
-            </table>
-        </td></tr></TABLE>
-        """.htmlToAttributedString
-    }
-
-    func arrayToStr(_ field: [String], _ field2: [String]) -> String {
-        let qtyField = field.count
-        let qtyField2 = field2.count
-        var formattedResult = ""
-
-        for index in 0..<qtyField {
-            if index < qtyField2 {
-            formattedResult += "\(field[index]) (\(field2[index]))<br />"
-            } else {
-                formattedResult += "\(field[index])<br />"
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.txtZone.flashScrollIndicators()
+        
+        for resource in resourceStack.arrangedSubviews {
+            if let resource = resource as? UIButton {
+                resource.centerVertically()
             }
         }
-        return formattedResult
+   }
+
+    func temperatureDetail(station: TemperatureODF){
+
+        let data = [
+            ["Identifiant", station.stationCode],
+            ["Point Kilométrique", station.pointKM],
+            ["Localisation", station.localization],
+            ["Latitude", "\(station.latitude)"],
+            ["Longitude", "\(station.longitude)"],
+            ["Section Hydro", station.hydroSectionCode],
+            ["Bassin", "\(station.basinLabel) (\(station.basinCode))"],
+            ["Sous Bassin", "\(station.subBasinLabel) (\(station.subBasinLabel))"],
+            ["Cours d'eau", "\(station.streamLabel) (\(station.streamCode))"],
+            ["Masse d'eau", "\(station.bodyOfWaterLabel) (\(station.bodyOfWaterCode))"]
+        ]
+        self.txtZone.attributedText = textFormatter(data: data)
+        self.txtZone.flashScrollIndicators()
+
+        if let depackedUriBoWater = station.uriBodyOfWater {
+            let boWater:[String:URL] = [station.bodyOfWaterCode:depackedUriBoWater]
+            createResource( resource: .sandre, tuple: boWater )
+        }
+        if let depackedUriStream = station.uriStream {
+            let streamData:[String:URL] =  [station.streamCode:depackedUriStream]
+
+            createResource( resource: .sandre, tuple: streamData )
+        }
+    }
+  
+    func piezoDetail(station: PiezometryODF) {
+        let data = [
+            ["Identifiant", station.stationCode],
+            ["Code BBS", station.bssId],
+            ["Mesures Réalisées", station.nbPiezoMeasurement],
+            ["Identifiant LISA", "\(binomialFormatter(station.bdLisaCode))"],
+            ["Latitude", "\(station.latitude)"],
+            ["Longitude", "\(station.longitude)"],
+            ["Profondeur d'investigation", "\(station.depthOfInvestigation) m"],
+            ["Masse d'eau", "\(binomialFormatter(station.bodyOfWaterLabel ,station.bodyOfWaterCode))"],
+            ["Mise à jour", station.dateUPDT]
+        ]
+        self.txtZone.attributedText = textFormatter(data: data)
+        self.txtZone.flashScrollIndicators()
+
+        if let depackedUriBoWater = station.uriBodyOfWater {
+            let boWater:[String:URL] = Dictionary(uniqueKeysWithValues: zip(station.bodyOfWaterCode,depackedUriBoWater))
+            createResource( resource: .sandre, tuple: boWater )
+        }
+        if let depackedUrnLisa = station.urnsBdLisa {
+            let lisaData:[String:URL] = Dictionary(uniqueKeysWithValues: zip(station.bdLisaCode,depackedUrnLisa))
+            createResource( resource: .lisa, tuple: lisaData )
+        }
+    }
+
+    func createResource( resource: Resource, tuple: [String:URL] ){
+        stackButton = UIStackView()
+        view.addSubview(stackButton)
+
+        var image = UIImage()
+        image = (UIImage(named: resource.rawValue)?.resize(height: 50))!
+
+        for doc in tuple {
+            let button = CustomButton()
+
+            button.setResourceToBp(data: tuple, resource: resource)
+            button.setImage(image, for: .normal)
+           
+            button.setTitle(doc.key, for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.titleLabel?.font = .boldSystemFont(ofSize:12)
+            resourceStack.addArrangedSubview(button)
+            button.addTarget(self, action: #selector(resourceAccess), for: .touchUpInside )
+        }
+    }
+
+    @objc func resourceAccess(sender: CustomButton) {
+        let lisaData = sender.getResourceFromBp(resource: .lisa)
+        let sandreData = sender.getResourceFromBp(resource: .sandre)
+
+        if let titleKey = sender.title(for: .normal) {
+            if let url = lisaData[titleKey] {
+                displaySiteToSafari(with: url)
+            }else if let url = sandreData[titleKey] {
+                displaySiteToSafari(with: url)
+            }
+        }
     }
 }

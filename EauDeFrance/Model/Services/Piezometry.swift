@@ -7,19 +7,21 @@
 
 import Foundation
 
-class Piezometry: ManageService {
+class Piezometry: Utilities, ManageService  {
     static var shared = Piezometry()
 
     internal var stationURL =  URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/stations?")!
 
     internal var figureURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques_tr?")!
 
-    let networkService: NetworkProtocol = NetworkService.shared
+    let networkService: NetworkProtocol
     let postalCodeFrance = ManagePostalCode.shared
     let serviceName = "Piezométrie"
     let apiName = "niveaux_nappes"
 
-    init() { }
+    init(networkService: NetworkProtocol =  NetworkService.shared) {
+        self.networkService = networkService
+    }
 
     func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError?) -> Void) {
         var param: [[KeyRequest:String]] = [[.activityFrom:"2000-01-01"]]
@@ -43,9 +45,9 @@ class Piezometry: ManageService {
                 })
         }
 
-    func getFigure(codeStation: String, callback: @escaping ([Measure], Utilities.ManageError?) -> Void) {
+    func getFigure(stationCode: String, callback: @escaping ([Measure], Utilities.ManageError?) -> Void) {
         let parameters: [[KeyRequest : String]] = [
-            [.stationPiezo: codeStation],
+            [.stationPiezo: stationCode],
             [.sort:"desc"],[.size: "5000"]]
 
         networkService.getAPIData(
@@ -77,28 +79,27 @@ class Piezometry: ManageService {
         }
 
         let stationODF = PiezometryODF(
-            stationCode: station.codeBss ?? "non renseignée",
-            stationLabel: station.libellePe ?? "non renseignée",
-            uriStation: station.urnBss ?? "non renseignée",
+            stationCode: station.codeBss ?? ManageError.missingData.rawValue,
+            stationLabel: station.libellePe ?? ManageError.missingData.rawValue,
             longitude: station.longitude ?? 0.0,
             latitude: station.latitude ?? 0.0,
-            townshipCode: station.codeCommuneInsee ?? "non renseignée",
+            townshipCode: station.codeCommuneInsee ?? ManageError.missingData.rawValue,
             codePostal: postalCode,
-            townshipLabel: station.nomCommune ?? "non renseignée",
-            countyCode: station.codeDepartement ?? "non renseignée",
-            countyLabel: station.nomDepartement ?? "non renseignée",
-            bodyOfWaterCode: station.codesMasseEauEdl ?? ["non renseignée"],
-            bodyOfWaterLabel: station.nomsMasseEauEdl ?? ["non renseignée"],
-            uriBodyOfWater: station.urnsMasseEauEdl ?? ["non renseignée"],
+            townshipLabel: station.nomCommune ?? ManageError.missingData.rawValue,
+            countyCode: station.codeDepartement ?? ManageError.missingData.rawValue,
+            countyLabel: station.nomDepartement ?? ManageError.missingData.rawValue,
+            bodyOfWaterCode: station.codesMasseEauEdl ?? [ManageError.missingData.rawValue],
+            bodyOfWaterLabel: station.nomsMasseEauEdl ?? [ManageError.missingData.rawValue],
+            uriBodyOfWater: station.urnsMasseEauEdl ?? [],
             depthOfInvestigation: station.profondeurInvestigation ?? 0.0,
             nbPiezoMeasurement:  station.nbMesuresPiezo ?? 0,
-            bssId: station.bssId ?? "non renseignée",
-            urnsBdLisa: station.urnsBdlisa ?? ["non renseignée"],
-            bdLisaCode: station.codesBdlisa ?? ["non renseignée"],
-            startMeasurementDate: station.dateDebutMesure ?? "non renseignée",
-            endMeasurementDate: station.dateFinMesure ?? "non renseignée",
-            altitude: station.altitudeStation ?? "non renseignée",
-            dateUPDT: station.dateDebutMesure ?? "non renseignée")
+            bssId: station.bssId,
+            urnsBdLisa: station.urnsBdlisa ?? [],
+            bdLisaCode: station.codesBdlisa ?? [ManageError.missingData.rawValue],
+            startMeasurementDate: station.dateDebutMesure ?? ManageError.missingData.rawValue,
+            endMeasurementDate: station.dateFinMesure ?? ManageError.missingData.rawValue,
+            altitude: station.altitudeStation ?? ManageError.missingData.rawValue,
+            dateUPDT: station.dateDebutMesure ?? ManageError.missingData.rawValue)
         return stationODF
     }
 }

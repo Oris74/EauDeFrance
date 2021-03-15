@@ -12,19 +12,14 @@ protocol VCUtilities: UIViewController {
     func presentAlert(message: String)
 }
 
-enum MenuODF {
-    case map
-    case list
-}
-
 extension VCUtilities {
 
     /// getting popup alert with description errors
     internal func presentAlert(message: String) {
         DispatchQueue.main.async {
-        let alert = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alert.addAction(action)
+            let alert = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alert.addAction(action)
 
             self.present(alert, animated: true, completion: nil)
         }
@@ -57,37 +52,35 @@ extension VCUtilities {
         return stackView
     }
     
-    func delay(_ delay:Double, closure:@escaping ()->()) {
-        let when = DispatchTime.now() + delay
-        DispatchQueue.main.asyncAfter(deadline: when, execute: closure)
+    func textFormatter(data: [[Any]] ) -> NSAttributedString? {
+        var block: String = ""
+
+        block = "<CENTER><TABLE width=100% align=center><TR valign=top><TD align=center><TABLE width=80%>"
+        for (index, row) in data.enumerated() {
+            var rowTxt = ""
+            if index == 0 {
+                rowTxt = "<TR><TD colspan = 2><H3><CENTER><B>\(row[0]) : </B> \(row[1])</H3></CENTER></TD></TR>"
+            } else {
+                rowTxt = "<TR><TD width=40% valign=top><B>\(row[0]) : </B></TD><TD width=60%>\(row[1])</TD></TR>"
+            }
+            block += rowTxt
+        }
+        block += "</TABLE></TD></TR></TABLE></CENTER>"
+        return block.htmlToAttributedString
     }
 
+    func binomialFormatter(_ field: [String], _ field2: [String] = []) -> String {
+        let qtyField = field.count
+        let qtyField2 = field2.count
+        var formattedResult = ""
 
-
-
-//    /// MARK: Manage + /- buttons for zoom
-//    func zoomInOut(mapView: MKMapView, stepper: UIStepper, newIndex: Int, stepperIndex: Int) -> Int {
-//        var region: MKCoordinateRegion = mapView.region
-//        if stepperIndex > newIndex {
-//            //Zoom In
-//            region.span.latitudeDelta = min(region.span.latitudeDelta * 2.0, 180.0)
-//            region.span.longitudeDelta = min(region.span.longitudeDelta * 2.0, 180.0)
-//        } else if (stepperIndex < newIndex) {
-//            //Zoom out
-//            region.span.latitudeDelta /= 2.0
-//            region.span.longitudeDelta /= 2.0
-//        }
-//
-//        mapView.setRegion(region, animated: true)
-//        return newIndex
-//    }
-//
-//    func spanLocationMap(mapView: MKMapView, coordinate: CLLocationCoordinate2D, spanLat: Double, spanLong: Double) {
-//
-//        let span = MKCoordinateSpan(latitudeDelta: spanLat, longitudeDelta: spanLong)
-//        let region = MKCoordinateRegion(center: coordinate, span: span)
-//
-//        mapView.setRegion(region, animated: true)
-//    }
+        for index in 0..<qtyField {
+            if index < qtyField2 {
+            formattedResult += "\(field[index]) (\(field2[index]))<br />"
+            } else {
+                formattedResult += "\(field[index])<br />"
+            }
+        }
+        return formattedResult
+    }
 }
-

@@ -9,7 +9,7 @@ import UIKit
 import ENSwiftSideMenu
 
 class SideMenuNavigationController: ENSideMenuNavigationController {
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -27,7 +27,7 @@ class SideMenuNavigationController: ENSideMenuNavigationController {
         sideMenu?.allowPanGesture = false
         sideMenu?.allowLeftSwipe = true
         sideMenu?.allowRightSwipe = false
-       
+
         // Show navigation bar above side menu
         view.bringSubviewToFront(navigationBar)
     }
