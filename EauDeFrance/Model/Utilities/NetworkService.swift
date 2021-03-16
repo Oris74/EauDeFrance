@@ -48,37 +48,12 @@ class NetworkService: NetworkProtocol {
         }
     }
 
-    ///generic data importation management
-
-    private func manageResponse<T: Decodable>(
-        _ type: T?.Type,
-        _ data: Data?,
-        _ response: URLResponse?,
-        _ error: Error?,
-        completionResponse: @escaping (T?, Utilities.ManageError?) -> Void) {
-        checkURLResponse(data, response, error, completionURLResponse: {[weak self] errorCode in
-
-            if errorCode == nil {
-                self?.decodeJSON(type: type.self,
-                                 data: data,
-                                 completionJSON: {(result, errorCode) in
-                                    completionResponse(result, errorCode)
-                                 })
-            } else {
-                #if DEBUG
-                print("URL Response-> error: \(String(describing: errorCode))")
-                #endif
-                completionResponse(nil, errorCode)
-            }
-        })
-    }
-
     ///generic data decodable function  with error management
     func decodeJSON<T: Decodable>(
         type: T?.Type,
         data: Data?,
         completionJSON: @escaping (T?, Utilities.ManageError?) -> Void) {
-        #if DEBUG
+        #if DEBUG && ERROR
         if let data = data {
             do {
                 let decodedData =  try JSONDecoder().decode(type.self, from: data)
@@ -110,6 +85,7 @@ class NetworkService: NetworkProtocol {
         #endif
         return completionJSON(nil, Utilities.ManageError.incorrectDataStruct)
     }
+
     ///build request for API
     private func createRequest(url: URL, method: Method = .get, queryItems: [URLQueryItem]) -> URLRequest {
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)!
@@ -117,6 +93,30 @@ class NetworkService: NetworkProtocol {
         var request = URLRequest(url: components.url!)
         request.httpMethod = method.rawValue
         return request
+    }
+
+    ///generic data importation management
+    private func manageResponse<T: Decodable>(
+        _ type: T?.Type,
+        _ data: Data?,
+        _ response: URLResponse?,
+        _ error: Error?,
+        completionResponse: @escaping (T?, Utilities.ManageError?) -> Void) {
+        checkURLResponse(data, response, error, completionURLResponse: {[weak self] errorCode in
+
+            if errorCode == nil {
+                self?.decodeJSON(type: type.self,
+                                 data: data,
+                                 completionJSON: {(result, errorCode) in
+                                    completionResponse(result, errorCode)
+                                 })
+            } else {
+                #if DEBUG && ERROR
+                print("URL Response-> error: \(String(describing: errorCode))")
+                #endif
+                completionResponse(nil, errorCode)
+            }
+        })
     }
 
     func getAPIData<T: Decodable>(
@@ -143,7 +143,7 @@ class NetworkService: NetworkProtocol {
                 if let error = error {
                     throw error
                 }
-                #if DEBUG
+                #if DEBUG && ERROR
                 print("\(request)")
                 print("data task-> data:\(String(describing: data)) \n response \(String(describing: response)) \n error: \(String(describing: error))")
                 #endif
@@ -163,8 +163,8 @@ class NetworkService: NetworkProtocol {
                 if blockError.localizedDescription == "cancelled" {
                     return
                 }
-                #if DEBUG
-                print("erreur Out: \(blockError)")
+                #if DEBUG && ERROR
+                    print("erreur Out: \(blockError)")
                 #endif
                 completionHandler(nil, Utilities.ManageError.httpResponseError)
             }

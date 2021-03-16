@@ -15,6 +15,7 @@ extension StationPageViewController: UIPageViewControllerDelegate {
                             transitionCompleted completed: Bool) {
         notifyStationDelegateOfNewIndex()
     }
+    
     func pageViewController(_ pageViewController: UIPageViewController, willTransitionTo pendingViewControllers: [UIViewController]) {
         sendDataTo(pendingViewControllers[0])
     }

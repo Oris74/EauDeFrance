@@ -21,19 +21,28 @@ class FigureStationViewController: UIViewController, ChartViewDelegate, VCUtilit
     override func viewDidLoad() {
         super.viewDidLoad()
         lineChartView.delegate = self
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        updateChart()
+        super.viewDidAppear(animated)
+    }
+
+    func updateChart() {
+
         getData(stationCode: station.stationCode)
     }
 
     func getData(stationCode: String) {
 
         StationService.shared.current.getFigure(stationCode: stationCode, callback: {[weak self] (measure, error) in
+            self?.activityIndicator.isHidden = true
 
             guard error == nil else {
                 self?.manageErrors(errorCode: error)
                 return
             }
 
-            self?.activityIndicator.isHidden = true
             self?.setChartsData(figures: measure)
         })
     }

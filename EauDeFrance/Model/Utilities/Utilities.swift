@@ -9,9 +9,8 @@ import Foundation
 
 class Utilities {
     enum ManageError: String, Error {
-        case decodableIssue = "Recette non récupérable"
+        case decodableIssue = "données non décodées"
         case incorrectDataStruct = "La structure n'est pas conforme aux données API"
-        case keyboardError = "Veuillez saisir des valeurs numériques"
         case undefinedError = "Erreur non definie"
         case missingCoordinate = "Coordonnee Manquante"
         case missingData = "Données indisponibles"

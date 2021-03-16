@@ -27,23 +27,22 @@ class Piezometry: Utilities, ManageService  {
         var param: [[KeyRequest:String]] = [[.activityFrom:"2000-01-01"]]
         param += parameters
 
-            networkService.getAPIData(
-                stationURL, param, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
-                    guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {
-                        return callback(nil, error)
-                    }
-                    var stationODF: [PiezometryODF] = []
+        networkService.getAPIData(
+            stationURL, param, ApiHubeauHeader<PiezometryHubeau>?.self, completionHandler: {[weak self]  (apidata, error) in
+                guard let depackedAPIData = apidata, let stations = depackedAPIData.data else {  return callback(nil, error) }
 
-                    for station in stations {
-                        if let station = self?.bridgeStation(station: station) {
-                            stationODF.append(station)
-                        }
+                var stationODF: [PiezometryODF] = []
+
+                for station in stations {
+                    if let station = self?.bridgeStation(station: station) {
+                        stationODF.append(station)
                     }
-                    stationODF.sort (by: {$0.townshipLabel < $1.townshipLabel})
-                    callback(stationODF, nil)
-                    return
-                })
-        }
+                }
+                stationODF.sort (by: {$0.townshipLabel < $1.townshipLabel})
+                callback(stationODF, nil)
+                return
+            })
+    }
 
     func getFigure(stationCode: String, callback: @escaping ([Measure], Utilities.ManageError?) -> Void) {
         let parameters: [[KeyRequest : String]] = [
@@ -52,9 +51,7 @@ class Piezometry: Utilities, ManageService  {
 
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<PiezometryHubeauValue>?.self, completionHandler: { (apidata, error) in
-                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
-                    return callback([], error)
-                }
+                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else { return callback([], error) }
 
                 var measures: [Measure] = []
 
@@ -65,17 +62,19 @@ class Piezometry: Utilities, ManageService  {
                     }
                 }
                 measures.sort {$0.date < $1.date}
-                callback(measures, nil)
+                if measures.count > 0 {
+                    callback(measures, nil)
+                }  else {
+                    callback([], Utilities.ManageError.missingData)
+                }
                 return
             })
     }
 
     private func bridgeStation(station: PiezometryHubeau) -> PiezometryODF? {
-        var postalCode :String
+        var postalCode :String = ""
         if let codeInsee = station.codeCommuneInsee {
-             postalCode = postalCodeFrance.getPostalCode(withInsee: codeInsee) ?? "\(codeInsee)(Code INSEE)"
-        } else {
-             postalCode = ""
+            postalCode = postalCodeFrance.getPostalCode(withInsee: codeInsee) ?? "\(codeInsee)(Code INSEE)"
         }
 
         let stationODF = PiezometryODF(

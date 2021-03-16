@@ -11,6 +11,7 @@ class StationPageViewController: UIPageViewController  {
 
     weak var stationDelegate: StationPageViewControllerDelegate?
 
+    //presentation Order of the view Controllers
     private(set) lazy var orderedViewControllers: [UIViewController] = {
         return [self.newStationPageViewController(description: "GeneralStation"),
                 self.newStationPageViewController(description: "DetailedStation"),
@@ -48,21 +49,19 @@ class StationPageViewController: UIPageViewController  {
         }
     }
 
+    func scrollToViewController(index newIndex: Int) {
+        if let firstViewController = viewControllers?.first,
+           let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
+                let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
+                let nextViewController = orderedViewControllers[newIndex]
+                scrollToViewController(viewController: nextViewController, direction: direction)
+        }
+    }
+
     private func newStationPageViewController(description: String) -> UIViewController {
         return UIStoryboard(name: "Main", bundle: nil) .
             instantiateViewController(withIdentifier: "\(description)ViewController")
     }
-
-    func scrollToViewController(index newIndex: Int) {
-        if let firstViewController = viewControllers?.first,
-           let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
-            let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
-            let nextViewController = orderedViewControllers[newIndex]
-
-            scrollToViewController(viewController: nextViewController, direction: direction)
-        }
-    }
-
 
     private func scrollToViewController(viewController: UIViewController,
                                         direction: UIPageViewController.NavigationDirection = .forward) {

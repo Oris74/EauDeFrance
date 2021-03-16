@@ -165,6 +165,8 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
                 self.imagePicker.present(from: self.photoLocation, presentationController: self, action: action)
             })
             optionMenu.addAction(cameraAction)
+        } else {
+            manageErrors(errorCode: Utilities.ManageError.cameraIssue)
         }
 
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
@@ -179,7 +181,6 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
 
         self.present(optionMenu, animated: true, completion: nil)
     }
-
 
     func didSelectImage(image: UIImage?) {
         self.photoLocation.image = image

@@ -9,6 +9,7 @@ import UIKit
 
 extension StationPageViewController: UIPageViewControllerDataSource {
 
+    ///manage the previous  page
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
@@ -26,8 +27,8 @@ extension StationPageViewController: UIPageViewControllerDataSource {
         }
         
         return orderedViewControllers[previousIndex]
-    }
-
+}
+    ///manage the next page after swap or control
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
             guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {

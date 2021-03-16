@@ -130,7 +130,6 @@ extension MapViewController: MKMapViewDelegate {
                 return }
 
             self?.displayStation(stations: depackedStations)
-            self?.listVCDelegate?.stations = depackedStations
             self?.activityIndicator.isHidden = true
             
             self?.tabBarController?.tabBar.items?[1].isEnabled = true

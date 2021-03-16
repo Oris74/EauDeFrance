@@ -28,18 +28,19 @@ class ListStationViewController: UIViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
 
-        self.mapVCDelegate = tabBarController?.viewControllers?.first?.children[0] as? MapViewController
+
         self.sideMenuController()?.sideMenu?.delegate = self
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.mapVCDelegate = tabBarController?.viewControllers?.first?.children[0] as? MapViewController
+
         stationService.currentMenu = .list
         navigationItem.titleView = serviceStackView(service: stationService.current)
-        if stations == nil {
-            populateStationsList()
-        }
+        populateStationsList()
+
         tableview.reloadData()
         self.tabBarController?.tabBar.isHidden = false
 

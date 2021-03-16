@@ -11,24 +11,15 @@ import ENSwiftSideMenu
 extension SideMenuNavigationController: ENSideMenuDelegate {
 
     // MARK: - ENSideMenu Delegate
-    func sideMenuWillOpen() {
-        print("sideMenuWillOpen")
-    }
+    func sideMenuWillOpen() { }
 
-    func sideMenuWillClose() {
-        print("sideMenuWillClose")
-    }
+    func sideMenuWillClose() { }
 
     func sideMenuShouldOpenSideMenu() -> Bool {
-        print("sideMenuShouldOpenSideMenu")
         return true
     }
 
-    func sideMenuDidClose() {
-        print("sideMenuDidClose")
-    }
+    func sideMenuDidClose() { }
 
-    func sideMenuDidOpen() {
-        print("sideMenuDidOpen")
-    }
+    func sideMenuDidOpen() { }
 }

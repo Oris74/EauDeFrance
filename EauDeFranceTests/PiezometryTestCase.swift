@@ -70,7 +70,7 @@ class PiezometryTestCase: XCTestCase {
 
         piezometry.getStation(parameters: request, callback: {( stationList, error) in
             // Then
-            XCTAssertEqual(error, Utilities.ManageError.incorrectDataStruct)
+            XCTAssertEqual(error, Utilities.ManageError.decodableIssue)
             XCTAssertNil(stationList)
             expectation.fulfill()
         })

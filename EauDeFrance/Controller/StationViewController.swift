@@ -31,6 +31,7 @@ class StationViewController: UIViewController, VCUtilities {
         setUpPageControl()
         setupTitlePage()
         self.stationName.attributedText = "<center><b>\(station.stationLabel)</b><br />Commune INSEE : \(station.townshipCode)</center>".htmlToAttributedString
+        
         self.pageControl.isUserInteractionEnabled = true
         self.pageControl.addTarget(self, action: #selector(StationViewController.didChangePageControlValue(sender:)), for: .valueChanged)
     }

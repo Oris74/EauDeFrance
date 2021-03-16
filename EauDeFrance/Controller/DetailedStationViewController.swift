@@ -22,7 +22,6 @@ class DetailedStationViewController: UIViewController, VCUtilities {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.txtZone.flashScrollIndicators()
 
         switch station {
         case let temperatureStation as TemperatureODF:
@@ -32,19 +31,14 @@ class DetailedStationViewController: UIViewController, VCUtilities {
 
         default: break
         }
+
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        self.txtZone.flashScrollIndicators()
+        super.viewWillAppear(animated)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.txtZone.flashScrollIndicators()
-        
-        for resource in resourceStack.arrangedSubviews {
-            if let resource = resource as? UIButton {
-                resource.centerVertically()
-            }
-        }
-   }
-
     func temperatureDetail(station: TemperatureODF){
 
         let data = [
@@ -99,8 +93,6 @@ class DetailedStationViewController: UIViewController, VCUtilities {
     }
 
     func createResource( resource: Resource, tuple: [String:URL] ){
-        stackButton = UIStackView()
-        view.addSubview(stackButton)
 
         var image = UIImage()
         image = (UIImage(named: resource.rawValue)?.resize(height: 50))!
@@ -117,6 +109,13 @@ class DetailedStationViewController: UIViewController, VCUtilities {
             resourceStack.addArrangedSubview(button)
             button.addTarget(self, action: #selector(resourceAccess), for: .touchUpInside )
         }
+
+        for resource in resourceStack.arrangedSubviews {
+            if let resource = resource as? UIButton {
+                    resource.centerVertically()
+            }
+        }
+        self.resourceStack.layoutIfNeeded()     //refresh stackView with buttons
     }
 
     @objc func resourceAccess(sender: CustomButton) {

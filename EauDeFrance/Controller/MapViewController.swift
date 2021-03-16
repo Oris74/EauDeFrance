@@ -12,8 +12,6 @@ import ENSwiftSideMenu
 class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
 
     internal var stationService = StationService.shared
-    
-    internal var listVCDelegate: ListStationViewController?
 
     internal var locationManager = CLLocationManager()
     internal var currentPlace = CLLocationCoordinate2D(latitude: 46.227638, longitude: 2.213749)
@@ -46,8 +44,6 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         super.viewDidLoad()
         self.mapView.delegate = self
         self.sideMenuController()?.sideMenu?.delegate = self
-
-        self.listVCDelegate = tabBarController?.viewControllers?[1].children[0] as? ListStationViewController
 
         setupLocationService()
         locationManager.startUpdatingLocation()

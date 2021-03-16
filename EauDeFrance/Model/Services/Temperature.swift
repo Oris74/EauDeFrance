@@ -54,9 +54,7 @@ class Temperature: Utilities, ManageService {
 
         networkService.getAPIData(
             figureURL, parameters, ApiHubeauHeader<TemperatureHubeauValue>?.self, completionHandler: {[weak self]  (apidata, error) in
-                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {
-                    return callback([], error)
-                }
+                guard let depackedAPIData = apidata, let apiFigures = depackedAPIData.data else {  return callback([], error) }
 
                 var measures: [Measure] = []
 
@@ -67,7 +65,11 @@ class Temperature: Utilities, ManageService {
                     }
                 }
                 measures.sort {$0.date < $1.date}
-                callback(measures, nil)
+                if measures.count > 0 {
+                    callback(measures, nil)
+                }  else {
+                    callback([], Utilities.ManageError.missingData)
+                }
                 return
             })
     }
