@@ -10,7 +10,7 @@ import MapKit
 
 extension MapViewController: MKMapViewDelegate {
     /// MARK: Manage + /- buttons for zoom
-   func zoomInOut(newIndex: Int){
+    func zoomInOut(newIndex: Int){
         var region: MKCoordinateRegion = mapView.region
         if stepperIndex > newIndex {
             //Zoom In
@@ -163,5 +163,4 @@ extension MapViewController: MKMapViewDelegate {
         self.tabBarController?.tabBar.isHidden = true
         self.navigationController?.pushViewController(stationVC, animated: true)
     }
-
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class Temperature: Utilities, ManageService {
- 
+
     static var shared = Temperature()
     
     let stationURL = URL(string: "https://hubeau.eaufrance.fr/api/v1/temperature/station?")!
@@ -25,7 +25,6 @@ class Temperature: Utilities, ManageService {
     init(networkService: NetworkProtocol =  NetworkService.shared) {
         self.networkService = networkService
     }
-
 
     func getStation(parameters: [[KeyRequest:String]], callback: @escaping ([StationODF]?, Utilities.ManageError? ) -> Void) {
         networkService.getAPIData(
@@ -60,7 +59,7 @@ class Temperature: Utilities, ManageService {
 
                 for figure in apiFigures {
                     if let measure = self?.bridgeFigureODF(api:  figure),
-                        !measures.contains(where: {$0.date == measure.date}) {
+                       !measures.contains(where: {$0.date == measure.date}) {
                         measures.append(measure)
                     }
                 }
@@ -93,7 +92,7 @@ class Temperature: Utilities, ManageService {
     private func bridgeStationODF(station: TemperatureHubeau ) -> TemperatureODF? {
         var postalCode: String = ""
         if let codeInsee = station.codeCommune {
-            postalCode = postalCodeFrance.getPostalCode(withInsee: codeInsee) ?? "\(codeInsee)(Code INSEE)"
+            postalCode = postalCodeFrance.getPostalCode(withInsee: codeInsee) 
         }
 
         let stationODF: TemperatureODF?
@@ -125,7 +124,7 @@ class Temperature: Utilities, ManageService {
             basinCode: station.codeBassin ?? ManageError.missingData.rawValue,
             uriBasin: station.uriBassin,
             pointKM: String(format: "%.0", station.pointKm ?? 0.0)
-            )
+        )
         return stationODF
     }
 }

@@ -8,25 +8,25 @@
 import UIKit
 
 extension ListStationViewController: UITableViewDataSource, VCUtilities {
-
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let depackedStations = self.stations else {
             return 0 }
         return depackedStations.count
     }
-
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "StationCell", for: indexPath) as! ListStationTableViewCell
-
+        
         let station = self.stations[indexPath.row]
         cell.titleStation.text = (station.postalCode )+" " + (station.townshipLabel.uppercased() )
         cell.detailStation.text = (station.stationLabel )+("\nStation ID:" + (station.stationCode ))
-
+        
         return cell
     }
 }

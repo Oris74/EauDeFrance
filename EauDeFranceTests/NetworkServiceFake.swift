@@ -11,13 +11,16 @@ import Foundation
 class NetworkServiceFake: NetworkService {
 
     private var json =  Data()
-    
 
     init(json: Data ) {
         self.json = json
     }
-
-   override func getAPIData<T: Decodable>(
+    
+    required init(networkSession: URLSession = URLSession(configuration: .default)) {
+        fatalError("init(networkSession:) has not been implemented")
+    }
+    
+    override func getAPIData<T: Decodable>(
         _ endpointApi: URL?,
         _ parameters: [[KeyRequest:String]]?,
         _ apiStruct: T?.Type,
@@ -26,9 +29,7 @@ class NetworkServiceFake: NetworkService {
         decodeJSON(type: apiStruct.self,
                    data: json,
                    completionJSON: {(result, errorCode) in
-                        completionHandler(result, errorCode)
+                    completionHandler(result, errorCode)
                    })
-
-        }
     }
-
+}

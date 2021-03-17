@@ -109,13 +109,6 @@ class DetailedStationViewController: UIViewController, VCUtilities {
             resourceStack.addArrangedSubview(button)
             button.addTarget(self, action: #selector(resourceAccess), for: .touchUpInside )
         }
-
-        for resource in resourceStack.arrangedSubviews {
-            if let resource = resource as? UIButton {
-                    resource.centerVertically()
-            }
-        }
-        self.resourceStack.layoutIfNeeded()     //refresh stackView with buttons
     }
 
     @objc func resourceAccess(sender: CustomButton) {

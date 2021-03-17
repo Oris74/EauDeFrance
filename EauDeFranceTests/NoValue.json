@@ -1,0 +1,9 @@
+{
+    "count": 0,
+    "first": "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques_tr?code_bss=07548X0009/F&sort=desc&page=1&size=5",
+    "last": "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques_tr?code_bss=07548X0009/F&sort=desc&page=1755&size=5",
+    "prev": null,
+    "next": "https://hubeau.eaufrance.fr/api/v1/niveaux_nappes/chroniques_tr?code_bss=07548X0009/F&sort=desc&page=2&size=5",
+    "api_version": "1.4.0",
+    "data": []
+}

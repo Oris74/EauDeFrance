@@ -9,23 +9,15 @@ import UIKit
 import ENSwiftSideMenu
 
 extension MapViewController: ENSideMenuDelegate {
-    func sideMenuWillOpen() {
+    func sideMenuWillOpen() { }
 
-    }
-
-    func sideMenuWillClose() {
-
-    }
+    func sideMenuWillClose() {  }
 
     func sideMenuShouldOpenSideMenu() -> Bool {
         return true
     }
 
-    func sideMenuDidOpen() {
+    func sideMenuDidOpen() {  }
 
-    }
-
-    func sideMenuDidClose() {
-       
-    }
+    func sideMenuDidClose() {  }
 }

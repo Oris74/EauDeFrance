@@ -50,6 +50,51 @@
                     45.89892185794166
                 ]
             }
+        },
+        {
+            "code_station": "06070100",
+            "libelle_station": "FIER A POISY 2",
+            "uri_station": "http://id.eaufrance.fr/STQ/06070100",
+            "localisation": "Dans le TCC de Chavaroche,  900 m en aval du barrage",
+            "coordonnee_x": 936948.0,
+            "coordonnee_y": 6537836.0,
+            "code_type_projection": 26,
+            "longitude": 6.05677282,
+            "latitude": 45.898921858,
+            "code_commune": "74152",
+            "libelle_commune": "LOVAGNY",
+            "code_departement": "74",
+            "libelle_departement": "HAUTE-SAVOIE",
+            "code_region": "84",
+            "libelle_region": "AUVERGNE-RHONE-ALPES",
+            "code_troncon_hydro": "V1240400",
+            "code_cours_eau": "V12-0400",
+            "libelle_cours_eau": "Le Fier",
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/V12-0400",
+            "code_masse_eau": "DR530",
+            "libelle_masse_eau": "Le Fier de la confluence avec la Filliére jusqu'au Rhône",
+            "uri_masse_eau": "http://id.eaufrance.fr/MDO/DR530",
+            "code_sous_bassin": "FRD_HRHO",
+            "libelle_sous_bassin": "Haut Rhône",
+            "code_bassin": "D",
+            "libelle_bassin": "Le Rhône et les cours d'eau côtiers méditerranéens",
+            "uri_bassin": "http://id.eaufrance.fr/SEH/D",
+            "pk": null,
+            "altitude": 390.0,
+            "date_maj_infos": "2019-07-08",
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    6.056772819948661,
+                    45.89892185794166
+                ]
+            }
         }
     ]
 }

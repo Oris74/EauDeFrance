@@ -10,22 +10,22 @@ import ENSwiftSideMenu
 
 extension StationPageViewController: ENSideMenuDelegate {
     func sideMenuWillOpen() {
-
+        
     }
-
+    
     func sideMenuWillClose() {
-
+        
     }
-
+    
     func sideMenuShouldOpenSideMenu() -> Bool {
         return false
     }
-
+    
     func sideMenuDidOpen() {
-
+        
     }
-
+    
     func sideMenuDidClose() {
-
+        
     }
 }

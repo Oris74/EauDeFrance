@@ -13,12 +13,12 @@ extension StationViewController: StationPageViewControllerDelegate {
     }
 
     func stationPageViewController(stationPageViewController: StationPageViewController,
-        didUpdatePageCount count: Int) {
+                                   didUpdatePageCount count: Int) {
         pageControl.numberOfPages = count
     }
 
     func stationPageViewController(stationPageViewController: StationPageViewController,
-        didUpdatePageIndex index: Int) {
+                                   didUpdatePageIndex index: Int) {
         pageControl.currentPage = index
     }
 

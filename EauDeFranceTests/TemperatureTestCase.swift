@@ -43,7 +43,7 @@ class TemperatureTestCase: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
         temperature.getStation(parameters: request, callback: {( stationList, error) in
-        //Then
+            //Then
             XCTAssertEqual(error, nil)
             XCTAssertNotNil(stationList)
 
@@ -76,5 +76,47 @@ class TemperatureTestCase: XCTestCase {
         })
 
         wait(for: [expectation], timeout: 0.01)
+    }
+
+
+    func testGetFigurePiezometryGivenStationShouldPostSuccessCallbackThenNovalueReturned() {
+        guard let dataJSONValue = FakeResponseData.noValueJsonCorrectData else { return }
+        let temperature = Temperature(networkService: NetworkServiceFake(json: dataJSONValue))
+
+        let stationCode =  "06063900"
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
+        temperature.getFigure(stationCode: stationCode, callback: {(measure, error) in
+            //Then
+            XCTAssertEqual(error, Utilities.ManageError.missingData)
+            XCTAssertEqual(measure, FakeResponseData.measureNoValueReturned)
+
+            expectation.fulfill()
+        })
+        
+        wait(for: [expectation], timeout: 0.01)
+    }
+
+    func testGetFigureTemperatureGivenStationCodeShouldPostFailedCallBackIfIncorrectResponse() {
+        //Given
+
+        let temperature = Temperature(networkService: NetworkService(networkSession: URLSessionFake(
+                                                                        data: FakeResponseData.temperatureValueJsonCorrectData,
+                                                                        response: FakeResponseData.responseKO,
+                                                                        error: nil)))
+        let stationCode =  "06063900"
+
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+        temperature.getFigure(stationCode: stationCode, callback: {(measure, error) in
+            //Then
+            XCTAssertEqual(error, Utilities.ManageError.internalServerError)
+            XCTAssertEqual(measure, [])
+
+            expectation.fulfill()
+        })
+
+        wait(for: [expectation], timeout: 1.0)
     }
 }

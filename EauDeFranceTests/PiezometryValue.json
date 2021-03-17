@@ -19,6 +19,20 @@
             "date_mesure": "2021-02-17T00:00:00Z",
             "profondeur_nappe": -15.3,
             "date_maj": "2021-02-16"
+        },
+        {
+            "code_bss": "07548X0009/F",
+            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/07548X0009/F",
+            "timestamp_mesure": 1613520000000,
+            "niveau_eau_ngf": 20.6,
+            "longitude": -0.749057576154961,
+            "latitude": 45.2297273883712,
+            "bss_id": "BSS001VZGZ",
+            "altitude_station": 5.33,
+            "altitude_repere": 6.3,
+            "date_mesure": "2021-02-17T01:00:00Z",
+            "profondeur_nappe": -14.3,
+            "date_maj": "2021-02-16"
         }
     ]
 }

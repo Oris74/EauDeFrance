@@ -36,7 +36,7 @@ class ListStationViewController: UIViewController {
         super.viewWillAppear(animated)
 
         self.mapVCDelegate = tabBarController?.viewControllers?.first?.children[0] as? MapViewController
-
+        
         stationService.currentMenu = .list
         navigationItem.titleView = serviceStackView(service: stationService.current)
         populateStationsList()

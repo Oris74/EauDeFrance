@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIButton {
-
+    ///Center the title under the button image
     func centerVertically() {
         guard
             let imageViewSize = self.imageView?.frame.size,
@@ -17,7 +17,7 @@ extension UIButton {
         }
 
         let totalHeight = imageViewSize.height + titleLabelSize.height
-       
+
         self.imageEdgeInsets = UIEdgeInsets(
             top: -(totalHeight - imageViewSize.height),
             left: 0.0,
@@ -40,4 +40,3 @@ extension UIButton {
         )
     }
 }
-

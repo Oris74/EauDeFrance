@@ -27,11 +27,8 @@ class StationPageViewController: UIPageViewController  {
         if let initialViewController = orderedViewControllers.first {
             scrollToViewController(viewController: initialViewController)
         }
-     
+
         stationDelegate?.stationPageViewController(stationPageViewController: self, didUpdatePageCount: orderedViewControllers.count)
-
-        // Do any additional setup after loading the view.
-
         setupPageControl()
     }
 
@@ -52,9 +49,9 @@ class StationPageViewController: UIPageViewController  {
     func scrollToViewController(index newIndex: Int) {
         if let firstViewController = viewControllers?.first,
            let currentIndex = orderedViewControllers.firstIndex(of: firstViewController) {
-                let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
-                let nextViewController = orderedViewControllers[newIndex]
-                scrollToViewController(viewController: nextViewController, direction: direction)
+            let direction: UIPageViewController.NavigationDirection = newIndex >= currentIndex ? .forward : .reverse
+            let nextViewController = orderedViewControllers[newIndex]
+            scrollToViewController(viewController: nextViewController, direction: direction)
         }
     }
 

@@ -9,7 +9,7 @@ import UIKit
 import ENSwiftSideMenu
 
 class SideMenuNavigationController: ENSideMenuNavigationController {
-  
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,6 +34,5 @@ class SideMenuNavigationController: ENSideMenuNavigationController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
 }

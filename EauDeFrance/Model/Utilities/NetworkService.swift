@@ -10,21 +10,23 @@ import Foundation
 
 class NetworkService: NetworkProtocol {
 
-    static let shared = NetworkService()
-
-    private var task: URLSessionDataTask?
-
-    private var session = URLSession(configuration: .default)
-    
     enum Method: String {
         case get = "GET"
         case post = "POST"
     }
-    
+
+    static let shared = NetworkService()
+
+    private var task: URLSessionDataTask?
+
+    private var session: URLSession
+
+    required init(networkSession: URLSession = URLSession(configuration: .default)) {
+        self.session = networkSession
+    }
+
     ///check URL response and manage errors
-    private func checkURLResponse(_ data: Data?,
-                                  _ response: URLResponse?,
-                                  _ error: Error?,
+    private func checkURLResponse(response: URLResponse?,
                                   completionURLResponse: @escaping (Utilities.ManageError?) -> Void) {
 
         if let  response = response as? HTTPURLResponse {
@@ -102,7 +104,7 @@ class NetworkService: NetworkProtocol {
         _ response: URLResponse?,
         _ error: Error?,
         completionResponse: @escaping (T?, Utilities.ManageError?) -> Void) {
-        checkURLResponse(data, response, error, completionURLResponse: {[weak self] errorCode in
+        checkURLResponse(response: response, completionURLResponse: {[weak self] errorCode in
 
             if errorCode == nil {
                 self?.decodeJSON(type: type.self,
@@ -134,43 +136,40 @@ class NetworkService: NetworkProtocol {
                 URLQueryItem(name: ($0.0).rawValue, value: $0.1)}
             }
 
-        let request = createRequest(url: depackedEndpointApi, queryItems: queryItems)
+            let request = createRequest(url: depackedEndpointApi, queryItems: queryItems)
 
-        // prevent two identical tasks
-        task?.cancel()
-        task = session.dataTask(with: request, completionHandler: {[weak self] (data, response, error) in
-            do {
-                if let error = error {
-                    throw error
-                }
-                #if DEBUG && ERROR
-                print("\(request)")
-                print("data task-> data:\(String(describing: data)) \n response \(String(describing: response)) \n error: \(String(describing: error))")
-                #endif
-                guard let responseData = data else {
-                    throw Utilities.ManageError.httpResponseError
-                }
+            // prevent two identical tasks
+            task?.cancel()
+            task = session.dataTask(with: request, completionHandler: {[weak self] (data, response, error) in
+                do {
+                    if let error = error {
+                        throw error
+                    }
+                    #if DEBUG && ERROR
+                    print("\(request)")
+                    print("data task-> data:\(String(describing: data)) \n response \(String(describing: response)) \n error: \(String(describing: error))")
+                    #endif
+                    guard let responseData = data else {  throw Utilities.ManageError.httpResponseError  }
 
-                DispatchQueue.main.async {
-                    self?.manageResponse(
-                        apiStruct,
-                        responseData, response, error,
-                        completionResponse: {(apidata, errorCode) in
-                            completionHandler(apidata, errorCode)
-                        })
-                }
-            }catch let blockError {
-                if blockError.localizedDescription == "cancelled" {
-                    return
-                }
-                #if DEBUG && ERROR
+                    DispatchQueue.main.async {
+                        self?.manageResponse(
+                            apiStruct,
+                            responseData, response, error,
+                            completionResponse: {(apidata, errorCode) in
+                                completionHandler(apidata, errorCode)
+                            })
+                    }
+                }catch let blockError {
+                    if blockError.localizedDescription == "cancelled" {
+                        return
+                    }
+                    #if DEBUG && ERROR
                     print("erreur Out: \(blockError)")
-                #endif
-                completionHandler(nil, Utilities.ManageError.httpResponseError)
-            }
-        })
-        task?.resume()
+                    #endif
+                    completionHandler(nil, Utilities.ManageError.httpResponseError)
+                }
+            })
+            task?.resume()
         }
     }
 }
-

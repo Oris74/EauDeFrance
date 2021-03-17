@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Measure {
+struct Measure: Equatable {
     var date: Date
     var value: Double
     var unit: String
@@ -17,7 +17,7 @@ struct Measure {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .current
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-
+        
         //according to date format your date string
         self.date = dateFormatter.date(from: timestamp) ?? Date()
     }

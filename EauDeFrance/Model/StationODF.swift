@@ -17,7 +17,7 @@ class StationODF:NSObject, Decodable {
     let townshipLabel: String
     let altitude: String
     let dateUPDT: String
-
+    
     init(stationCode: String,
          stationLabel: String,
          longitude: Double,
@@ -29,7 +29,7 @@ class StationODF:NSObject, Decodable {
          postalCode: String,
          townshipLabel: String,
          dateUPDT: String) {
-
+        
         self.stationCode = stationCode
         self.longitude = longitude
         self.latitude = latitude

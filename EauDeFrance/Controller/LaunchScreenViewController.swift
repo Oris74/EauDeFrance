@@ -26,8 +26,8 @@ class LaunchScreenViewController: UIViewController, VCUtilities {
                 self?.manageErrors(errorCode: error)
             }
             let vc = storyboard.instantiateViewController (withIdentifier: "MainVC") as! UITabBarController
-                window?.rootViewController = vc
-                window?.makeKeyAndVisible()
+            window?.rootViewController = vc
+            window?.makeKeyAndVisible()
         })
     }
 }

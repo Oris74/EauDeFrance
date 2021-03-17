@@ -26,6 +26,27 @@
             "symbole_unite": "°C",
             "code_qualification": "4",
             "libelle_qualification": "Non qualifié"
+        },
+        {
+            "code_station": "06063900",
+            "libelle_station": "ARVE A ARTHAZ-PONT-NOTRE-DAME 1",
+            "uri_station": "http://id.eaufrance.fr/STQ/06063900",
+            "longitude": 6.270250738,
+            "latitude": 46.149852153,
+            "code_commune": "74021",
+            "libelle_commune": "ARTHAZ-PONT-NOTRE-DAME",
+            "code_cours_eau": "V0--0200",
+            "libelle_cours_eau": "L'Arve",
+            "uri_cours_eau": "http://id.eaufrance.fr/CEA/V0--0200",
+            "code_parametre": "1301",
+            "libelle_parametre": "Température de l'Eau",
+            "date_mesure_temp": "2011-11-29",
+            "heure_mesure_temp": "02:00:00",
+            "resultat": 5.452,
+            "code_unite": "27",
+            "symbole_unite": "°C",
+            "code_qualification": "4",
+            "libelle_qualification": "Non qualifié"
         }
     ]
 }

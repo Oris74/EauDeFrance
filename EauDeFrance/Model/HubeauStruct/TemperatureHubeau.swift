@@ -25,8 +25,7 @@ struct TemperatureHubeau: Codable {
     let pointKm: Double?
     let altitude: Double?
     let dateMajInfos: String?
-    let geometry: GeometryHubeau?
-
+    
     enum CodingKeys: String, CodingKey {
         case codeStation = "code_station"
         case libelleStation = "libelle_station"
@@ -57,7 +56,5 @@ struct TemperatureHubeau: Codable {
         case pointKm = "pk"
         case altitude
         case dateMajInfos  = "date_maj_infos"
-        case geometry
     }
-
 }

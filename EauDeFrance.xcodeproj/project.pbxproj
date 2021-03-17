@@ -14,7 +14,6 @@
 		D905604F25FD603800876ECE /* NetworkServiceFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905604E25FD603800876ECE /* NetworkServiceFake.swift */; };
 		D905605A25FE28AD00876ECE /* TemperatureTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905605925FE28AD00876ECE /* TemperatureTestCase.swift */; };
 		D905605F25FE28CB00876ECE /* PiezometryTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905605E25FE28CB00876ECE /* PiezometryTestCase.swift */; };
-		D905606E25FE517000876ECE /* NetworkServiceTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D905606D25FE517000876ECE /* NetworkServiceTestCase.swift */; };
 		D9070B7725EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift in Sources */ = {isa = PBXBuildFile; fileRef = D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */; };
 		D9070BB525EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */; };
 		D907A9F825EAA3230071ED52 /* PostalCode.json in Resources */ = {isa = PBXBuildFile; fileRef = D907A9F725EAA3230071ED52 /* PostalCode.json */; };
@@ -30,12 +29,8 @@
 		D924FC6F25A4D7E10049832B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC6E25A4D7E10049832B /* MapViewController.swift */; };
 		D924FC7225A4D7E10049832B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7025A4D7E10049832B /* Main.storyboard */; };
 		D924FC7A25A4D7E10049832B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D924FC7825A4D7E10049832B /* LaunchScreen.storyboard */; };
-		D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */; };
 		D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FCBA25A708B30049832B /* TemperatureStation.json */; };
 		D924FCCF25A70B490049832B /* PiezometryHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCCE25A70B490049832B /* PiezometryHubeau.swift */; };
-		D924FCDE25A71A320049832B /* GeometryHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCDD25A71A320049832B /* GeometryHubeau.swift */; };
-		D924FCE325A71AA10049832B /* CRSHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCE225A71AA10049832B /* CRSHubeau.swift */; };
-		D924FCED25A71B420049832B /* PropertiesHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCEC25A71B420049832B /* PropertiesHubeau.swift */; };
 		D924FCF625A71C610049832B /* ApiHubeauHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FCF525A71C610049832B /* ApiHubeauHeader.swift */; };
 		D924FD0125A7200F0049832B /* TemperatureHubeau.swift in Sources */ = {isa = PBXBuildFile; fileRef = D924FD0025A7200F0049832B /* TemperatureHubeau.swift */; };
 		D924FD1125A72A4F0049832B /* PiezometryStation.json in Resources */ = {isa = PBXBuildFile; fileRef = D924FD1025A72A4F0049832B /* PiezometryStation.json */; };
@@ -49,6 +44,8 @@
 		D92BDD4825D7343B00F7D829 /* StationODF+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */; };
 		D93872BA25EE98C200DBDAB3 /* ChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93872B925EE98C200DBDAB3 /* ChartXAxisFormatter.swift */; };
 		D93872BF25EE993600DBDAB3 /* ChartXAxisFormatter+IAxisValueFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93872BE25EE993600DBDAB3 /* ChartXAxisFormatter+IAxisValueFormatter.swift */; };
+		D93CD49D2602009F00381DE8 /* NoValue.json in Resources */ = {isa = PBXBuildFile; fileRef = D93CD49C2602009F00381DE8 /* NoValue.json */; };
+		D93CD4AE2602435000381DE8 /* URLSessionFake.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CD4AD2602435000381DE8 /* URLSessionFake.swift */; };
 		D93E70D125B9D04E00C7E7E3 /* SideMenuNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E70D025B9D04E00C7E7E3 /* SideMenuNavigationController.swift */; };
 		D93E70E425B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E70E325B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift */; };
 		D93E70EC25B9E96C00C7E7E3 /* SideMenuTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E70EB25B9E96C00C7E7E3 /* SideMenuTableViewController.swift */; };
@@ -75,7 +72,6 @@
 		D9D2849F25EF8C9B00BAA777 /* LaunchScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */; };
 		D9D284C825F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */; };
 		D9D2853725F75EA800BAA777 /* String Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2853625F75EA700BAA777 /* String Extension.swift */; };
-		D9D2858725F7DB3700BAA777 /* APIServicesTestCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */; };
 		D9D2858D25F7DC6700BAA777 /* FakeResponseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */; };
 		D9F9F96825C330B700193F15 /* Temperature.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F96725C330B700193F15 /* Temperature.swift */; };
 		D9F9F98025C41E3600193F15 /* Piezometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9F9F97F25C41E3600193F15 /* Piezometry.swift */; };
@@ -122,7 +118,6 @@
 		D905604E25FD603800876ECE /* NetworkServiceFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceFake.swift; sourceTree = "<group>"; };
 		D905605925FE28AD00876ECE /* TemperatureTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemperatureTestCase.swift; sourceTree = "<group>"; };
 		D905605E25FE28CB00876ECE /* PiezometryTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiezometryTestCase.swift; sourceTree = "<group>"; };
-		D905606D25FE517000876ECE /* NetworkServiceTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTestCase.swift; sourceTree = "<group>"; };
 		D9070B7625EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "shareDocViewController+CLLocationManagerDelegate .swift"; sourceTree = "<group>"; };
 		D9070BB425EC45E3008C1E80 /* StationPageViewController+ENSideMenuDelegate1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StationPageViewController+ENSideMenuDelegate1ViewController.swift"; sourceTree = "<group>"; };
 		D907A9F725EAA3230071ED52 /* PostalCode.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PostalCode.json; sourceTree = "<group>"; };
@@ -141,15 +136,9 @@
 		D924FC7925A4D7E10049832B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D924FC7B25A4D7E10049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FC8025A4D7E20049832B /* EauDeFranceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D924FC8625A4D7E20049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FC8B25A4D7E20049832B /* EauDeFranceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EauDeFranceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EauDeFranceUITests.swift; sourceTree = "<group>"; };
-		D924FC9125A4D7E20049832B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D924FCBA25A708B30049832B /* TemperatureStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = TemperatureStation.json; sourceTree = "<group>"; };
 		D924FCCE25A70B490049832B /* PiezometryHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PiezometryHubeau.swift; sourceTree = "<group>"; };
-		D924FCDD25A71A320049832B /* GeometryHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeometryHubeau.swift; sourceTree = "<group>"; };
-		D924FCE225A71AA10049832B /* CRSHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CRSHubeau.swift; sourceTree = "<group>"; };
-		D924FCEC25A71B420049832B /* PropertiesHubeau.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertiesHubeau.swift; sourceTree = "<group>"; };
 		D924FCF525A71C610049832B /* ApiHubeauHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiHubeauHeader.swift; sourceTree = "<group>"; };
 		D924FD0025A7200F0049832B /* TemperatureHubeau.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TemperatureHubeau.swift; sourceTree = "<group>"; };
 		D924FD1025A72A4F0049832B /* PiezometryStation.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = PiezometryStation.json; sourceTree = "<group>"; };
@@ -163,6 +152,8 @@
 		D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationODF+MKAnnotation.swift"; sourceTree = "<group>"; };
 		D93872B925EE98C200DBDAB3 /* ChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisFormatter.swift; sourceTree = "<group>"; };
 		D93872BE25EE993600DBDAB3 /* ChartXAxisFormatter+IAxisValueFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChartXAxisFormatter+IAxisValueFormatter.swift"; sourceTree = "<group>"; };
+		D93CD49C2602009F00381DE8 /* NoValue.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = NoValue.json; sourceTree = "<group>"; };
+		D93CD4AD2602435000381DE8 /* URLSessionFake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionFake.swift; sourceTree = "<group>"; };
 		D93E70D025B9D04E00C7E7E3 /* SideMenuNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuNavigationController.swift; sourceTree = "<group>"; };
 		D93E70E325B9E74E00C7E7E3 /* SideMenuNavigationController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SideMenuNavigationController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
 		D93E70EB25B9E96C00C7E7E3 /* SideMenuTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTableViewController.swift; sourceTree = "<group>"; };
@@ -189,7 +180,6 @@
 		D9D2849E25EF8C9B00BAA777 /* LaunchScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewController.swift; sourceTree = "<group>"; };
 		D9D284C725F0E38C00BAA777 /* ListStationViewController+ENSideMenuDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListStationViewController+ENSideMenuDelegate.swift"; sourceTree = "<group>"; };
 		D9D2853625F75EA700BAA777 /* String Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String Extension.swift"; sourceTree = "<group>"; };
-		D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIServicesTestCase.swift; sourceTree = "<group>"; };
 		D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeResponseData.swift; sourceTree = "<group>"; };
 		D9F9F96725C330B700193F15 /* Temperature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Temperature.swift; sourceTree = "<group>"; };
 		D9F9F97F25C41E3600193F15 /* Piezometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Piezometry.swift; sourceTree = "<group>"; };
@@ -260,14 +250,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		D905606325FE28FD00876ECE /* UtilitiesTests */ = {
-			isa = PBXGroup;
-			children = (
-				D905606D25FE517000876ECE /* NetworkServiceTestCase.swift */,
-			);
-			name = UtilitiesTests;
-			sourceTree = "<group>";
-		};
 		D910742D25AF54DD0099B34B /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +287,6 @@
 			children = (
 				D924FC6925A4D7E10049832B /* EauDeFrance */,
 				D924FC8325A4D7E20049832B /* EauDeFranceTests */,
-				D924FC8E25A4D7E20049832B /* EauDeFranceUITests */,
 				D924FC6825A4D7E10049832B /* Products */,
 				9220932207E50EF6EE502372 /* Pods */,
 				2BF6794DA7F32CDD616286B7 /* Frameworks */,
@@ -336,21 +317,9 @@
 		D924FC8325A4D7E20049832B /* EauDeFranceTests */ = {
 			isa = PBXGroup;
 			children = (
-				D905606325FE28FD00876ECE /* UtilitiesTests */,
-				D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */,
 				D9D2858B25F7DB4900BAA777 /* ServicesTests */,
-				D924FC8625A4D7E20049832B /* Info.plist */,
 			);
 			path = EauDeFranceTests;
-			sourceTree = "<group>";
-		};
-		D924FC8E25A4D7E20049832B /* EauDeFranceUITests */ = {
-			isa = PBXGroup;
-			children = (
-				D924FC8F25A4D7E20049832B /* EauDeFranceUITests.swift */,
-				D924FC9125A4D7E20049832B /* Info.plist */,
-			);
-			path = EauDeFranceUITests;
 			sourceTree = "<group>";
 		};
 		D924FCA325A4D8AD0049832B /* Model */ = {
@@ -441,9 +410,6 @@
 			isa = PBXGroup;
 			children = (
 				D9996D5425B5C0D000D1EE2A /* KeyRequest.swift */,
-				D924FCE225A71AA10049832B /* CRSHubeau.swift */,
-				D924FCDD25A71A320049832B /* GeometryHubeau.swift */,
-				D924FCEC25A71B420049832B /* PropertiesHubeau.swift */,
 				D924FCF525A71C610049832B /* ApiHubeauHeader.swift */,
 			);
 			name = CommonStruct;
@@ -468,6 +434,17 @@
 				D92BDCE125D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift */,
 			);
 			name = shareDoc;
+			sourceTree = "<group>";
+		};
+		D93CD4AC260242C000381DE8 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				D905604E25FD603800876ECE /* NetworkServiceFake.swift */,
+				D93CD49C2602009F00381DE8 /* NoValue.json */,
+				D9D2858C25F7DC6700BAA777 /* FakeResponseData.swift */,
+				D93CD4AD2602435000381DE8 /* URLSessionFake.swift */,
+			);
+			name = NetworkService;
 			sourceTree = "<group>";
 		};
 		D93E70CF25B9CFF000C7E7E3 /* SideMenu */ = {
@@ -572,10 +549,9 @@
 		D9D2858B25F7DB4900BAA777 /* ServicesTests */ = {
 			isa = PBXGroup;
 			children = (
-				D905604E25FD603800876ECE /* NetworkServiceFake.swift */,
+				D93CD4AC260242C000381DE8 /* NetworkService */,
 				D924FCB225A706440049832B /* TemperatureTests */,
 				D924FCB425A706730049832B /* PiezometryTests */,
-				D9D2858625F7DB3700BAA777 /* APIServicesTestCase.swift */,
 			);
 			name = ServicesTests;
 			sourceTree = "<group>";
@@ -752,6 +728,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D924FCBB25A708B30049832B /* TemperatureStation.json in Resources */,
+				D93CD49D2602009F00381DE8 /* NoValue.json in Resources */,
 				D924FD1125A72A4F0049832B /* PiezometryStation.json in Resources */,
 				D924FD1F25A747420049832B /* TemperatureValue.json in Resources */,
 				D9FDF18325D3E50D00CBDEED /* PiezometryValue.json in Resources */,
@@ -883,7 +860,6 @@
 				D924FC6F25A4D7E10049832B /* MapViewController.swift in Sources */,
 				D924FC6B25A4D7E10049832B /* AppDelegate.swift in Sources */,
 				D910747A25B19EAA0099B34B /* NetworkService.swift in Sources */,
-				D924FCE325A71AA10049832B /* CRSHubeau.swift in Sources */,
 				D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */,
 				D9FDF0E025D141DF00CBDEED /* StationPageViewControllerDelegateProtocol.swift in Sources */,
 				D9FDF05225CC96C100CBDEED /* StationPageViewController.swift in Sources */,
@@ -912,7 +888,6 @@
 				D9996D5B25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift in Sources */,
 				D9FDF06525CDB34000CBDEED /* DetailedStationViewController.swift in Sources */,
 				D9FDF0EB25D1424B00CBDEED /* StationPageViewController+UIPageVCDelegate.swift in Sources */,
-				D924FCED25A71B420049832B /* PropertiesHubeau.swift in Sources */,
 				D907AA0225EABED90071ED52 /* PostalCode.swift in Sources */,
 				D9996D7625B62EC900D1EE2A /* CustomCallOutView.swift in Sources */,
 				D92BDCEA25D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift in Sources */,
@@ -922,7 +897,6 @@
 				D9996D6C25B628A900D1EE2A /* StationAnnotationView.swift in Sources */,
 				D93E712E25BB708400C7E7E3 /* ListStationVC+UITableViewDataSource.swift in Sources */,
 				D92BDCDA25D5DDC400F7D829 /* ShareDocViewController.swift in Sources */,
-				D924FCDE25A71A320049832B /* GeometryHubeau.swift in Sources */,
 				D93E715725BC3F7600C7E7E3 /* StationViewController.swift in Sources */,
 				D93E710325B9F6DA00C7E7E3 /* MapViewController+ENSideMenuDelegate.swift in Sources */,
 				D947C3D425FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift in Sources */,
@@ -947,9 +921,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D905606E25FE517000876ECE /* NetworkServiceTestCase.swift in Sources */,
-				D9D2858725F7DB3700BAA777 /* APIServicesTestCase.swift in Sources */,
 				D905604F25FD603800876ECE /* NetworkServiceFake.swift in Sources */,
+				D93CD4AE2602435000381DE8 /* URLSessionFake.swift in Sources */,
 				D9D2858D25F7DC6700BAA777 /* FakeResponseData.swift in Sources */,
 				D905605A25FE28AD00876ECE /* TemperatureTestCase.swift in Sources */,
 				D905605F25FE28CB00876ECE /* PiezometryTestCase.swift in Sources */,
@@ -960,7 +933,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D924FC9025A4D7E20049832B /* EauDeFranceUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -9,7 +9,7 @@ import UIKit
 
 extension StationPageViewController: UIPageViewControllerDataSource {
 
-    ///manage the previous  page
+    ///manage the previous  page afert swap or control
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
@@ -27,30 +27,26 @@ extension StationPageViewController: UIPageViewControllerDataSource {
         }
         
         return orderedViewControllers[previousIndex]
-}
+    }
     ///manage the next page after swap or control
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerAfter viewController: UIViewController) -> UIViewController? {
-            guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
-                return nil
-            }
+        guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {
+            return nil
+        }
 
-            let nextIndex = viewControllerIndex + 1
-            let orderedViewControllersCount = orderedViewControllers.count
+        let nextIndex = viewControllerIndex + 1
+        let orderedViewControllersCount = orderedViewControllers.count
 
-            // User is on the last view controller and swiped right to loop to
-            // the first view controller.
-            guard orderedViewControllersCount != nextIndex else {
-                return orderedViewControllers.first
-            }
+        // User is on the last view controller and swiped right to loop to
+        // the first view controller.
+        guard orderedViewControllersCount != nextIndex else {
+            return orderedViewControllers.first
+        }
 
-            guard orderedViewControllersCount > nextIndex else {
-                return nil
-            }
-            return orderedViewControllers[nextIndex]
+        guard orderedViewControllersCount > nextIndex else {
+            return nil
+        }
+        return orderedViewControllers[nextIndex]
     }
-
 }
-
-
-

@@ -17,7 +17,7 @@ struct TemperatureHubeauValue: Codable {
     let codeParametre, libelleParametre, dateMesureTemp, heureMesureTemp: String?
     let resultat: Double?
     let codeUnite, symboleUnite, codeQualification, libelleQualification: String?
-
+    
     enum CodingKeys: String, CodingKey {
         case codeStation = "code_station"
         case libelleStation = "libelle_station"

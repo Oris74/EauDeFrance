@@ -51,6 +51,52 @@
                 "http://www.sandre.eaufrance.fr/geo/MasseDEauSouterraine/DG511"
             ],
             "date_maj": "Fri Jan 24 16:44:49 CET 2020"
+        },
+        {
+            "code_bss": "06772X0070/F2",
+            "urn_bss": "http://services.ades.eaufrance.fr/pointeau/06772X0070/F1",
+            "date_debut_mesure": "2014-05-18",
+            "date_fin_mesure": "2020-04-31",
+            "code_commune_insee": "74291",
+            "nom_commune": "Vanzy",
+            "x": 5.888589719,
+            "y": 46.029328389,
+            "codes_bdlisa": [
+                "516AK00"
+            ],
+            "urns_bdlisa": [
+                "http://reseau.eaufrance.fr/geotraitements/bdlisa/files/entite/516AK00.pdf"
+            ],
+            "geometry": {
+                "type": "Point",
+                "crs": {
+                    "type": "name",
+                    "properties": {
+                        "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+                    }
+                },
+                "coordinates": [
+                    5.88858971905846,
+                    46.02932838898817
+                ]
+            },
+            "bss_id": "BSS001SDXL",
+            "altitude_station": "315.0",
+            "nb_mesures_piezo": 1945,
+            "code_departement": "74",
+            "nom_departement": "Haute-Savoie",
+            "libelle_pe": null,
+            "profondeur_investigation": 25.0,
+            "codes_masse_eau_edl": [
+                "DG511"
+            ],
+            "noms_masse_eau_edl": [
+                "Formations variées de l'Avant-Pays savoyard dans BV du Rhône"
+            ],
+            "urns_masse_eau_edl": [
+                "http://www.sandre.eaufrance.fr/geo/MasseDEauSouterraine/DG511"
+            ],
+            "date_maj": "Fri Jan 26 16:44:49 CET 2020"
         }
     ]
 }

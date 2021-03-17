@@ -22,7 +22,7 @@ struct PiezometryHubeauValue: Codable {
     let niveauEauNgf: Double
     
     enum CodingKeys: String, CodingKey {
-
+        
         case dateMaj = "date_maj"
         case bss_Id = "bss_id"
         case codeBss = "code_bss"

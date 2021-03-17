@@ -23,7 +23,7 @@ class TemperatureODF: StationODF {
     let basinCode: String
     let uriBasin: URL?
     let pointKM: String
-   
+    
     init(stationCode: String,
          stationLabel: String,
          localization: String,
@@ -51,8 +51,8 @@ class TemperatureODF: StationODF {
          basinCode: String,
          uriBasin: URL?,
          pointKM: String
-         ) {
-
+    ) {
+        
         self.streamCode = streamCode
         self.streamLabel = streamLabel
         self.uriStream = uriStream
@@ -69,7 +69,7 @@ class TemperatureODF: StationODF {
         self.basinCode = basinCode
         self.uriBasin = uriBasin
         self.pointKM = pointKM
-
+        
         super.init(stationCode: stationCode,
                    stationLabel: stationLabel,
                    longitude: longitude,
@@ -82,7 +82,7 @@ class TemperatureODF: StationODF {
                    townshipLabel: townshipLabel,
                    dateUPDT: dateUPDT)
     }
-
+    
     required init(from decoder: Decoder) throws {
         fatalError("init(from:) has not been implemented")
     }

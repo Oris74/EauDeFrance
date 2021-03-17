@@ -26,7 +26,7 @@ class PiezometryTestCase: XCTestCase {
         let expectation = XCTestExpectation(description: "Wait for queue change.")
 
         temperature.getStation(parameters: request, callback: {( stationList, error) in
-        //Then
+            //Then
             XCTAssertEqual(error, nil)
             XCTAssertNotNil(stationList)
 
@@ -72,6 +72,25 @@ class PiezometryTestCase: XCTestCase {
             // Then
             XCTAssertEqual(error, Utilities.ManageError.decodableIssue)
             XCTAssertNil(stationList)
+            expectation.fulfill()
+        })
+
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGetFigurePiezometryGivenStationShouldPostSuccessCallbackThenNovalueReturned() {
+        guard let dataJSONValue = FakeResponseData.noValueJsonCorrectData else { return }
+        let piezometry = Piezometry(networkService: NetworkServiceFake(json: dataJSONValue))
+
+        let stationCode =  "06063900"
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change.")
+
+        piezometry.getFigure(stationCode: stationCode, callback: {(measure, error) in
+            //Then
+            XCTAssertEqual(error, Utilities.ManageError.missingData)
+            XCTAssertEqual(measure, FakeResponseData.measureNoValueReturned)
+
             expectation.fulfill()
         })
 

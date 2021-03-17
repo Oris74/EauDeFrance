@@ -9,13 +9,12 @@ import Foundation
 
 // MARK: - Datum
 struct PiezometryHubeau:  Codable {
-
+    
     let codeBss: String?
     let dateDebutMesure, dateFinMesure, codeCommuneInsee, nomCommune: String?
     let longitude, latitude: Double?
     let codesBdlisa: [String]?
     let urnsBdlisa: [URL]?
-    let geometry: GeometryHubeau?
     let bssId: String
     let altitudeStation: String?
     let nbMesuresPiezo: Int?
@@ -36,7 +35,6 @@ struct PiezometryHubeau:  Codable {
         case latitude = "y"
         case codesBdlisa = "codes_bdlisa"
         case urnsBdlisa = "urns_bdlisa"
-        case geometry
         case bssId = "bss_id"
         case altitudeStation = "altitude_station"
         case nbMesuresPiezo = "nb_mesures_piezo"

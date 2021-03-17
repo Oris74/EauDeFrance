@@ -43,14 +43,14 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
 
     @IBAction func bpMapTapped(_ sender: UIBarButtonItem) {
         if mapView.isHidden == true {
-           mapView.isHidden = false
+            mapView.isHidden = false
         } else {
-           mapView.isHidden = true
+            mapView.isHidden = true
         }
     }
     
     @IBAction func bpCameraTapped(_ sender: UIBarButtonItem) {
-       chooseSourceType()
+        chooseSourceType()
     }
 
     required init?(coder: NSCoder) {
@@ -79,7 +79,7 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
 
         getLocationInfo()
     }
-   
+
     func setupMapView() {
 
         mapView.delegate = self
@@ -120,7 +120,7 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
             self?.spanLocationMap(coordinate: currentPlace, spanLat: 0.0005, spanLong: 0.0005)
 
         })
-     }
+    }
 
     ///capture image pattern and bring up the ActivityViewController
     private func displayActivityViewController()  { //-> UIActivityViewController
@@ -141,7 +141,7 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
                                                             .postToFlickr,
                                                             .postToVimeo,
                                                             .openInIBooks]
-                                                        )
+        )
         //bring up the controller
         self.present(activityController, animated: true, completion: nil)
     }
@@ -161,7 +161,7 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
 
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { (action) -> Void in
-                    optionMenu.dismiss(animated: true)
+                optionMenu.dismiss(animated: true)
                 self.imagePicker.present(from: self.photoLocation, presentationController: self, action: action)
             })
             optionMenu.addAction(cameraAction)
@@ -188,4 +188,3 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
         self.photoLocation.alpha = 1
     }
 }
-

@@ -13,9 +13,9 @@ class StationService  {
         case map
         case list
     }
-
+    
     static var shared = StationService()
-
+    
     var currentMenu: MenuODF
     var current: ManageService
     

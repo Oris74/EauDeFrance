@@ -9,18 +9,18 @@ import UIKit
 
 extension ShareDocViewController: UITextViewDelegate   {
 
-        @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-            textView.resignFirstResponder()
-            if textView.text.isEmpty {
-                setupTxtPlaceHolder()
-            }
+    @IBAction func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        textView.resignFirstResponder()
+        if textView.text.trimmingCharacters(in: NSCharacterSet.whitespaces).count == 0{
+            setupTxtPlaceHolder()
         }
+    }
 
-        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-            dismissKeyboard()
-            textField.resignFirstResponder()
-            return true
-        }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        dismissKeyboard()
+        textField.resignFirstResponder()
+        return true
+    }
     func setupTxtPlaceHolder() {
         self.textView.layer.borderWidth = 1
         self.textView.layer.borderColor = UIColor.black.cgColor
@@ -40,6 +40,4 @@ extension ShareDocViewController: UITextViewDelegate   {
     func textViewDidChangeSelection(_ textView: UITextView) {
         placeholderLabel.isHidden = !(note.text?.isEmpty ?? true)
     }
-
 }
-
