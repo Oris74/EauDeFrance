@@ -7,7 +7,7 @@
 import Foundation
 import MapKit
 
-/// MARK: StationODF compatible with map annotation View
+/// MARK: Make  StationODF compatible with map annotation View
 extension StationODF: MKAnnotation {
     var title :String? {
         return stationLabel

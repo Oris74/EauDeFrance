@@ -7,20 +7,21 @@
 
 import Foundation
 
+// MARK: state of EauDeFrance - Map or List / Piezometry or Temperature
+
 
 class StationService  {
-    enum MenuODF {
-        case map
-        case list
+    enum TabMenuODF {
+        case map , list
     }
-    
+
     static var shared = StationService()
     
-    var currentMenu: MenuODF
+    var currentTab: TabMenuODF
     var current: ManageService
     
     init() {
-        self.current = Piezometry.shared
-        self.currentMenu = .map
+        self.current = Temperature.shared
+        self.currentTab = .map
     }
 }

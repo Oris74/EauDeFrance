@@ -14,7 +14,7 @@ protocol VCUtilities: UIViewController {
 
 extension VCUtilities {
     
-    /// getting popup alert with description errors
+    // MARK: getting popup alert with description errors
     internal func presentAlert(message: String) {
         DispatchQueue.main.async {
             let alert = UIAlertController(title: "Erreur", message: message, preferredStyle: .alert)
@@ -34,10 +34,11 @@ extension VCUtilities {
             presentAlert(message: Utilities.ManageError.undefinedError.rawValue)
             return
         }
-        //popup display
+        //popup alert display
         presentAlert(message: error.rawValue)
     }
-    
+
+    // MARK: Display the name of the service with its logo as the title of the VC
     func serviceStackView(service: ManageService) -> UIStackView {
         let serviceLabel = UILabel()
         serviceLabel.textAlignment = .left
@@ -51,7 +52,8 @@ extension VCUtilities {
         stackView.axis = .horizontal
         return stackView
     }
-    
+
+    // MARK: formatter that manage data into an HTML table
     func textFormatter(data: [[Any]] ) -> NSAttributedString? {
         var block: String = ""
         
@@ -68,7 +70,8 @@ extension VCUtilities {
         block += "</TABLE></TD></TR></TABLE></CENTER>"
         return block.htmlToAttributedString
     }
-    
+
+    // MARK: - Manage an array of data to be returned over multiple row
     func binomialFormatter(_ field: [String], _ field2: [String] = []) -> String {
         let qtyField = field.count
         let qtyField2 = field2.count

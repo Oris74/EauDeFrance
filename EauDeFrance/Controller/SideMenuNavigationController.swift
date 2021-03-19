@@ -9,17 +9,13 @@ import UIKit
 import ENSwiftSideMenu
 
 class SideMenuNavigationController: ENSideMenuNavigationController {
+    let tableViewController = SideMenuTableViewController()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Create a table view controller
-        let tableViewController = SideMenuTableViewController()
-
-        // Create side menu
         sideMenu = ENSideMenu(sourceView: view, menuViewController: tableViewController, menuPosition:.left)
         self.sideMenuController()?.sideMenu?.delegate = self
-        // Set a delegate
         sideMenu?.delegate = self
 
         // Configure side menu
@@ -30,6 +26,21 @@ class SideMenuNavigationController: ENSideMenuNavigationController {
 
         // Show navigation bar above side menu
         view.bringSubviewToFront(navigationBar)
+
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        var currentRow:Int
+
+        switch (StationService.shared.current.serviceName) {
+        case "Température":
+            currentRow = 0
+        default:
+            currentRow = 1
+        }
+        tableViewController.tableView.selectRow(at: IndexPath(row: currentRow, section: 0), animated: false, scrollPosition: .none)
+        tableViewController.selectedMenuItem = currentRow
     }
 
     override func didReceiveMemoryWarning() {

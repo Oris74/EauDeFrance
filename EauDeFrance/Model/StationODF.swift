@@ -8,6 +8,7 @@
 import Foundation
 import MapKit
 
+// MARK: Store caracteristique of a Temperature or Piezometry station 
 class StationODF:NSObject, Decodable {
     let stationCode, stationLabel: String
     let longitude, latitude: Double

@@ -8,6 +8,7 @@
 import UIKit
 import CoreLocation
 
+/// extention of ShareDocViewController to manage localization
 extension ShareDocViewController: CLLocationManagerDelegate {
     func setupLocationService() {
         if  CLLocationManager.locationServicesEnabled() {
@@ -21,7 +22,8 @@ extension ShareDocViewController: CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
-    
+
+    /// Return  the closest landmark based on the last geolocalization
     func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?)
                                 -> Void ) {
         // Use the last reported location.

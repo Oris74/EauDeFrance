@@ -9,7 +9,7 @@ import UIKit
 
 extension StationPageViewController: UIPageViewControllerDataSource {
 
-    ///manage the previous  page afert swap or control
+    ///manage the previous  page after swap or control
     func pageViewController(_ pageViewController: UIPageViewController,
                             viewControllerBefore viewController: UIViewController) -> UIViewController? {
         guard let viewControllerIndex = orderedViewControllers.firstIndex(of: viewController) else {

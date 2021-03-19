@@ -7,7 +7,7 @@
 
 import Foundation
 
-// MARK: - Datum
+// MARK: - API  Hubeau for Temperature station
 struct TemperatureHubeau: Codable {
     let codeStation, libelleStation: String
     let localisation: String?

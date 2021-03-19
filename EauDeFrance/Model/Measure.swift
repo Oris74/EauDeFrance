@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - Stock vlaes of stream Temperature or height of water table (Piezometry)
 struct Measure: Equatable {
     var date: Date
     var value: Double

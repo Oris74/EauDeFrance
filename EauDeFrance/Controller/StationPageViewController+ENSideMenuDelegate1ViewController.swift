@@ -8,24 +8,17 @@
 import Foundation
 import ENSwiftSideMenu
 
+/// need to be conforme to protocol ENSideMenu but not used
 extension StationPageViewController: ENSideMenuDelegate {
-    func sideMenuWillOpen() {
-        
-    }
+    func sideMenuWillOpen() { }
     
-    func sideMenuWillClose() {
-        
-    }
+    func sideMenuWillClose() { }
     
     func sideMenuShouldOpenSideMenu() -> Bool {
         return false
     }
     
-    func sideMenuDidOpen() {
-        
-    }
+    func sideMenuDidOpen() { }
     
-    func sideMenuDidClose() {
-        
-    }
+    func sideMenuDidClose() { }
 }

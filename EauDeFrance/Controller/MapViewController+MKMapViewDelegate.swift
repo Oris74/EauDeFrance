@@ -33,7 +33,7 @@ extension MapViewController: MKMapViewDelegate {
         mapView.setRegion(region, animated: true)
     }
 
-    // enrichir les annotations
+    // MARK:  - Display customized annotations on map area
     internal func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         guard let annotation = annotation as? StationODF else { return nil }
         let identifier = "stationODF"
@@ -55,8 +55,8 @@ extension MapViewController: MKMapViewDelegate {
         return view
     }
 
-    /// MARK: Move the selected annotation to the center of the map
-    /// MARK: Display Custom Call Out
+    // MARK: Move the selected annotation to the center of the map
+    // MARK: Display Custom Call Out
     internal func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         hideSideMenuView()
         switch view.annotation {
@@ -103,6 +103,7 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
 
+    // MARK: Remove annotations from the map
     func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
         if view.isKind(of: StationAnnotationView.self)
         {
@@ -112,7 +113,7 @@ extension MapViewController: MKMapViewDelegate {
             }
         }
     }
-    
+    // MARK: refresh the displayed station according to the new area
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool){
         self.tabBarController?.tabBar.items?[1].isEnabled = false
 
@@ -136,6 +137,7 @@ extension MapViewController: MKMapViewDelegate {
         })
     }
 
+    // MARK: move to the selected station description afetr clicling on button
     @objc func getCallOutStation(sender: CustomButton)
     {
         guard let station = sender.getStationFromBp() else { return }
@@ -143,6 +145,7 @@ extension MapViewController: MKMapViewDelegate {
         presentStationVC(with: station)
     }
 
+    // MARK: refresh the map according to the list of stations
     func displayStation( stations: [StationODF]?) {
         guard let stations = stations else { return }
 
@@ -155,6 +158,7 @@ extension MapViewController: MKMapViewDelegate {
         }
     }
 
+    // MARK: move to the station description page 
     func presentStationVC(with station: StationODF) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         guard let stationVC = storyboard.instantiateViewController(withIdentifier: "StationViewController") as? StationViewController

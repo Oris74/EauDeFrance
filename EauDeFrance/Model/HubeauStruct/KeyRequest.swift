@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Hubeau Keys use for query
 enum KeyRequest: String {
     case area = "bbox"
     case stationCode = "code_station"

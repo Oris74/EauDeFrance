@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Store specific caracteristics of a Temperature station 
 class TemperatureODF: StationODF {
     let localization: String
     let regionCode: String

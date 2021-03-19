@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Manage Access to Temperature API
 class Temperature: Utilities, ManageService {
 
     static var shared = Temperature()

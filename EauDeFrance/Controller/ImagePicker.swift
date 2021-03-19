@@ -6,6 +6,7 @@
 //
 import UIKit
 
+// MARK: Manage pickerController access for camera and photo library
 class ImagePicker: NSObject {
     private let pickerController: UIImagePickerController
     weak var delegate: ImagePickerDelegate?

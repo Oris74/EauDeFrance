@@ -16,9 +16,6 @@ extension ShareDocViewController: MKMapViewDelegate {
         let lastLocation = self.currentLocation
         currentLocation = newLocation
         
-        // Only get new placemark information if you don't have a previous location,
-        // if the user has moved a meaningful distance from the previous location, such as 1000 meters,
-        // and if it's been 60 seconds since the last geocode request.
         if newLocation.distance(from: lastLocation) <= 1000,
            let lastTime = lastGeocodeTime,
            currentTime.timeIntervalSince(lastTime) < 60 {
@@ -32,8 +29,7 @@ extension ShareDocViewController: MKMapViewDelegate {
                 self.manageErrors(errorCode: Utilities.ManageError.missingCoordinate)
                 return
             }
-            
-            // Most geocoding requests contain only one result.
+
             if let firstPlacemark = placemarks?.first {
                 self.markPlace.text = firstPlacemark.name
                 self.note.text = "\(firstPlacemark.postalCode ?? "Code Postal") \(firstPlacemark.locality ?? "Localité")\n \(String(describing: firstPlacemark.timeZone) )"

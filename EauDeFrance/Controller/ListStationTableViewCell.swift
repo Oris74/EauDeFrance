@@ -8,8 +8,7 @@
 import UIKit
 
 class ListStationTableViewCell: UITableViewCell {
-    //weak var cellDelegate: PassDataToVC?
-    
+       
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var titleStation: UILabel!
     @IBOutlet weak var detailStation: UILabel!

@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: store postal code of municipalities related to their INSEE Code
 struct PostalCode: Codable {
     let inseeCode: String
     let townshipName: String

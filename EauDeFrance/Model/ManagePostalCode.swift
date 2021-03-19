@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: - National Database Importation and get back postal code related to INSEE
 class ManagePostalCode {
     static var shared = ManagePostalCode()
     

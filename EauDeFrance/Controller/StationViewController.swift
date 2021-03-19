@@ -7,6 +7,7 @@
 
 import UIKit
 
+// MARK: Display station caracteristics
 class StationViewController: UIViewController, VCUtilities {
     
     weak var stationDelegate: StationPageViewControllerDelegate?

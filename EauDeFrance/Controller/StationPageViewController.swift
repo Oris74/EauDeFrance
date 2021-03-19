@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+// MARK: Manage 3 pages for the station description (General, Detailled, graph of values)
 class StationPageViewController: UIPageViewController  {
 
     weak var stationDelegate: StationPageViewControllerDelegate?
@@ -60,6 +62,7 @@ class StationPageViewController: UIPageViewController  {
             instantiateViewController(withIdentifier: "\(description)ViewController")
     }
 
+    /// move forward to the next page
     private func scrollToViewController(viewController: UIViewController,
                                         direction: UIPageViewController.NavigationDirection = .forward) {
 
@@ -80,7 +83,8 @@ class StationPageViewController: UIPageViewController  {
             stationDelegate?.stationPageViewController(stationPageViewController: self, didUpdatePageIndex: index)
         }
     }
-    
+
+    /// transfert data station to the right page
     func sendDataTo(_ viewController: UIViewController) {
         let station = stationDelegate?.sendStationToVC()
 

@@ -8,6 +8,7 @@
 import UIKit
 import ENSwiftSideMenu
 
+// MARK: Display stations list included to the map zone
 class ListStationViewController: UIViewController {
 
     var stations: [StationODF]!
@@ -28,7 +29,6 @@ class ListStationViewController: UIViewController {
         self.tableview.delegate = self
         self.tableview.dataSource = self
 
-
         self.sideMenuController()?.sideMenu?.delegate = self
     }
 
@@ -37,15 +37,16 @@ class ListStationViewController: UIViewController {
 
         self.mapVCDelegate = tabBarController?.viewControllers?.first?.children[0] as? MapViewController
         
-        stationService.currentMenu = .list
+        stationService.currentTab = .list
         navigationItem.titleView = serviceStackView(service: stationService.current)
-        populateStationsList()
+        populateStationsList()          // refresh the list according to the map area
 
         tableview.reloadData()
+
         self.tabBarController?.tabBar.isHidden = false
 
         if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light //For light mode
+            overrideUserInterfaceStyle = .light //For light mode only
         }
     }
 

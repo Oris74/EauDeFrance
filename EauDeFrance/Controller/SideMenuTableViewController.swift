@@ -10,8 +10,9 @@ import ENSwiftSideMenu
 
 class SideMenuTableViewController: UITableViewController, VCUtilities {
     private let menuOptionCellId = "Cell"
-    var selectedMenuItem : Int = 1
-
+    
+    var selectedMenuItem: Int = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,10 +27,11 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
 
         // Preselect a menu option
         tableView.selectRow(at: IndexPath(row: selectedMenuItem, section: 0), animated: false, scrollPosition: .middle)
+
     }
 
     // MARK: - Table view data source
-
+   
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -37,8 +39,7 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
-
-
+ 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         var cell = tableView.dequeueReusableCell(withIdentifier: menuOptionCellId)
@@ -89,7 +90,7 @@ class SideMenuTableViewController: UITableViewController, VCUtilities {
             break
         }
 
-        switch StationService.shared.currentMenu {
+        switch StationService.shared.currentTab {
         case .list:
             destViewController = mainStoryboard.instantiateViewController(withIdentifier: "listViewID")
         case .map:

@@ -8,6 +8,7 @@
 import UIKit
 import Foundation
 
+// MARK: Launch Screen used to import postal Code database
 class LaunchScreenViewController: UIViewController, VCUtilities {
 
     override func viewDidLoad() {

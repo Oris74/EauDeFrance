@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Store specific caracteristics of a Piezometry station 
 class PiezometryODF: StationODF {
     let startMeasurementDate, endMeasurementDate: String
     var bdLisaCode: [String]

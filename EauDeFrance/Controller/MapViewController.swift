@@ -9,6 +9,7 @@ import UIKit
 import MapKit
 import ENSwiftSideMenu
 
+// MARK: Geolocalize Stations on Map
 class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelegate {
     
     internal var stationService = StationService.shared
@@ -59,12 +60,12 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         self.tabBarController?.tabBar.isHidden = false
         
         if #available(iOS 13.0, *) {
-            overrideUserInterfaceStyle = .light //For light mode
+            overrideUserInterfaceStyle = .light //For light mode only
         }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        stationService.currentMenu = .map
+        stationService.currentTab = .map
         self.activityIndicator.isHidden = true
         mapView.showsUserLocation = true
     }
@@ -73,5 +74,4 @@ class MapViewController: UIViewController, VCUtilities, UITabBarControllerDelega
         super.didReceiveMemoryWarning()
         manageErrors(errorCode: Utilities.ManageError.memoryIssue)
     }
-    
 }

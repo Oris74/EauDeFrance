@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Manage Access to Piezometry API
 class Piezometry: Utilities, ManageService  {
     static var shared = Piezometry()
     

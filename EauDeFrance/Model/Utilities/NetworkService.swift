@@ -1,6 +1,6 @@
 
 //
-//  APIService.swift
+//  NetworkService.swift
 //  EauDeFrance
 //
 //  Created by Laurent Debeaujon on 15/01/2021.
@@ -8,6 +8,7 @@
 
 import Foundation
 
+// MARK: Manage Network connection 
 class NetworkService: NetworkProtocol {
 
     enum Method: String {

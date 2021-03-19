@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: List of errors
 class Utilities {
     enum ManageError: String, Error {
         case decodableIssue = "données non décodées"

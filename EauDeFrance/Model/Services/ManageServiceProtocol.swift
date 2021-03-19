@@ -7,10 +7,9 @@
 
 import Foundation
 
+// MARK: Make  of EauDeFrance - Map or List / Piezometry or Temperature
 protocol ManageService:AnyObject {
-    
-    var stationURL: URL { get }
-    var figureURL: URL { get }
+
     var serviceName: String { get }
     var apiName: String { get }
     

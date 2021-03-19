@@ -6,7 +6,8 @@
 //
 
 import Foundation
-// MARK: - Datum
+
+// MARK: - API  Hubeau for Piezometry Values
 struct PiezometryHubeauValue: Codable {
     let dateMaj: String
     let bss_Id: String

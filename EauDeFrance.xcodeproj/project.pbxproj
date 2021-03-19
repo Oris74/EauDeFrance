@@ -39,7 +39,6 @@
 		D92BDCDA25D5DDC400F7D829 /* ShareDocViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */; };
 		D92BDCE225D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCE125D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift */; };
 		D92BDCEA25D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDCE925D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift */; };
-		D92BDD3025D72D5C00F7D829 /* ManageODFapi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD2F25D72D5C00F7D829 /* ManageODFapi.swift */; };
 		D92BDD3825D72F7100F7D829 /* PiezometryODF.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD3725D72F7100F7D829 /* PiezometryODF.swift */; };
 		D92BDD4825D7343B00F7D829 /* StationODF+MKAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */; };
 		D93872BA25EE98C200DBDAB3 /* ChartXAxisFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93872B925EE98C200DBDAB3 /* ChartXAxisFormatter.swift */; };
@@ -58,13 +57,13 @@
 		D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93E717C25BCD88400C7E7E3 /* CustomButton.swift */; };
 		D947C38825F8DDB800FB4AEA /* Measure.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947C38725F8DDB800FB4AEA /* Measure.swift */; };
 		D947C3D425FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D947C3D325FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift */; };
+		D9653BD5260350510049FFEF /* KeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9653BD4260350510049FFEF /* KeyRequest.swift */; };
 		D96A6EAA25ECF0570003BA78 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D96A6EA925ECF0570003BA78 /* ImagePicker.swift */; };
 		D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D99467AC25E3BC89000FDF12 /* Date Extension.swift */; };
 		D99467BD25E55CA6000FDF12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99467BC25E55CA5000FDF12 /* Assets.xcassets */; };
 		D9996D2E25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */; };
 		D9996D3425B47C4C00D1EE2A /* VCUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */; };
 		D9996D5025B5A8AE00D1EE2A /* UIImageView Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D4F25B5A8AE00D1EE2A /* UIImageView Extension.swift */; };
-		D9996D5525B5C0D000D1EE2A /* KeyRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D5425B5C0D000D1EE2A /* KeyRequest.swift */; };
 		D9996D5B25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D5A25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift */; };
 		D9996D6C25B628A900D1EE2A /* StationAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9996D6B25B628A900D1EE2A /* StationAnnotationView.swift */; };
 		D9996D7125B62DD800D1EE2A /* CustomCallOutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D9996D7025B62DD800D1EE2A /* CustomCallOutView.xib */; };
@@ -147,7 +146,6 @@
 		D92BDCD925D5DDC400F7D829 /* ShareDocViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareDocViewController.swift; sourceTree = "<group>"; };
 		D92BDCE125D6E04C00F7D829 /* ShareDocVC+UITextViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShareDocVC+UITextViewDelegate.swift"; sourceTree = "<group>"; };
 		D92BDCE925D6F3BD00F7D829 /* ShareDocVC+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShareDocVC+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
-		D92BDD2F25D72D5C00F7D829 /* ManageODFapi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageODFapi.swift; sourceTree = "<group>"; };
 		D92BDD3725D72F7100F7D829 /* PiezometryODF.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PiezometryODF.swift; sourceTree = "<group>"; };
 		D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "StationODF+MKAnnotation.swift"; sourceTree = "<group>"; };
 		D93872B925EE98C200DBDAB3 /* ChartXAxisFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartXAxisFormatter.swift; sourceTree = "<group>"; };
@@ -166,13 +164,13 @@
 		D93E717C25BCD88400C7E7E3 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		D947C38725F8DDB800FB4AEA /* Measure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Measure.swift; sourceTree = "<group>"; };
 		D947C3D325FAC3AB00FB4AEA /* DetailedStationVC+SFSafariViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailedStationVC+SFSafariViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		D9653BD4260350510049FFEF /* KeyRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyRequest.swift; sourceTree = "<group>"; };
 		D96A6EA925ECF0570003BA78 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D99467AC25E3BC89000FDF12 /* Date Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date Extension.swift"; sourceTree = "<group>"; };
 		D99467BC25E55CA5000FDF12 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9996D2D25B47B7400D1EE2A /* MapViewControllerLocation+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewControllerLocation+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
 		D9996D3325B47C4C00D1EE2A /* VCUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VCUtilities.swift; sourceTree = "<group>"; };
 		D9996D4F25B5A8AE00D1EE2A /* UIImageView Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView Extension.swift"; sourceTree = "<group>"; };
-		D9996D5425B5C0D000D1EE2A /* KeyRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeyRequest.swift; path = ../KeyRequest.swift; sourceTree = "<group>"; };
 		D9996D5A25B5C4DC00D1EE2A /* MapViewController+MKMapViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MapViewController+MKMapViewDelegate.swift"; sourceTree = "<group>"; };
 		D9996D6B25B628A900D1EE2A /* StationAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationAnnotationView.swift; sourceTree = "<group>"; };
 		D9996D7025B62DD800D1EE2A /* CustomCallOutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomCallOutView.xib; sourceTree = "<group>"; };
@@ -273,7 +271,6 @@
 			children = (
 				D947C38725F8DDB800FB4AEA /* Measure.swift */,
 				D9D2849A25EECE5E00BAA777 /* PostalCode */,
-				D92BDD2F25D72D5C00F7D829 /* ManageODFapi.swift */,
 				D9F9F98925C430C600193F15 /* StationODF.swift */,
 				D92BDD4725D7343B00F7D829 /* StationODF+MKAnnotation.swift */,
 				D9FDF17225D3DBDE00CBDEED /* Piezometry */,
@@ -409,7 +406,7 @@
 		D924FCD425A710400049832B /* CommonStruct */ = {
 			isa = PBXGroup;
 			children = (
-				D9996D5425B5C0D000D1EE2A /* KeyRequest.swift */,
+				D9653BD4260350510049FFEF /* KeyRequest.swift */,
 				D924FCF525A71C610049832B /* ApiHubeauHeader.swift */,
 			);
 			name = CommonStruct;
@@ -879,7 +876,6 @@
 				D910743525AF56850099B34B /* Utilities.swift in Sources */,
 				D924FCCF25A70B490049832B /* PiezometryHubeau.swift in Sources */,
 				D92BDD4825D7343B00F7D829 /* StationODF+MKAnnotation.swift in Sources */,
-				D92BDD3025D72D5C00F7D829 /* ManageODFapi.swift in Sources */,
 				D93872BA25EE98C200DBDAB3 /* ChartXAxisFormatter.swift in Sources */,
 				D9070B7725EBB656008C1E80 /* shareDocViewController+CLLocationManagerDelegate .swift in Sources */,
 				D9F9F96825C330B700193F15 /* Temperature.swift in Sources */,
@@ -903,7 +899,6 @@
 				D9F9F98025C41E3600193F15 /* Piezometry.swift in Sources */,
 				D99467AD25E3BC89000FDF12 /* Date Extension.swift in Sources */,
 				D9D2853725F75EA800BAA777 /* String Extension.swift in Sources */,
-				D9996D5525B5C0D000D1EE2A /* KeyRequest.swift in Sources */,
 				D9D2849F25EF8C9B00BAA777 /* LaunchScreenViewController.swift in Sources */,
 				D9FDF18825D3E84500CBDEED /* PiezometryHubeauValue.swift in Sources */,
 				D924FD2425A7478C0049832B /* TemperatureHubeauValue.swift in Sources */,
@@ -912,6 +907,7 @@
 				D9FDF06025CDB32900CBDEED /* FigureStationViewController.swift in Sources */,
 				D93E717D25BCD88400C7E7E3 /* CustomButton.swift in Sources */,
 				D924FD0125A7200F0049832B /* TemperatureHubeau.swift in Sources */,
+				D9653BD5260350510049FFEF /* KeyRequest.swift in Sources */,
 				D910746825B0DE7F0099B34B /* StationService.swift in Sources */,
 				D9FDF06A25CDB3DA00CBDEED /* GeneralStationViewController.swift in Sources */,
 			);

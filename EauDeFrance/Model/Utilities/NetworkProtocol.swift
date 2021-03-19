@@ -7,6 +7,7 @@
 
 import Foundation
 
+// MARK: Make NetworkService usable with EauDeFance services
 protocol NetworkProtocol {
     init( networkSession: URLSession)
     

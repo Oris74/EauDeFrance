@@ -8,6 +8,7 @@
 import UIKit
 import MapKit
 
+// MARK: Creation of a field note with annotation, localization and photo
 class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate {
 
     enum MediaSource: Int {
@@ -37,6 +38,15 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
     @IBOutlet weak var labelLongitude: UILabel!
     @IBOutlet weak var labelLatitude: UILabel!
 
+
+    required init?(coder: NSCoder) {
+
+        self.imagePicker = ImagePicker()
+        super.init(coder: coder)
+
+        imagePicker.delegate = self
+    }
+
     @IBAction func bpSharingTapped(_ sender: UIBarButtonItem) {
         displayActivityViewController()
     }
@@ -48,25 +58,18 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
             mapView.isHidden = true
         }
     }
-    
+
     @IBAction func bpCameraTapped(_ sender: UIBarButtonItem) {
         chooseSourceType()
     }
 
-    required init?(coder: NSCoder) {
 
-        self.imagePicker = ImagePicker()
-        super.init(coder: coder)
-
-        imagePicker.delegate = self
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.isHidden = true
         
         setupMapView()
-        setupTxtPlaceHolder()
+        setupTextView()
         setupPhotoPlaceHolder()
 
         textView.delegate = self
@@ -90,6 +93,14 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
         mapView.mapType = .hybrid
         mapView.showsScale = true
 
+    }
+
+    func setupTextView(){
+        self.textView.layer.borderWidth = 1
+        self.textView.layer.borderColor = UIColor.black.cgColor
+        self.textView.tintColor = .black
+
+        checkForPlaceHolder()
     }
 
     func setupPhotoPlaceHolder() {
