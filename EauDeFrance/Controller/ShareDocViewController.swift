@@ -74,6 +74,7 @@ class ShareDocViewController: UIViewController, VCUtilities, ImagePickerDelegate
 
         textView.delegate = self
         locationManager.startUpdatingLocation()
+
     }
 
     override func viewDidAppear(_ animated: Bool) {

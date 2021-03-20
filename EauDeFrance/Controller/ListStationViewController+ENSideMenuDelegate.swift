@@ -10,8 +10,7 @@ import ENSwiftSideMenu
 
 extension ListStationViewController: ENSideMenuDelegate {
     
-    func sideMenuWillOpen() {
-    }
+    func sideMenuWillOpen() { }
     
     func sideMenuWillClose() { }
     
