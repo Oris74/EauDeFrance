@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol ENSideMenuDelegate: class {
+public protocol ENSideMenuDelegate: AnyObject {
     func sideMenuWillOpen()
     func sideMenuWillClose()
     func sideMenuShouldOpenSideMenu () -> Bool
@@ -16,7 +16,7 @@ public protocol ENSideMenuDelegate: class {
     func sideMenuDidClose()
 }
 
-public protocol ENSideMenuProtocol: class {
+public protocol ENSideMenuProtocol: AnyObject {
     var sideMenu : ENSideMenu? { get }
     func setContentViewController(_ contentViewController: UIViewController)
 }

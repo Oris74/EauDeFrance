@@ -71,6 +71,6 @@ extension ImagePicker: UIImagePickerControllerDelegate {
 extension ImagePicker: UINavigationControllerDelegate {
 }
 
-public protocol ImagePickerDelegate: class {
+public protocol ImagePickerDelegate: AnyObject {
     func didSelectImage(image: UIImage?)
 }

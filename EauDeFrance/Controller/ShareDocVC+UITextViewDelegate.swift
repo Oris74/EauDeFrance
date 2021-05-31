@@ -25,12 +25,14 @@ extension ShareDocViewController: UITextViewDelegate   {
         if textView.text.trimmingCharacters(in: NSCharacterSet.whitespaces).count == 0 {
             self.textView.text = "saisissez un commentaire ..."
             self.textView.font = UIFont.italicSystemFont(ofSize: (textView.font?.pointSize)!)
+            self.textView.textColor = UIColor.lightGray
         }
     }
 
     func textViewDidBeginEditing(_ textView: UITextView) {
         if   self.textView.text ==  "saisissez un commentaire ..." {
             self.textView.text = ""
+            self.textView.textColor = UIColor.black
         }
     }
 }

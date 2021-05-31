@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol StationPageViewControllerDelegate: class {
+protocol StationPageViewControllerDelegate: AnyObject {
     
     /**
      Called when the number of pages is updated.
